@@ -2,7 +2,7 @@ from plant_uml_renderer import PlantUMLGenerator
 import os
 from shutil import copyfile
 
-DOCS_DIR = "../docs"
+DOCS_DIR = "../../docs"
 
 
 def run_all():
