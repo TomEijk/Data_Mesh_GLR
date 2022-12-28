@@ -1,0 +1,365 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "How to Map a Domain Model and its Elements to\nan API?\n : Decision" as __1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_
+class "Expose the Whole Domain Model in 1:1 Relation\nas API\n : Practice" as __2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API
+class "Domain Model Defines API Contract : Practice" as __3_Domain_Model_Defines_API_Contract
+class "Expose Domain Model Subset as API : Practice" as __4_Expose_Domain_Model_Subset_as_API
+class "Extract API Contract from Domain Model\n : Practice" as __5_Extract_API_Contract_from_Domain_Model
+class "Which Approach is Chosen for Defining the API\nContract in Relation to the Domain Model?\n : Decision" as __6_Which_Approach_is_Chosen_for_Defining_the_API_Contract_in_Relation_to_the_Domain_Model_
+class "Explicitly Specify the API Contract\n : Practice" as __7_Explicitly_Specify_the_API_Contract
+class "Specify the API Contract First : Practice" as __8_Specify_the_API_Contract_First
+class "Introduce and Expose Interface Bounded Context\nas an API\n : Practice" as __9_Introduce_and_Expose_Interface_Bounded_Context_as_an_API
+class "Expose a Shared Kernel between Client and Server\nas an API\n : Practice" as __10_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API
+class "Brittle Interfaces : Force" as __11_Brittle_Interfaces
+class "Expose Each Bounded Context as an API\n : Practice" as __12_Expose_Each_Bounded_Context_as_an_API
+class "Bounded Context Defines API Contract\n : Practice" as __13_Bounded_Context_Defines_API_Contract
+class "Expose Selected Bounded Contexts as APIs\n : Practice" as __14_Expose_Selected_Bounded_Contexts_as_APIs
+class "Avoid Exposing Domain Model Details in API\n : Force" as __15_Avoid_Exposing_Domain_Model_Details_in_API
+class "Entities as API Resources : Practice" as __16_Entities_as_API_Resources
+class "Which Domain Model Elements Should be Offered\nas Resources or Endpoints in an API?\n : Decision" as __17_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_
+class "Domain Services as API Resources : Practice" as __18_Domain_Services_as_API_Resources
+class "Data Consistency : Force" as __19_Data_Consistency
+class "Aggregate Roots as API Resources : Practice" as __20_Aggregate_Roots_as_API_Resources
+class "Domain or Business Processes as API Resources\n : Practice" as __21_Domain_or_Business_Processes_as_API_Resources
+class "Processing Resource : Pattern" as __22_Processing_Resource
+class "Chatty API : Force" as __23_Chatty_API
+class "Bounded Contexts as API Resources : Practice" as __24_Bounded_Contexts_as_API_Resources
+class "Performance : Force" as __25_Performance
+class "CRUD-Style Operations on Resources : Practice" as __26_CRUD_Style_Operations_on_Resources
+class "How to Design the Operations of a Resource?\n : Decision" as __27_How_to_Design_the_Operations_of_a_Resource_
+class "Domain Operations on Resources : Practice" as __28_Domain_Operations_on_Resources
+class "Encode Operations as Commands in the Payload\n : Practice" as __29_Encode_Operations_as_Commands_in_the_Payload
+class "Expose Segregated Command and Query Resources\nin API\n : Practice" as __30_Expose_Segregated_Command_and_Query_Resources_in_API
+class "CQRS : Pattern" as __31_CQRS
+class "Eventual Consistency : Pattern" as __32_Eventual_Consistency
+class "Segregate Resources for Reading and Updating Information\nin an API?\n : Decision" as __33_Segregate_Resources_for_Reading_and_Updating_Information_in_an_API_
+class "Do Not Segregate Queries and Commands in an API\n : Do Nothing" as __34_Do_Not_Segregate_Queries_and_Commands_in_an_API
+class "API Complexity : Force" as __35_API_Complexity
+class "Scalability : Force" as __36_Scalability
+class "Expose Domain Events as State Transitions\n : Practice" as __37_Expose_Domain_Events_as_State_Transitions
+class "Expose Domain Events via Feeds or Pub/Sub\n : Practice" as __38_Expose_Domain_Events_via_Feeds_or_Pub_Sub
+class "Interface Design Limits Domain Model Design\n : Force" as __39_Interface_Design_Limits_Domain_Model_Design
+class "Maintainability of API and API Consumers\n : Force" as __40_Maintainability_of_API_and_API_Consumers
+class "Write API Code First which Defines the Contract\n : Practice" as __41_Write_API_Code_First_which_Defines_the_Contract
+class "Separation of API Contract and Domain Concerns\n : Force" as __42_Separation_of_API_Contract_and_Domain_Concerns
+class "API Stability : Force" as __43_API_Stability
+class "Domain Model Flexibility : Force" as __44_Domain_Model_Flexibility
+class "Initial Effort Required : Force" as __45_Initial_Effort_Required
+class "API Modifiability : Force" as __46_API_Modifiability
+class "Use Distributed or Hypermedia Links in the Payload\n : Practice" as __47_Use_Distributed_or_Hypermedia_Links_in_the_Payload
+class "Linked Information Holder : Pattern" as __48_Linked_Information_Holder
+class "How to Map Links between Domain Model Elements\nto the API?\n : Decision" as __49_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_
+class " : Do Nothing" as __50_None
+class "Pass Object Identifiers in the Payload\n : Practice" as __51_Pass_Object_Identifiers_in_the_Payload
+class "Object Identifier : Pattern" as __52_Object_Identifier
+class "API Evolvability : Force" as __53_API_Evolvability
+class "Embed Linked Data in the Payload : Practice" as __54_Embed_Linked_Data_in_the_Payload
+class "Embedded Entity : Pattern" as __55_Embedded_Entity
+class "Message Size : Force" as __56_Message_Size
+class "Coupling of Clients to Server : Force" as __57_Coupling_of_Clients_to_Server
+class "Protocol Complexity in Client : Force" as __58_Protocol_Complexity_in_Client
+class "Minimize API calls : Force" as __59_Minimize_API_calls
+class "Link : Domain Class" as __60_Link
+class "Can Lead to Anemic Domain Model Anti-Pattern\n : Force" as __61_Can_Lead_to_Anemic_Domain_Model_Anti_Pattern
+class "Support for External or Public Clients\n : Force" as __62_Support_for_External_or_Public_Clients
+class "Reliability : Force" as __63_Reliability
+class "API Understandability : Force" as __64_API_Understandability
+class "Eventual Consistency Support : Force" as __65_Eventual_Consistency_Support
+class "Identified Interface Elements : Domain Class" as __66_Identified_Interface_Elements
+class "Operation : Domain Class" as __67_Operation
+class "Clients Need to Manage Crossing Model Boundaries\n : Force" as __68_Clients_Need_to_Manage_Crossing_Model_Boundaries
+class "API Usability : Force" as __69_API_Usability
+class "Design and Implementation Effort : Force" as __70_Design_and_Implementation_Effort
+class "API Contract : Domain Class" as __71_API_Contract
+class "Domain Model and API : And-Combined Group" as __72_Domain_Model_and_API
+class "Domain Model : Domain Class" as __73_Domain_Model
+class "API : Domain Class" as __74_API
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __17_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_: "«Consider If Not Decided Yet» \n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __6_Which_Approach_is_Chosen_for_Defining_the_API_Contract_in_Relation_to_the_Domain_Model_: "«Consider If Not Decided Yet» \n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API: "«Option» \n{name = "Map Domain Model Fully to\nthe API"}\n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __4_Expose_Domain_Model_Subset_as_API: "«Option» \n{name = "Map Selected Elements of the\nDomain Model\nto the API"}\n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __12_Expose_Each_Bounded_Context_as_an_API: "«Option» \n{name = "Map Each Bounded Context to\nAPIs"}\n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __14_Expose_Selected_Bounded_Contexts_as_APIs: "«Option» \n{name = "Map Selected Bounded Contexts\nto APIs"}\n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __9_Introduce_and_Expose_Interface_Bounded_Context_as_an_API: "«Option» \n{name = "Introduce and Expose an Additional\nInterface\nBounded Context as an API"}\n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __10_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API: "«Option» \n{name = "Identify Shared Kernel between\nCommunication\nParticipants and Expose it as\nan API"}\n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __72_Domain_Model_and_API: "«decide for some instances of» \n" 
+__2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API --> __11_Brittle_Interfaces: "«--» \n" 
+__2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«-» \n" 
+__2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API --> __68_Clients_Need_to_Manage_Crossing_Model_Boundaries: "«+» \n" 
+__2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API --> __35_API_Complexity: "«--» \n" 
+__2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API --> __69_API_Usability: "«-» \n" 
+__2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API --> __59_Minimize_API_calls: "«-» \n" 
+__2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API --> __46_API_Modifiability: "«-» \n" 
+__2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API --> __70_Design_and_Implementation_Effort: "«+» \n" 
+__3_Domain_Model_Defines_API_Contract --> __42_Separation_of_API_Contract_and_Domain_Concerns: "«-» \n" 
+__3_Domain_Model_Defines_API_Contract --> __43_API_Stability: "«--» \n" 
+__3_Domain_Model_Defines_API_Contract --> __44_Domain_Model_Flexibility: "«--» \n" 
+__3_Domain_Model_Defines_API_Contract --> __45_Initial_Effort_Required: "«o» \n" 
+__3_Domain_Model_Defines_API_Contract --> __46_API_Modifiability: "«o» \n" 
+__3_Domain_Model_Defines_API_Contract --> __40_Maintainability_of_API_and_API_Consumers: "«o» \n" 
+__3_Domain_Model_Defines_API_Contract --> __61_Can_Lead_to_Anemic_Domain_Model_Anti_Pattern: "«o» \n" 
+__3_Domain_Model_Defines_API_Contract --> __62_Support_for_External_or_Public_Clients: "«o» \n" 
+__3_Domain_Model_Defines_API_Contract --> __2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API: "«Can be Realized With» \n" 
+__3_Domain_Model_Defines_API_Contract --> __4_Expose_Domain_Model_Subset_as_API: "«Can be Realized With» \n" 
+__4_Expose_Domain_Model_Subset_as_API --> __11_Brittle_Interfaces: "«o» \n" 
+__4_Expose_Domain_Model_Subset_as_API --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«o» \n" 
+__4_Expose_Domain_Model_Subset_as_API --> __68_Clients_Need_to_Manage_Crossing_Model_Boundaries: "«+» \n" 
+__4_Expose_Domain_Model_Subset_as_API --> __35_API_Complexity: "«o» \n" 
+__4_Expose_Domain_Model_Subset_as_API --> __69_API_Usability: "«o» \n" 
+__4_Expose_Domain_Model_Subset_as_API --> __59_Minimize_API_calls: "«-» \n" 
+__4_Expose_Domain_Model_Subset_as_API --> __46_API_Modifiability: "«-» \n" 
+__4_Expose_Domain_Model_Subset_as_API --> __70_Design_and_Implementation_Effort: "«+» \n" 
+__5_Extract_API_Contract_from_Domain_Model --> __42_Separation_of_API_Contract_and_Domain_Concerns: "«+» \n" 
+__5_Extract_API_Contract_from_Domain_Model --> __43_API_Stability: "«+» \n" 
+__5_Extract_API_Contract_from_Domain_Model --> __44_Domain_Model_Flexibility: "«+» \n" 
+__5_Extract_API_Contract_from_Domain_Model --> __45_Initial_Effort_Required: "«o» \n" 
+__5_Extract_API_Contract_from_Domain_Model --> __46_API_Modifiability: "«o» \n" 
+__5_Extract_API_Contract_from_Domain_Model --> __40_Maintainability_of_API_and_API_Consumers: "«o» \n" 
+__5_Extract_API_Contract_from_Domain_Model --> __61_Can_Lead_to_Anemic_Domain_Model_Anti_Pattern: "«o» \n" 
+__5_Extract_API_Contract_from_Domain_Model --> __62_Support_for_External_or_Public_Clients: "«+» \n" 
+__5_Extract_API_Contract_from_Domain_Model --> __4_Expose_Domain_Model_Subset_as_API: "«Can be Realized With» \n" 
+__6_Which_Approach_is_Chosen_for_Defining_the_API_Contract_in_Relation_to_the_Domain_Model_ --> __1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_: "«Consider If Not Decided Yet» \n" 
+__6_Which_Approach_is_Chosen_for_Defining_the_API_Contract_in_Relation_to_the_Domain_Model_ --> __7_Explicitly_Specify_the_API_Contract: "«Option» \n{name = "Design the API Contract before\nor Independently\nfrom the Domain Model"}\n" 
+__6_Which_Approach_is_Chosen_for_Defining_the_API_Contract_in_Relation_to_the_Domain_Model_ --> __5_Extract_API_Contract_from_Domain_Model: "«Option» \n{name = "Design the API Contract by\nSelecting Elements\nof the Domain Model to be\nExposed"}\n" 
+__6_Which_Approach_is_Chosen_for_Defining_the_API_Contract_in_Relation_to_the_Domain_Model_ --> __3_Domain_Model_Defines_API_Contract: "«Option» \n{name = "Use the Elements of the Domain\nModel as\nthe Elements of the API Contract"}\n" 
+__6_Which_Approach_is_Chosen_for_Defining_the_API_Contract_in_Relation_to_the_Domain_Model_ --> __13_Bounded_Context_Defines_API_Contract: "«Option» \n{name = "Use the Elements of a Bounded\nContext\nas the Elements of the API Contract"}\n" 
+__6_Which_Approach_is_Chosen_for_Defining_the_API_Contract_in_Relation_to_the_Domain_Model_ --> __41_Write_API_Code_First_which_Defines_the_Contract: "«Option» \n{name = "Write the API Code First and\nDesign the\nAPI Contract as You Code the API"}\n" 
+__6_Which_Approach_is_Chosen_for_Defining_the_API_Contract_in_Relation_to_the_Domain_Model_ --> __71_API_Contract: "«decide for some instances of» \n" 
+__7_Explicitly_Specify_the_API_Contract --> __42_Separation_of_API_Contract_and_Domain_Concerns: "«+» \n" 
+__7_Explicitly_Specify_the_API_Contract --> __43_API_Stability: "«+» \n" 
+__7_Explicitly_Specify_the_API_Contract --> __44_Domain_Model_Flexibility: "«+» \n" 
+__7_Explicitly_Specify_the_API_Contract --> __45_Initial_Effort_Required: "«o» \n" 
+__7_Explicitly_Specify_the_API_Contract --> __46_API_Modifiability: "«o» \n" 
+__7_Explicitly_Specify_the_API_Contract --> __40_Maintainability_of_API_and_API_Consumers: "«o» \n" 
+__7_Explicitly_Specify_the_API_Contract --> __61_Can_Lead_to_Anemic_Domain_Model_Anti_Pattern: "«o» \n" 
+__7_Explicitly_Specify_the_API_Contract --> __62_Support_for_External_or_Public_Clients: "«++» \n" 
+__7_Explicitly_Specify_the_API_Contract --> __9_Introduce_and_Expose_Interface_Bounded_Context_as_an_API: "«Can be Realized With» \n" 
+__7_Explicitly_Specify_the_API_Contract --> __10_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API: "«Can be Realized With» \n" 
+__8_Specify_the_API_Contract_First --> __7_Explicitly_Specify_the_API_Contract: "«Is-a» \n" 
+__9_Introduce_and_Expose_Interface_Bounded_Context_as_an_API --> __11_Brittle_Interfaces: "«+» \n" 
+__9_Introduce_and_Expose_Interface_Bounded_Context_as_an_API --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«+» \n" 
+__9_Introduce_and_Expose_Interface_Bounded_Context_as_an_API --> __68_Clients_Need_to_Manage_Crossing_Model_Boundaries: "«++» \n" 
+__9_Introduce_and_Expose_Interface_Bounded_Context_as_an_API --> __35_API_Complexity: "«+» \n" 
+__9_Introduce_and_Expose_Interface_Bounded_Context_as_an_API --> __69_API_Usability: "«+» \n" 
+__9_Introduce_and_Expose_Interface_Bounded_Context_as_an_API --> __59_Minimize_API_calls: "«+» \n" 
+__9_Introduce_and_Expose_Interface_Bounded_Context_as_an_API --> __46_API_Modifiability: "«+» \n" 
+__9_Introduce_and_Expose_Interface_Bounded_Context_as_an_API --> __70_Design_and_Implementation_Effort: "«-» \n" 
+__9_Introduce_and_Expose_Interface_Bounded_Context_as_an_API --> __10_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API: "«Can be Realized With» \n{how = "might be based\non a shared kernel"}\n" 
+__10_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API --> __11_Brittle_Interfaces: "«+» \n" 
+__10_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«+» \n" 
+__10_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API --> __68_Clients_Need_to_Manage_Crossing_Model_Boundaries: "«++» \n" 
+__10_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API --> __35_API_Complexity: "«+» \n" 
+__10_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API --> __69_API_Usability: "«+» \n" 
+__10_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API --> __59_Minimize_API_calls: "«+» \n" 
+__10_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API --> __46_API_Modifiability: "«+» \n" 
+__10_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API --> __70_Design_and_Implementation_Effort: "«-» \n" 
+__12_Expose_Each_Bounded_Context_as_an_API --> __11_Brittle_Interfaces: "«-» \n" 
+__12_Expose_Each_Bounded_Context_as_an_API --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«-» \n" 
+__12_Expose_Each_Bounded_Context_as_an_API --> __68_Clients_Need_to_Manage_Crossing_Model_Boundaries: "«-» \n" 
+__12_Expose_Each_Bounded_Context_as_an_API --> __35_API_Complexity: "«-» \n" 
+__12_Expose_Each_Bounded_Context_as_an_API --> __69_API_Usability: "«-» \n" 
+__12_Expose_Each_Bounded_Context_as_an_API --> __59_Minimize_API_calls: "«-» \n" 
+__12_Expose_Each_Bounded_Context_as_an_API --> __46_API_Modifiability: "«-» \n" 
+__12_Expose_Each_Bounded_Context_as_an_API --> __70_Design_and_Implementation_Effort: "«+» \n" 
+__13_Bounded_Context_Defines_API_Contract --> __42_Separation_of_API_Contract_and_Domain_Concerns: "«-» \n" 
+__13_Bounded_Context_Defines_API_Contract --> __43_API_Stability: "«--» \n" 
+__13_Bounded_Context_Defines_API_Contract --> __44_Domain_Model_Flexibility: "«--» \n" 
+__13_Bounded_Context_Defines_API_Contract --> __45_Initial_Effort_Required: "«o» \n" 
+__13_Bounded_Context_Defines_API_Contract --> __46_API_Modifiability: "«o» \n" 
+__13_Bounded_Context_Defines_API_Contract --> __40_Maintainability_of_API_and_API_Consumers: "«o» \n" 
+__13_Bounded_Context_Defines_API_Contract --> __61_Can_Lead_to_Anemic_Domain_Model_Anti_Pattern: "«o» \n" 
+__13_Bounded_Context_Defines_API_Contract --> __62_Support_for_External_or_Public_Clients: "«o» \n" 
+__13_Bounded_Context_Defines_API_Contract --> __12_Expose_Each_Bounded_Context_as_an_API: "«Can be Realized With» \n" 
+__13_Bounded_Context_Defines_API_Contract --> __14_Expose_Selected_Bounded_Contexts_as_APIs: "«Can be Realized With» \n" 
+__14_Expose_Selected_Bounded_Contexts_as_APIs --> __11_Brittle_Interfaces: "«o» \n" 
+__14_Expose_Selected_Bounded_Contexts_as_APIs --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«o» \n" 
+__14_Expose_Selected_Bounded_Contexts_as_APIs --> __68_Clients_Need_to_Manage_Crossing_Model_Boundaries: "«-» \n" 
+__14_Expose_Selected_Bounded_Contexts_as_APIs --> __35_API_Complexity: "«o» \n" 
+__14_Expose_Selected_Bounded_Contexts_as_APIs --> __69_API_Usability: "«o» \n" 
+__14_Expose_Selected_Bounded_Contexts_as_APIs --> __59_Minimize_API_calls: "«-» \n" 
+__14_Expose_Selected_Bounded_Contexts_as_APIs --> __46_API_Modifiability: "«o» \n" 
+__14_Expose_Selected_Bounded_Contexts_as_APIs --> __70_Design_and_Implementation_Effort: "«+» \n" 
+__16_Entities_as_API_Resources --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«--» \n" 
+__16_Entities_as_API_Resources --> __19_Data_Consistency: "«--» \n" 
+__16_Entities_as_API_Resources --> __23_Chatty_API: "«-» \n" 
+__16_Entities_as_API_Resources --> __25_Performance: "«-» \n" 
+__16_Entities_as_API_Resources --> __36_Scalability: "«-» \n" 
+__16_Entities_as_API_Resources --> __35_API_Complexity: "«-» \n" 
+__16_Entities_as_API_Resources --> __40_Maintainability_of_API_and_API_Consumers: "«-» \n" 
+__16_Entities_as_API_Resources --> __63_Reliability: "«-» \n" 
+__16_Entities_as_API_Resources --> __57_Coupling_of_Clients_to_Server: "«-» \n" 
+__17_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __33_Segregate_Resources_for_Reading_and_Updating_Information_in_an_API_: "«Consider If Not Decided Yet» \n" 
+__17_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __27_How_to_Design_the_Operations_of_a_Resource_: "«Consider If Not Decided Yet» \n" 
+__17_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __49_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_: "«Consider If Not Decided Yet» \n" 
+__17_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __16_Entities_as_API_Resources: "«Option» \n{name = "Offer Entities as API Resources"}\n" 
+__17_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __18_Domain_Services_as_API_Resources: "«Option» \n{name = "Offer Domain Services as API\nResources"}\n" 
+__17_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __20_Aggregate_Roots_as_API_Resources: "«Option» \n{name = "Offer Aggregate Roots as API\nResources"}\n" 
+__17_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __24_Bounded_Contexts_as_API_Resources: "«Option» \n{name = "Offer Bounded Contexts as\nAPI Resources"}\n" 
+__17_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __21_Domain_or_Business_Processes_as_API_Resources: "«Option» \n{name = "Offer Domain or Business Processes\nas\nAPI Resources"}\n" 
+__17_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __66_Identified_Interface_Elements: "«decide for some instances of» \n" 
+__18_Domain_Services_as_API_Resources --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«o» \n" 
+__18_Domain_Services_as_API_Resources --> __19_Data_Consistency: "«+» \n" 
+__18_Domain_Services_as_API_Resources --> __23_Chatty_API: "«o» \n" 
+__18_Domain_Services_as_API_Resources --> __25_Performance: "«++» \n" 
+__18_Domain_Services_as_API_Resources --> __36_Scalability: "«++» \n" 
+__18_Domain_Services_as_API_Resources --> __35_API_Complexity: "«+» \n" 
+__18_Domain_Services_as_API_Resources --> __40_Maintainability_of_API_and_API_Consumers: "«+» \n" 
+__18_Domain_Services_as_API_Resources --> __63_Reliability: "«+» \n" 
+__18_Domain_Services_as_API_Resources --> __57_Coupling_of_Clients_to_Server: "«+» \n" 
+__20_Aggregate_Roots_as_API_Resources --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«+» \n" 
+__20_Aggregate_Roots_as_API_Resources --> __19_Data_Consistency: "«++» \n" 
+__20_Aggregate_Roots_as_API_Resources --> __23_Chatty_API: "«+» \n" 
+__20_Aggregate_Roots_as_API_Resources --> __25_Performance: "«+» \n" 
+__20_Aggregate_Roots_as_API_Resources --> __36_Scalability: "«+» \n" 
+__20_Aggregate_Roots_as_API_Resources --> __35_API_Complexity: "«+» \n" 
+__20_Aggregate_Roots_as_API_Resources --> __40_Maintainability_of_API_and_API_Consumers: "«+» \n" 
+__20_Aggregate_Roots_as_API_Resources --> __63_Reliability: "«+» \n" 
+__20_Aggregate_Roots_as_API_Resources --> __57_Coupling_of_Clients_to_Server: "«+» \n" 
+__21_Domain_or_Business_Processes_as_API_Resources --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«+» \n" 
+__21_Domain_or_Business_Processes_as_API_Resources --> __19_Data_Consistency: "«++» \n" 
+__21_Domain_or_Business_Processes_as_API_Resources --> __23_Chatty_API: "«+» \n" 
+__21_Domain_or_Business_Processes_as_API_Resources --> __25_Performance: "«+» \n" 
+__21_Domain_or_Business_Processes_as_API_Resources --> __36_Scalability: "«+» \n" 
+__21_Domain_or_Business_Processes_as_API_Resources --> __35_API_Complexity: "«+» \n" 
+__21_Domain_or_Business_Processes_as_API_Resources --> __40_Maintainability_of_API_and_API_Consumers: "«+» \n" 
+__21_Domain_or_Business_Processes_as_API_Resources --> __63_Reliability: "«+» \n" 
+__21_Domain_or_Business_Processes_as_API_Resources --> __57_Coupling_of_Clients_to_Server: "«+» \n" 
+__21_Domain_or_Business_Processes_as_API_Resources --> __20_Aggregate_Roots_as_API_Resources: "«Can Use» \n" 
+__21_Domain_or_Business_Processes_as_API_Resources --> __22_Processing_Resource: "«Can Use» \n" 
+__24_Bounded_Contexts_as_API_Resources --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«+» \n" 
+__24_Bounded_Contexts_as_API_Resources --> __19_Data_Consistency: "«o» \n" 
+__24_Bounded_Contexts_as_API_Resources --> __23_Chatty_API: "«+» \n" 
+__24_Bounded_Contexts_as_API_Resources --> __25_Performance: "«+» \n" 
+__24_Bounded_Contexts_as_API_Resources --> __36_Scalability: "«+» \n" 
+__24_Bounded_Contexts_as_API_Resources --> __35_API_Complexity: "«-» \n" 
+__24_Bounded_Contexts_as_API_Resources --> __40_Maintainability_of_API_and_API_Consumers: "«o» \n" 
+__24_Bounded_Contexts_as_API_Resources --> __63_Reliability: "«o» \n" 
+__24_Bounded_Contexts_as_API_Resources --> __57_Coupling_of_Clients_to_Server: "«o» \n" 
+__26_CRUD_Style_Operations_on_Resources --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«-» \n" 
+__26_CRUD_Style_Operations_on_Resources --> __23_Chatty_API: "«--» \n" 
+__26_CRUD_Style_Operations_on_Resources --> __25_Performance: "«--» \n" 
+__26_CRUD_Style_Operations_on_Resources --> __36_Scalability: "«--» \n" 
+__26_CRUD_Style_Operations_on_Resources --> __39_Interface_Design_Limits_Domain_Model_Design: "«-» \n" 
+__26_CRUD_Style_Operations_on_Resources --> __40_Maintainability_of_API_and_API_Consumers: "«-» \n" 
+__26_CRUD_Style_Operations_on_Resources --> __19_Data_Consistency: "«-» \n" 
+__26_CRUD_Style_Operations_on_Resources --> __63_Reliability: "«-» \n" 
+__26_CRUD_Style_Operations_on_Resources --> __57_Coupling_of_Clients_to_Server: "«-» \n" 
+__26_CRUD_Style_Operations_on_Resources --> __64_API_Understandability: "«+» \n" 
+__27_How_to_Design_the_Operations_of_a_Resource_ --> __26_CRUD_Style_Operations_on_Resources: "«Option» \n{name = "Design Operations Like Primitive\nDatastore\nOperations"}\n" 
+__27_How_to_Design_the_Operations_of_a_Resource_ --> __28_Domain_Operations_on_Resources: "«Option» \n{name = "Design Coarser Grained, Explicit\nDomain\nOperations"}\n" 
+__27_How_to_Design_the_Operations_of_a_Resource_ --> __29_Encode_Operations_as_Commands_in_the_Payload: "«Option» \n{name = "Group Operations on Resource\nand Select\nOperations in the Payload"}\n" 
+__27_How_to_Design_the_Operations_of_a_Resource_ --> __37_Expose_Domain_Events_as_State_Transitions: "«Option» \n{name = "Expose State Transition Domain\nEvents\nto Clients"}\n" 
+__27_How_to_Design_the_Operations_of_a_Resource_ --> __38_Expose_Domain_Events_via_Feeds_or_Pub_Sub: "«Option» \n{name = "Expose Event Feed Via a Feed\nor Publish/Subscribe\nto Clients"}\n" 
+__27_How_to_Design_the_Operations_of_a_Resource_ --> __67_Operation: "«decide for all instances of» \n" 
+__28_Domain_Operations_on_Resources --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«+» \n" 
+__28_Domain_Operations_on_Resources --> __23_Chatty_API: "«+» \n" 
+__28_Domain_Operations_on_Resources --> __25_Performance: "«+» \n" 
+__28_Domain_Operations_on_Resources --> __36_Scalability: "«+» \n" 
+__28_Domain_Operations_on_Resources --> __39_Interface_Design_Limits_Domain_Model_Design: "«+» \n" 
+__28_Domain_Operations_on_Resources --> __40_Maintainability_of_API_and_API_Consumers: "«+» \n" 
+__28_Domain_Operations_on_Resources --> __19_Data_Consistency: "«+» \n" 
+__28_Domain_Operations_on_Resources --> __63_Reliability: "«+» \n" 
+__28_Domain_Operations_on_Resources --> __57_Coupling_of_Clients_to_Server: "«+» \n" 
+__28_Domain_Operations_on_Resources --> __64_API_Understandability: "«+» \n" 
+__28_Domain_Operations_on_Resources --> __29_Encode_Operations_as_Commands_in_the_Payload: "«Variant» \n" 
+__29_Encode_Operations_as_Commands_in_the_Payload --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«+» \n" 
+__29_Encode_Operations_as_Commands_in_the_Payload --> __23_Chatty_API: "«+» \n" 
+__29_Encode_Operations_as_Commands_in_the_Payload --> __25_Performance: "«+» \n" 
+__29_Encode_Operations_as_Commands_in_the_Payload --> __36_Scalability: "«+» \n" 
+__29_Encode_Operations_as_Commands_in_the_Payload --> __39_Interface_Design_Limits_Domain_Model_Design: "«+» \n" 
+__29_Encode_Operations_as_Commands_in_the_Payload --> __40_Maintainability_of_API_and_API_Consumers: "«o» \n" 
+__29_Encode_Operations_as_Commands_in_the_Payload --> __19_Data_Consistency: "«+» \n" 
+__29_Encode_Operations_as_Commands_in_the_Payload --> __63_Reliability: "«+» \n" 
+__29_Encode_Operations_as_Commands_in_the_Payload --> __57_Coupling_of_Clients_to_Server: "«+» \n" 
+__29_Encode_Operations_as_Commands_in_the_Payload --> __64_API_Understandability: "«-» \n" 
+__30_Expose_Segregated_Command_and_Query_Resources_in_API --> __35_API_Complexity: "«-» \n" 
+__30_Expose_Segregated_Command_and_Query_Resources_in_API --> __19_Data_Consistency: "«-» \n" 
+__30_Expose_Segregated_Command_and_Query_Resources_in_API --> __36_Scalability: "«+» \n" 
+__30_Expose_Segregated_Command_and_Query_Resources_in_API --> __65_Eventual_Consistency_Support: "«+» \n" 
+__30_Expose_Segregated_Command_and_Query_Resources_in_API --> __31_CQRS: "«Uses» \n" 
+__30_Expose_Segregated_Command_and_Query_Resources_in_API --> __32_Eventual_Consistency: "«Enables» \n" 
+__30_Expose_Segregated_Command_and_Query_Resources_in_API --> __29_Encode_Operations_as_Commands_in_the_Payload: "«Can Use» \n" 
+__33_Segregate_Resources_for_Reading_and_Updating_Information_in_an_API_ --> __30_Expose_Segregated_Command_and_Query_Resources_in_API: "«Option» \n{name = "Yes"}\n" 
+__33_Segregate_Resources_for_Reading_and_Updating_Information_in_an_API_ --> __34_Do_Not_Segregate_Queries_and_Commands_in_an_API: "«Option» \n{name = "No"}\n" 
+__33_Segregate_Resources_for_Reading_and_Updating_Information_in_an_API_ --> __66_Identified_Interface_Elements: "«decide for all instances of» \n" 
+__34_Do_Not_Segregate_Queries_and_Commands_in_an_API --> __35_API_Complexity: "«+» \n" 
+__34_Do_Not_Segregate_Queries_and_Commands_in_an_API --> __19_Data_Consistency: "«+» \n" 
+__34_Do_Not_Segregate_Queries_and_Commands_in_an_API --> __36_Scalability: "«-» \n" 
+__34_Do_Not_Segregate_Queries_and_Commands_in_an_API --> __65_Eventual_Consistency_Support: "«-» \n" 
+__37_Expose_Domain_Events_as_State_Transitions --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«++» \n" 
+__37_Expose_Domain_Events_as_State_Transitions --> __23_Chatty_API: "«+» \n" 
+__37_Expose_Domain_Events_as_State_Transitions --> __25_Performance: "«+» \n" 
+__37_Expose_Domain_Events_as_State_Transitions --> __36_Scalability: "«++» \n" 
+__37_Expose_Domain_Events_as_State_Transitions --> __39_Interface_Design_Limits_Domain_Model_Design: "«+» \n" 
+__37_Expose_Domain_Events_as_State_Transitions --> __40_Maintainability_of_API_and_API_Consumers: "«+» \n" 
+__37_Expose_Domain_Events_as_State_Transitions --> __19_Data_Consistency: "«+» \n" 
+__37_Expose_Domain_Events_as_State_Transitions --> __63_Reliability: "«+» \n" 
+__37_Expose_Domain_Events_as_State_Transitions --> __57_Coupling_of_Clients_to_Server: "«+» \n" 
+__37_Expose_Domain_Events_as_State_Transitions --> __64_API_Understandability: "«-» \n" 
+__37_Expose_Domain_Events_as_State_Transitions --> __38_Expose_Domain_Events_via_Feeds_or_Pub_Sub: "«Extension» \n{how = "events might be exposed\nto clients via\nfeeds or publish/subscribe"}\n" 
+__38_Expose_Domain_Events_via_Feeds_or_Pub_Sub --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«++» \n" 
+__38_Expose_Domain_Events_via_Feeds_or_Pub_Sub --> __23_Chatty_API: "«+» \n" 
+__38_Expose_Domain_Events_via_Feeds_or_Pub_Sub --> __25_Performance: "«+» \n" 
+__38_Expose_Domain_Events_via_Feeds_or_Pub_Sub --> __36_Scalability: "«++» \n" 
+__38_Expose_Domain_Events_via_Feeds_or_Pub_Sub --> __39_Interface_Design_Limits_Domain_Model_Design: "«+» \n" 
+__38_Expose_Domain_Events_via_Feeds_or_Pub_Sub --> __40_Maintainability_of_API_and_API_Consumers: "«+» \n" 
+__38_Expose_Domain_Events_via_Feeds_or_Pub_Sub --> __19_Data_Consistency: "«+» \n" 
+__38_Expose_Domain_Events_via_Feeds_or_Pub_Sub --> __63_Reliability: "«+» \n" 
+__38_Expose_Domain_Events_via_Feeds_or_Pub_Sub --> __57_Coupling_of_Clients_to_Server: "«+» \n" 
+__38_Expose_Domain_Events_via_Feeds_or_Pub_Sub --> __64_API_Understandability: "«-» \n" 
+__41_Write_API_Code_First_which_Defines_the_Contract --> __42_Separation_of_API_Contract_and_Domain_Concerns: "«--» \n" 
+__41_Write_API_Code_First_which_Defines_the_Contract --> __43_API_Stability: "«--» \n" 
+__41_Write_API_Code_First_which_Defines_the_Contract --> __44_Domain_Model_Flexibility: "«--» \n" 
+__41_Write_API_Code_First_which_Defines_the_Contract --> __45_Initial_Effort_Required: "«++» \n" 
+__41_Write_API_Code_First_which_Defines_the_Contract --> __46_API_Modifiability: "«-» \n" 
+__41_Write_API_Code_First_which_Defines_the_Contract --> __40_Maintainability_of_API_and_API_Consumers: "«-» \n" 
+__41_Write_API_Code_First_which_Defines_the_Contract --> __61_Can_Lead_to_Anemic_Domain_Model_Anti_Pattern: "«--» \n" 
+__41_Write_API_Code_First_which_Defines_the_Contract --> __62_Support_for_External_or_Public_Clients: "«--» \n" 
+__47_Use_Distributed_or_Hypermedia_Links_in_the_Payload --> __19_Data_Consistency: "«+» \n" 
+__47_Use_Distributed_or_Hypermedia_Links_in_the_Payload --> __53_API_Evolvability: "«+» \n" 
+__47_Use_Distributed_or_Hypermedia_Links_in_the_Payload --> __46_API_Modifiability: "«+» \n" 
+__47_Use_Distributed_or_Hypermedia_Links_in_the_Payload --> __56_Message_Size: "«++» \n" 
+__47_Use_Distributed_or_Hypermedia_Links_in_the_Payload --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«++» \n" 
+__47_Use_Distributed_or_Hypermedia_Links_in_the_Payload --> __57_Coupling_of_Clients_to_Server: "«++» \n" 
+__47_Use_Distributed_or_Hypermedia_Links_in_the_Payload --> __58_Protocol_Complexity_in_Client: "«-» \n" 
+__47_Use_Distributed_or_Hypermedia_Links_in_the_Payload --> __59_Minimize_API_calls: "«-» \n" 
+__47_Use_Distributed_or_Hypermedia_Links_in_the_Payload --> __25_Performance: "«-» \n" 
+__47_Use_Distributed_or_Hypermedia_Links_in_the_Payload --> __36_Scalability: "«-» \n" 
+__47_Use_Distributed_or_Hypermedia_Links_in_the_Payload --> __48_Linked_Information_Holder: "«Uses» \n" 
+__49_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_ --> __50_None: "«Option» \n{name = "Do Not Offer the Link Via\nthe API"}\n" 
+__49_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_ --> __47_Use_Distributed_or_Hypermedia_Links_in_the_Payload: "«Option» \n{name = "Pass Distributed or Hypermedia\nLinks in\nthe Payload to Represent Domain Model\nLinks"}\n" 
+__49_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_ --> __51_Pass_Object_Identifiers_in_the_Payload: "«Option» \n{name = "Pass Object Identifiers in\nthe Messages\nto Represent Domain Model Links"}\n" 
+__49_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_ --> __54_Embed_Linked_Data_in_the_Payload: "«Option» \n{name = "Pass Embedded Data in the\nMessages to\nInclude Perhaps Needed Data"}\n" 
+__49_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_ --> __60_Link: "«decide for some instances of» \n" 
+__51_Pass_Object_Identifiers_in_the_Payload --> __19_Data_Consistency: "«+» \n" 
+__51_Pass_Object_Identifiers_in_the_Payload --> __53_API_Evolvability: "«+» \n" 
+__51_Pass_Object_Identifiers_in_the_Payload --> __46_API_Modifiability: "«+» \n" 
+__51_Pass_Object_Identifiers_in_the_Payload --> __56_Message_Size: "«++» \n" 
+__51_Pass_Object_Identifiers_in_the_Payload --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«-» \n" 
+__51_Pass_Object_Identifiers_in_the_Payload --> __57_Coupling_of_Clients_to_Server: "«-» \n" 
+__51_Pass_Object_Identifiers_in_the_Payload --> __58_Protocol_Complexity_in_Client: "«+» \n" 
+__51_Pass_Object_Identifiers_in_the_Payload --> __59_Minimize_API_calls: "«-» \n" 
+__51_Pass_Object_Identifiers_in_the_Payload --> __25_Performance: "«-» \n" 
+__51_Pass_Object_Identifiers_in_the_Payload --> __36_Scalability: "«-» \n" 
+__51_Pass_Object_Identifiers_in_the_Payload --> __52_Object_Identifier: "«Uses» \n" 
+__54_Embed_Linked_Data_in_the_Payload --> __19_Data_Consistency: "«-» \n" 
+__54_Embed_Linked_Data_in_the_Payload --> __53_API_Evolvability: "«-» \n" 
+__54_Embed_Linked_Data_in_the_Payload --> __46_API_Modifiability: "«-» \n" 
+__54_Embed_Linked_Data_in_the_Payload --> __56_Message_Size: "«-» \n" 
+__54_Embed_Linked_Data_in_the_Payload --> __15_Avoid_Exposing_Domain_Model_Details_in_API: "«o» \n" 
+__54_Embed_Linked_Data_in_the_Payload --> __57_Coupling_of_Clients_to_Server: "«+» \n" 
+__54_Embed_Linked_Data_in_the_Payload --> __58_Protocol_Complexity_in_Client: "«+» \n" 
+__54_Embed_Linked_Data_in_the_Payload --> __59_Minimize_API_calls: "«+» \n" 
+__54_Embed_Linked_Data_in_the_Payload --> __25_Performance: "«+» \n" 
+__54_Embed_Linked_Data_in_the_Payload --> __36_Scalability: "«+» \n" 
+__54_Embed_Linked_Data_in_the_Payload --> __55_Embedded_Entity: "«Uses» \n" 
+__72_Domain_Model_and_API o-- __73_Domain_Model: "" 
+__72_Domain_Model_and_API o-- __74_API: "" 
+@enduml

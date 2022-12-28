@@ -1,0 +1,22 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "How to Map a Domain Model and its Elements to\nan API?\n : Decision" as __1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_
+class "Which Domain Model Elements Should be Offered\nas Resources or Endpoints in an API?\n : Decision" as __2_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_
+class "Which Approach is Chosen for Defining the API\nContract in Relation to the Domain Model?\n : Decision" as __3_Which_Approach_is_Chosen_for_Defining_the_API_Contract_in_Relation_to_the_Domain_Model_
+class "Segregate Resources for Reading and Updating Information\nin an API?\n : Decision" as __4_Segregate_Resources_for_Reading_and_Updating_Information_in_an_API_
+class "How to Design the Operations of a Resource?\n : Decision" as __5_How_to_Design_the_Operations_of_a_Resource_
+class "How to Map Links between Domain Model Elements\nto the API?\n : Decision" as __6_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __2_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_: "«Consider If Not Decided Yet» \n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __3_Which_Approach_is_Chosen_for_Defining_the_API_Contract_in_Relation_to_the_Domain_Model_: "«Consider If Not Decided Yet» \n" 
+__2_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __4_Segregate_Resources_for_Reading_and_Updating_Information_in_an_API_: "«Consider If Not Decided Yet» \n" 
+__2_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __5_How_to_Design_the_Operations_of_a_Resource_: "«Consider If Not Decided Yet» \n" 
+__2_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __6_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_: "«Consider If Not Decided Yet» \n" 
+__3_Which_Approach_is_Chosen_for_Defining_the_API_Contract_in_Relation_to_the_Domain_Model_ --> __1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_: "«Consider If Not Decided Yet» \n" 
+@enduml

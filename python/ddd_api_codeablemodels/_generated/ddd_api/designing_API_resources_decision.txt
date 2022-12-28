@@ -1,0 +1,26 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "Which Domain Model Elements Should be Offered\nas Resources or Endpoints in an API?\n : Decision" as __1_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_
+class "Entities as API Resources : Practice" as __2_Entities_as_API_Resources
+class "Domain Services as API Resources : Practice" as __3_Domain_Services_as_API_Resources
+class "Aggregate Roots as API Resources : Practice" as __4_Aggregate_Roots_as_API_Resources
+class "Domain or Business Processes as API Resources\n : Practice" as __5_Domain_or_Business_Processes_as_API_Resources
+class "Processing Resource : Pattern" as __6_Processing_Resource
+class "Bounded Contexts as API Resources : Practice" as __7_Bounded_Contexts_as_API_Resources
+class "Identified Interface Elements : Domain Class" as __8_Identified_Interface_Elements
+__1_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __2_Entities_as_API_Resources: "«Option» \n{name = "Offer Entities as API Resources"}\n" 
+__1_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __3_Domain_Services_as_API_Resources: "«Option» \n{name = "Offer Domain Services as API\nResources"}\n" 
+__1_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __4_Aggregate_Roots_as_API_Resources: "«Option» \n{name = "Offer Aggregate Roots as API\nResources"}\n" 
+__1_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __7_Bounded_Contexts_as_API_Resources: "«Option» \n{name = "Offer Bounded Contexts as\nAPI Resources"}\n" 
+__1_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __5_Domain_or_Business_Processes_as_API_Resources: "«Option» \n{name = "Offer Domain or Business Processes\nas\nAPI Resources"}\n" 
+__1_Which_Domain_Model_Elements_Should_be_Offered_as_Resources_or_Endpoints_in_an_API_ --> __8_Identified_Interface_Elements: "«decide for some instances of» \n" 
+__5_Domain_or_Business_Processes_as_API_Resources --> __4_Aggregate_Roots_as_API_Resources: "«Can Use» \n" 
+__5_Domain_or_Business_Processes_as_API_Resources --> __6_Processing_Resource: "«Can Use» \n" 
+@enduml

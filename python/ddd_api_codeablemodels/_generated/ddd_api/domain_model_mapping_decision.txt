@@ -1,0 +1,30 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "How to Map a Domain Model and its Elements to\nan API?\n : Decision" as __1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_
+class "Expose the Whole Domain Model in 1:1 Relation\nas API\n : Practice" as __2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API
+class "Expose Domain Model Subset as API : Practice" as __3_Expose_Domain_Model_Subset_as_API
+class "Expose Each Bounded Context as an API\n : Practice" as __4_Expose_Each_Bounded_Context_as_an_API
+class "Expose Selected Bounded Contexts as APIs\n : Practice" as __5_Expose_Selected_Bounded_Contexts_as_APIs
+class "Introduce and Expose Interface Bounded Context\nas an API\n : Practice" as __6_Introduce_and_Expose_Interface_Bounded_Context_as_an_API
+class "Expose a Shared Kernel between Client and Server\nas an API\n : Practice" as __7_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API
+class "Domain Model and API : And-Combined Group" as __8_Domain_Model_and_API
+class "Domain Model : Domain Class" as __9_Domain_Model
+class "API : Domain Class" as __10_API
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __2_Expose_the_Whole_Domain_Model_in_1_1_Relation_as_API: "«Option» \n{name = "Map Domain Model Fully to\nthe API"}\n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __3_Expose_Domain_Model_Subset_as_API: "«Option» \n{name = "Map Selected Elements of the\nDomain Model\nto the API"}\n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __4_Expose_Each_Bounded_Context_as_an_API: "«Option» \n{name = "Map Each Bounded Context to\nAPIs"}\n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __5_Expose_Selected_Bounded_Contexts_as_APIs: "«Option» \n{name = "Map Selected Bounded Contexts\nto APIs"}\n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __6_Introduce_and_Expose_Interface_Bounded_Context_as_an_API: "«Option» \n{name = "Introduce and Expose an Additional\nInterface\nBounded Context as an API"}\n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __7_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API: "«Option» \n{name = "Identify Shared Kernel between\nCommunication\nParticipants and Expose it as\nan API"}\n" 
+__1_How_to_Map_a_Domain_Model_and_its_Elements_to_an_API_ --> __8_Domain_Model_and_API: "«decide for some instances of» \n" 
+__6_Introduce_and_Expose_Interface_Bounded_Context_as_an_API --> __7_Expose_a_Shared_Kernel_between_Client_and_Server_as_an_API: "«Can be Realized With» \n{how = "might be based\non a shared kernel"}\n" 
+__8_Domain_Model_and_API o-- __9_Domain_Model: "" 
+__8_Domain_Model_and_API o-- __10_API: "" 
+@enduml
