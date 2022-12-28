@@ -1,0 +1,35 @@
+\begin{tabular}{|p{0.12\linewidth}|p{0.005\linewidth}|p{0.3\linewidth}|p{0.15\linewidth}|p{0.31\linewidth}|}
+\hline
+{\bf Design Decision} & {\bf \#} & {\bf Solution} & {\bf Evidences} & {\bf Forces}\\
+\hline
+\multirow{6}{\linewidth}{How to Map a Domain Model and its Elements to an API?} &\ch{} &1.Expose the Whole Domain Model in 1:1 Relation as API&\cml{s1, s3, s9} & f1(-{}-), f2(-), f17(+), f7(-{}-), f8(-), f4(-), f10(-), f15(+)\\
+ & \ch{} & 2.Expose Domain Model Subset as API&\cml{s3, s6, s9} & f1(o), f2(o), f17(+), f7(o), f8(o), f4(-), f10(-), f15(+)\\
+ & \ch{} & 3.Expose Each Bounded Context as an API&\ch{s1, s4, s13, s14, s20, s27, s29, s32} & f1(-), f2(-), f17(-), f7(-), f8(-), f4(-), f10(-), f15(+)\\
+ & \ch{} & 4.Expose Selected Bounded Contexts as APIs&\chh{s1, s3, s4, s13, s14, s20, s21, s22, s23, s27, s29, s32} & f1(o), f2(o), f17(-), f7(o), f8(o), f4(-), f10(o), f15(+)\\
+ & \ch{} & 5.Introduce and Expose Interface Bounded Context as an API&\cml{s1, s3, s23} & f1(+), f2(+), f17(++), f7(+), f8(+), f4(+), f10(+), f15(-)\\
+ & \multirow{-6}{\linewidth}{ \ch{16}} &6.Expose a Shared Kernel between Client and Server as an API&\cml{s1, s3} & f1(+), f2(+), f17(++), f7(+), f8(+), f4(+), f10(+), f15(-)\\
+\multirow{5}{\linewidth}{Which Approach is Chosen for Defining the API Contract in Relation to the Domain Model?} &\cmh{} &1.Explicitly Specify the API Contract&\ch{s3, s8, s10, s13, s17, s18, s21, s30, s31, s32} & f21(+), f24(+), f25(+), f26(o), f10(o), f18(o), f23(o), f27(++)\\
+ & \cmh{} & 2.Extract API Contract from Domain Model&\cm{s3, s10, s13, s17, s18} & f21(+), f24(+), f25(+), f26(o), f10(o), f18(o), f23(o), f27(+)\\
+ & \cmh{} & 3.Domain Model Defines API Contract&\cm{s3, s10, s13, s18} & f21(-), f24(-{}-), f25(-{}-), f26(o), f10(o), f18(o), f23(o), f27(o)\\
+ & \cmh{} & 4.Bounded Context Defines API Contract&\cm{s3, s13, s27} & f21(-), f24(-{}-), f25(-{}-), f26(o), f10(o), f18(o), f23(o), f27(o)\\
+ & \multirow{-5}{\linewidth}{ \cmh{15}} &5.Write API Code First which Defines the Contract&\cml{s17, s30} & f21(-{}-), f24(-{}-), f25(-{}-), f26(++), f10(-), f18(-), f23(-{}-), f27(-{}-)\\
+\multirow{5}{\linewidth}{Which Domain Model Elements Should be Offered as Resources or Endpoints in an API?} &\ch{} &1.Entities as API Resources&\ch{s1, s2, s5, s6, s12, s13, s14, s16, s17, s18, s19, s21, s32} & f2(-{}-), f11(-{}-), f3(-), f5(-), f6(-), f7(-), f18(-), f19(-), f13(-)\\
+ & \ch{} & 2.Domain Services as API Resources&\cml{s9, s13, s19} & f2(o), f11(+), f3(o), f5(++), f6(++), f7(+), f18(+), f19(+), f13(+)\\
+ & \ch{} & 3.Aggregate Roots as API Resources&\ch{s1, s2, s5, s6, s10, s12, s13, s17, s18, s19, s25, s26, s27, s28} & f2(+), f11(++), f3(+), f5(+), f6(+), f7(+), f18(+), f19(+), f13(+)\\
+ & \ch{} & 4.Bounded Contexts as API Resources&\cm{s1, s2, s5, s20, s25, s26, s29} & f2(+), f11(o), f3(+), f5(+), f6(+), f7(-), f18(o), f19(o), f13(o)\\
+ & \multirow{-5}{\linewidth}{ \ch{21}} &5.Domain or Business Processes as API Resources&\cml{s5, s10, s20} & f2(+), f11(++), f3(+), f5(+), f6(+), f7(+), f18(+), f19(+), f13(+)\\
+\multirow{2}{\linewidth}{Segregate Resources for Reading and Updating Information in an API?} &\cm{} &1.Expose Segregated Command and Query Resources in API&\chh{s5, s6, s8, s11, s12, s15, s16, s24, s25, s27, s28} & f7(-), f11(-), f6(+), f20(+)\\
+ & \multirow{-2}{\linewidth}{ \cm{11}} &2.Do Not Segregate Queries and Commands in an API&\chh{s5, s6, s8, s11, s12, s15, s16, s24, s25, s27, s28} & f7(+), f11(+), f6(-), f20(-)\\
+\multirow{5}{\linewidth}{How to Design the Operations of a Resource?} &\chh{} &1.CRUD-Style Operations on Resources&\chh{s1, s2, s3, s5, s6, s7, s8, s10, s11, s12, s14, s15, s16, s17, s18, s19, s20, s21, s29} & f2(-), f3(-{}-), f5(-{}-), f6(-{}-), f16(-), f18(-), f11(-), f19(-), f13(-), f22(+)\\
+ & \chh{} & 2.Domain Operations on Resources&\ch{s1, s2, s3, s4, s5, s6, s7, s9, s10, s11, s12, s15, s16, s18, s20, s25} & f2(+), f3(+), f5(+), f6(+), f16(+), f18(+), f11(+), f19(+), f13(+), f22(+)\\
+ & \chh{} & 3.Encode Operations as Commands in the Payload&\cml{s6, s15, s16} & f2(+), f3(+), f5(+), f6(+), f16(+), f18(o), f11(+), f19(+), f13(+), f22(-)\\
+ & \chh{} & 4.Expose Domain Events as State Transitions&\ch{s2, s3, s4, s5, s9, s11, s12, s14, s16, s20, s24, s25, s26, s27, s28, s29} & f2(++), f3(+), f5(+), f6(++), f16(+), f18(+), f11(+), f19(+), f13(+), f22(-)\\
+ & \multirow{-5}{\linewidth}{ \chh{26}} &5.Expose Domain Events via Feeds or Pub/Sub&\cml{s2, s20, s24, s27, s28} & f2(++), f3(+), f5(+), f6(++), f16(+), f18(+), f11(+), f19(+), f13(+), f22(-)\\
+\multirow{4}{\linewidth}{How to Map Links between Domain Model Elements to the API?} &\cm{} &1.None&\cmh{s1, s2, s31} & \\
+ & \cm{} & 2.Use Distributed or Hypermedia Links in the Payload&\chh{s1, s2, s3, s8, s10, s18, s31} & f11(+), f9(+), f10(+), f12(++), f2(++), f13(++), f14(-), f4(-), f5(-), f6(-)\\
+ & \cm{} & 3.Pass Object Identifiers in the Payload&\ch{s1, s2, s18, s31} & f11(+), f9(+), f10(+), f12(++), f2(-), f13(-), f14(+), f4(-), f5(-), f6(-)\\
+ & \multirow{-4}{\linewidth}{ \cm{8}} &4.Embed Linked Data in the Payload&\cm{s1, s2} & f11(-), f9(-), f10(-), f12(-), f2(o), f13(+), f14(+), f4(+), f5(+), f6(+)\\
+\hline
+\multicolumn{5}{l}{\parbox{\textwidth}{\smallskip
+{\bf Forces Codes/Sources}: {\bf f1}:Brittle Interfaces [s1, s23], {\bf f2}:Avoid Exposing Domain Model Details in API [s1, s2, s3, s4, s5, s7, s10, s17, s18, s29, s32], {\bf f3}:Chatty API [s1, s5, s11, s18], {\bf f4}:Minimize API calls [s1, s2], {\bf f5}:Performance [s1, s11, s16, s18], {\bf f6}:Scalability [s1, s4, s5, s8, s11, s16, s18, s20, s24, s28, s29], {\bf f7}:API Complexity [s1, s5, s6, s11, s12, s15, s18, s25, s29], {\bf f8}:API Usability [s1, s5, s14], {\bf f9}:API Evolvability [s1, s5, s18, s31], {\bf f10}:API Modifiability [s1, s3, s4, s5, s17, s18, s23, s30, s31], {\bf f11}:Data Consistency [s1, s2, s5, s10, s12, s16, s18, s20, s21, s22, s25, s27, s28, s29], {\bf f12}:Message Size [s1], {\bf f13}:Coupling of Clients to Server [s2, s5, s6, s8, s10, s14, s18, s20, s22, s23, s27], {\bf f14}:Protocol Complexity in Client [s2, s8, s10], {\bf f15}:Design and Implementation Effort [s3, s21, s23, s29, s30], {\bf f16}:Interface Design Limits Domain Model Design [s3, s10], {\bf f17}:Clients Need to Manage Crossing Model Boundaries [s3, s4], {\bf f18}:Maintainability of API and API Consumers [s5, s6, s7, s10, s17, s29, s30], {\bf f19}:Reliability [s4, s5], {\bf f20}:Eventual Consistency Support [s5, s15, s16, s24, s25, s27, s28], {\bf f21}:Separation of API Contract and Domain Concerns [s1, s3, s5, s10, s13, s24, s29, s30, s32], {\bf f22}:API Understandability [s6, s7, s15, s16, s17, s30, s31, s32], {\bf f23}:Can Lead to Anemic Domain Model Anti-Pattern [s8, s17], {\bf f24}:API Stability [s10, s23, s30, s31], {\bf f25}:Domain Model Flexibility [s10], {\bf f26}:Initial Effort Required [s17, s30, s31], {\bf f27}:Support for External or Public Clients [s18]}}
+\end{tabular}

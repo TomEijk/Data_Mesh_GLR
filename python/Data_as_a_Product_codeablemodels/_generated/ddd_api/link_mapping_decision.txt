@@ -1,0 +1,27 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "How to Map Links between Domain Model Elements\nto the API?\n : Decision" as __1_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_
+class " : Do Nothing" as __2_None
+class "Use Distributed or Hypermedia Links in the Payload\n : Practice" as __3_Use_Distributed_or_Hypermedia_Links_in_the_Payload
+class "Linked Information Holder : Pattern" as __4_Linked_Information_Holder
+class "Pass Object Identifiers in the Payload\n : Practice" as __5_Pass_Object_Identifiers_in_the_Payload
+class "Object Identifier : Pattern" as __6_Object_Identifier
+class "Embed Linked Data in the Payload : Practice" as __7_Embed_Linked_Data_in_the_Payload
+class "Embedded Entity : Pattern" as __8_Embedded_Entity
+class "Link : Domain Class" as __9_Link
+__1_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_ --> __2_None: "«Option» \n{name = "Do Not Offer the Link Via\nthe API"}\n" 
+__1_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_ --> __3_Use_Distributed_or_Hypermedia_Links_in_the_Payload: "«Option» \n{name = "Pass Distributed or Hypermedia\nLinks in\nthe Payload to Represent Domain Model\nLinks"}\n" 
+__1_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_ --> __5_Pass_Object_Identifiers_in_the_Payload: "«Option» \n{name = "Pass Object Identifiers in\nthe Messages\nto Represent Domain Model Links"}\n" 
+__1_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_ --> __7_Embed_Linked_Data_in_the_Payload: "«Option» \n{name = "Pass Embedded Data in the\nMessages to\nInclude Perhaps Needed Data"}\n" 
+__1_How_to_Map_Links_between_Domain_Model_Elements_to_the_API_ --> __9_Link: "«decide for some instances of» \n" 
+__3_Use_Distributed_or_Hypermedia_Links_in_the_Payload --> __4_Linked_Information_Holder: "«Uses» \n" 
+__5_Pass_Object_Identifiers_in_the_Payload --> __6_Object_Identifier: "«Uses» \n" 
+__7_Embed_Linked_Data_in_the_Payload --> __8_Embedded_Entity: "«Uses» \n" 
+@enduml
