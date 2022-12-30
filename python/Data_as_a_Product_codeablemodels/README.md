@@ -1,4 +1,4 @@
-# DDD API MODELS
+# Data as a Product MODELS
 
 This repository / data set contains coded models and data from a qualitative on the interrelation of DDD and APIs. The paper on the study is: 
 Apitchaka Singjai, Uwe Zdun, Olaf Zimmermann. Practitioner Views on the Interrelation of Microservice APIs and Domain-Driven Design: A Grey Literature Study Based on Grounded Theory. Accepted for publication in the 18th IEEE International Conference on Software Architecture (ICSA 2021).
@@ -74,9 +74,7 @@ the [tags on this repository](https://github.com/uzdun/MAPModels/tags).
 
 ## Authors
 
-* **Uwe Zdun** - [https://github.com/uzdun/](https://github.com/uzdun/)
-* **Apitchaka Singjai**
-* **Olaf Zimmermann**
+* **Tom van Eijk** - [https://github.com/TomEijk/](https://github.com/TomEijk/)
 
 ## License
 
