@@ -25,7 +25,7 @@ sql_layer = CClass(pattern, "Attach a SQL layer to each Data Product")
 data_access_decision = CClass(decision, "How can the user interact with data products?")
 observation_plane = CClass(pattern, "The observability plane brings an interface between built-in observability of the data quantum and REST clients")
 schema_manager = CClass(pattern, "Schema Manager")
-capture_data_change = CClass(pattern, "Capture Data Change")
+change_data_capture = CClass(pattern, "Change Data Capture")
 data_integration_service = CClass(pattern, "Use a data integration service that helps users efficiently build and manage ETL/ELT pipelines")
 internal_storages = CClass(pattern, "Internal storages where the data product is deployed, not exposed to consumers")
 immutable_change_audit_log = CClass(pattern, "Immutable Change Audit Log")
@@ -34,6 +34,14 @@ lineage_repository = CClass(pattern, "Lineage Repository")
 universal_metadata_registry = CClass(pattern, "Universal Metadata Registry")
 low_level_events_and_aggregation_layer = CClass(pattern, "Low level events and aggregation layer")
 cqrs = CClass(pattern, "CQRS")
+feature_layer = CClass(pattern, "Feature Layer")
+central_data_product_catalogue = CClass(pattern, "Feature Layer")
+end_to_end = CClass(pattern, "end-to-end connection")
+no_sql_system = CClass(pattern, "NoSQL system")
+orchestration = CClass(pattern, "orchestration")
+discovery_port = CClass(pattern, "Discovery Port")
+event_bus = CClass(pattern, "Event Bus")
+data_marts = CClass(pattern, "Incrementally build business process-centric data marts")
 
 # practices
 raw_data_as_data_product = CClass(practice, "Expose Data Product as Raw Data")
@@ -60,6 +68,8 @@ k8s = CClass(practice, "K8s")
 mdm = CClass(practice, "Master Data Management")
 infrastructure_as_code = CClass(practice, "Infrastructure as Code")
 triggering = CClass(practice, "Triggering")
+containerisation = CClass(practice, "Run containers that are invocable via requests or events")
+unified_batch_stream = CClass(practice, "Create a component for unified batch and stream data processing")
 
 # forces
 security = CClass(force, "Security")
@@ -81,6 +91,14 @@ accuracy = CClass(force, "Accuracy")
 completeness = CClass(force, "Completeness")
 integrity = CClass(force, "Integrity")
 multiple_independent_read_only_views = CClass(force, "Multiple independent read-only views")
+interoperability = CClass(force, "Interoperability")
+discoverability = CClass(force, "Discoverability")
+re_use = CClass(force, "Re-use aspects by allowing other teams to find and build upon existing work")
+time_to_market = CClass(force, "Time-to-Market")
+conflicting_definitions = CClass(force, "Conflicting definitions")
+periodic_execution = CClass(force, "Execution at periodic intervals")
+consistency = CClass(force, "Consistency")
+stability = CClass(force, "Stability")
 
 # links between practices
 
@@ -124,7 +142,8 @@ add_decision_option_link(discoverable_data_products_decision, register_datasets,
                          "Register all the relevant datasets for the data products")
 add_decision_option_link(discoverable_data_products_decision, request_access,
                         "Access must be requested to use data inside the data product")
-
+add_decision_option_link(discoverable_data_products_decision,discovery_port,
+                             "Access Point to discover data inside the data product")
 add_force_relations({register_datasets: {security: positive,
                                          discoverability: very_positive},
                      request_access: {security: very_positive,
@@ -138,7 +157,7 @@ add_decision_option_link(keep_track_metadata_decision, data_catalogue,
                          "Use a data catalogue to describe the data inside a data product")
 add_decision_option_link(keep_track_metadata_decision, query_catalogue,
                          "Provide example codes and queries to help the user understand the data")
-add_decision_option_link(keep_track_metadata_decision, capture_data_change,
+add_decision_option_link(keep_track_metadata_decision, change_data_capture,
                          "Identify changes made in the data")
 add_decision_option_link(keep_track_metadata_decision, virtualisation,
                          "Providing fast, cost-effective, and centralized access to and integration of all data sources that are important to an organization")
@@ -150,9 +169,12 @@ add_decision_option_link(keep_track_metadata_decision, lineage_repository,
                          "Pay attention to the transformations")
 add_decision_option_link(keep_track_metadata_decision , universal_metadata_registry,
                          "Store the metadata centrally")
+add_decision_option_link(keep_track_metadata_decision, central_data_product_catalogue,
+                        "Create a catalogue-of-catalogues")
 add_force_relations({data_catalogue: {standardised_transformation: positive,
                                           duplication: negative,
-                                          obscurity: negative}
+                                          obscurity: negative},
+                    central_data_product_catalogue: {discoverability: positive}
                         })
 
 
@@ -169,7 +191,9 @@ add_force_relations({observation_plane: {understandability: positive,
                                          accuracy: positive,
                                          completeness: positive,
                                          integrity: positive},
-                         schema_manager: {understandability: positive}
+                         schema_manager: {understandability: positive,
+                                          duplication: positive,
+                                          conflicting_definitions: negative}
                      })
 add_decision_option_link(trustworty_decision, time_bounded_backwards_compatibility,
                          "Include backwards compatibility")
@@ -181,6 +205,8 @@ add_decision_option_link(data_access_decision, rest_apis,
                          "Provide programmatic access through REST APIs")
 add_decision_option_link(data_access_decision, sql_layer,
                          "Provide access through SQL queries")
+add_decision_option_link(data_access_decision, no_sql_system,
+                           "Use a NoSQL system")
 add_force_relations({rest_apis: {internal_complexity: positive,
                                 complexity_for_user: negative},
                     sql_layer: {internal_complexity: positive,
@@ -198,29 +224,40 @@ add_decision_option_link(data_product_anatomy_decision, core_datasets,
                          "Distinguish core datasets")
 add_decision_option_link(data_product_anatomy_decision, low_level_events_and_aggregation_layer,
                                 "Implement an aggregation layer")
+add_decision_option_link(data_product_anatomy_decision, low_level_events_and_aggregations_layer,
+                    "Distinguish on aggregation")
+add_decision_option_link(data_product_anatomy_decision,feature_layer,
+                               "Add a special layer for the features")
 add_force_relations({domain_datasets: {prioritise: positive},
                          core_datasets: {prioritise: positive,
                                          trustworthiness: positive,
                                          interoperability: positive
-                                         }
+                                         },
+                        feature_layer: {interoperability: positive,
+                                        stability: positive}
                      })
-add_decision_option_link(data_product_anatomy_decision, low_level_events_and_aggregations_layer,
-                    "Distinguish on aggregation")
 
 # ** communicaton_decision **
 
-communicaton_decision = CClass(decision, "How can data products communicate?")
-add_decision_option_link(communicaton_decision, event_streaming,
+communication_decision = CClass(decision, "How can data products communicate?")
+add_decision_option_link(communication_decision, event_streaming,
                          "Messaging through events")
-add_decision_option_link(communicaton_decision, data_integration_service,
+add_decision_option_link(communication_decision, data_integration_service,
                          "Use a data integration service for ingestion")
-add_decision_option_link(communicaton_decision, triggering,
+add_decision_option_link(communication_decision, triggering,
                                 "Use triggers to activate certain actions")
-add_decision_option_link(communicaton_decision, cqrs,
+add_decision_option_link(communication_decision, cqrs,
 "Separate read and update operations for a data store")
-
-add_force_relations({cqrs: {multiple_independent_read_only_views: positive}
+add_decision_option_link(communication_decision, end_to_end,
+                           "Connect data products end-to-end")
+add_decision_option_link(communication_decision,unified_batch_stream,
+                             "Schedule stream and batch processing jobs")
+add_decision_option_link(communication_decision,event_bus,
+                             "Location for all streaming event data")
+add_force_relations({cqrs: {multiple_independent_read_only_views: positive},
+                    unified_batch_stream: {periodic_execution: positive}
                      })
+
 # ** security_decision **
 
 security_decision = CClass(decision, "How to secure your data products?")
@@ -236,6 +273,8 @@ add_decision_option_link(store_decision, internal_storages,
                          "Store data internally inside the data product")
 add_decision_option_link(store_decision, cache,
                          "Store the data in a cache")
+add_decision_option_link(store_decision,data_marts,
+                             "Store data in a data mart")
 
 # ** infrastructure_decision **
 
@@ -250,11 +289,18 @@ add_decision_option_link(infrastructure_decision, k8s,
                          "Use pods")
 add_decision_option_link(infrastructure_decision, mdm,
                                   "Use a master data management database")
+add_decision_option_link(infrastructure_decision, containerisation,
+                            "Containerise all the domains")
+add_decision_option_link(infrastructure_decision, orchestration,
+                             "Integrate applications into a single offering")
 add_force_relations({infrastructure_as_code: {compliance: positive,
-                                              provenance: positive}
+                                              provenance: positive,
+                                              discoverability: positive,
+                                              re_use: positive,
+                                              time_to_market: positive,
+                                              duplication: positive},
+                     orchestration: {consistency: positive}
                      })
-
-
 
 
 
