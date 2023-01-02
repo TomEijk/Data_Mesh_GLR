@@ -1,15 +1,14 @@
 # Data as a Product MODELS
 
-This repository / data set contains coded models and data from a qualitative on the interrelation of DDD and APIs. The paper on the study is: 
-Apitchaka Singjai, Uwe Zdun, Olaf Zimmermann. Practitioner Views on the Interrelation of Microservice APIs and Domain-Driven Design: A Grey Literature Study Based on Grounded Theory. Accepted for publication in the 18th IEEE International Conference on Software Architecture (ICSA 2021).
+This repository / data set contains coded models and data from a qualitative study on the Data as a Product principle in Data Mesh. 
 
 **IMPORTANT:** Please note that the Code in the repository only regenerates the PlantUML models and the Latex tables used in the paper. Mainly, this artifact contains the data on the open and axial coding, as well as the formal coding in Python.
 This repository / data set contains the following elements:
 
 *	The open coding data for each of the sources can be found a separate .md file in the folder:`field_notes_open_coding_axial_coding`
 *	In each file we also documented the axial coding steps performed in the coded models, to ensure traceability between open coding and formal coding in Python
-*	All classes and instances are in the `api_ddd_models` folder
-  -	The file `api_ddd_models.py` contains all models of ADDs
+*	All classes and instances are in the `data_as_a_product_models` folder
+  -	The file `data_as_a_product_models.py` contains all models of ADDs
   -	The file `sources_and_codes_models.py` contains all models of evidences
 *	The `generators` folder contains generators for Plant UML models, markdown files, and Latex tables. These are generated into `_generated'. This markdown file renders almost the complete model.
 *	The file `GT_coding.py` in the `metamodels` folder shows the meta-class of grounded theory coding
@@ -61,18 +60,7 @@ TBD
 * [Codeable Models](https://github.com/uzdun/CodeableModels/) - Modelling platform
 * [PlantUML](http://plantuml.com/download) - Generate figures
 
-
-## Contributing
-
-Please read [CONTRIBUTING.md] for details on our code of conduct, and the process for
-submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see
-the [tags on this repository](https://github.com/uzdun/MAPModels/tags).
-
-## Authors
+## Author
 
 * **Tom van Eijk** - [https://github.com/TomEijk/](https://github.com/TomEijk/)
 
