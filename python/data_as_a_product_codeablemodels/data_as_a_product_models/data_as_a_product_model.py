@@ -35,13 +35,24 @@ universal_metadata_registry = CClass(pattern, "Universal Metadata Registry")
 low_level_events_and_aggregation_layer = CClass(pattern, "Low level events and aggregation layer")
 cqrs = CClass(pattern, "CQRS")
 feature_layer = CClass(pattern, "Feature Layer")
-central_data_product_catalogue = CClass(pattern, "Feature Layer")
+central_data_product_catalogue = CClass(pattern, "Central Data Product Catalogue")
 end_to_end = CClass(pattern, "end-to-end connection")
 no_sql_system = CClass(pattern, "NoSQL system")
 orchestration = CClass(pattern, "orchestration")
 discovery_port = CClass(pattern, "Discovery Port")
 event_bus = CClass(pattern, "Event Bus")
 data_marts = CClass(pattern, "Incrementally build business process-centric data marts")
+templated_data_pipeline = CClass(pattern, "Templated Data Pipeline")
+pub_sub = CClass(pattern, "Pub/Sub")
+data_marketplace = CClass(pattern, "Data Marketplace")
+open_source_data_and_analytics_processing_service = CClass(pattern, "Open source data and analytics processing service")
+attribute_based_access_control = CClass(pattern, "Attribute-based Access Control")
+multi_tenancy_model = CClass(pattern, " A single Subscription with a single workspace")
+single_subscription_single_workspace_dedicated_artifacts_per_domain = CClass(pattern, "A single Subscription with a single workspace with dedicated artifacts for each domain")
+single_subscription_multiple_workspaces = CClass(pattern, " A Subscription with multiple workspaces")
+single_subscription_dedicated_workpasce_per_domain = CClass(pattern, "A single Azure Subscription with separate workspaces for each domain")
+separate_subscriptions_separate_workspace_per_domain = CClass(pattern, "Separate subscriptions with separate workspaces for each domain")
+control_plane = CClass(pattern, "Control Plane")
 
 # practices
 raw_data_as_data_product = CClass(practice, "Expose Data Product as Raw Data")
@@ -54,7 +65,6 @@ quality_monitoring = CClass(practice, "Provide a single integrated experience fo
 algorithms_as_data_product = CClass(practice, "Expose Data Product as an algorithm")
 domain_datasets = CClass(practice, "The domain datasets belong to a specific domain")
 core_datasets = CClass(practice, "Core datasets are those that are useful for more than one domain")
-low_level_events_and_aggregations_layer = CClass(practice, "Low-Level Events and Aggregations Layer")
 event_streaming = CClass(practice, "Event Streaming")
 virtualisation = CClass(practice, "Virtualisation")
 incremental_sync = CClass(practice, "Incremental Sync")
@@ -70,6 +80,14 @@ infrastructure_as_code = CClass(practice, "Infrastructure as Code")
 triggering = CClass(practice, "Triggering")
 containerisation = CClass(practice, "Run containers that are invocable via requests or events")
 unified_batch_stream = CClass(practice, "Create a component for unified batch and stream data processing")
+open_access = CClass(practice, "Open Access")
+maintaining_source_of_truth = CClass(practice, "Maintaining a single source of truth")
+run_tests = CClass(practice, "Run tests on your data product")
+centrally_manage_monitor_govern_data = CClass(practice, "Centrally manage, monitor, and govern data across data lakes, data warehouses, and data marts")
+indirect_data_publishing_and_consumption = CClass(practice, "Indirect data publishing and consumption")
+snapshots_ETL = CClass(practice, "Send snapshots via ETL")
+zero_trust_architecture = CClass(practice, "Zero Trust Architecture")
+oauth2 = CClass(practice, "OAUTH2")
 
 # forces
 security = CClass(force, "Security")
@@ -91,14 +109,33 @@ accuracy = CClass(force, "Accuracy")
 completeness = CClass(force, "Completeness")
 integrity = CClass(force, "Integrity")
 multiple_independent_read_only_views = CClass(force, "Multiple independent read-only views")
-interoperability = CClass(force, "Interoperability")
-discoverability = CClass(force, "Discoverability")
 re_use = CClass(force, "Re-use aspects by allowing other teams to find and build upon existing work")
 time_to_market = CClass(force, "Time-to-Market")
 conflicting_definitions = CClass(force, "Conflicting definitions")
 periodic_execution = CClass(force, "Execution at periodic intervals")
 consistency = CClass(force, "Consistency")
 stability = CClass(force, "Stability")
+swamp = CClass(force, "Turning the data lake into a swamp")
+data_productivity = CClass(force, "Data Productivity")
+analytics_agility = CClass(force, "Analytics Agility")
+manual_toil = CClass(force, "Manual Toil")
+quality = CClass(force, "Quality")
+discovery = CClass(force, "Discovery")
+gain_knowledge = CClass(force, "Quickly gain knowledge on data set")
+fast_data_propagation = CClass(force, "Fast data propagation")
+handle_large_data_volumes = CClass(force, "Handle large data volumes")
+limit_recipients = CClass(force, "Limit receptions")
+addressability_subscriptions = CClass(force, "Addressability of subscriptions")
+control_over_data_schema = CClass(force, "Control over data schema")
+real_time_data_access = CClass(force, "Real-time Data Access")
+high_fidelity = CClass(force, "High fidelity")
+multiple_environments = CClass(force, "Can be deployed in multiple environments")
+non_intrusive = CClass(force, "Non-intrusive")
+consumption = CClass(force, "Consumption")
+production_grade_integrations = CClass(force, "Production Grade Integrations")
+reproducibility = CClass(force, "Reproducibility")
+traceability = CClass(force, "Traceability")
+verifiability = CClass(force, "Verifiability")
 
 # links between practices
 
@@ -144,6 +181,8 @@ add_decision_option_link(discoverable_data_products_decision, request_access,
                         "Access must be requested to use data inside the data product")
 add_decision_option_link(discoverable_data_products_decision,discovery_port,
                              "Access Point to discover data inside the data product")
+add_decision_option_link(discoverable_data_products_decision, data_marketplace,
+                               "Use a data marketplace to publish datasets")
 add_force_relations({register_datasets: {security: positive,
                                          discoverability: very_positive},
                      request_access: {security: very_positive,
@@ -174,7 +213,18 @@ add_decision_option_link(keep_track_metadata_decision, central_data_product_cata
 add_force_relations({data_catalogue: {standardised_transformation: positive,
                                           duplication: negative,
                                           obscurity: negative},
-                    central_data_product_catalogue: {discoverability: positive}
+                    central_data_product_catalogue: {discoverability: positive},
+                    data_product_governance: {swamp: negative},
+                    query_catalogue: {discoverability: positive,
+                                          gain_knowledge: very_positive},
+                    change_data_capture: {real_time_data_access: positive,
+                                              complexity_for_user: negative,
+                                              non_intrusive: positive,
+                                              consumption: positive,
+                                              production_grade_integrations: positive},
+                    immutable_change_audit_log: {reproducibility: positive,
+                                                      traceability: positive,
+                                                      verifiability: positive}
                         })
 
 
@@ -187,6 +237,10 @@ add_decision_option_link(trustworty_decision, observation_plane,
                          "Use an observability plane to observe changes in the data")
 add_decision_option_link(trustworty_decision, schema_manager,
                          "Use a schema manager to understand the data as you read the schema")
+add_decision_option_link(trustworty_decision, maintaining_source_of_truth,
+                               "Keep the original version of the data")
+add_decision_option_link(trustworty_decision, run_tests,
+                        "Run tests before deployment")
 add_force_relations({observation_plane: {understandability: positive,
                                          accuracy: positive,
                                          completeness: positive,
@@ -208,7 +262,8 @@ add_decision_option_link(data_access_decision, sql_layer,
 add_decision_option_link(data_access_decision, no_sql_system,
                            "Use a NoSQL system")
 add_force_relations({rest_apis: {internal_complexity: positive,
-                                complexity_for_user: negative},
+                                complexity_for_user: negative,
+                                control_over_data_schema: positive},
                     sql_layer: {internal_complexity: positive,
                                 complexity_for_user: positive,
                                 accelerate_decision_making: very_positive,
@@ -224,10 +279,12 @@ add_decision_option_link(data_product_anatomy_decision, core_datasets,
                          "Distinguish core datasets")
 add_decision_option_link(data_product_anatomy_decision, low_level_events_and_aggregation_layer,
                                 "Implement an aggregation layer")
-add_decision_option_link(data_product_anatomy_decision, low_level_events_and_aggregations_layer,
-                    "Distinguish on aggregation")
 add_decision_option_link(data_product_anatomy_decision,feature_layer,
                                "Add a special layer for the features")
+add_decision_option_link(data_product_anatomy_decision, open_source_data_and_analytics_processing_service,
+                            "Add an option to use open source data and convert this to analytical data")
+add_decision_option_link(data_product_anatomy_decision, control_plane,
+                             "Add a control plane to the data product")
 add_force_relations({domain_datasets: {prioritise: positive},
                          core_datasets: {prioritise: positive,
                                          trustworthiness: positive,
@@ -237,7 +294,7 @@ add_force_relations({domain_datasets: {prioritise: positive},
                                         stability: positive}
                      })
 
-# ** communicaton_decision **
+# ** communication_decision **
 
 communication_decision = CClass(decision, "How can data products communicate?")
 add_decision_option_link(communication_decision, event_streaming,
@@ -254,8 +311,21 @@ add_decision_option_link(communication_decision,unified_batch_stream,
                              "Schedule stream and batch processing jobs")
 add_decision_option_link(communication_decision,event_bus,
                              "Location for all streaming event data")
+add_decision_option_link(communication_decision, pub_sub,
+                         "Use pub/sub to communicate new events")
+add_decision_option_link(communication_decision, indirect_data_publishing_and_consumption,
+                                "Process data indirectly, not point-to-point")
+add_decision_option_link(communication_decision, snapshots_ETL,
+                                "Generate ETL snapshots")
 add_force_relations({cqrs: {multiple_independent_read_only_views: positive},
-                    unified_batch_stream: {periodic_execution: positive}
+                    unified_batch_stream: {periodic_execution: positive},
+                     pub_sub: {fast_data_propagation: positive,
+                               handle_large_data_volumes: very_positive,
+                               limit_recipients: positive,
+                               addressability_subscriptions: positive},
+                    snapshots_ETL: {control_over_data_schema: positive},
+                    event_streaming: {real_time_data_access: positive,
+                                       high_fidelity: positive}
                      })
 
 # ** security_decision **
@@ -265,6 +335,14 @@ add_decision_option_link(security_decision , role_based_access_control,
                          "Provide access based on the user's role")
 add_decision_option_link(security_decision, encryption,
                          "Secure with an encryption key")
+add_decision_option_link(security_decision, open_access,
+                            "Everyone can use the data product")
+add_decision_option_link(security_decision, attribute_based_access_control,
+                         "Provide access based on attribute")
+add_decision_option_link(security_decision, zero_trust_architecture,
+                             "Apply a zero trust between the data products")
+add_decision_option_link(security_decision, oauth2,
+                             "Apply the OAUTH2 security approach")
 
 # ** store_decision **
 
@@ -293,17 +371,40 @@ add_decision_option_link(infrastructure_decision, containerisation,
                             "Containerise all the domains")
 add_decision_option_link(infrastructure_decision, orchestration,
                              "Integrate applications into a single offering")
+add_decision_option_link(infrastructure_decision, templated_data_pipeline,
+                             "Use a templated data pipeline to easily adopt and extend")
+add_decision_option_link(infrastructure_decision, centrally_manage_monitor_govern_data,
+                            "Manage all data products centrally")
 add_force_relations({infrastructure_as_code: {compliance: positive,
                                               provenance: positive,
                                               discoverability: positive,
                                               re_use: positive,
                                               time_to_market: positive,
                                               duplication: positive},
-                     orchestration: {consistency: positive}
+                    orchestration: {consistency: positive},
+                    centrally_manage_monitor_govern_data: {data_productivity: very_positive,
+                                                            analytics_agility: very_positive,
+                                                            manual_toil: negative,
+                                                            security: positive,
+                                                            quality: positive,
+                                                            discovery: positive},
+                    versioning: {multiple_environments: positive},
+                    ci_cd_process: {multiple_environments: positive}
                      })
 
+# ** structural_decision **
 
-
+structural_decision = CClass(decision, "How to deploy a data product using subscriptions and workspaces?")
+add_decision_option_link(structural_decision, multi_tenancy_model,
+                         "Each domain gets a slice of resources")
+add_decision_option_link(structural_decision, single_subscription_single_workspace_dedicated_artifacts_per_domain,
+                         "Separate the artifacts aligned to various domains")
+add_decision_option_link(structural_decision, single_subscription_multiple_workspaces,
+                         "Generate multiple workspaces in a single subscription")
+add_decision_option_link(structural_decision, single_subscription_dedicated_workpasce_per_domain,
+                         "Each domain gets a separate workspace")
+add_decision_option_link(structural_decision, separate_subscriptions_separate_workspace_per_domain,
+                         "Use separate subscriptions and separate workspaces")
 
 
 
