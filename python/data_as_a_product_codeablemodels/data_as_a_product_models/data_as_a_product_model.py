@@ -406,24 +406,70 @@ add_decision_option_link(structural_decision, single_subscription_dedicated_work
 add_decision_option_link(structural_decision, separate_subscriptions_separate_workspace_per_domain,
                          "Use separate subscriptions and separate workspaces")
 
+# decision links
+add_links({data_product_type_decision: [structural_decision, data_product_anatomy_decision],
+           structural_decision: [data_access_decision, keep_track_metadata_decision, infrastructure_decision, communication_decision],
+           data_product_anatomy_decision: [store_decision, trustworty_decision, security_decision, discoverable_data_products_decision]},
+          role_name="next decision", stereotype_instances=consider_if_not_decided_yet)
 
+# decision views
+forces_class_objects = [f.class_object for f in force.all_classes]
 
+# decision views
+forces_class_objects = [f.class_object for f in force.all_classes]
 
+_all = CBundle("_all", elements=data_product_type_decision.class_object.get_connected_elements())
+inter_decision_links_view = CBundle("inter_decision_links",
+                                    elements=[data_product_type_decision, structural_decision,
+                                              data_product_anatomy_decision, data_access_decision, keep_track_metadata_decision,
+                                              infrastructure_decision, communication_decision, store_decision, trustworty_decision, security_decision, discoverable_data_products_decision])
+data_product_type_view = CBundle("data_product_type_decision",
+                                    elements=data_product_type_decision.class_object.get_connected_elements())
 
+structural_decision_view = CBundle("structural_decision",
+                                    elements=structural_decision.class_object.get_connected_elements())
 
+data_product_anatomy_decision_view = CBundle("data_product_anatomy_decision",
+                                    elements=data_product_anatomy_decision.class_object.get_connected_elements())
 
+data_access_decision_view = CBundle("data_access_decision",
+                                    elements=data_access_decision.class_object.get_connected_elements())
 
+keep_track_metadata_decision_view = CBundle("keep_track_metadata_decision",
+                                    elements=keep_track_metadata_decision.class_object.get_connected_elements())
 
+infrastructure_decision_view = CBundle("infrastructure_decision",
+                                    elements=infrastructure_decision.class_object.get_connected_elements())
 
+communication_decision_view = CBundle("communication_decision",
+                                    elements=communication_decision.class_object.get_connected_elements())
 
+store_decision_view = CBundle("store_decision",
+                                    elements=store_decision.class_object.get_connected_elements())
 
+trustworty_decision_view = CBundle("trustworty_decision",
+                                    elements=trustworty_decision.class_object.get_connected_elements())
 
+security_decision_view = CBundle("security_decision",
+                                    elements=security_decision.class_object.get_connected_elements())
 
+discoverable_data_products_decision_view = CBundle("discoverable_data_products_decision",
+                                    elements=discoverable_data_products_decision.class_object.get_connected_elements())
 
-
-
-
-
+data_as_a_product_views = [
+    #_all, {},
+    #inter_decision_links_view, {},
+    structural_decision_view, {},
+    data_product_anatomy_decision_view, {},
+    data_access_decision_view, {},
+    keep_track_metadata_decision_view, {},
+    infrastructure_decision_view, {},
+    communication_decision_view, {},
+    store_decision_view, {},
+    trustworty_decision_view, {},
+    security_decision_view, {},
+    discoverable_data_products_decision_view, {}
+]
 
 
 

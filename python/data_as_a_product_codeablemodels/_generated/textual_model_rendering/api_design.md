@@ -410,6 +410,479 @@
 
 
 
+## Decision: How can the user interact with data products?
+**Evidences:** 
+
+**Context:** 
+
+### **Solution Options**
+
+
+## Decision: What type of data product can be developed?
+**Evidences:** 
+
+**Context:** 
+
+### **Solution Options**
+#### Solution 1: Expose Data Product as Raw Data
+**Evidences:** 
+
+**Forces:**
+- Internal Complexity (++) []
+- Complexity for User (--) []
+
+#### Solution 2: Expose Data Product as Derived Data
+**Evidences:** 
+
+**Forces:**
+- Internal Complexity (+) []
+- Complexity for User (-) []
+
+#### Solution 3: Expose Data Product as Decision Support Model
+**Evidences:** 
+
+**Forces:**
+- Internal Complexity (-) []
+- Complexity for User (+) []
+
+#### Solution 4: Expose Data Product as Automated Decision-making Model
+**Evidences:** 
+
+**Forces:**
+- Internal Complexity (--) []
+- Complexity for User (++) []
+
+#### Solution 5: Expose Data Product as an algorithm
+**Evidences:** 
+
+**Forces:**
+- Internal Complexity (o) []
+- Complexity for User (o) []
+
+#### **Next Decision**: How to deploy a data product using subscriptions and workspaces?
+#### **Next Decision**: What is the anatomy of a Data Product?
+
+
+## Decision: How to make data products discoverable?
+**Evidences:** 
+
+**Context:** 
+
+### **Solution Options**
+#### Solution 1: Register datasets
+**Evidences:** 
+
+**Forces:**
+- Security (+) []
+- Discoverability (++) []
+
+#### Solution 2: Fine-grained Access Control
+**Evidences:** 
+
+**Forces:**
+- Security (++) []
+- Discoverability (o) []
+
+#### Solution 3: Discovery Port
+**Evidences:** 
+
+
+#### Solution 4: Data Marketplace
+**Evidences:** 
+
+
+
+
+## Decision: How to keep track of metadata?
+**Evidences:** 
+
+**Context:** 
+
+### **Solution Options**
+#### Solution 1: Data Catalogue
+**Evidences:** 
+
+**Forces:**
+- Standardised Transformation (+) []
+- Duplication (-) []
+- Obscurity (-) []
+
+#### Solution 2: Use example notebooks or SQL queries to describe the dataset
+**Evidences:** 
+
+**Forces:**
+- Discoverability (+) []
+- Quickly gain knowledge on data set (++) []
+
+#### Solution 3: Change Data Capture
+**Evidences:** 
+
+**Forces:**
+- Real-time Data Access (+) []
+- Complexity for User (-) []
+- Non-intrusive (+) []
+- Consumption (+) []
+- Production Grade Integrations (+) []
+
+#### Solution 4: Virtualisation
+**Evidences:** 
+
+
+#### Solution 5: Data Product Governance
+**Evidences:** 
+
+**Forces:**
+- Turning the data lake into a swamp (-) []
+
+#### Solution 6: Immutable Change Audit Log
+**Evidences:** 
+
+**Forces:**
+- Reproducibility (+) []
+- Traceability (+) []
+- Verifiability (+) []
+
+#### Solution 7: Lineage Repository
+**Evidences:** 
+
+
+#### Solution 8: Universal Metadata Registry
+**Evidences:** 
+
+
+#### Solution 9: Central Data Product Catalogue
+**Evidences:** 
+
+**Forces:**
+- Discoverability (+) []
+
+
+
+## Decision: How to make a data product trustworty?
+**Evidences:** 
+
+**Context:** 
+
+### **Solution Options**
+#### Solution 1: Provide a single integrated experience for monitoring
+**Evidences:** 
+
+
+#### Solution 2: The observability plane brings an interface between built-in observability of the data quantum and REST clients
+**Evidences:** 
+
+**Forces:**
+- Understandability (+) []
+- Accuracy (+) []
+- Completeness (+) []
+- Integrity (+) []
+
+#### Solution 3: Schema Manager
+**Evidences:** 
+
+**Forces:**
+- Understandability (+) []
+- Duplication (+) []
+- Conflicting definitions (-) []
+
+#### Solution 4: Maintaining a single source of truth
+**Evidences:** 
+
+
+#### Solution 5: Run tests on your data product
+**Evidences:** 
+
+
+#### Solution 6: Time-bounded Backwards Compatibility
+**Evidences:** 
+
+
+
+
+## Decision: How can the user interact with data products?
+**Evidences:** 
+
+**Context:** 
+
+### **Solution Options**
+#### Solution 1: Attach a Data Access REST API to each Data Product
+**Evidences:** 
+
+**Forces:**
+- Internal Complexity (+) []
+- Complexity for User (-) []
+- Control over data schema (+) []
+
+#### Solution 2: Attach a SQL layer to each Data Product
+**Evidences:** 
+
+**Forces:**
+- Internal Complexity (+) []
+- Complexity for User (+) []
+- Accelerate Decision Making (++) []
+- More granular data (++) []
+
+#### Solution 3: NoSQL system
+**Evidences:** 
+
+
+
+
+## Decision: What is the anatomy of a Data Product?
+**Evidences:** 
+
+**Context:** 
+
+### **Solution Options**
+#### Solution 1: The domain datasets belong to a specific domain
+**Evidences:** 
+
+**Forces:**
+- Prioritise (+) []
+
+#### Solution 2: Core datasets are those that are useful for more than one domain
+**Evidences:** 
+
+**Forces:**
+- Prioritise (+) []
+- Trustworthiness (+) []
+- Interoperability (+) []
+
+#### Solution 3: Low level events and aggregation layer
+**Evidences:** 
+
+
+#### Solution 4: Feature Layer
+**Evidences:** 
+
+**Forces:**
+- Interoperability (+) []
+- Stability (+) []
+
+#### Solution 5: Open source data and analytics processing service
+**Evidences:** 
+
+
+#### Solution 6: Control Plane
+**Evidences:** 
+
+
+#### **Next Decision**: Where can we store the data?
+#### **Next Decision**: How to make a data product trustworty?
+#### **Next Decision**: How to secure your data products?
+#### **Next Decision**: How to make data products discoverable?
+
+
+## Decision: How can data products communicate?
+**Evidences:** 
+
+**Context:** 
+
+### **Solution Options**
+#### Solution 1: Event Streaming
+**Evidences:** 
+
+**Forces:**
+- Real-time Data Access (+) []
+- High fidelity (+) []
+
+#### Solution 2: Use a data integration service that helps users efficiently build and manage ETL/ELT pipelines
+**Evidences:** 
+
+
+#### Solution 3: Triggering
+**Evidences:** 
+
+
+#### Solution 4: CQRS
+**Evidences:** 
+
+**Forces:**
+- Multiple independent read-only views (+) []
+
+#### Solution 5: end-to-end connection
+**Evidences:** 
+
+
+#### Solution 6: Create a component for unified batch and stream data processing
+**Evidences:** 
+
+**Forces:**
+- Execution at periodic intervals (+) []
+
+#### Solution 7: Event Bus
+**Evidences:** 
+
+
+#### Solution 8: Pub/Sub
+**Evidences:** 
+
+**Forces:**
+- Fast data propagation (+) []
+- Handle large data volumes (++) []
+- Limit receptions (+) []
+- Addressability of subscriptions (+) []
+
+#### Solution 9: Indirect data publishing and consumption
+**Evidences:** 
+
+
+#### Solution 10: Send snapshots via ETL
+**Evidences:** 
+
+**Forces:**
+- Control over data schema (+) []
+
+
+
+## Decision: How to secure your data products?
+**Evidences:** 
+
+**Context:** 
+
+### **Solution Options**
+#### Solution 1: Role-based Access Control
+**Evidences:** 
+
+
+#### Solution 2: Encryption
+**Evidences:** 
+
+
+#### Solution 3: Open Access
+**Evidences:** 
+
+
+#### Solution 4: Attribute-based Access Control
+**Evidences:** 
+
+
+#### Solution 5: Zero Trust Architecture
+**Evidences:** 
+
+
+#### Solution 6: OAUTH2
+**Evidences:** 
+
+
+
+
+## Decision: Where can we store the data?
+**Evidences:** 
+
+**Context:** 
+
+### **Solution Options**
+#### Solution 1: Internal storages where the data product is deployed, not exposed to consumers
+**Evidences:** 
+
+
+#### Solution 2: Implement a highly available in-memory cache
+**Evidences:** 
+
+
+#### Solution 3: Incrementally build business process-centric data marts
+**Evidences:** 
+
+
+
+
+## Decision: How can we manage and provision the infrastucture
+**Evidences:** 
+
+**Context:** 
+
+### **Solution Options**
+#### Solution 1: Infrastructure as Code
+**Evidences:** 
+
+**Forces:**
+- Compliance (+) []
+- Provenance (+) []
+- Discoverability (+) []
+- Re-use aspects by allowing other teams to find and build upon existing work (+) []
+- Time-to-Market (+) []
+- Duplication (+) []
+
+#### Solution 2:  CI/CD process
+**Evidences:** 
+
+**Forces:**
+- Can be deployed in multiple environments (+) []
+
+#### Solution 3: Versioning
+**Evidences:** 
+
+**Forces:**
+- Can be deployed in multiple environments (+) []
+
+#### Solution 4: K8s
+**Evidences:** 
+
+
+#### Solution 5: Master Data Management
+**Evidences:** 
+
+
+#### Solution 6: Run containers that are invocable via requests or events
+**Evidences:** 
+
+
+#### Solution 7: orchestration
+**Evidences:** 
+
+**Forces:**
+- Consistency (+) []
+
+#### Solution 8: Templated Data Pipeline
+**Evidences:** 
+
+
+#### Solution 9: Centrally manage, monitor, and govern data across data lakes, data warehouses, and data marts
+**Evidences:** 
+
+**Forces:**
+- Data Productivity (++) []
+- Analytics Agility (++) []
+- Manual Toil (-) []
+- Security (+) []
+- Quality (+) []
+- Discovery (+) []
+
+
+
+## Decision: How to deploy a data product using subscriptions and workspaces?
+**Evidences:** 
+
+**Context:** 
+
+### **Solution Options**
+#### Solution 1:  A single Subscription with a single workspace
+**Evidences:** 
+
+
+#### Solution 2: A single Subscription with a single workspace with dedicated artifacts for each domain
+**Evidences:** 
+
+
+#### Solution 3:  A Subscription with multiple workspaces
+**Evidences:** 
+
+
+#### Solution 4: A single Azure Subscription with separate workspaces for each domain
+**Evidences:** 
+
+
+#### Solution 5: Separate subscriptions with separate workspaces for each domain
+**Evidences:** 
+
+
+#### **Next Decision**: How can the user interact with data products?
+#### **Next Decision**: How to keep track of metadata?
+#### **Next Decision**: How can we manage and provision the infrastucture
+#### **Next Decision**: How can data products communicate?
+
+
 # Forces: 
 - Brittle Interfaces [s1, s23]
 - Avoid Exposing Domain Model Details in API [s1, s2, s3, s4, s5, s7, s10, s17, s18, s29, s32]
@@ -438,5 +911,51 @@
 - Domain Model Flexibility [s10]
 - Initial Effort Required [s17, s30, s31]
 - Support for External or Public Clients [s18]
+- Security []
+- Discoverability []
+- Internal Complexity []
+- Complexity for User []
+- Accelerate Decision Making []
+- More granular data []
+- Understandability []
+- Prioritise []
+- Standardised Transformation []
+- Duplication []
+- Obscurity []
+- Trustworthiness []
+- Interoperability []
+- Compliance []
+- Provenance []
+- Accuracy []
+- Completeness []
+- Integrity []
+- Multiple independent read-only views []
+- Re-use aspects by allowing other teams to find and build upon existing work []
+- Time-to-Market []
+- Conflicting definitions []
+- Execution at periodic intervals []
+- Consistency []
+- Stability []
+- Turning the data lake into a swamp []
+- Data Productivity []
+- Analytics Agility []
+- Manual Toil []
+- Quality []
+- Discovery []
+- Quickly gain knowledge on data set []
+- Fast data propagation []
+- Handle large data volumes []
+- Limit receptions []
+- Addressability of subscriptions []
+- Control over data schema []
+- Real-time Data Access []
+- High fidelity []
+- Can be deployed in multiple environments []
+- Non-intrusive []
+- Consumption []
+- Production Grade Integrations []
+- Reproducibility []
+- Traceability []
+- Verifiability []
 
 
