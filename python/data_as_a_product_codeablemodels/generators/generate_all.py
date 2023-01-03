@@ -3,7 +3,7 @@ from generate_textual_model_rendering import TextualModelRenderer
 from metamodels.guidance_metamodel import decision
 from plant_uml_renderer import PlantUMLGenerator
 from python.data_as_a_product_codeablemodels.data_as_a_product_models.data_as_a_product_model import data_as_a_product_views
-# from data_as_a_product_models import domain_model_views
+
 
 # UMLgenerator
 generator = PlantUMLGenerator(delete_gen_dir_during_init=True)
@@ -21,10 +21,10 @@ for key, value in object_models.items():
 # TextualInfo
 textual_model_renderer = TextualModelRenderer()
 decisions = [d for d in decision.all_classes]
-textual_model_renderer.generate_guidance_evidences(decisions, "api_design")
+textual_model_renderer.generate_guidance_evidences(decisions, "data_as_a_product_design")
 
 # Latex
-#source_table_renderer = LatexTableRenderer()
-#source_table_renderer.generate(decisions)
+source_table_renderer = LatexTableRenderer()
+source_table_renderer.generate(decisions)
 
 #%%
