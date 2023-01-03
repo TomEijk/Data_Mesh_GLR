@@ -1,0 +1,285 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "How to deploy a data product using subscriptions\nand workspaces?\n : Decision" as __1_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_
+class " A single Subscription with a single workspace\n : Pattern" as __2__A_single_Subscription_with_a_single_workspace
+class "A single Subscription with a single workspace\nwith dedicated artifacts for each domain\n : Pattern" as __3_A_single_Subscription_with_a_single_workspace_with_dedicated_artifacts_for_each_domain
+class " A Subscription with multiple workspaces\n : Pattern" as __4__A_Subscription_with_multiple_workspaces
+class "A single Azure Subscription with separate workspaces\nfor each domain\n : Pattern" as __5_A_single_Azure_Subscription_with_separate_workspaces_for_each_domain
+class "Separate subscriptions with separate workspaces\nfor each domain\n : Pattern" as __6_Separate_subscriptions_with_separate_workspaces_for_each_domain
+class "What type of data product can be developed?\n : Decision" as __7_What_type_of_data_product_can_be_developed_
+class "Expose Data Product as Raw Data : Practice" as __8_Expose_Data_Product_as_Raw_Data
+class "Internal Complexity : Force" as __9_Internal_Complexity
+class "Expose Data Product as Derived Data\n : Practice" as __10_Expose_Data_Product_as_Derived_Data
+class "Complexity for User : Force" as __11_Complexity_for_User
+class "Expose Data Product as an algorithm\n : Practice" as __12_Expose_Data_Product_as_an_algorithm
+class "Expose Data Product as Decision Support Model\n : Practice" as __13_Expose_Data_Product_as_Decision_Support_Model
+class "Expose Data Product as Automated Decision-making\nModel\n : Practice" as __14_Expose_Data_Product_as_Automated_Decision_making_Model
+class "Change Data Capture : Pattern" as __15_Change_Data_Capture
+class "How to keep track of metadata? : Decision" as __16_How_to_keep_track_of_metadata_
+class "Data Catalogue : Pattern" as __17_Data_Catalogue
+class "Standardised Transformation : Force" as __18_Standardised_Transformation
+class "Duplication : Force" as __19_Duplication
+class "Schema Manager : Pattern" as __20_Schema_Manager
+class "How to make a data product trustworty?\n : Decision" as __21_How_to_make_a_data_product_trustworty_
+class "Provide a single integrated experience for monitoring\n : Practice" as __22_Provide_a_single_integrated_experience_for_monitoring
+class "The observability plane brings an interface between\nbuilt-in observability of the data quantum and\nREST clients\n : Pattern" as __23_The_observability_plane_brings_an_interface_between_built_in_observability_of_the_data_quantum_and_REST_clients
+class "Understandability : Force" as __24_Understandability
+class "Accuracy : Force" as __25_Accuracy
+class "Completeness : Force" as __26_Completeness
+class "Integrity : Force" as __27_Integrity
+class "Maintaining a single source of truth\n : Practice" as __28_Maintaining_a_single_source_of_truth
+class "Run tests on your data product : Practice" as __29_Run_tests_on_your_data_product
+class "Time-bounded Backwards Compatibility\n : Practice" as __30_Time_bounded_Backwards_Compatibility
+class "What is the anatomy of a Data Product?\n : Decision" as __31_What_is_the_anatomy_of_a_Data_Product_
+class "The domain datasets belong to a specific domain\n : Practice" as __32_The_domain_datasets_belong_to_a_specific_domain
+class "Prioritise : Force" as __33_Prioritise
+class "Core datasets are those that are useful for more\nthan one domain\n : Practice" as __34_Core_datasets_are_those_that_are_useful_for_more_than_one_domain
+class "Trustworthiness : Force" as __35_Trustworthiness
+class "Interoperability : Force" as __36_Interoperability
+class "Feature Layer : Pattern" as __37_Feature_Layer
+class "Stability : Force" as __38_Stability
+class "Low level events and aggregation layer\n : Pattern" as __39_Low_level_events_and_aggregation_layer
+class "Open source data and analytics processing service\n : Pattern" as __40_Open_source_data_and_analytics_processing_service
+class "Control Plane : Pattern" as __41_Control_Plane
+class "Where can we store the data? : Decision" as __42_Where_can_we_store_the_data_
+class "Internal storages where the data product is deployed,\nnot exposed to consumers\n : Pattern" as __43_Internal_storages_where_the_data_product_is_deployed__not_exposed_to_consumers
+class "Implement a highly available in-memory cache\n : Pattern" as __44_Implement_a_highly_available_in_memory_cache
+class "Incrementally build business process-centric data\nmarts\n : Pattern" as __45_Incrementally_build_business_process_centric_data_marts
+class "How to secure your data products? : Decision" as __46_How_to_secure_your_data_products_
+class "Role-based Access Control : Practice" as __47_Role_based_Access_Control
+class "Encryption : Practice" as __48_Encryption
+class "Open Access : Practice" as __49_Open_Access
+class "Attribute-based Access Control : Pattern" as __50_Attribute_based_Access_Control
+class "Zero Trust Architecture : Practice" as __51_Zero_Trust_Architecture
+class "OAUTH2 : Practice" as __52_OAUTH2
+class "How to make data products discoverable?\n : Decision" as __53_How_to_make_data_products_discoverable_
+class "Register datasets : Practice" as __54_Register_datasets
+class "Search Engine : Pattern" as __55_Search_Engine
+class "Fine-grained Access Control : Practice" as __56_Fine_grained_Access_Control
+class "Security : Force" as __57_Security
+class "Centrally manage, monitor, and govern data across\ndata lakes, data warehouses, and data marts\n : Practice" as __58_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts
+class "How can we manage and provision the infrastucture\n : Decision" as __59_How_can_we_manage_and_provision_the_infrastucture
+class "Infrastructure as Code : Practice" as __60_Infrastructure_as_Code
+class "Compliance : Force" as __61_Compliance
+class "Provenance : Force" as __62_Provenance
+class "Discoverability : Force" as __63_Discoverability
+class "Central Data Product Catalogue : Pattern" as __64_Central_Data_Product_Catalogue
+class "Use example notebooks or SQL queries to describe\nthe dataset\n : Pattern" as __65_Use_example_notebooks_or_SQL_queries_to_describe_the_dataset
+class "Quickly gain knowledge on data set : Force" as __66_Quickly_gain_knowledge_on_data_set
+class "Re-use aspects by allowing other teams to find\nand build upon existing work\n : Force" as __67_Re_use_aspects_by_allowing_other_teams_to_find_and_build_upon_existing_work
+class "Time-to-Market : Force" as __68_Time_to_Market
+class " CI/CD process : Practice" as __69__CI_CD_process
+class "Can be deployed in multiple environments\n : Force" as __70_Can_be_deployed_in_multiple_environments
+class "Versioning : Practice" as __71_Versioning
+class "K8s : Practice" as __72_K8s
+class "Master Data Management : Practice" as __73_Master_Data_Management
+class "Run containers that are invocable via requests\nor events\n : Practice" as __74_Run_containers_that_are_invocable_via_requests_or_events
+class "orchestration : Pattern" as __75_orchestration
+class "Consistency : Force" as __76_Consistency
+class "Templated Data Pipeline : Pattern" as __77_Templated_Data_Pipeline
+class "Data Productivity : Force" as __78_Data_Productivity
+class "Analytics Agility : Force" as __79_Analytics_Agility
+class "Manual Toil : Force" as __80_Manual_Toil
+class "Quality : Force" as __81_Quality
+class "Discovery : Force" as __82_Discovery
+class "Discovery Port : Pattern" as __83_Discovery_Port
+class "Data Marketplace : Pattern" as __84_Data_Marketplace
+class "Conflicting definitions : Force" as __85_Conflicting_definitions
+class "Obscurity : Force" as __86_Obscurity
+class "Virtualisation : Practice" as __87_Virtualisation
+class "Data Product Governance : Practice" as __88_Data_Product_Governance
+class "Turning the data lake into a swamp : Force" as __89_Turning_the_data_lake_into_a_swamp
+class "Immutable Change Audit Log : Pattern" as __90_Immutable_Change_Audit_Log
+class "Reproducibility : Force" as __91_Reproducibility
+class "Traceability : Force" as __92_Traceability
+class "Verifiability : Force" as __93_Verifiability
+class "Lineage Repository : Pattern" as __94_Lineage_Repository
+class "Universal Metadata Registry : Pattern" as __95_Universal_Metadata_Registry
+class "Real-time Data Access : Force" as __96_Real_time_Data_Access
+class "Event Streaming : Practice" as __97_Event_Streaming
+class "How can data products communicate? : Decision" as __98_How_can_data_products_communicate_
+class "Use a data integration service that helps users\nefficiently build and manage ETL/ELT pipelines\n : Pattern" as __99_Use_a_data_integration_service_that_helps_users_efficiently_build_and_manage_ETL_ELT_pipelines
+class "Triggering : Practice" as __100_Triggering
+class "CQRS : Pattern" as __101_CQRS
+class "Multiple independent read-only views : Force" as __102_Multiple_independent_read_only_views
+class "end-to-end connection : Pattern" as __103_end_to_end_connection
+class "Create a component for unified batch and stream\ndata processing\n : Practice" as __104_Create_a_component_for_unified_batch_and_stream_data_processing
+class "Execution at periodic intervals : Force" as __105_Execution_at_periodic_intervals
+class "Event Bus : Pattern" as __106_Event_Bus
+class "Pub/Sub : Pattern" as __107_Pub_Sub
+class "Fast data propagation : Force" as __108_Fast_data_propagation
+class "Handle large data volumes : Force" as __109_Handle_large_data_volumes
+class "Limit receptions : Force" as __110_Limit_receptions
+class "Addressability of subscriptions : Force" as __111_Addressability_of_subscriptions
+class "Indirect data publishing and consumption\n : Practice" as __112_Indirect_data_publishing_and_consumption
+class "Send snapshots via ETL : Practice" as __113_Send_snapshots_via_ETL
+class "Control over data schema : Force" as __114_Control_over_data_schema
+class "Attach a Data Access REST API to each Data Product\n : Pattern" as __115_Attach_a_Data_Access_REST_API_to_each_Data_Product
+class "How can the user interact with data products?\n : Decision" as __116_How_can_the_user_interact_with_data_products_
+class "Attach a SQL layer to each Data Product\n : Pattern" as __117_Attach_a_SQL_layer_to_each_Data_Product
+class "Accelerate Decision Making : Force" as __118_Accelerate_Decision_Making
+class "More granular data : Force" as __119_More_granular_data
+class "NoSQL system : Pattern" as __120_NoSQL_system
+class "High fidelity : Force" as __121_High_fidelity
+class "Non-intrusive : Force" as __122_Non_intrusive
+class "Consumption : Force" as __123_Consumption
+class "Production Grade Integrations : Force" as __124_Production_Grade_Integrations
+__1_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __116_How_can_the_user_interact_with_data_products_: "«Consider If Not Decided Yet» \n" 
+__1_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __16_How_to_keep_track_of_metadata_: "«Consider If Not Decided Yet» \n" 
+__1_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __59_How_can_we_manage_and_provision_the_infrastucture: "«Consider If Not Decided Yet» \n" 
+__1_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __98_How_can_data_products_communicate_: "«Consider If Not Decided Yet» \n" 
+__1_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __2__A_single_Subscription_with_a_single_workspace: "«Option» \n{name = "Each domain gets a slice of\nresources"}\n" 
+__1_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __3_A_single_Subscription_with_a_single_workspace_with_dedicated_artifacts_for_each_domain: "«Option» \n{name = "Separate the artifacts aligned\nto various\ndomains"}\n" 
+__1_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __4__A_Subscription_with_multiple_workspaces: "«Option» \n{name = "Generate multiple workspaces\nin a single\nsubscription"}\n" 
+__1_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __5_A_single_Azure_Subscription_with_separate_workspaces_for_each_domain: "«Option» \n{name = "Each domain gets a separate\nworkspace"}\n" 
+__1_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __6_Separate_subscriptions_with_separate_workspaces_for_each_domain: "«Option» \n{name = "Use separate subscriptions\nand separate\nworkspaces"}\n" 
+__7_What_type_of_data_product_can_be_developed_ --> __1_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_: "«Consider If Not Decided Yet» \n" 
+__7_What_type_of_data_product_can_be_developed_ --> __31_What_is_the_anatomy_of_a_Data_Product_: "«Consider If Not Decided Yet» \n" 
+__7_What_type_of_data_product_can_be_developed_ --> __8_Expose_Data_Product_as_Raw_Data: "«Option» \n{name = "Use raw data from the data\nproduct"}\n" 
+__7_What_type_of_data_product_can_be_developed_ --> __10_Expose_Data_Product_as_Derived_Data: "«Option» \n{name = "Use derived data from the\ndata product"}\n" 
+__7_What_type_of_data_product_can_be_developed_ --> __13_Expose_Data_Product_as_Decision_Support_Model: "«Option» \n{name = "The interface to access a\ndata product\nis a visualisation"}\n" 
+__7_What_type_of_data_product_can_be_developed_ --> __14_Expose_Data_Product_as_Automated_Decision_making_Model: "«Option» \n{name = "The interface to access a\ndata product\nis an app or website"}\n" 
+__7_What_type_of_data_product_can_be_developed_ --> __12_Expose_Data_Product_as_an_algorithm: "«Option» \n{name = "Use algorithms to return information\nor\ninsights"}\n" 
+__8_Expose_Data_Product_as_Raw_Data --> __9_Internal_Complexity: "«++» \n" 
+__8_Expose_Data_Product_as_Raw_Data --> __11_Complexity_for_User: "«--» \n" 
+__10_Expose_Data_Product_as_Derived_Data --> __9_Internal_Complexity: "«+» \n" 
+__10_Expose_Data_Product_as_Derived_Data --> __11_Complexity_for_User: "«-» \n" 
+__12_Expose_Data_Product_as_an_algorithm --> __9_Internal_Complexity: "«o» \n" 
+__12_Expose_Data_Product_as_an_algorithm --> __11_Complexity_for_User: "«o» \n" 
+__13_Expose_Data_Product_as_Decision_Support_Model --> __9_Internal_Complexity: "«-» \n" 
+__13_Expose_Data_Product_as_Decision_Support_Model --> __11_Complexity_for_User: "«+» \n" 
+__14_Expose_Data_Product_as_Automated_Decision_making_Model --> __9_Internal_Complexity: "«--» \n" 
+__14_Expose_Data_Product_as_Automated_Decision_making_Model --> __11_Complexity_for_User: "«++» \n" 
+__15_Change_Data_Capture --> __96_Real_time_Data_Access: "«+» \n" 
+__15_Change_Data_Capture --> __11_Complexity_for_User: "«-» \n" 
+__15_Change_Data_Capture --> __122_Non_intrusive: "«+» \n" 
+__15_Change_Data_Capture --> __123_Consumption: "«+» \n" 
+__15_Change_Data_Capture --> __124_Production_Grade_Integrations: "«+» \n" 
+__16_How_to_keep_track_of_metadata_ --> __17_Data_Catalogue: "«Option» \n{name = "Use a data catalogue to describe\nthe data\ninside a data product"}\n" 
+__16_How_to_keep_track_of_metadata_ --> __65_Use_example_notebooks_or_SQL_queries_to_describe_the_dataset: "«Option» \n{name = "Provide example codes and\nqueries to help\nthe user understand the data"}\n" 
+__16_How_to_keep_track_of_metadata_ --> __15_Change_Data_Capture: "«Option» \n{name = "Identify changes made in the\ndata"}\n" 
+__16_How_to_keep_track_of_metadata_ --> __87_Virtualisation: "«Option» \n{name = "Providing fast, cost-effective,\nand centralized\naccess to and integration of\nall data sources\nthat are important to an organization"}\n" 
+__16_How_to_keep_track_of_metadata_ --> __88_Data_Product_Governance: "«Option» \n{name = "Create internal governance\npolicies"}\n" 
+__16_How_to_keep_track_of_metadata_ --> __90_Immutable_Change_Audit_Log: "«Option» \n{name = "Keep track of data lineage"}\n" 
+__16_How_to_keep_track_of_metadata_ --> __94_Lineage_Repository: "«Option» \n{name = "Pay attention to the transformations"}\n" 
+__16_How_to_keep_track_of_metadata_ --> __95_Universal_Metadata_Registry: "«Option» \n{name = "Store the metadata centrally"}\n" 
+__16_How_to_keep_track_of_metadata_ --> __64_Central_Data_Product_Catalogue: "«Option» \n{name = "Create a catalogue-of-catalogues"}\n" 
+__17_Data_Catalogue --> __18_Standardised_Transformation: "«+» \n" 
+__17_Data_Catalogue --> __19_Duplication: "«-» \n" 
+__17_Data_Catalogue --> __86_Obscurity: "«-» \n" 
+__20_Schema_Manager --> __24_Understandability: "«+» \n" 
+__20_Schema_Manager --> __19_Duplication: "«+» \n" 
+__20_Schema_Manager --> __85_Conflicting_definitions: "«-» \n" 
+__21_How_to_make_a_data_product_trustworty_ --> __22_Provide_a_single_integrated_experience_for_monitoring: "«Option» \n{name = "Only use one single integrated\nmonitoring\nexperience"}\n" 
+__21_How_to_make_a_data_product_trustworty_ --> __23_The_observability_plane_brings_an_interface_between_built_in_observability_of_the_data_quantum_and_REST_clients: "«Option» \n{name = "Use an observability plane\nto observe\nchanges in the data"}\n" 
+__21_How_to_make_a_data_product_trustworty_ --> __20_Schema_Manager: "«Option» \n{name = "Use a schema manager to understand\nthe\ndata as you read the schema"}\n" 
+__21_How_to_make_a_data_product_trustworty_ --> __28_Maintaining_a_single_source_of_truth: "«Option» \n{name = "Keep the original version\nof the data"}\n" 
+__21_How_to_make_a_data_product_trustworty_ --> __29_Run_tests_on_your_data_product: "«Option» \n{name = "Run tests before deployment"}\n" 
+__21_How_to_make_a_data_product_trustworty_ --> __30_Time_bounded_Backwards_Compatibility: "«Option» \n{name = "Include backwards compatibility"}\n" 
+__23_The_observability_plane_brings_an_interface_between_built_in_observability_of_the_data_quantum_and_REST_clients --> __24_Understandability: "«+» \n" 
+__23_The_observability_plane_brings_an_interface_between_built_in_observability_of_the_data_quantum_and_REST_clients --> __25_Accuracy: "«+» \n" 
+__23_The_observability_plane_brings_an_interface_between_built_in_observability_of_the_data_quantum_and_REST_clients --> __26_Completeness: "«+» \n" 
+__23_The_observability_plane_brings_an_interface_between_built_in_observability_of_the_data_quantum_and_REST_clients --> __27_Integrity: "«+» \n" 
+__31_What_is_the_anatomy_of_a_Data_Product_ --> __42_Where_can_we_store_the_data_: "«Consider If Not Decided Yet» \n" 
+__31_What_is_the_anatomy_of_a_Data_Product_ --> __21_How_to_make_a_data_product_trustworty_: "«Consider If Not Decided Yet» \n" 
+__31_What_is_the_anatomy_of_a_Data_Product_ --> __46_How_to_secure_your_data_products_: "«Consider If Not Decided Yet» \n" 
+__31_What_is_the_anatomy_of_a_Data_Product_ --> __53_How_to_make_data_products_discoverable_: "«Consider If Not Decided Yet» \n" 
+__31_What_is_the_anatomy_of_a_Data_Product_ --> __32_The_domain_datasets_belong_to_a_specific_domain: "«Option» \n{name = "Distinguish domain datasets"}\n" 
+__31_What_is_the_anatomy_of_a_Data_Product_ --> __34_Core_datasets_are_those_that_are_useful_for_more_than_one_domain: "«Option» \n{name = "Distinguish core datasets"}\n" 
+__31_What_is_the_anatomy_of_a_Data_Product_ --> __39_Low_level_events_and_aggregation_layer: "«Option» \n{name = "Implement an aggregation layer"}\n" 
+__31_What_is_the_anatomy_of_a_Data_Product_ --> __37_Feature_Layer: "«Option» \n{name = "Add a special layer for the\nfeatures"}\n" 
+__31_What_is_the_anatomy_of_a_Data_Product_ --> __40_Open_source_data_and_analytics_processing_service: "«Option» \n{name = "Add an option to use open\nsource data\nand convert this to analytical data"}\n" 
+__31_What_is_the_anatomy_of_a_Data_Product_ --> __41_Control_Plane: "«Option» \n{name = "Add a control plane to the\ndata product"}\n" 
+__32_The_domain_datasets_belong_to_a_specific_domain --> __33_Prioritise: "«+» \n" 
+__34_Core_datasets_are_those_that_are_useful_for_more_than_one_domain --> __33_Prioritise: "«+» \n" 
+__34_Core_datasets_are_those_that_are_useful_for_more_than_one_domain --> __35_Trustworthiness: "«+» \n" 
+__34_Core_datasets_are_those_that_are_useful_for_more_than_one_domain --> __36_Interoperability: "«+» \n" 
+__37_Feature_Layer --> __36_Interoperability: "«+» \n" 
+__37_Feature_Layer --> __38_Stability: "«+» \n" 
+__42_Where_can_we_store_the_data_ --> __43_Internal_storages_where_the_data_product_is_deployed__not_exposed_to_consumers: "«Option» \n{name = "Store data internally inside\nthe data\nproduct"}\n" 
+__42_Where_can_we_store_the_data_ --> __44_Implement_a_highly_available_in_memory_cache: "«Option» \n{name = "Store the data in a cache"}\n" 
+__42_Where_can_we_store_the_data_ --> __45_Incrementally_build_business_process_centric_data_marts: "«Option» \n{name = "Store data in a data mart"}\n" 
+__46_How_to_secure_your_data_products_ --> __47_Role_based_Access_Control: "«Option» \n{name = "Provide access based on the\nuser's role"}\n" 
+__46_How_to_secure_your_data_products_ --> __48_Encryption: "«Option» \n{name = "Secure with an encryption\nkey"}\n" 
+__46_How_to_secure_your_data_products_ --> __49_Open_Access: "«Option» \n{name = "Everyone can use the data\nproduct"}\n" 
+__46_How_to_secure_your_data_products_ --> __50_Attribute_based_Access_Control: "«Option» \n{name = "Provide access based on attribute"}\n" 
+__46_How_to_secure_your_data_products_ --> __51_Zero_Trust_Architecture: "«Option» \n{name = "Apply a zero trust between\nthe data products"}\n" 
+__46_How_to_secure_your_data_products_ --> __52_OAUTH2: "«Option» \n{name = "Apply the OAUTH2 security\napproach"}\n" 
+__53_How_to_make_data_products_discoverable_ --> __54_Register_datasets: "«Option» \n{name = "Register all the relevant\ndatasets for\nthe data products"}\n" 
+__53_How_to_make_data_products_discoverable_ --> __56_Fine_grained_Access_Control: "«Option» \n{name = "Access must be requested to\nuse data inside\nthe data product"}\n" 
+__53_How_to_make_data_products_discoverable_ --> __83_Discovery_Port: "«Option» \n{name = "Access Point to discover data\ninside the\ndata product"}\n" 
+__53_How_to_make_data_products_discoverable_ --> __84_Data_Marketplace: "«Option» \n{name = "Use a data marketplace to\npublish datasets"}\n" 
+__54_Register_datasets --> __57_Security: "«+» \n" 
+__54_Register_datasets --> __63_Discoverability: "«++» \n" 
+__54_Register_datasets --> __55_Search_Engine: "«Uses» \n" 
+__56_Fine_grained_Access_Control --> __57_Security: "«++» \n" 
+__56_Fine_grained_Access_Control --> __63_Discoverability: "«o» \n" 
+__56_Fine_grained_Access_Control --> __55_Search_Engine: "«Uses» \n" 
+__58_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts --> __78_Data_Productivity: "«++» \n" 
+__58_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts --> __79_Analytics_Agility: "«++» \n" 
+__58_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts --> __80_Manual_Toil: "«-» \n" 
+__58_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts --> __57_Security: "«+» \n" 
+__58_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts --> __81_Quality: "«+» \n" 
+__58_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts --> __82_Discovery: "«+» \n" 
+__59_How_can_we_manage_and_provision_the_infrastucture --> __60_Infrastructure_as_Code: "«Option» \n{name = "Use code instead of manual\nprocesses"}\n" 
+__59_How_can_we_manage_and_provision_the_infrastucture --> __69__CI_CD_process: "«Option» \n{name = "Continuously adapt"}\n" 
+__59_How_can_we_manage_and_provision_the_infrastucture --> __71_Versioning: "«Option» \n{name = "Keep control of your versions"}\n" 
+__59_How_can_we_manage_and_provision_the_infrastucture --> __72_K8s: "«Option» \n{name = "Use pods"}\n" 
+__59_How_can_we_manage_and_provision_the_infrastucture --> __73_Master_Data_Management: "«Option» \n{name = "Use a master data management\ndatabase"}\n" 
+__59_How_can_we_manage_and_provision_the_infrastucture --> __74_Run_containers_that_are_invocable_via_requests_or_events: "«Option» \n{name = "Containerise all the domains"}\n" 
+__59_How_can_we_manage_and_provision_the_infrastucture --> __75_orchestration: "«Option» \n{name = "Integrate applications into\na single offering"}\n" 
+__59_How_can_we_manage_and_provision_the_infrastucture --> __77_Templated_Data_Pipeline: "«Option» \n{name = "Use a templated data pipeline\nto easily\nadopt and extend"}\n" 
+__59_How_can_we_manage_and_provision_the_infrastucture --> __58_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts: "«Option» \n{name = "Manage all data products centrally"}\n" 
+__60_Infrastructure_as_Code --> __61_Compliance: "«+» \n" 
+__60_Infrastructure_as_Code --> __62_Provenance: "«+» \n" 
+__60_Infrastructure_as_Code --> __63_Discoverability: "«+» \n" 
+__60_Infrastructure_as_Code --> __67_Re_use_aspects_by_allowing_other_teams_to_find_and_build_upon_existing_work: "«+» \n" 
+__60_Infrastructure_as_Code --> __68_Time_to_Market: "«+» \n" 
+__60_Infrastructure_as_Code --> __19_Duplication: "«+» \n" 
+__64_Central_Data_Product_Catalogue --> __63_Discoverability: "«+» \n" 
+__65_Use_example_notebooks_or_SQL_queries_to_describe_the_dataset --> __63_Discoverability: "«+» \n" 
+__65_Use_example_notebooks_or_SQL_queries_to_describe_the_dataset --> __66_Quickly_gain_knowledge_on_data_set: "«++» \n" 
+__69__CI_CD_process --> __70_Can_be_deployed_in_multiple_environments: "«+» \n" 
+__71_Versioning --> __70_Can_be_deployed_in_multiple_environments: "«+» \n" 
+__75_orchestration --> __76_Consistency: "«+» \n" 
+__88_Data_Product_Governance --> __89_Turning_the_data_lake_into_a_swamp: "«-» \n" 
+__90_Immutable_Change_Audit_Log --> __91_Reproducibility: "«+» \n" 
+__90_Immutable_Change_Audit_Log --> __92_Traceability: "«+» \n" 
+__90_Immutable_Change_Audit_Log --> __93_Verifiability: "«+» \n" 
+__97_Event_Streaming --> __96_Real_time_Data_Access: "«+» \n" 
+__97_Event_Streaming --> __121_High_fidelity: "«+» \n" 
+__98_How_can_data_products_communicate_ --> __97_Event_Streaming: "«Option» \n{name = "Messaging through events"}\n" 
+__98_How_can_data_products_communicate_ --> __99_Use_a_data_integration_service_that_helps_users_efficiently_build_and_manage_ETL_ELT_pipelines: "«Option» \n{name = "Use a data integration service\nfor ingestion"}\n" 
+__98_How_can_data_products_communicate_ --> __100_Triggering: "«Option» \n{name = "Use triggers to activate certain\nactions"}\n" 
+__98_How_can_data_products_communicate_ --> __101_CQRS: "«Option» \n{name = "Separate read and update operations\nfor\na data store"}\n" 
+__98_How_can_data_products_communicate_ --> __103_end_to_end_connection: "«Option» \n{name = "Connect data products end-to-end"}\n" 
+__98_How_can_data_products_communicate_ --> __104_Create_a_component_for_unified_batch_and_stream_data_processing: "«Option» \n{name = "Schedule stream and batch\nprocessing jobs"}\n" 
+__98_How_can_data_products_communicate_ --> __106_Event_Bus: "«Option» \n{name = "Location for all streaming\nevent data"}\n" 
+__98_How_can_data_products_communicate_ --> __107_Pub_Sub: "«Option» \n{name = "Use pub/sub to communicate\nnew events"}\n" 
+__98_How_can_data_products_communicate_ --> __112_Indirect_data_publishing_and_consumption: "«Option» \n{name = "Process data indirectly, not\npoint-to-point"}\n" 
+__98_How_can_data_products_communicate_ --> __113_Send_snapshots_via_ETL: "«Option» \n{name = "Generate ETL snapshots"}\n" 
+__101_CQRS --> __102_Multiple_independent_read_only_views: "«+» \n" 
+__104_Create_a_component_for_unified_batch_and_stream_data_processing --> __105_Execution_at_periodic_intervals: "«+» \n" 
+__107_Pub_Sub --> __108_Fast_data_propagation: "«+» \n" 
+__107_Pub_Sub --> __109_Handle_large_data_volumes: "«++» \n" 
+__107_Pub_Sub --> __110_Limit_receptions: "«+» \n" 
+__107_Pub_Sub --> __111_Addressability_of_subscriptions: "«+» \n" 
+__113_Send_snapshots_via_ETL --> __114_Control_over_data_schema: "«+» \n" 
+__115_Attach_a_Data_Access_REST_API_to_each_Data_Product --> __9_Internal_Complexity: "«+» \n" 
+__115_Attach_a_Data_Access_REST_API_to_each_Data_Product --> __11_Complexity_for_User: "«-» \n" 
+__115_Attach_a_Data_Access_REST_API_to_each_Data_Product --> __114_Control_over_data_schema: "«+» \n" 
+__116_How_can_the_user_interact_with_data_products_ --> __115_Attach_a_Data_Access_REST_API_to_each_Data_Product: "«Option» \n{name = "Provide programmatic access\nthrough REST\nAPIs"}\n" 
+__116_How_can_the_user_interact_with_data_products_ --> __117_Attach_a_SQL_layer_to_each_Data_Product: "«Option» \n{name = "Provide access through SQL\nqueries"}\n" 
+__116_How_can_the_user_interact_with_data_products_ --> __120_NoSQL_system: "«Option» \n{name = "Use a NoSQL system"}\n" 
+__117_Attach_a_SQL_layer_to_each_Data_Product --> __9_Internal_Complexity: "«+» \n" 
+__117_Attach_a_SQL_layer_to_each_Data_Product --> __11_Complexity_for_User: "«+» \n" 
+__117_Attach_a_SQL_layer_to_each_Data_Product --> __118_Accelerate_Decision_Making: "«++» \n" 
+__117_Attach_a_SQL_layer_to_each_Data_Product --> __119_More_granular_data: "«++» \n" 
+@enduml
