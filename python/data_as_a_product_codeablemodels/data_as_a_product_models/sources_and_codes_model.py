@@ -22,10 +22,10 @@ s1 = CClass(source, "s1", values={
     "source code": False})
 
 s1_codes = [raw_data_as_data_product, derived_data_as_data_product, decision_support_model_as_data_product,
-            automated_decision_making_model_as_data_product, register_datasets, request_access, search_engine,
+            automated_decision_making_model_as_data_product, register_datasets, request_access, service_locator,
             data_catalogue, query_catalogue, quality_monitoring, data_product_type_decision, discoverable_data_products_decision,
-            register_datasets_search_engine, request_access_search_engine, security, discoverability,
-            keep_track_metadata_decision,trustworty_decision]
+            register_datasets_search_engine, request_access_engine, security, discoverability,
+            keep_track_metadata_decision,trustworty_decision, interoperability, trustworthiness, security_decision]
 add_links({s1: s1_codes}, role_name="contained_code")
 
 s2 = CClass(source, "s2", values={
@@ -39,7 +39,7 @@ s2 = CClass(source, "s2", values={
     "source code": False})
 s2_codes = [algorithms_as_data_product, internal_complexity, complexity_for_user, raw_data_as_data_product,
             derived_data_as_data_product, decision_support_model_as_data_product, automated_decision_making_model_as_data_product,
-            rest_apis, sql_layer, data_access_decision, data_product_type_decision]
+            rest_apis, sql_layer, data_access_decision, data_product_type_decision, data_integration_speed]
 add_links({s2: s2_codes}, role_name="contained_code")
 
 s3 = CClass(source, "s3", values={
@@ -55,7 +55,7 @@ s3_codes = [accelerate_decision_making, more_granular_data, sql_layer, data_acce
             observation_plane, trustworty_decision, schema_manager, understandability, rest_apis, query_catalogue,
             quality_monitoring, request_access, discoverable_data_products_decision, domain_datasets,
             core_datasets, data_product_anatomy_decision, prioritise, standardised_transformation, duplication,
-            obscurity, low_level_events_and_aggregation_layer, data_catalogue,
+            obscurity, data_catalogue,
             trustworthiness, interoperability, keep_track_metadata_decision]
 add_links({s3: s3_codes}, role_name="contained_code")
 
@@ -69,9 +69,10 @@ s4 = CClass(source, "s4", values={
     "example": False,
     "source code": False})
 s4_codes = [change_data_capture, event_streaming, virtualisation, data_integration_service,
-            incremental_sync, data_product_governance, keep_track_metadata_decision, communication_decision,
+            incremental_sync, keep_track_metadata_decision, communication_decision,
             quality_monitoring, request_access, trustworty_decision, internal_storages, immutable_change_audit_log,
-            role_based_access_control, cache, security_decision, store_decision, encryption, discoverable_data_products_decision]
+            role_based_access_control, infrastructure_decision, data_marts, up_to_date, unified, protected, accessible,
+            ci_cd_process, security_decision, store_decision, encryption, discoverable_data_products_decision]
 add_links({s4: s4_codes}, role_name="contained_code")
 
 s5 = CClass(source, "s5", values={
@@ -83,10 +84,10 @@ s5 = CClass(source, "s5", values={
     "type": "Practitioner Audience Article",
     "example": False,
     "source code": False})
-s5_codes = [lineage_repository, time_bounded_backwards_compatibility, keep_track_metadata_decision, trustworty_decision, request_access,
+s5_codes = [time_bounded_backwards_compatibility, keep_track_metadata_decision, trustworty_decision, request_access,
             rest_apis, sql_layer, security_decision, data_access_decision, domain_datasets, core_datasets, data_integration_service, communication_decision,
-            data_product_anatomy_decision, universal_metadata_registry, encryption, cache, quality_monitoring, discoverable_data_products_decision,
-            store_decision]
+            data_product_anatomy_decision, central_data_product_catalogue, encryption, cache, quality_monitoring, discoverable_data_products_decision,
+            store_decision, accessible, addressible, data_catalogue]
 add_links({s5: s5_codes}, role_name="contained_code")
 
 s6 = CClass(source, "s6", values={
@@ -102,7 +103,7 @@ s6_codes = [raw_data_as_data_product, derived_data_as_data_product, decision_sup
         automated_decision_making_model_as_data_product, algorithms_as_data_product, data_product_type_decision,
             rest_apis, data_access_decision, quality_monitoring, request_access, role_based_access_control, security_decision, discoverable_data_products_decision,
             infrastructure_decision, infrastructure_as_code, schema_manager, trustworty_decision, ci_cd_process,
-            versioning, k8s]
+            versioning, k8s, quality, accuracy, structured_code]
 add_links({s6: s6_codes}, role_name="contained_code")
 
 s7 = CClass(source, "s7", values={
@@ -115,9 +116,9 @@ s7 = CClass(source, "s7", values={
     "example": False,
     "source code": False})
 s7_codes = [mdm, infrastructure_decision, rest_apis, decision_support_model_as_data_product, data_product_type_decision,
-            data_access_decision, sql_layer, data_product_governance, lineage_repository, schema_manager, keep_track_metadata_decision,
+            data_access_decision, sql_layer, data_catalogue, schema_manager, keep_track_metadata_decision,
             trustworty_decision, core_datasets, domain_datasets, data_product_anatomy_decision, versioning, observation_plane,
-            accuracy, completeness, integrity, compliance]
+            accuracy, completeness, integrity, compliance, raw_data_as_data_product]
 add_links({s7: s7_codes}, role_name="contained_code")
 
 s8 = CClass(source, "s8", values={
@@ -129,9 +130,9 @@ s8 = CClass(source, "s8", values={
     "type": "Practitioner Audience Article",
     "example": False,
     "source code": False})
-s8_codes = [low_level_events_and_aggregation_layer, rest_apis, data_access_decision, data_product_anatomy_decision,
+s8_codes = [rest_apis, data_access_decision, data_product_anatomy_decision,
             triggering, time_bounded_backwards_compatibility, cqrs, multiple_independent_read_only_views, keep_track_metadata_decision, trustworty_decision,
-            communication_decision]
+            communication_decision, immutable_change_audit_log, immutability, bi_temporality_data]
 add_links({s8: s8_codes}, role_name="contained_code")
 
 s9 = CClass(source, "s9", values={
@@ -147,7 +148,7 @@ s9_codes = [decision_support_model_as_data_product, rest_apis, data_access_decis
             infrastructure_decision, infrastructure_as_code, automated_decision_making_model_as_data_product, raw_data_as_data_product,
             quality_monitoring, event_streaming, communication_decision, trustworty_decision, data_product_anatomy_decision,
             feature_layer, interoperability, core_datasets, derived_data_as_data_product, keep_track_metadata_decision,
-            query_catalogue, data_catalogue, mdm, central_data_product_catalogue, lineage_repository, universal_metadata_registry]
+            query_catalogue, data_catalogue, mdm, central_data_product_catalogue, orchestration]
 add_links({s9: s9_codes}, role_name="contained_code")
 
 s10 = CClass(source, "s10", values={
@@ -160,8 +161,8 @@ s10 = CClass(source, "s10", values={
     "example": False,
     "source code": False})
 s10_codes = [sql_layer, data_access_decision, time_bounded_backwards_compatibility, keep_track_metadata_decision,
-             quality_monitoring, trustworty_decision, schema_manager, immutable_change_audit_log, triggering,
-             communication_decision, ]
+             quality_monitoring, trustworty_decision ]
+
 add_links({s10: s10_codes}, role_name="contained_code")
 
 s11 = CClass(source, "s11", values={
@@ -173,7 +174,7 @@ s11 = CClass(source, "s11", values={
     "type": "Practitioner Audience Article",
     "example": False,
     "source code": False})
-s11_codes = [quality_monitoring, trustworty_decision, observation_plane, ]
+s11_codes = [quality_monitoring, trustworty_decision, observation_plane, user_experience, trustworthiness, transparency]
 add_links({s11: s11_codes}, role_name="contained_code")
 
 s12 = CClass(source, "s12", values={
@@ -213,7 +214,7 @@ s14 = CClass(source, "s14", values={
     "source code": False})
 s14_codes = [raw_data_as_data_product, derived_data_as_data_product, decision_support_model_as_data_product,
              data_product_type_decision, containerisation, infrastructure_decision, virtualisation, keep_track_metadata_decision,
-             cache, k8s, sql_layer, data_access_decision,store_decision]
+             cache, k8s, sql_layer, data_access_decision,store_decision, no_sql_system, unified_batch_stream, data_marketplace, query_catalogue]
 add_links({s14: s14_codes}, role_name="contained_code")
 
 s15 = CClass(source, "s15", values={
@@ -228,9 +229,9 @@ s15 = CClass(source, "s15", values={
 s15_codes = [infrastructure_as_code, infrastructure_decision, re_use, time_to_market, discoverability, duplication,
              rest_apis, central_data_product_catalogue, data_catalogue, containerisation, raw_data_as_data_product,
              derived_data_as_data_product, data_product_type_decision, data_access_decision,
-             end_to_end, communication_decision, lineage_repository, role_based_access_control, schema_manager, security_decision,
+             end_to_end, communication_decision, role_based_access_control, schema_manager, security_decision,
              keep_track_metadata_decision, trustworty_decision, request_access, no_sql_system, versioning, incremental_sync, internal_storages,
-             store_decision, discoverable_data_products_decision, cache, virtualisation, sql_layer]
+             store_decision, discoverable_data_products_decision, cache, virtualisation, sql_layer, accessible, data_integration_service]
 add_links({s15: s15_codes}, role_name="contained_code")
 
 s16 = CClass(source, "s16", values={
@@ -243,7 +244,7 @@ s16 = CClass(source, "s16", values={
     "example": True,
     "source code": False})
 s16_codes = [sql_layer, data_catalogue, data_access_decision, keep_track_metadata_decision, schema_manager,
-             trustworty_decision, data_product_governance, ]
+             trustworty_decision ]
 add_links({s16: s16_codes}, role_name="contained_code")
 
 s17 = CClass(source, "s17", values={
@@ -300,7 +301,7 @@ s20_codes = [change_data_capture, rest_apis, schema_manager, quality_monitoring,
              data_access_decision, trustworty_decision, discovery_port, unified_batch_stream, conflicting_definitions,
              discoverable_data_products_decision, periodic_execution, communication_decision, domain_datasets,
              event_streaming, virtualisation, event_bus, data_marts, consistency, stability, store_decision,
-             orchestration, feature_layer, universal_metadata_registry, keep_track_metadata_decision, data_product_anatomy_decision]
+             orchestration, feature_layer, central_data_product_catalogue, keep_track_metadata_decision, data_product_anatomy_decision]
 add_links({s20: s20_codes}, role_name="contained_code")
 
 s21 = CClass(source, "s21", values={
@@ -374,7 +375,7 @@ s26 = CClass(source, "s26", values={
     "type": "Practitioner Audience Article",
     "example": False,
     "source code": False})
-s26_codes = [low_level_events_and_aggregation_layer, data_product_anatomy_decision]
+s26_codes = [data_product_anatomy_decision]
 add_links({s26: s26_codes}, role_name="contained_code")
 
 s27 = CClass(source, "s27", values={
@@ -401,7 +402,7 @@ s28 = CClass(source, "s28", values={
     "example": True,
     "source code": False})
 s28_codes = [run_tests, trustworty_decision, infrastructure_decision, infrastructure_as_code,
-             versioning, unified_batch_stream, quality_monitoring, swamp, data_product_governance,
+             versioning, unified_batch_stream, quality_monitoring, swamp,
              ci_cd_process, communication_decision, keep_track_metadata_decision]
 add_links({s28: s28_codes}, role_name="contained_code")
 
@@ -441,7 +442,7 @@ s31 = CClass(source, "s31", values={
     "example": True,
     "source code": False})
 s31_codes = [centrally_manage_monitor_govern_data, data_productivity, analytics_agility, manual_toil, security,
-             quality, discovery, infrastructure_decision, data_catalogue, keep_track_metadata_decision, universal_metadata_registry, sql_layer,
+             quality, discovery, infrastructure_decision, data_catalogue, keep_track_metadata_decision, central_data_product_catalogue, sql_layer,
              data_access_decision, immutable_change_audit_log, request_access, discoverable_data_products_decision]
 add_links({s31: s31_codes}, role_name="contained_code")
 
@@ -455,8 +456,8 @@ s32 = CClass(source, "s32", values={
     "example": True,
     "source code": False})
 s32_codes = [internal_storages, store_decision, data_marketplace, discoverable_data_products_decision, discoverability,
-             gain_knowledge, query_catalogue, rest_apis, search_engine, central_data_product_catalogue, immutable_change_audit_log,
-             keep_track_metadata_decision, data_catalogue, universal_metadata_registry, sql_layer, data_access_decision,
+             gain_knowledge, query_catalogue, rest_apis, service_locator, central_data_product_catalogue, immutable_change_audit_log,
+             keep_track_metadata_decision, data_catalogue, sql_layer, data_access_decision,
              open_source_data_and_analytics_processing_service, triggering, communication_decision, request_access, quality_monitoring,
              unified_batch_stream, k8s, pub_sub, containerisation, infrastructure_decision, trustworty_decision, data_product_anatomy_decision]
 add_links({s32: s32_codes}, role_name="contained_code")
@@ -607,7 +608,7 @@ s43 = CClass(source, "s43", values={
     "example": True,
     "source code": False})
 s43_codes = [single_subscription_dedicated_workpasce_per_domain, structural_decision, raw_data_as_data_product,
-             data_product_type_decision, low_level_events_and_aggregation_layer, data_marts, store_decision,
+             data_product_type_decision, data_marts, store_decision,
              data_product_anatomy_decision, sql_layer, data_catalogue, keep_track_metadata_decision, k8s,
              templated_data_pipeline, infrastructure_decision, data_access_decision, data_marketplace, cqrs,
              indirect_data_publishing_and_consumption, query_catalogue, discoverable_data_products_decision,
@@ -651,7 +652,7 @@ s46 = CClass(source, "s46", values={
     "type": "Practitioner Audience Article",
     "example": True,
     "source code": False})
-s46_codes = [universal_metadata_registry, keep_track_metadata_decision, virtualisation]
+s46_codes = [central_data_product_catalogue, keep_track_metadata_decision, virtualisation]
 add_links({s46: s46_codes}, role_name="contained_code")
 
 s47 = CClass(source, "s47", values={
@@ -663,7 +664,7 @@ s47 = CClass(source, "s47", values={
     "type": "Practitioner Audience Article",
     "example": True,
     "source code": False})
-s47_codes = [central_data_product_catalogue, schema_manager, data_product_governance, trustworty_decision,
+s47_codes = [central_data_product_catalogue, schema_manager, trustworty_decision,
              keep_track_metadata_decision, immutable_change_audit_log]
 add_links({s47: s47_codes}, role_name="contained_code")
 
@@ -677,7 +678,7 @@ s48 = CClass(source, "s48", values={
     "example": True,
     "source code": False})
 s48_codes = [central_data_product_catalogue, keep_track_metadata_decision, data_catalogue, immutable_change_audit_log,
-             schema_manager, trustworty_decision, change_data_capture, lineage_repository, event_streaming, incremental_sync,
+             schema_manager, trustworty_decision, change_data_capture, event_streaming, incremental_sync,
              sql_layer, communication_decision, data_access_decision]
 add_links({s48: s48_codes}, role_name="contained_code")
 

@@ -18,8 +18,9 @@ def add_force_relations(force_relations_definition):
 # patterns
 
 search_engine = CClass(pattern, "Search Engine")
+service_locator = CClass(pattern, "Service Locator")
 data_catalogue = CClass(pattern, "Data Catalogue")
-query_catalogue = CClass(pattern, "Use example notebooks or SQL queries to describe the dataset")
+query_catalogue = CClass(pattern, "Query Catalogue")
 rest_apis = CClass(pattern, "Attach a Data Access REST API to each Data Product")
 sql_layer = CClass(pattern, "Attach a SQL layer to each Data Product")
 data_access_decision = CClass(decision, "How can the user interact with data products?")
@@ -30,15 +31,12 @@ data_integration_service = CClass(pattern, "Use a data integration service that 
 internal_storages = CClass(pattern, "Internal storages where the data product is deployed, not exposed to consumers")
 immutable_change_audit_log = CClass(pattern, "Immutable Change Audit Log")
 cache = CClass(pattern, "Implement a highly available in-memory cache")
-lineage_repository = CClass(pattern, "Lineage Repository")
-universal_metadata_registry = CClass(pattern, "Universal Metadata Registry")
-low_level_events_and_aggregation_layer = CClass(pattern, "Low level events and aggregation layer")
 cqrs = CClass(pattern, "CQRS")
 feature_layer = CClass(pattern, "Feature Layer")
 central_data_product_catalogue = CClass(pattern, "Central Data Product Catalogue")
 end_to_end = CClass(pattern, "end-to-end connection")
 no_sql_system = CClass(pattern, "NoSQL system")
-orchestration = CClass(pattern, "orchestration")
+orchestration = CClass(pattern, "Orchestrator")
 discovery_port = CClass(pattern, "Discovery Port")
 event_bus = CClass(pattern, "Event Bus")
 data_marts = CClass(pattern, "Incrementally build business process-centric data marts")
@@ -60,6 +58,7 @@ derived_data_as_data_product = CClass(practice, "Expose Data Product as Derived 
 decision_support_model_as_data_product = CClass(practice, "Expose Data Product as Decision Support Model")
 automated_decision_making_model_as_data_product = CClass(practice, "Expose Data Product as Automated Decision-making Model")
 register_datasets = CClass(practice, "Register datasets")
+request_access_engine = CClass(practice, "Request access to datasets in search engine")
 request_access = CClass(practice, "Fine-grained Access Control")
 quality_monitoring = CClass(practice, "Provide a single integrated experience for monitoring")
 algorithms_as_data_product = CClass(practice, "Expose Data Product as an algorithm")
@@ -68,7 +67,6 @@ core_datasets = CClass(practice, "Core datasets are those that are useful for mo
 event_streaming = CClass(practice, "Event Streaming")
 virtualisation = CClass(practice, "Virtualisation")
 incremental_sync = CClass(practice, "Incremental Sync")
-data_product_governance = CClass(practice, "Data Product Governance")
 role_based_access_control = CClass(practice, "Role-based Access Control")
 encryption = CClass(practice, "Encryption")
 time_bounded_backwards_compatibility = CClass(practice, "Time-bounded Backwards Compatibility")
@@ -105,7 +103,7 @@ trustworthiness = CClass(force, "Trustworthiness")
 interoperability = CClass(force, "Interoperability")
 compliance = CClass(force, "Compliance")
 provenance = CClass(force, "Provenance")
-accuracy = CClass(force, "Accuracy")
+accuracy = CClass(force, "Data Accuracy")
 completeness = CClass(force, "Completeness")
 integrity = CClass(force, "Integrity")
 multiple_independent_read_only_views = CClass(force, "Multiple independent read-only views")
@@ -119,7 +117,7 @@ swamp = CClass(force, "Turning the data lake into a swamp")
 data_productivity = CClass(force, "Data Productivity")
 analytics_agility = CClass(force, "Analytics Agility")
 manual_toil = CClass(force, "Manual Toil")
-quality = CClass(force, "Quality")
+quality = CClass(force, "Data Quality")
 discovery = CClass(force, "Discovery")
 gain_knowledge = CClass(force, "Quickly gain knowledge on data set")
 fast_data_propagation = CClass(force, "Fast data propagation")
@@ -136,13 +134,24 @@ production_grade_integrations = CClass(force, "Production Grade Integrations")
 reproducibility = CClass(force, "Reproducibility")
 traceability = CClass(force, "Traceability")
 verifiability = CClass(force, "Verifiability")
+unified = CClass(force, "Unified")
+up_to_date = CClass(force, "Up-to-date")
+protected = CClass(force, "Protected")
+accessible = CClass(force, "Accessible")
+addressible = CClass(force, "Addressable")
+structured_code = CClass(force, "Structured code")
+immutability = CClass(force, "Immutability")
+bi_temporality_data = CClass(force, "Bi-temporality of data")
+transparency = CClass(force, "Transparency")
+user_experience = CClass(force, "User Experience")
+data_integration_speed = CClass(force, "Data Integration Speed")
 
 # links between practices
 
 register_datasets_search_engine = \
-    register_datasets.add_links(search_engine, role_name="to", stereotype_instances=uses)[0]
+    register_datasets.add_links(service_locator, role_name="to", stereotype_instances=uses)[0]
 request_access_search_engine = \
-    request_access.add_links(search_engine, role_name="to", stereotype_instances=uses)[0]
+    request_access_engine.add_links(service_locator, role_name="to", stereotype_instances=uses)[0]
 
 # decisions, options, and contexts
 
@@ -175,17 +184,15 @@ add_force_relations({raw_data_as_data_product: {internal_complexity: very_positi
 # ** discoverable_data_products_decision **
 
 discoverable_data_products_decision = CClass(decision, "How to make data products discoverable?")
-add_decision_option_link(discoverable_data_products_decision, register_datasets,
-                         "Register all the relevant datasets for the data products")
-add_decision_option_link(discoverable_data_products_decision, request_access,
-                        "Access must be requested to use data inside the data product")
+add_decision_option_link(discoverable_data_products_decision, service_locator,
+                         "Use a Service Locator pattern")
 add_decision_option_link(discoverable_data_products_decision,discovery_port,
                              "Access Point to discover data inside the data product")
 add_decision_option_link(discoverable_data_products_decision, data_marketplace,
                                "Use a data marketplace to publish datasets")
 add_force_relations({register_datasets: {security: positive,
                                          discoverability: very_positive},
-                     request_access: {security: very_positive,
+                     request_access_engine: {security: very_positive,
                                          discoverability: neutral},
                       })
 
@@ -200,22 +207,17 @@ add_decision_option_link(keep_track_metadata_decision, change_data_capture,
                          "Identify changes made in the data")
 add_decision_option_link(keep_track_metadata_decision, virtualisation,
                          "Providing fast, cost-effective, and centralized access to and integration of all data sources that are important to an organization")
-add_decision_option_link(keep_track_metadata_decision, data_product_governance,
-                         "Create internal governance policies")
 add_decision_option_link(keep_track_metadata_decision, immutable_change_audit_log,
                          "Keep track of data lineage")
-add_decision_option_link(keep_track_metadata_decision, lineage_repository,
-                         "Pay attention to the transformations")
-add_decision_option_link(keep_track_metadata_decision , universal_metadata_registry,
-                         "Store the metadata centrally")
 add_decision_option_link(keep_track_metadata_decision, central_data_product_catalogue,
                         "Create a catalogue-of-catalogues")
 add_force_relations({data_catalogue: {standardised_transformation: positive,
                                           duplication: negative,
                                           obscurity: negative},
                     central_data_product_catalogue: {discoverability: positive},
-                    data_product_governance: {swamp: negative},
-                    query_catalogue: {discoverability: positive,
+                    query_catalogue: {trustworthiness: positive,
+                                        interoperability: positive,
+                                        discoverability: positive,
                                           gain_knowledge: very_positive},
                     change_data_capture: {real_time_data_access: positive,
                                               complexity_for_user: negative,
@@ -224,7 +226,10 @@ add_force_relations({data_catalogue: {standardised_transformation: positive,
                                               production_grade_integrations: positive},
                     immutable_change_audit_log: {reproducibility: positive,
                                                       traceability: positive,
-                                                      verifiability: positive}
+                                                      verifiability: positive,
+                                                    immutability: very_positive,
+                                                    bi_temporality_data: positive},
+                    virtualisation: {data_integration_speed: very_positive}
                         })
 
 
@@ -241,10 +246,15 @@ add_decision_option_link(trustworty_decision, maintaining_source_of_truth,
                                "Keep the original version of the data")
 add_decision_option_link(trustworty_decision, run_tests,
                         "Run tests before deployment")
-add_force_relations({observation_plane: {understandability: positive,
+add_force_relations({quality_monitoring: {quality: neutral,
+                                         accuracy: neutral,
+                                        user_experience: positive},
+                      observation_plane: {understandability: positive,
                                          accuracy: positive,
                                          completeness: positive,
-                                         integrity: positive},
+                                         integrity: positive,
+                                         transparency: positive,
+                                         trustworthiness: positive},
                          schema_manager: {understandability: positive,
                                           duplication: positive,
                                           conflicting_definitions: negative}
@@ -263,7 +273,10 @@ add_decision_option_link(data_access_decision, no_sql_system,
                            "Use a NoSQL system")
 add_force_relations({rest_apis: {internal_complexity: positive,
                                 complexity_for_user: negative,
-                                control_over_data_schema: positive},
+                                control_over_data_schema: positive,
+                                accessible: positive,
+                                addressible: positive
+                                 },
                     sql_layer: {internal_complexity: positive,
                                 complexity_for_user: positive,
                                 accelerate_decision_making: very_positive,
@@ -277,15 +290,17 @@ add_decision_option_link(data_product_anatomy_decision, domain_datasets,
                         "Distinguish domain datasets")
 add_decision_option_link(data_product_anatomy_decision, core_datasets,
                          "Distinguish core datasets")
-add_decision_option_link(data_product_anatomy_decision, low_level_events_and_aggregation_layer,
-                                "Implement an aggregation layer")
 add_decision_option_link(data_product_anatomy_decision,feature_layer,
                                "Add a special layer for the features")
 add_decision_option_link(data_product_anatomy_decision, open_source_data_and_analytics_processing_service,
                             "Add an option to use open source data and convert this to analytical data")
 add_decision_option_link(data_product_anatomy_decision, control_plane,
                              "Add a control plane to the data product")
-add_force_relations({domain_datasets: {prioritise: positive},
+add_force_relations({domain_datasets: {prioritise: positive,
+                                       unified: positive,
+                                       up_to_date: positive,
+                                       protected: positive,
+                                       accessible: positive},
                          core_datasets: {prioritise: positive,
                                          trustworthiness: positive,
                                          interoperability: positive
@@ -333,6 +348,8 @@ add_force_relations({cqrs: {multiple_independent_read_only_views: positive},
 security_decision = CClass(decision, "How to secure your data products?")
 add_decision_option_link(security_decision , role_based_access_control,
                          "Provide access based on the user's role")
+add_decision_option_link(security_decision, request_access,
+                         "Provide programmatic access through REST APIs")
 add_decision_option_link(security_decision, encryption,
                          "Secure with an encryption key")
 add_decision_option_link(security_decision, open_access,
@@ -353,6 +370,7 @@ add_decision_option_link(store_decision, cache,
                          "Store the data in a cache")
 add_decision_option_link(store_decision,data_marts,
                              "Store data in a data mart")
+add_force_relations({cache: {duplication: negative}})
 
 # ** infrastructure_decision **
 
@@ -375,7 +393,8 @@ add_decision_option_link(infrastructure_decision, templated_data_pipeline,
                              "Use a templated data pipeline to easily adopt and extend")
 add_decision_option_link(infrastructure_decision, centrally_manage_monitor_govern_data,
                             "Manage all data products centrally")
-add_force_relations({infrastructure_as_code: {compliance: positive,
+add_force_relations({k8s: {structured_code: positive},
+                    infrastructure_as_code: {compliance: positive,
                                               provenance: positive,
                                               discoverability: positive,
                                               re_use: positive,
