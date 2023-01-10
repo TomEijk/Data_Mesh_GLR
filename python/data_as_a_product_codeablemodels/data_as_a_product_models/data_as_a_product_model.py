@@ -23,7 +23,6 @@ data_catalogue = CClass(pattern, "Data Catalogue")
 query_catalogue = CClass(pattern, "Query Catalogue")
 rest_apis = CClass(pattern, "Attach a Data Access REST API to each Data Product")
 sql_layer = CClass(pattern, "Attach a SQL layer to each Data Product")
-data_access_decision = CClass(decision, "How can the user interact with data products?")
 observation_plane = CClass(pattern, "The observability plane brings an interface between built-in observability of the data quantum and REST clients")
 schema_manager = CClass(pattern, "Schema Manager")
 change_data_capture = CClass(pattern, "Change Data Capture")
@@ -51,6 +50,7 @@ single_subscription_multiple_workspaces = CClass(pattern, " A Subscription with 
 single_subscription_dedicated_workpasce_per_domain = CClass(pattern, "A single Azure Subscription with separate workspaces for each domain")
 separate_subscriptions_separate_workspace_per_domain = CClass(pattern, "Separate subscriptions with separate workspaces for each domain")
 control_plane = CClass(pattern, "Control Plane")
+api_gateway = CClass(pattern, "API Gateway")
 
 # practices
 raw_data_as_data_product = CClass(practice, "Expose Data Product as Raw Data")
@@ -83,7 +83,8 @@ maintaining_source_of_truth = CClass(practice, "Maintaining a single source of t
 run_tests = CClass(practice, "Run tests on your data product")
 centrally_manage_monitor_govern_data = CClass(practice, "Centrally manage, monitor, and govern data across data lakes, data warehouses, and data marts")
 indirect_data_publishing_and_consumption = CClass(practice, "Indirect data publishing and consumption")
-snapshots_ETL = CClass(practice, "Send snapshots via ETL")
+snapshots_ETL = CClass(practice, "Send snapshots via nightly ETL")
+snapshots_via_ReqResAPI = CClass(practice, "Send snapshots via Req/Res API")
 zero_trust_architecture = CClass(practice, "Zero Trust Architecture")
 oauth2 = CClass(practice, "OAUTH2")
 
@@ -111,7 +112,7 @@ re_use = CClass(force, "Re-use aspects by allowing other teams to find and build
 time_to_market = CClass(force, "Time-to-Market")
 conflicting_definitions = CClass(force, "Conflicting definitions")
 periodic_execution = CClass(force, "Execution at periodic intervals")
-consistency = CClass(force, "Consistency")
+consistency = CClass(force, "Consistently Applied Security")
 stability = CClass(force, "Stability")
 swamp = CClass(force, "Turning the data lake into a swamp")
 data_productivity = CClass(force, "Data Productivity")
@@ -145,6 +146,7 @@ bi_temporality_data = CClass(force, "Bi-temporality of data")
 transparency = CClass(force, "Transparency")
 user_experience = CClass(force, "User Experience")
 data_integration_speed = CClass(force, "Data Integration Speed")
+scalable = CClass(force, "Scalable")
 
 # links between practices
 
@@ -257,7 +259,8 @@ add_force_relations({quality_monitoring: {quality: neutral,
                                          trustworthiness: positive},
                          schema_manager: {understandability: positive,
                                           duplication: positive,
-                                          conflicting_definitions: negative}
+                                          conflicting_definitions: negative,
+                                          re_use: very_positive}
                      })
 add_decision_option_link(trustworty_decision, time_bounded_backwards_compatibility,
                          "Include backwards compatibility")
@@ -332,15 +335,23 @@ add_decision_option_link(communication_decision, indirect_data_publishing_and_co
                                 "Process data indirectly, not point-to-point")
 add_decision_option_link(communication_decision, snapshots_ETL,
                                 "Generate ETL snapshots")
+add_decision_option_link(communication_decision, snapshots_via_ReqResAPI,
+                                "Generate Req/Res API snapshots")
 add_force_relations({cqrs: {multiple_independent_read_only_views: positive},
                     unified_batch_stream: {periodic_execution: positive},
                      pub_sub: {fast_data_propagation: positive,
                                handle_large_data_volumes: very_positive,
                                limit_recipients: positive,
                                addressability_subscriptions: positive},
-                    snapshots_ETL: {control_over_data_schema: positive},
+                    event_bus: {real_time_data_access: positive},
+                    snapshots_ETL: {control_over_data_schema: negative},
+                    snapshots_via_ReqResAPI: {control_over_data_schema: positive},
                     event_streaming: {real_time_data_access: positive,
-                                       high_fidelity: positive}
+                                      high_fidelity: positive,
+                                      scalable: positive,
+                                      duplication: positive,
+                                      immutability: positive,
+                                      addressible: positive}
                      })
 
 # ** security_decision **
@@ -389,6 +400,8 @@ add_decision_option_link(infrastructure_decision, containerisation,
                             "Containerise all the domains")
 add_decision_option_link(infrastructure_decision, orchestration,
                              "Integrate applications into a single offering")
+add_decision_option_link(infrastructure_decision, api_gateway,
+                             "Use an API Gateway")
 add_decision_option_link(infrastructure_decision, templated_data_pipeline,
                              "Use a templated data pipeline to easily adopt and extend")
 add_decision_option_link(infrastructure_decision, centrally_manage_monitor_govern_data,
@@ -400,7 +413,7 @@ add_force_relations({k8s: {structured_code: positive},
                                               re_use: positive,
                                               time_to_market: positive,
                                               duplication: positive},
-                    orchestration: {consistency: positive},
+                    api_gateway: {consistency: positive},
                     centrally_manage_monitor_govern_data: {data_productivity: very_positive,
                                                             analytics_agility: very_positive,
                                                             manual_toil: negative,
@@ -430,9 +443,6 @@ add_links({data_product_type_decision: [structural_decision, data_product_anatom
            structural_decision: [data_access_decision, keep_track_metadata_decision, infrastructure_decision, communication_decision],
            data_product_anatomy_decision: [store_decision, trustworty_decision, security_decision, discoverable_data_products_decision]},
           role_name="next decision", stereotype_instances=consider_if_not_decided_yet)
-
-# decision views
-forces_class_objects = [f.class_object for f in force.all_classes]
 
 # decision views
 forces_class_objects = [f.class_object for f in force.all_classes]
