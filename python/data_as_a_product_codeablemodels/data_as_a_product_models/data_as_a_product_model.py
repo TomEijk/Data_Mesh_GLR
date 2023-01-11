@@ -90,6 +90,7 @@ oauth2 = CClass(practice, "OAUTH2")
 
 # forces
 security = CClass(force, "Security")
+meet_sla = CClass(force, "Meet SLAs")
 discoverability = CClass(force, "Discoverability")
 internal_complexity = CClass(force, "Internal Complexity")
 complexity_for_user = CClass(force, "Complexity for User")
@@ -147,6 +148,8 @@ transparency = CClass(force, "Transparency")
 user_experience = CClass(force, "User Experience")
 data_integration_speed = CClass(force, "Data Integration Speed")
 scalable = CClass(force, "Scalable")
+frictions = CClass(force, "Frictions")
+entry_barrier = CClass(force, "Entry Barrier")
 
 # links between practices
 
@@ -215,12 +218,16 @@ add_decision_option_link(keep_track_metadata_decision, central_data_product_cata
                         "Create a catalogue-of-catalogues")
 add_force_relations({data_catalogue: {standardised_transformation: positive,
                                           duplication: negative,
-                                          obscurity: negative},
+                                          obscurity: negative,
+                                          discoverability: positive,
+                                      standardised_transformation: positive},
                     central_data_product_catalogue: {discoverability: positive},
                     query_catalogue: {trustworthiness: positive,
                                         interoperability: positive,
                                         discoverability: positive,
-                                          gain_knowledge: very_positive},
+                                        gain_knowledge: very_positive,
+                                        frictions: negative,
+                                        entry_barrier: negative},
                     change_data_capture: {real_time_data_access: positive,
                                               complexity_for_user: negative,
                                               non_intrusive: positive,
@@ -250,7 +257,9 @@ add_decision_option_link(trustworty_decision, run_tests,
                         "Run tests before deployment")
 add_force_relations({quality_monitoring: {quality: neutral,
                                          accuracy: neutral,
-                                        user_experience: positive},
+                                        user_experience: positive,
+                                          meet_sla: positive},
+                      maintaining_source_of_truth: {interoperability: positive},
                       observation_plane: {understandability: positive,
                                          accuracy: positive,
                                          completeness: positive,
@@ -260,7 +269,8 @@ add_force_relations({quality_monitoring: {quality: neutral,
                          schema_manager: {understandability: positive,
                                           duplication: positive,
                                           conflicting_definitions: negative,
-                                          re_use: very_positive}
+                                          re_use: very_positive,
+                                          interoperability: positive}
                      })
 add_decision_option_link(trustworty_decision, time_bounded_backwards_compatibility,
                          "Include backwards compatibility")
@@ -278,8 +288,7 @@ add_force_relations({rest_apis: {internal_complexity: positive,
                                 complexity_for_user: negative,
                                 control_over_data_schema: positive,
                                 accessible: positive,
-                                addressible: positive
-                                 },
+                                addressible: positive},
                     sql_layer: {internal_complexity: positive,
                                 complexity_for_user: positive,
                                 accelerate_decision_making: very_positive,
@@ -344,6 +353,7 @@ add_force_relations({cqrs: {multiple_independent_read_only_views: positive},
                                limit_recipients: positive,
                                addressability_subscriptions: positive},
                     event_bus: {real_time_data_access: positive},
+                    end_to_end: {trustworthiness: positive},
                     snapshots_ETL: {control_over_data_schema: negative},
                     snapshots_via_ReqResAPI: {control_over_data_schema: positive},
                     event_streaming: {real_time_data_access: positive,

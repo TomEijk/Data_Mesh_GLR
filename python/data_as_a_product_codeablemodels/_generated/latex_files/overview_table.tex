@@ -2,67 +2,65 @@
 \hline
 {\bf Design Decision} & {\bf \#} & {\bf Solution} & {\bf Evidences} & {\bf Forces}\\
 \hline
-\multirow{0}{\linewidth}{How can the user interact with data products?} &\cellcolor{emerald_shape_1}{} &\multirow{5}{\linewidth}{What type of data product can be developed?} &\cellcolor{emerald_shape_3}{} &1.Expose Data Product as Raw Data&\cellcolor{emerald_shape_7}{s1, s2, s6, s9, s14, s15, s27, s34, s43} & f3(++), f4(-{}-)\\
- & \cellcolor{emerald_shape_3}{} & 2.Expose Data Product as Derived Data&\cellcolor{emerald_shape_7}{s1, s2, s6, s9, s14, s15, s27, s34} & f3(+), f4(-)\\
- & \cellcolor{emerald_shape_3}{} & 3.Expose Data Product as Decision Support Model&\cellcolor{emerald_shape_7}{s1, s2, s6, s7, s9, s14, s27, s34} & f3(-), f4(+)\\
- & \cellcolor{emerald_shape_3}{} & 4.Expose Data Product as Automated Decision-making Model&\cellcolor{emerald_shape_6}{s1, s2, s6, s9, s27, s34} & f3(-{}-), f4(++)\\
- & \multirow{-5}{\linewidth}{ \cellcolor{emerald_shape_3}{10}} &5.Expose Data Product as an algorithm&\cellcolor{emerald_shape_4}{s2, s6} & f3(o), f4(o)\\
-\multirow{4}{\linewidth}{How to make data products discoverable?} &\cellcolor{emerald_shape_5}{} &1.Register datasets&\cellcolor{emerald_shape_3}{s1, s18, s45} & f1(+), f2(++)\\
- & \cellcolor{emerald_shape_5}{} & 2.Fine-grained Access Control&\cellcolor{emerald_shape_6}{s1, s3, s4, s5, s6, s15, s23, s27, s31, s32, s36, s38} & f1(++), f2(o)\\
- & \cellcolor{emerald_shape_5}{} & 3.Discovery Port&\cellcolor{emerald_shape_4}{s20, s25, s49, s52} & \\
- & \multirow{-4}{\linewidth}{ \cellcolor{emerald_shape_5}{20}} &4.Data Marketplace&\cellcolor{emerald_shape_4}{s32, s42, s43, s45} & \\
-\multirow{9}{\linewidth}{How to keep track of metadata?} &\cellcolor{emerald_shape_7}{} &1.Data Catalogue&\cellcolor{emerald_shape_4}{s1, s3, s9, s15, s16, s25, s30, s31, s32, s37, s43, s48, s53} & f9(+), f10(-), f11(-)\\
- & \cellcolor{emerald_shape_7}{} & 2.Use example notebooks or SQL queries to describe the dataset&\cellcolor{emerald_shape_3}{s1, s3, s9, s30, s32, s43} & f2(+), f32(++)\\
- & \cellcolor{emerald_shape_7}{} & 3.Change Data Capture&\cellcolor{emerald_shape_3}{s4, s20, s38, s45, s48, s53, s54} & f38(+), f4(-), f41(+), f42(+), f43(+)\\
- & \cellcolor{emerald_shape_7}{} & 4.Virtualisation&\cellcolor{emerald_shape_4}{s4, s14, s15, s18, s19, s20, s46, s49} & \\
- & \cellcolor{emerald_shape_7}{} & 5.Data Product Governance&\cellcolor{emerald_shape_3}{s4, s7, s16, s28, s47} & f26(-)\\
- & \cellcolor{emerald_shape_7}{} & 6.Immutable Change Audit Log&\cellcolor{emerald_shape_4}{s4, s10, s12, s31, s32, s35, s36, s45, s47, s48, s53, s54} & f44(+), f45(+), f46(+)\\
- & \cellcolor{emerald_shape_7}{} & 7.Lineage Repository&\cellcolor{emerald_shape_3}{s5, s7, s9, s15, s48} & \\
- & \cellcolor{emerald_shape_7}{} & 8.Universal Metadata Registry&\cellcolor{emerald_shape_3}{s5, s9, s20, s31, s32, s46} & \\
- & \multirow{-9}{\linewidth}{ \cellcolor{emerald_shape_7}{39}} &9.Central Data Product Catalogue&\cellcolor{emerald_shape_4}{s9, s15, s23, s32, s39, s40, s42, s45, s47, s48, s53, s54} & f2(+)\\
-\multirow{6}{\linewidth}{How to make a data product trustworty?} &\cellcolor{emerald_shape_6}{} &1.Provide a single integrated experience for monitoring&\cellcolor{emerald_shape_6}{s1, s3, s4, s5, s6, s9, s10, s11, s12, s19, s20, s22, s28, s32, s33, s35, s36} & \\
- & \cellcolor{emerald_shape_6}{} & 2.The observability plane brings an interface between built-in observability of the data quantum and REST clients&\cellcolor{emerald_shape_3}{s3, s7, s11, s13, s22, s52} & f7(+), f16(+), f17(+), f18(+)\\
- & \cellcolor{emerald_shape_6}{} & 3.Schema Manager&\cellcolor{emerald_shape_5}{s3, s6, s7, s10, s15, s16, s17, s19, s20, s24, s41, s47, s48, s54} & f7(+), f10(+), f22(-)\\
+\multirow{5}{\linewidth}{What type of data product can be developed?} &\cellcolor{emerald_shape_3}{} &1.Expose Data Product as Raw Data&\cellcolor{emerald_shape_7}{s1, s2, s6, s7, s9, s14, s15, s27, s34, s43} & f4(++), f5(-{}-)\\
+ & \cellcolor{emerald_shape_3}{} & 2.Expose Data Product as Derived Data&\cellcolor{emerald_shape_7}{s1, s2, s6, s9, s14, s15, s27, s34} & f4(+), f5(-)\\
+ & \cellcolor{emerald_shape_3}{} & 3.Expose Data Product as Decision Support Model&\cellcolor{emerald_shape_7}{s1, s2, s6, s7, s9, s14, s27, s34} & f4(-), f5(+)\\
+ & \cellcolor{emerald_shape_3}{} & 4.Expose Data Product as Automated Decision-making Model&\cellcolor{emerald_shape_6}{s1, s2, s6, s9, s27, s34} & f4(-{}-), f5(++)\\
+ & \multirow{-5}{\linewidth}{ \cellcolor{emerald_shape_3}{10}} &5.Expose Data Product as an algorithm&\cellcolor{emerald_shape_4}{s2, s6} & f4(o), f5(o)\\
+\multirow{3}{\linewidth}{How to make data products discoverable?} &\cellcolor{emerald_shape_5}{} &1.Service Locator&\cellcolor{emerald_shape_2}{s1, s32} & \\
+ & \cellcolor{emerald_shape_5}{} & 2.Discovery Port&\cellcolor{emerald_shape_3}{s20, s25, s49, s52} & \\
+ & \multirow{-3}{\linewidth}{ \cellcolor{emerald_shape_5}{21}} &3.Data Marketplace&\cellcolor{emerald_shape_4}{s14, s32, s42, s43, s45} & \\
+\multirow{6}{\linewidth}{How to keep track of metadata?} &\cellcolor{emerald_shape_7}{} &1.Data Catalogue&\cellcolor{emerald_shape_5}{s1, s3, s5, s7, s9, s15, s16, s25, s30, s31, s32, s37, s43, s48, s53} & f10(+), f11(-), f12(-), f3(+)\\
+ & \cellcolor{emerald_shape_7}{} & 2.Query Catalogue&\cellcolor{emerald_shape_3}{s1, s3, s9, s14, s30, s32, s43} & f13(+), f14(+), f3(+), f33(++)\\
+ & \cellcolor{emerald_shape_7}{} & 3.Change Data Capture&\cellcolor{emerald_shape_4}{s4, s17, s20, s38, s45, s48, s53, s54} & f39(+), f5(-), f42(+), f43(+), f44(+)\\
+ & \cellcolor{emerald_shape_7}{} & 4.Virtualisation&\cellcolor{emerald_shape_4}{s4, s14, s15, s18, s19, s20, s46, s49} & f58(++)\\
+ & \cellcolor{emerald_shape_7}{} & 5.Immutable Change Audit Log&\cellcolor{emerald_shape_4}{s4, s8, s12, s31, s32, s35, s36, s45, s47, s48, s53, s54} & f45(+), f46(+), f47(+), f54(++), f55(+)\\
+ & \multirow{-6}{\linewidth}{ \cellcolor{emerald_shape_7}{39}} &6.Central Data Product Catalogue&\cellcolor{emerald_shape_5}{s5, s9, s15, s20, s23, s31, s32, s39, s40, s42, s45, s46, s47, s48, s53, s54} & f3(+)\\
+\multirow{6}{\linewidth}{How to make a data product trustworty?} &\cellcolor{emerald_shape_6}{} &1.Provide a single integrated experience for monitoring&\cellcolor{emerald_shape_6}{s1, s3, s4, s5, s6, s9, s10, s11, s12, s19, s20, s22, s25, s28, s32, s33, s35, s36} & f31(o), f17(o), f57(+), f2(+)\\
+ & \cellcolor{emerald_shape_6}{} & 2.The observability plane brings an interface between built-in observability of the data quantum and REST clients&\cellcolor{emerald_shape_3}{s3, s7, s11, s13, s22, s52} & f8(+), f17(+), f18(+), f19(+), f56(+), f13(+)\\
+ & \cellcolor{emerald_shape_6}{} & 3.Schema Manager&\cellcolor{emerald_shape_5}{s3, s6, s7, s15, s16, s17, s19, s20, s24, s41, s47, s48, s54} & f8(+), f11(+), f23(-), f21(++), f14(+)\\
  & \cellcolor{emerald_shape_6}{} & 4.Maintaining a single source of truth&\cellcolor{emerald_shape_2}{s25, s29} & \\
  & \cellcolor{emerald_shape_6}{} & 5.Run tests on your data product&\cellcolor{emerald_shape_1}{s28} & \\
  & \multirow{-6}{\linewidth}{ \cellcolor{emerald_shape_6}{34}} &6.Time-bounded Backwards Compatibility&\cellcolor{emerald_shape_4}{s5, s8, s10, s17, s45, s50, s51} & \\
-\multirow{3}{\linewidth}{How can the user interact with data products?} &\cellcolor{emerald_shape_6}{} &1.Attach a Data Access REST API to each Data Product&\cellcolor{emerald_shape_7}{s2, s3, s5, s6, s7, s8, s9, s15, s17, s18, s20, s30, s32, s33, s34, s36, s37, s38, s39, s41, s45, s49, s52} & f3(+), f4(-), f37(+)\\
- & \cellcolor{emerald_shape_6}{} & 2.Attach a SQL layer to each Data Product&\cellcolor{emerald_shape_6}{s2, s3, s5, s7, s10, s13, s14, s15, s16, s27, s30, s31, s32, s36, s37, s38, s39, s43, s48, s49} & f3(+), f4(+), f5(++), f6(++)\\
- & \multirow{-3}{\linewidth}{ \cellcolor{emerald_shape_6}{32}} &3.NoSQL system&\cellcolor{emerald_shape_1}{s15} & \\
-\multirow{6}{\linewidth}{What is the anatomy of a Data Product?} &\cellcolor{emerald_shape_4}{} &1.The domain datasets belong to a specific domain&\cellcolor{emerald_shape_4}{s3, s5, s7, s20, s45} & f8(+)\\
- & \cellcolor{emerald_shape_4}{} & 2.Core datasets are those that are useful for more than one domain&\cellcolor{emerald_shape_4}{s3, s5, s7, s9, s45} & f8(+), f12(+), f13(+)\\
- & \cellcolor{emerald_shape_4}{} & 3.Low level events and aggregation layer&\cellcolor{emerald_shape_4}{s3, s8, s26, s43} & \\
- & \cellcolor{emerald_shape_4}{} & 4.Feature Layer&\cellcolor{emerald_shape_4}{s9, s20, s27, s40} & f13(+), f25(+)\\
- & \cellcolor{emerald_shape_4}{} & 5.Open source data and analytics processing service&\cellcolor{emerald_shape_3}{s32, s39} & \\
- & \multirow{-6}{\linewidth}{ \cellcolor{emerald_shape_4}{15}} &6.Control Plane&\cellcolor{emerald_shape_3}{s49, s52} & \\
-\multirow{10}{\linewidth}{How can data products communicate?} &\cellcolor{emerald_shape_6}{} &1.Event Streaming&\cellcolor{emerald_shape_5}{s4, s9, s17, s20, s33, s34, s38, s41, s44, s45, s48, s51, s52, s53} & f38(+), f39(+)\\
- & \cellcolor{emerald_shape_6}{} & 2.Use a data integration service that helps users efficiently build and manage ETL/ELT pipelines&\cellcolor{emerald_shape_3}{s4, s5, s30} & \\
- & \cellcolor{emerald_shape_6}{} & 3.Triggering&\cellcolor{emerald_shape_4}{s8, s10, s19, s22, s32, s33, s35, s38, s45} & \\
- & \cellcolor{emerald_shape_6}{} & 4.CQRS&\cellcolor{emerald_shape_3}{s8, s41, s43} & f19(+)\\
+\multirow{3}{\linewidth}{How can the user interact with data products?} &\cellcolor{emerald_shape_6}{} &1.Attach a Data Access REST API to each Data Product&\cellcolor{emerald_shape_7}{s2, s3, s5, s6, s7, s8, s9, s15, s17, s18, s20, s30, s32, s33, s34, s36, s37, s38, s39, s41, s45, s49, s52} & f4(+), f5(-), f38(+), f51(+), f52(+)\\
+ & \cellcolor{emerald_shape_6}{} & 2.Attach a SQL layer to each Data Product&\cellcolor{emerald_shape_6}{s2, s3, s5, s7, s10, s13, s14, s15, s16, s27, s30, s31, s32, s36, s37, s38, s39, s43, s48, s49} & f4(+), f5(+), f6(++), f7(++)\\
+ & \multirow{-3}{\linewidth}{ \cellcolor{emerald_shape_6}{32}} &3.NoSQL system&\cellcolor{emerald_shape_2}{s14, s15} & \\
+\multirow{5}{\linewidth}{What is the anatomy of a Data Product?} &\cellcolor{emerald_shape_4}{} &1.The domain datasets belong to a specific domain&\cellcolor{emerald_shape_5}{s3, s5, s7, s20, s45} & f9(+), f48(+), f49(+), f50(+), f51(+)\\
+ & \cellcolor{emerald_shape_4}{} & 2.Core datasets are those that are useful for more than one domain&\cellcolor{emerald_shape_5}{s3, s5, s7, s9, s45} & f9(+), f13(+), f14(+)\\
+ & \cellcolor{emerald_shape_4}{} & 3.Feature Layer&\cellcolor{emerald_shape_4}{s9, s20, s27, s40} & f14(+), f26(+)\\
+ & \cellcolor{emerald_shape_4}{} & 4.Open source data and analytics processing service&\cellcolor{emerald_shape_3}{s32, s39} & \\
+ & \multirow{-5}{\linewidth}{ \cellcolor{emerald_shape_4}{14}} &5.Control Plane&\cellcolor{emerald_shape_3}{s49, s52} & \\
+\multirow{11}{\linewidth}{How can data products communicate?} &\cellcolor{emerald_shape_6}{} &1.Event Streaming&\cellcolor{emerald_shape_5}{s4, s9, s17, s20, s26, s33, s34, s38, s41, s44, s45, s48, s51, s52, s53} & f39(+), f40(+), f59(+), f11(+), f54(+), f52(+)\\
+ & \cellcolor{emerald_shape_6}{} & 2.Use a data integration service that helps users efficiently build and manage ETL/ELT pipelines&\cellcolor{emerald_shape_3}{s4, s5, s15, s30} & \\
+ & \cellcolor{emerald_shape_6}{} & 3.Triggering&\cellcolor{emerald_shape_4}{s8, s19, s22, s32, s33, s35, s38, s45} & \\
+ & \cellcolor{emerald_shape_6}{} & 4.CQRS&\cellcolor{emerald_shape_2}{s8, s41, s43} & f20(+)\\
  & \cellcolor{emerald_shape_6}{} & 5.end-to-end connection&\cellcolor{emerald_shape_3}{s15, s22, s25, s29} & \\
- & \cellcolor{emerald_shape_6}{} & 6.Create a component for unified batch and stream data processing&\cellcolor{emerald_shape_4}{s20, s28, s30, s32, s36, s39, s41, s44} & f23(+)\\
- & \cellcolor{emerald_shape_6}{} & 7.Event Bus&\cellcolor{emerald_shape_1}{s20} & \\
- & \cellcolor{emerald_shape_6}{} & 8.Pub/Sub&\cellcolor{emerald_shape_4}{s30, s32, s37, s38, s39, s41, s53} & f33(+), f34(++), f35(+), f36(+)\\
+ & \cellcolor{emerald_shape_6}{} & 6.Create a component for unified batch and stream data processing&\cellcolor{emerald_shape_4}{s14, s20, s25, s28, s30, s32, s36, s39, s41, s44} & f24(+)\\
+ & \cellcolor{emerald_shape_6}{} & 7.Event Bus&\cellcolor{emerald_shape_1}{s20} & f39(+)\\
+ & \cellcolor{emerald_shape_6}{} & 8.Pub/Sub&\cellcolor{emerald_shape_4}{s18, s30, s32, s37, s38, s39, s41, s53} & f34(+), f35(++), f36(+), f37(+)\\
  & \cellcolor{emerald_shape_6}{} & 9.Indirect data publishing and consumption&\cellcolor{emerald_shape_2}{s41, s43} & \\
- & \multirow{-10}{\linewidth}{ \cellcolor{emerald_shape_6}{30}} &10.Send snapshots via ETL&\cellcolor{emerald_shape_1}{s41} & f37(+)\\
-\multirow{6}{\linewidth}{How to secure your data products?} &\cellcolor{emerald_shape_3}{} &1.Role-based Access Control&\cellcolor{emerald_shape_6}{s4, s6, s12, s15, s36} & \\
- & \cellcolor{emerald_shape_3}{} & 2.Encryption&\cellcolor{emerald_shape_4}{s4, s5} & \\
- & \cellcolor{emerald_shape_3}{} & 3.Open Access&\cellcolor{emerald_shape_3}{s23} & \\
- & \cellcolor{emerald_shape_3}{} & 4.Attribute-based Access Control&\cellcolor{emerald_shape_3}{s36} & \\
- & \cellcolor{emerald_shape_3}{} & 5.Zero Trust Architecture&\cellcolor{emerald_shape_3}{s45} & \\
- & \multirow{-6}{\linewidth}{ \cellcolor{emerald_shape_3}{8}} &6.OAUTH2&\cellcolor{emerald_shape_3}{s45} & \\
+ & \cellcolor{emerald_shape_6}{} & 10.Send snapshots via nightly ETL&\cellcolor{emerald_shape_2}{s17, s41} & f38(-)\\
+ & \multirow{-11}{\linewidth}{ \cellcolor{emerald_shape_6}{32}} &11.Send snapshots via Req/Res API&\cellcolor{emerald_shape_1}{s17} & f38(+)\\
+\multirow{7}{\linewidth}{How to secure your data products?} &\cellcolor{emerald_shape_4}{} &1.Role-based Access Control&\cellcolor{emerald_shape_4}{s4, s6, s12, s15, s36} & \\
+ & \cellcolor{emerald_shape_4}{} & 2.Fine-grained Access Control&\cellcolor{emerald_shape_7}{s1, s3, s4, s5, s6, s15, s20, s23, s27, s31, s32, s36, s38} & \\
+ & \cellcolor{emerald_shape_4}{} & 3.Encryption&\cellcolor{emerald_shape_3}{s4, s5} & \\
+ & \cellcolor{emerald_shape_4}{} & 4.Open Access&\cellcolor{emerald_shape_2}{s23} & \\
+ & \cellcolor{emerald_shape_4}{} & 5.Attribute-based Access Control&\cellcolor{emerald_shape_2}{s36} & \\
+ & \cellcolor{emerald_shape_4}{} & 6.Zero Trust Architecture&\cellcolor{emerald_shape_2}{s45} & \\
+ & \multirow{-7}{\linewidth}{ \cellcolor{emerald_shape_4}{15}} &7.OAUTH2&\cellcolor{emerald_shape_2}{s45} & \\
 \multirow{3}{\linewidth}{Where can we store the data?} &\cellcolor{emerald_shape_4}{} &1.Internal storages where the data product is deployed, not exposed to consumers&\cellcolor{emerald_shape_6}{s4, s13, s15, s32, s36, s49} & \\
- & \cellcolor{emerald_shape_4}{} & 2.Implement a highly available in-memory cache&\cellcolor{emerald_shape_5}{s4, s5, s14, s15, s18} & \\
- & \multirow{-3}{\linewidth}{ \cellcolor{emerald_shape_4}{12}} &3.Incrementally build business process-centric data marts&\cellcolor{emerald_shape_4}{s20, s43, s52} & \\
-\multirow{9}{\linewidth}{How can we manage and provision the infrastucture} &\cellcolor{emerald_shape_5}{} &1.Infrastructure as Code&\cellcolor{emerald_shape_4}{s6, s9, s15, s19, s28, s30} & f14(+), f15(+), f2(+), f20(+), f21(+), f10(+)\\
- & \cellcolor{emerald_shape_5}{} & 2. CI/CD process&\cellcolor{emerald_shape_4}{s6, s19, s28, s30, s35, s51} & f40(+)\\
- & \cellcolor{emerald_shape_5}{} & 3.Versioning&\cellcolor{emerald_shape_6}{s6, s7, s13, s15, s17, s19, s28, s34, s35, s36, s38, s45, s51} & f40(+)\\
- & \cellcolor{emerald_shape_5}{} & 4.K8s&\cellcolor{emerald_shape_4}{s6, s14, s32, s43, s45} & \\
- & \cellcolor{emerald_shape_5}{} & 5.Master Data Management&\cellcolor{emerald_shape_3}{s7, s9, s44} & \\
+ & \cellcolor{emerald_shape_4}{} & 2.Implement a highly available in-memory cache&\cellcolor{emerald_shape_4}{s5, s14, s15, s18} & f11(-)\\
+ & \multirow{-3}{\linewidth}{ \cellcolor{emerald_shape_4}{12}} &3.Incrementally build business process-centric data marts&\cellcolor{emerald_shape_4}{s4, s20, s43, s52} & \\
+\multirow{10}{\linewidth}{How can we manage and provision the infrastucture} &\cellcolor{emerald_shape_5}{} &1.Infrastructure as Code&\cellcolor{emerald_shape_4}{s6, s9, s15, s17, s19, s28, s30} & f15(+), f16(+), f3(+), f21(+), f22(+), f11(+)\\
+ & \cellcolor{emerald_shape_5}{} & 2. CI/CD process&\cellcolor{emerald_shape_4}{s4, s6, s19, s28, s30, s35, s51} & f41(+)\\
+ & \cellcolor{emerald_shape_5}{} & 3.Versioning&\cellcolor{emerald_shape_6}{s6, s7, s13, s15, s17, s19, s28, s34, s35, s36, s38, s45, s51} & f41(+)\\
+ & \cellcolor{emerald_shape_5}{} & 4.K8s&\cellcolor{emerald_shape_4}{s6, s14, s32, s43, s45} & f53(+)\\
+ & \cellcolor{emerald_shape_5}{} & 5.Master Data Management&\cellcolor{emerald_shape_3}{s7, s9, s23, s44} & \\
  & \cellcolor{emerald_shape_5}{} & 6.Run containers that are invocable via requests or events&\cellcolor{emerald_shape_4}{s14, s15, s30, s32, s33, s45} & \\
- & \cellcolor{emerald_shape_5}{} & 7.orchestration&\cellcolor{emerald_shape_3}{s18, s20, s30} & f24(+)\\
- & \cellcolor{emerald_shape_5}{} & 8.Templated Data Pipeline&\cellcolor{emerald_shape_2}{s30, s43} & \\
- & \multirow{-9}{\linewidth}{ \cellcolor{emerald_shape_5}{23}} &9.Centrally manage, monitor, and govern data across data lakes, data warehouses, and data marts&\cellcolor{emerald_shape_1}{s31} & f27(++), f28(++), f29(-), f1(+), f30(+), f31(+)\\
+ & \cellcolor{emerald_shape_5}{} & 7.Orchestrator&\cellcolor{emerald_shape_3}{s9, s18, s30} & \\
+ & \cellcolor{emerald_shape_5}{} & 8.API Gateway&\cellcolor{emerald_shape_1}{s20} & f25(+)\\
+ & \cellcolor{emerald_shape_5}{} & 9.Templated Data Pipeline&\cellcolor{emerald_shape_2}{s30, s43} & \\
+ & \multirow{-10}{\linewidth}{ \cellcolor{emerald_shape_5}{25}} &10.Centrally manage, monitor, and govern data across data lakes, data warehouses, and data marts&\cellcolor{emerald_shape_1}{s31} & f28(++), f29(++), f30(-), f1(+), f31(+), f32(+)\\
 \multirow{5}{\linewidth}{How to deploy a data product using subscriptions and workspaces?} &\cellcolor{emerald_shape_2}{} &1. A single Subscription with a single workspace&\cellcolor{emerald_shape_4}{s36} & \\
  & \cellcolor{emerald_shape_2}{} & 2.A single Subscription with a single workspace with dedicated artifacts for each domain&\cellcolor{emerald_shape_4}{s36} & \\
  & \cellcolor{emerald_shape_2}{} & 3. A Subscription with multiple workspaces&\cellcolor{emerald_shape_4}{s36} & \\
@@ -70,5 +68,5 @@
  & \multirow{-5}{\linewidth}{ \cellcolor{emerald_shape_2}{3}} &5.Separate subscriptions with separate workspaces for each domain&\cellcolor{emerald_shape_4}{s38} & \\
 \hline
 \multicolumn{5}{l}{\parbox{\textwidth}{\smallskip
-{\bf Forces Codes/Sources}: {\bf f1}:Security [s1, s31], {\bf f2}:Discoverability [s1, s15, s32], {\bf f3}:Internal Complexity [s2], {\bf f4}:Complexity for User [s2], {\bf f5}:Accelerate Decision Making [s3], {\bf f6}:More granular data [s3], {\bf f7}:Understandability [s3], {\bf f8}:Prioritise [s3, s19], {\bf f9}:Standardised Transformation [s3, s19], {\bf f10}:Duplication [s3, s15], {\bf f11}:Obscurity [s3, s19], {\bf f12}:Trustworthiness [s3], {\bf f13}:Interoperability [s3, s9], {\bf f14}:Compliance [s7], {\bf f15}:Provenance [], {\bf f16}:Accuracy [s7], {\bf f17}:Completeness [s7], {\bf f18}:Integrity [s7], {\bf f19}:Multiple independent read-only views [s8], {\bf f20}:Re-use aspects by allowing other teams to find and build upon existing work [s15, s21, s25], {\bf f21}:Time-to-Market [s15, s25], {\bf f22}:Conflicting definitions [s20], {\bf f23}:Execution at periodic intervals [s20], {\bf f24}:Consistency [s20], {\bf f25}:Stability [s20], {\bf f26}:Turning the data lake into a swamp [s28], {\bf f27}:Data Productivity [s31], {\bf f28}:Analytics Agility [s31], {\bf f29}:Manual Toil [s31], {\bf f30}:Quality [s31], {\bf f31}:Discovery [s31], {\bf f32}:Quickly gain knowledge on data set [s32], {\bf f33}:Fast data propagation [s41], {\bf f34}:Handle large data volumes [s41], {\bf f35}:Limit receptions [s41], {\bf f36}:Addressability of subscriptions [s41], {\bf f37}:Control over data schema [s41], {\bf f38}:Real-time Data Access [s51], {\bf f39}:High fidelity [s51], {\bf f40}:Can be deployed in multiple environments [s51], {\bf f41}:Non-intrusive [s53], {\bf f42}:Consumption [s53], {\bf f43}:Production Grade Integrations [s53], {\bf f44}:Reproducibility [s54], {\bf f45}:Traceability [s54], {\bf f46}:Verifiability [s54]}}
+{\bf Forces Codes/Sources}: {\bf f1}:Security [s1, s31], {\bf f2}:Meet SLAs [s22], {\bf f3}:Discoverability [s1, s15, s25, s32], {\bf f4}:Internal Complexity [s2], {\bf f5}:Complexity for User [s2], {\bf f6}:Accelerate Decision Making [s3], {\bf f7}:More granular data [s3], {\bf f8}:Understandability [s3], {\bf f9}:Prioritise [s3, s19], {\bf f10}:Standardised Transformation [s3, s19, s25], {\bf f11}:Duplication [s3, s15, s17, s25], {\bf f12}:Obscurity [s3, s19], {\bf f13}:Trustworthiness [s1, s3, s11], {\bf f14}:Interoperability [s1, s3, s9], {\bf f15}:Compliance [s7], {\bf f16}:Provenance [], {\bf f17}:Data Accuracy [s6, s7], {\bf f18}:Completeness [s7], {\bf f19}:Integrity [s7], {\bf f20}:Multiple independent read-only views [s8], {\bf f21}:Re-use aspects by allowing other teams to find and build upon existing work [s15, s16, s21, s25], {\bf f22}:Time-to-Market [s15, s25], {\bf f23}:Conflicting definitions [s20], {\bf f24}:Execution at periodic intervals [s20], {\bf f25}:Consistently Applied Security [s20], {\bf f26}:Stability [s20], {\bf f27}:Turning the data lake into a swamp [s28], {\bf f28}:Data Productivity [s31], {\bf f29}:Analytics Agility [s31], {\bf f30}:Manual Toil [s31], {\bf f31}:Data Quality [s6, s31], {\bf f32}:Discovery [s31], {\bf f33}:Quickly gain knowledge on data set [s32], {\bf f34}:Fast data propagation [s41], {\bf f35}:Handle large data volumes [s41], {\bf f36}:Limit receptions [s41], {\bf f37}:Addressability of subscriptions [s41], {\bf f38}:Control over data schema [s17, s41], {\bf f39}:Real-time Data Access [s17, s20, s51], {\bf f40}:High fidelity [s51], {\bf f41}:Can be deployed in multiple environments [s51], {\bf f42}:Non-intrusive [s53], {\bf f43}:Consumption [s53], {\bf f44}:Production Grade Integrations [s53], {\bf f45}:Reproducibility [s54], {\bf f46}:Traceability [s54], {\bf f47}:Verifiability [s54], {\bf f48}:Unified [s4], {\bf f49}:Up-to-date [s4], {\bf f50}:Protected [s4], {\bf f51}:Accessible [s4, s5, s15], {\bf f52}:Addressable [s5, s17], {\bf f53}:Structured code [s6], {\bf f54}:Immutability [s8, s17], {\bf f55}:Bi-temporality of data [s8], {\bf f56}:Transparency [s11], {\bf f57}:User Experience [s11], {\bf f58}:Data Integration Speed [s2], {\bf f59}:Scalable [s17]}}
 \end{tabular}

@@ -17,7 +17,8 @@ class "Create a component for unified batch and stream\ndata processing\n : Prac
 class "Event Bus : Pattern" as __8_Event_Bus
 class "Pub/Sub : Pattern" as __9_Pub_Sub
 class "Indirect data publishing and consumption\n : Practice" as __10_Indirect_data_publishing_and_consumption
-class "Send snapshots via ETL : Practice" as __11_Send_snapshots_via_ETL
+class "Send snapshots via nightly ETL : Practice" as __11_Send_snapshots_via_nightly_ETL
+class "Send snapshots via Req/Res API : Practice" as __12_Send_snapshots_via_Req_Res_API
 __1_How_can_data_products_communicate_ --> __2_Event_Streaming: "«Option» \n{name = "Messaging through events"}\n" 
 __1_How_can_data_products_communicate_ --> __3_Use_a_data_integration_service_that_helps_users_efficiently_build_and_manage_ETL_ELT_pipelines: "«Option» \n{name = "Use a data integration service\nfor ingestion"}\n" 
 __1_How_can_data_products_communicate_ --> __4_Triggering: "«Option» \n{name = "Use triggers to activate certain\nactions"}\n" 
@@ -27,5 +28,6 @@ __1_How_can_data_products_communicate_ --> __7_Create_a_component_for_unified_ba
 __1_How_can_data_products_communicate_ --> __8_Event_Bus: "«Option» \n{name = "Location for all streaming\nevent data"}\n" 
 __1_How_can_data_products_communicate_ --> __9_Pub_Sub: "«Option» \n{name = "Use pub/sub to communicate\nnew events"}\n" 
 __1_How_can_data_products_communicate_ --> __10_Indirect_data_publishing_and_consumption: "«Option» \n{name = "Process data indirectly, not\npoint-to-point"}\n" 
-__1_How_can_data_products_communicate_ --> __11_Send_snapshots_via_ETL: "«Option» \n{name = "Generate ETL snapshots"}\n" 
+__1_How_can_data_products_communicate_ --> __11_Send_snapshots_via_nightly_ETL: "«Option» \n{name = "Generate ETL snapshots"}\n" 
+__1_How_can_data_products_communicate_ --> __12_Send_snapshots_via_Req_Res_API: "«Option» \n{name = "Generate Req/Res API snapshots"}\n" 
 @enduml

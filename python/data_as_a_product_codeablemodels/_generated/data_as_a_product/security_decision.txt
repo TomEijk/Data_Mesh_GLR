@@ -9,15 +9,17 @@ skinparam classfontstyle bold
 left to right direction
 class "How to secure your data products? : Decision" as __1_How_to_secure_your_data_products_
 class "Role-based Access Control : Practice" as __2_Role_based_Access_Control
-class "Encryption : Practice" as __3_Encryption
-class "Open Access : Practice" as __4_Open_Access
-class "Attribute-based Access Control : Pattern" as __5_Attribute_based_Access_Control
-class "Zero Trust Architecture : Practice" as __6_Zero_Trust_Architecture
-class "OAUTH2 : Practice" as __7_OAUTH2
+class "Fine-grained Access Control : Practice" as __3_Fine_grained_Access_Control
+class "Encryption : Practice" as __4_Encryption
+class "Open Access : Practice" as __5_Open_Access
+class "Attribute-based Access Control : Pattern" as __6_Attribute_based_Access_Control
+class "Zero Trust Architecture : Practice" as __7_Zero_Trust_Architecture
+class "OAUTH2 : Practice" as __8_OAUTH2
 __1_How_to_secure_your_data_products_ --> __2_Role_based_Access_Control: "«Option» \n{name = "Provide access based on the\nuser's role"}\n" 
-__1_How_to_secure_your_data_products_ --> __3_Encryption: "«Option» \n{name = "Secure with an encryption\nkey"}\n" 
-__1_How_to_secure_your_data_products_ --> __4_Open_Access: "«Option» \n{name = "Everyone can use the data\nproduct"}\n" 
-__1_How_to_secure_your_data_products_ --> __5_Attribute_based_Access_Control: "«Option» \n{name = "Provide access based on attribute"}\n" 
-__1_How_to_secure_your_data_products_ --> __6_Zero_Trust_Architecture: "«Option» \n{name = "Apply a zero trust between\nthe data products"}\n" 
-__1_How_to_secure_your_data_products_ --> __7_OAUTH2: "«Option» \n{name = "Apply the OAUTH2 security\napproach"}\n" 
+__1_How_to_secure_your_data_products_ --> __3_Fine_grained_Access_Control: "«Option» \n{name = "Provide programmatic access\nthrough REST\nAPIs"}\n" 
+__1_How_to_secure_your_data_products_ --> __4_Encryption: "«Option» \n{name = "Secure with an encryption\nkey"}\n" 
+__1_How_to_secure_your_data_products_ --> __5_Open_Access: "«Option» \n{name = "Everyone can use the data\nproduct"}\n" 
+__1_How_to_secure_your_data_products_ --> __6_Attribute_based_Access_Control: "«Option» \n{name = "Provide access based on attribute"}\n" 
+__1_How_to_secure_your_data_products_ --> __7_Zero_Trust_Architecture: "«Option» \n{name = "Apply a zero trust between\nthe data products"}\n" 
+__1_How_to_secure_your_data_products_ --> __8_OAUTH2: "«Option» \n{name = "Apply the OAUTH2 security\napproach"}\n" 
 @enduml

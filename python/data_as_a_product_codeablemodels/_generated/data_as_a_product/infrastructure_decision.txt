@@ -14,16 +14,18 @@ class "Versioning : Practice" as __4_Versioning
 class "K8s : Practice" as __5_K8s
 class "Master Data Management : Practice" as __6_Master_Data_Management
 class "Run containers that are invocable via requests\nor events\n : Practice" as __7_Run_containers_that_are_invocable_via_requests_or_events
-class "orchestration : Pattern" as __8_orchestration
-class "Templated Data Pipeline : Pattern" as __9_Templated_Data_Pipeline
-class "Centrally manage, monitor, and govern data across\ndata lakes, data warehouses, and data marts\n : Practice" as __10_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts
+class "Orchestrator : Pattern" as __8_Orchestrator
+class "API Gateway : Pattern" as __9_API_Gateway
+class "Templated Data Pipeline : Pattern" as __10_Templated_Data_Pipeline
+class "Centrally manage, monitor, and govern data across\ndata lakes, data warehouses, and data marts\n : Practice" as __11_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts
 __1_How_can_we_manage_and_provision_the_infrastucture --> __2_Infrastructure_as_Code: "«Option» \n{name = "Use code instead of manual\nprocesses"}\n" 
 __1_How_can_we_manage_and_provision_the_infrastucture --> __3__CI_CD_process: "«Option» \n{name = "Continuously adapt"}\n" 
 __1_How_can_we_manage_and_provision_the_infrastucture --> __4_Versioning: "«Option» \n{name = "Keep control of your versions"}\n" 
 __1_How_can_we_manage_and_provision_the_infrastucture --> __5_K8s: "«Option» \n{name = "Use pods"}\n" 
 __1_How_can_we_manage_and_provision_the_infrastucture --> __6_Master_Data_Management: "«Option» \n{name = "Use a master data management\ndatabase"}\n" 
 __1_How_can_we_manage_and_provision_the_infrastucture --> __7_Run_containers_that_are_invocable_via_requests_or_events: "«Option» \n{name = "Containerise all the domains"}\n" 
-__1_How_can_we_manage_and_provision_the_infrastucture --> __8_orchestration: "«Option» \n{name = "Integrate applications into\na single offering"}\n" 
-__1_How_can_we_manage_and_provision_the_infrastucture --> __9_Templated_Data_Pipeline: "«Option» \n{name = "Use a templated data pipeline\nto easily\nadopt and extend"}\n" 
-__1_How_can_we_manage_and_provision_the_infrastucture --> __10_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts: "«Option» \n{name = "Manage all data products centrally"}\n" 
+__1_How_can_we_manage_and_provision_the_infrastucture --> __8_Orchestrator: "«Option» \n{name = "Integrate applications into\na single offering"}\n" 
+__1_How_can_we_manage_and_provision_the_infrastucture --> __9_API_Gateway: "«Option» \n{name = "Use an API Gateway"}\n" 
+__1_How_can_we_manage_and_provision_the_infrastucture --> __10_Templated_Data_Pipeline: "«Option» \n{name = "Use a templated data pipeline\nto easily\nadopt and extend"}\n" 
+__1_How_can_we_manage_and_provision_the_infrastucture --> __11_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts: "«Option» \n{name = "Manage all data products centrally"}\n" 
 @enduml

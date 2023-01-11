@@ -9,21 +9,15 @@ skinparam classfontstyle bold
 left to right direction
 class "How to keep track of metadata? : Decision" as __1_How_to_keep_track_of_metadata_
 class "Data Catalogue : Pattern" as __2_Data_Catalogue
-class "Use example notebooks or SQL queries to describe\nthe dataset\n : Pattern" as __3_Use_example_notebooks_or_SQL_queries_to_describe_the_dataset
+class "Query Catalogue : Pattern" as __3_Query_Catalogue
 class "Change Data Capture : Pattern" as __4_Change_Data_Capture
 class "Virtualisation : Practice" as __5_Virtualisation
-class "Data Product Governance : Practice" as __6_Data_Product_Governance
-class "Immutable Change Audit Log : Pattern" as __7_Immutable_Change_Audit_Log
-class "Lineage Repository : Pattern" as __8_Lineage_Repository
-class "Universal Metadata Registry : Pattern" as __9_Universal_Metadata_Registry
-class "Central Data Product Catalogue : Pattern" as __10_Central_Data_Product_Catalogue
+class "Immutable Change Audit Log : Pattern" as __6_Immutable_Change_Audit_Log
+class "Central Data Product Catalogue : Pattern" as __7_Central_Data_Product_Catalogue
 __1_How_to_keep_track_of_metadata_ --> __2_Data_Catalogue: "«Option» \n{name = "Use a data catalogue to describe\nthe data\ninside a data product"}\n" 
-__1_How_to_keep_track_of_metadata_ --> __3_Use_example_notebooks_or_SQL_queries_to_describe_the_dataset: "«Option» \n{name = "Provide example codes and\nqueries to help\nthe user understand the data"}\n" 
+__1_How_to_keep_track_of_metadata_ --> __3_Query_Catalogue: "«Option» \n{name = "Provide example codes and\nqueries to help\nthe user understand the data"}\n" 
 __1_How_to_keep_track_of_metadata_ --> __4_Change_Data_Capture: "«Option» \n{name = "Identify changes made in the\ndata"}\n" 
 __1_How_to_keep_track_of_metadata_ --> __5_Virtualisation: "«Option» \n{name = "Providing fast, cost-effective,\nand centralized\naccess to and integration of\nall data sources\nthat are important to an organization"}\n" 
-__1_How_to_keep_track_of_metadata_ --> __6_Data_Product_Governance: "«Option» \n{name = "Create internal governance\npolicies"}\n" 
-__1_How_to_keep_track_of_metadata_ --> __7_Immutable_Change_Audit_Log: "«Option» \n{name = "Keep track of data lineage"}\n" 
-__1_How_to_keep_track_of_metadata_ --> __8_Lineage_Repository: "«Option» \n{name = "Pay attention to the transformations"}\n" 
-__1_How_to_keep_track_of_metadata_ --> __9_Universal_Metadata_Registry: "«Option» \n{name = "Store the metadata centrally"}\n" 
-__1_How_to_keep_track_of_metadata_ --> __10_Central_Data_Product_Catalogue: "«Option» \n{name = "Create a catalogue-of-catalogues"}\n" 
+__1_How_to_keep_track_of_metadata_ --> __6_Immutable_Change_Audit_Log: "«Option» \n{name = "Keep track of data lineage"}\n" 
+__1_How_to_keep_track_of_metadata_ --> __7_Central_Data_Product_Catalogue: "«Option» \n{name = "Create a catalogue-of-catalogues"}\n" 
 @enduml
