@@ -776,9 +776,44 @@ s54_codes = [immutable_change_audit_log, change_data_capture, central_data_produ
              trustworty_decision, reproducibility, traceability, verifiability, data_lineage, immutability]
 add_links({s54: s54_codes}, role_name="contained_code")
 
+s55 = CClass(source, "s55", values={
+    "title": "Data Mesh Architecture Patterns",
+    "url": "https://towardsdatascience.com/data-mesh-architecture-patterns-98cc1014f251",
+    "archive url": "https://bit.ly/data-as-a-product-s55",
+    "tiny url": "https://tinyurl.com/data-as-a-product-s55",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+s55_codes = [change_data_capture, event_streaming, central_data_product_catalogue, data_catalogue, immutable_change_audit_log, real_time_data_access, delegated_ownership, consumption, discoverability, up_to_date,
+             discoverability, understandability, observability, reproducibility, traceability, data_lineage, governance, communication_decision, keep_track_metadata_decision, trustworty_decision]
+add_links({s55: s55_codes}, role_name="contained_code")
 
+s56 = CClass(source, "s56", values={
+    "title": "Data Mesh Architecture Patterns",
+    "url": "https://towardsdatascience.com/data-mesh-architecture-patterns-98cc1014f251",
+    "archive url": "https://bit.ly/data-as-a-product-s55",
+    "tiny url": "https://tinyurl.com/data-as-a-product-s55",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+s56_codes = [change_data_capture, event_streaming, immutable_change_audit_log, real_time_data_access, zero_trust_architecture, mdm, discoverability,
+             debugging, understandability, data_lineage, consumption, observability, role_based_access_control, attribute_based_access_control, cqrs, strangler_fig_pattern, easy_data_migration_between_products,
+             ]
+add_links({s56: s56_codes}, role_name="contained_code")
 
-
+s57 = CClass(source, "s57", values={
+    "title": "Data mesh and monoliths integration patterns",
+    "url": "https://medium.com/agile-lab-engineering/data-mesh-and-monoliths-integration-patterns-78ecf9f4daa1",
+    "archive url": "https://bit.ly/data-as-a-product-s57",
+    "tiny url": "https://tinyurl.com/data-as-a-product-s57",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+s57_codes = [strangler_fig_pattern, change_data_capture, decompositio, schema_manager, time_bounded_backwards_compatibility, immutable_change_audit_log, event_streaming]
+add_links({s57: s57_codes}, role_name="contained_code")
 
 
 

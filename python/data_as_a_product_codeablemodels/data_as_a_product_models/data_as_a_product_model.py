@@ -51,6 +51,7 @@ single_subscription_dedicated_workpasce_per_domain = CClass(pattern, "A single A
 separate_subscriptions_separate_workspace_per_domain = CClass(pattern, "Separate subscriptions with separate workspaces for each domain")
 control_plane = CClass(pattern, "Control Plane")
 api_gateway = CClass(pattern, "API Gateway")
+strangler_fig_pattern = CClass(pattern, "Strangler-Fig Pattern")
 
 # practices
 raw_data_as_data_product = CClass(practice, "Expose Data Product as Raw Data")
@@ -163,6 +164,10 @@ centralization = CClass(force, "Centralization")
 data_lineage = CClass(force, "Data Lineage")
 self_documenting = CClass(force, "Self-Documenting")
 ability_to_gauge_data_quality = CClass(force, "Ability to gauge data quality")
+governance = CClass(force, "Governance")
+debugging = CClass(force, "Debugging")
+easy_data_migration_between_products = CClass(force, "Easy Data Migration Between Products")
+decomposition = CClass(force, "Decomposition")
 
 # links between practices
 
@@ -243,8 +248,13 @@ add_force_relations({data_catalogue: {standardised_transformation: positive,
                                           obscurity: negative,
                                           discoverability: positive,
                                           data_search: positive,
-                                          data_enrichment: positive},
-                    central_data_product_catalogue: {discoverability: positive},
+                                          data_enrichment: positive,
+                                          delegated_ownership: positive,
+                                          consumption: very_positive,
+                                          up_to_date: positive},
+                    central_data_product_catalogue: {discoverability: positive,
+                                                    understandability: positive,
+                                                     observability: positive},
                     query_catalogue: {trustworthiness: positive,
                                         interoperability: positive,
                                         discoverability: positive,
@@ -263,7 +273,8 @@ add_force_relations({data_catalogue: {standardised_transformation: positive,
                                                  bi_temporality_data: positive,
                                                  observability: positive,
                                                  understandability: very_positive,
-                                                data_lineage: positive},
+                                                data_lineage: positive,
+                                                 governance: very_positive},
                     virtualisation: {data_integration_speed: very_positive}
                         })
 
@@ -292,7 +303,11 @@ add_force_relations({quality_monitoring: {quality: neutral,
                                          integrity: positive,
                                          transparency: positive,
                                          trustworthiness: positive,
-                                         ability_to_gauge_data_quality: very_positive},
+                                         ability_to_gauge_data_quality: very_positive,
+                                        debugging: positive,
+                                        data_lineage: positive,
+                                        consumption: positive,
+                                        observability: positive},
                          schema_manager: {understandability: positive,
                                           duplication: positive,
                                           conflicting_definitions: negative,
@@ -371,6 +386,8 @@ add_decision_option_link(communication_decision, snapshots_ETL,
                                 "Generate ETL snapshots")
 add_decision_option_link(communication_decision, snapshots_via_ReqResAPI,
                                 "Generate Req/Res API snapshots")
+add_decision_option_link(communication_decision, strangler_fig_pattern,
+                                "Use")
 add_force_relations({cqrs: {multiple_independent_read_only_views: positive,
                             allows_for_filtering: positive},
                     unified_batch_stream: {periodic_execution: positive},
@@ -390,7 +407,9 @@ add_force_relations({cqrs: {multiple_independent_read_only_views: positive,
                                       immutability: positive,
                                       addressible: positive},
                     triggering: {on_demand: positive,
-                                 time_to_market: positive}
+                                 time_to_market: positive},
+                     strangler_fig_pattern: {easy_data_migration_between_products: very_positive,
+                                             decomposition: positive}
                      })
 
 # ** security_decision **
@@ -468,7 +487,8 @@ add_force_relations({k8s: {structured_code: positive},
                                                            duplication: negative},
                     versioning: {multiple_environments: positive},
                     ci_cd_process: {multiple_environments: positive},
-                    mdm: {centralization: positive}
+                    mdm: {centralization: positive,
+                          discoverability: positive}
                      })
 
 # ** structural_decision **
