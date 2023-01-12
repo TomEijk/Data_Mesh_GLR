@@ -18,6 +18,7 @@ def add_force_relations(force_relations_definition):
 # patterns
 
 search_engine = CClass(pattern, "Search Engine")
+triggering = CClass(practice, "Event-Driven Pattern")
 service_locator = CClass(pattern, "Service Locator")
 data_catalogue = CClass(pattern, "Data Catalogue")
 query_catalogue = CClass(pattern, "Query Catalogue")
@@ -42,7 +43,6 @@ data_marts = CClass(pattern, "Incrementally build business process-centric data 
 templated_data_pipeline = CClass(pattern, "Templated Data Pipeline")
 pub_sub = CClass(pattern, "Pub/Sub")
 data_marketplace = CClass(pattern, "Data Marketplace")
-open_source_data_and_analytics_processing_service = CClass(pattern, "Open source data and analytics processing service")
 attribute_based_access_control = CClass(pattern, "Attribute-based Access Control")
 multi_tenancy_model = CClass(pattern, " A single Subscription with a single workspace")
 single_subscription_single_workspace_dedicated_artifacts_per_domain = CClass(pattern, "A single Subscription with a single workspace with dedicated artifacts for each domain")
@@ -75,18 +75,18 @@ versioning = CClass(practice, "Versioning")
 k8s = CClass(practice, "K8s")
 mdm = CClass(practice, "Master Data Management")
 infrastructure_as_code = CClass(practice, "Infrastructure as Code")
-triggering = CClass(practice, "Triggering")
 containerisation = CClass(practice, "Run containers that are invocable via requests or events")
 unified_batch_stream = CClass(practice, "Create a component for unified batch and stream data processing")
 open_access = CClass(practice, "Open Access")
 maintaining_source_of_truth = CClass(practice, "Maintaining a single source of truth")
-run_tests = CClass(practice, "Run tests on your data product")
+run_tests = CClass(practice, "Run automated testing on your data product")
 centrally_manage_monitor_govern_data = CClass(practice, "Centrally manage, monitor, and govern data across data lakes, data warehouses, and data marts")
-indirect_data_publishing_and_consumption = CClass(practice, "Indirect data publishing and consumption")
 snapshots_ETL = CClass(practice, "Send snapshots via nightly ETL")
 snapshots_via_ReqResAPI = CClass(practice, "Send snapshots via Req/Res API")
 zero_trust_architecture = CClass(practice, "Zero Trust Architecture")
 oauth2 = CClass(practice, "OAUTH2")
+dataset_versioning = CClass(practice, "Dataset Versioning")
+view_versioning = CClass(practice, "View Versioning")
 
 # forces
 security = CClass(force, "Security")
@@ -150,6 +150,19 @@ data_integration_speed = CClass(force, "Data Integration Speed")
 scalable = CClass(force, "Scalable")
 frictions = CClass(force, "Frictions")
 entry_barrier = CClass(force, "Entry Barrier")
+data_search = CClass(force, "Data Search")
+data_enrichment = CClass(force, "Data Enrichment")
+autonomous = CClass(force, "Autonomous")
+delegated_ownership = CClass(force, "Delegated Ownership")
+observability = CClass(force, "Observability")
+structured_data = CClass(force, "Structured Data")
+on_demand = CClass(force, "On-Demand")
+grouping_related_data_resources = CClass(force, "Grouping Related Data Resources")
+allows_for_filtering = CClass(force, "Allows For Filtering")
+centralization = CClass(force, "Centralization")
+data_lineage = CClass(force, "Data Lineage")
+self_documenting = CClass(force, "Self-Documenting")
+ability_to_gauge_data_quality = CClass(force, "Ability to gauge data quality")
 
 # links between practices
 
@@ -157,6 +170,10 @@ register_datasets_search_engine = \
     register_datasets.add_links(service_locator, role_name="to", stereotype_instances=uses)[0]
 request_access_search_engine = \
     request_access_engine.add_links(service_locator, role_name="to", stereotype_instances=uses)[0]
+versioning_subset = \
+    dataset_versioning.add_links(versioning, role_name="to", stereotype_instances=uses)[0]
+versioning_subset = \
+    view_versioning.add_links(versioning, role_name="to", stereotype_instances=uses)[0]
 
 # decisions, options, and contexts
 
@@ -199,7 +216,12 @@ add_force_relations({register_datasets: {security: positive,
                                          discoverability: very_positive},
                      request_access_engine: {security: very_positive,
                                          discoverability: neutral},
-                      })
+                    data_marketplace: {accessible: positive,
+                                            discoverability: very_positive,
+                                            structured_data: very_positive},
+                    discovery_port: {self_documenting: positive,
+                                    discoverability: positive}
+                        })
 
 # ** keep_track_metadata_decision **
 
@@ -220,7 +242,8 @@ add_force_relations({data_catalogue: {standardised_transformation: positive,
                                           duplication: negative,
                                           obscurity: negative,
                                           discoverability: positive,
-                                      standardised_transformation: positive},
+                                          data_search: positive,
+                                          data_enrichment: positive},
                     central_data_product_catalogue: {discoverability: positive},
                     query_catalogue: {trustworthiness: positive,
                                         interoperability: positive,
@@ -234,10 +257,13 @@ add_force_relations({data_catalogue: {standardised_transformation: positive,
                                               consumption: positive,
                                               production_grade_integrations: positive},
                     immutable_change_audit_log: {reproducibility: positive,
-                                                      traceability: positive,
-                                                      verifiability: positive,
-                                                    immutability: very_positive,
-                                                    bi_temporality_data: positive},
+                                                traceability: positive,
+                                                 verifiability: positive,
+                                                 immutability: very_positive,
+                                                 bi_temporality_data: positive,
+                                                 observability: positive,
+                                                 understandability: very_positive,
+                                                data_lineage: positive},
                     virtualisation: {data_integration_speed: very_positive}
                         })
 
@@ -265,12 +291,14 @@ add_force_relations({quality_monitoring: {quality: neutral,
                                          completeness: positive,
                                          integrity: positive,
                                          transparency: positive,
-                                         trustworthiness: positive},
+                                         trustworthiness: positive,
+                                         ability_to_gauge_data_quality: very_positive},
                          schema_manager: {understandability: positive,
                                           duplication: positive,
                                           conflicting_definitions: negative,
                                           re_use: very_positive,
-                                          interoperability: positive}
+                                          interoperability: positive},
+                        run_tests: {quality: positive}
                      })
 add_decision_option_link(trustworty_decision, time_bounded_backwards_compatibility,
                          "Include backwards compatibility")
@@ -288,7 +316,8 @@ add_force_relations({rest_apis: {internal_complexity: positive,
                                 complexity_for_user: negative,
                                 control_over_data_schema: positive,
                                 accessible: positive,
-                                addressible: positive},
+                                addressible: positive,
+                                interoperability: positive},
                     sql_layer: {internal_complexity: positive,
                                 complexity_for_user: positive,
                                 accelerate_decision_making: very_positive,
@@ -304,8 +333,6 @@ add_decision_option_link(data_product_anatomy_decision, core_datasets,
                          "Distinguish core datasets")
 add_decision_option_link(data_product_anatomy_decision,feature_layer,
                                "Add a special layer for the features")
-add_decision_option_link(data_product_anatomy_decision, open_source_data_and_analytics_processing_service,
-                            "Add an option to use open source data and convert this to analytical data")
 add_decision_option_link(data_product_anatomy_decision, control_plane,
                              "Add a control plane to the data product")
 add_force_relations({domain_datasets: {prioritise: positive,
@@ -340,18 +367,18 @@ add_decision_option_link(communication_decision,event_bus,
                              "Location for all streaming event data")
 add_decision_option_link(communication_decision, pub_sub,
                          "Use pub/sub to communicate new events")
-add_decision_option_link(communication_decision, indirect_data_publishing_and_consumption,
-                                "Process data indirectly, not point-to-point")
 add_decision_option_link(communication_decision, snapshots_ETL,
                                 "Generate ETL snapshots")
 add_decision_option_link(communication_decision, snapshots_via_ReqResAPI,
                                 "Generate Req/Res API snapshots")
-add_force_relations({cqrs: {multiple_independent_read_only_views: positive},
+add_force_relations({cqrs: {multiple_independent_read_only_views: positive,
+                            allows_for_filtering: positive},
                     unified_batch_stream: {periodic_execution: positive},
                      pub_sub: {fast_data_propagation: positive,
                                handle_large_data_volumes: very_positive,
                                limit_recipients: positive,
-                               addressability_subscriptions: positive},
+                               addressability_subscriptions: positive,
+                               grouping_related_data_resources: negative},
                     event_bus: {real_time_data_access: positive},
                     end_to_end: {trustworthiness: positive},
                     snapshots_ETL: {control_over_data_schema: negative},
@@ -361,7 +388,9 @@ add_force_relations({cqrs: {multiple_independent_read_only_views: positive},
                                       scalable: positive,
                                       duplication: positive,
                                       immutability: positive,
-                                      addressible: positive}
+                                      addressible: positive},
+                    triggering: {on_demand: positive,
+                                 time_to_market: positive}
                      })
 
 # ** security_decision **
@@ -381,6 +410,11 @@ add_decision_option_link(security_decision, zero_trust_architecture,
                              "Apply a zero trust between the data products")
 add_decision_option_link(security_decision, oauth2,
                              "Apply the OAUTH2 security approach")
+add_force_relations({request_access: {autonomous: positive,
+                                      delegated_ownership: positive},
+                    role_based_access_control: {understandability: positive},
+                    attribute_based_access_control: {understandability: positive}
+                       })
 
 # ** store_decision **
 
@@ -429,9 +463,12 @@ add_force_relations({k8s: {structured_code: positive},
                                                             manual_toil: negative,
                                                             security: positive,
                                                             quality: positive,
-                                                            discovery: positive},
+                                                            discovery: positive,
+                                                           complexity_for_user: negative,
+                                                           duplication: negative},
                     versioning: {multiple_environments: positive},
-                    ci_cd_process: {multiple_environments: positive}
+                    ci_cd_process: {multiple_environments: positive},
+                    mdm: {centralization: positive}
                      })
 
 # ** structural_decision **
