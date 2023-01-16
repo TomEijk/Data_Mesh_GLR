@@ -8,24 +8,12 @@ skinparam defaultFontSize 11
 skinparam classfontstyle bold
 left to right direction
 class "What type of data product can be developed?\n : Decision" as __1_What_type_of_data_product_can_be_developed_
-class "How to deploy a data product using subscriptions\nand workspaces?\n : Decision" as __2_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_
-class "What is the anatomy of a Data Product?\n : Decision" as __3_What_is_the_anatomy_of_a_Data_Product_
-class "How can the user interact with data products?\n : Decision" as __4_How_can_the_user_interact_with_data_products_
-class "How to keep track of metadata? : Decision" as __5_How_to_keep_track_of_metadata_
-class "How can we manage and provision the infrastucture\n : Decision" as __6_How_can_we_manage_and_provision_the_infrastucture
-class "How can data products communicate? : Decision" as __7_How_can_data_products_communicate_
-class "Where can we store the data? : Decision" as __8_Where_can_we_store_the_data_
-class "How to make a data product trustworty?\n : Decision" as __9_How_to_make_a_data_product_trustworty_
-class "How to secure your data products? : Decision" as __10_How_to_secure_your_data_products_
-class "How to make data products discoverable?\n : Decision" as __11_How_to_make_data_products_discoverable_
-__1_What_type_of_data_product_can_be_developed_ --> __2_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_: "«Consider If Not Decided Yet» \n" 
-__1_What_type_of_data_product_can_be_developed_ --> __3_What_is_the_anatomy_of_a_Data_Product_: "«Consider If Not Decided Yet» \n" 
-__2_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __4_How_can_the_user_interact_with_data_products_: "«Consider If Not Decided Yet» \n" 
-__2_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __5_How_to_keep_track_of_metadata_: "«Consider If Not Decided Yet» \n" 
-__2_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __6_How_can_we_manage_and_provision_the_infrastucture: "«Consider If Not Decided Yet» \n" 
-__2_How_to_deploy_a_data_product_using_subscriptions_and_workspaces_ --> __7_How_can_data_products_communicate_: "«Consider If Not Decided Yet» \n" 
-__3_What_is_the_anatomy_of_a_Data_Product_ --> __8_Where_can_we_store_the_data_: "«Consider If Not Decided Yet» \n" 
-__3_What_is_the_anatomy_of_a_Data_Product_ --> __9_How_to_make_a_data_product_trustworty_: "«Consider If Not Decided Yet» \n" 
-__3_What_is_the_anatomy_of_a_Data_Product_ --> __10_How_to_secure_your_data_products_: "«Consider If Not Decided Yet» \n" 
-__3_What_is_the_anatomy_of_a_Data_Product_ --> __11_How_to_make_data_products_discoverable_: "«Consider If Not Decided Yet» \n" 
+class "Which approach is chosen for orchestrating the\ndata product\n : Decision" as __2_Which_approach_is_chosen_for_orchestrating_the_data_product
+class "Which architectural elements should be offered\nin the Data Product layer?\n : Decision" as __3_Which_architectural_elements_should_be_offered_in_the_Data_Product_layer_
+class "Which architectural elements should be offered\nin the Infrastructure layer?\n : Decision" as __4_Which_architectural_elements_should_be_offered_in_the_Infrastructure_layer_
+class "Which architectural elements should be offered\nin the Data Access layer?\n : Decision" as __5_Which_architectural_elements_should_be_offered_in_the_Data_Access_layer_
+__1_What_type_of_data_product_can_be_developed_ --> __2_Which_approach_is_chosen_for_orchestrating_the_data_product: "«Consider If Not Decided Yet» \n" 
+__2_Which_approach_is_chosen_for_orchestrating_the_data_product --> __3_Which_architectural_elements_should_be_offered_in_the_Data_Product_layer_: "«Consider If Not Decided Yet» \n" 
+__2_Which_approach_is_chosen_for_orchestrating_the_data_product --> __4_Which_architectural_elements_should_be_offered_in_the_Infrastructure_layer_: "«Consider If Not Decided Yet» \n" 
+__2_Which_approach_is_chosen_for_orchestrating_the_data_product --> __5_Which_architectural_elements_should_be_offered_in_the_Data_Access_layer_: "«Consider If Not Decided Yet» \n" 
 @enduml
