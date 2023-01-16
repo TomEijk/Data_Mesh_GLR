@@ -1,0 +1,19 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "Which approach is chosen for orchestrating the\ndata product\n : Decision" as __1_Which_approach_is_chosen_for_orchestrating_the_data_product
+class "Master Data Management : Pattern" as __2_Master_Data_Management
+class "Zero Trust Architecture : Pattern" as __3_Zero_Trust_Architecture
+class "CQRS : Pattern" as __4_CQRS
+class "Strangler-Fig : Pattern" as __5_Strangler_Fig
+__1_Which_approach_is_chosen_for_orchestrating_the_data_product --> __2_Master_Data_Management: "«Option» \n{name = "Implement a Master Data Management\npattern"}\n" 
+__1_Which_approach_is_chosen_for_orchestrating_the_data_product --> __3_Zero_Trust_Architecture: "«Option» \n{name = "Implement a Zero Trust pattern"}\n" 
+__1_Which_approach_is_chosen_for_orchestrating_the_data_product --> __4_CQRS: "«Option» \n{name = "Implement a CQRS pattern"}\n" 
+__1_Which_approach_is_chosen_for_orchestrating_the_data_product --> __5_Strangler_Fig: "«Option» \n{name = "Implement a Strangler-Fig\npattern"}\n" 
+@enduml

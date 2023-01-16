@@ -1,0 +1,33 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "Which architectural elements should be offered\nin the Infrastructure layer?\n : Decision" as __1_Which_architectural_elements_should_be_offered_in_the_Infrastructure_layer_
+class "Schema Registry : Pattern" as __2_Schema_Registry
+class "Central Data Product Catalogue : Pattern" as __3_Central_Data_Product_Catalogue
+class "Centrally manage, monitor, and govern data across\ndata lakes, data warehouses, and data marts\n : Practice" as __4_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts
+class "Kubernetes Operator : Practice" as __5_Kubernetes_Operator
+class "Event Streaming : Practice" as __6_Event_Streaming
+class "Pub/Sub : Pattern" as __7_Pub_Sub
+class "Service should be provided as self-serve capability\n : Practice" as __8_Service_should_be_provided_as_self_serve_capability
+class "Single-container design : Pattern" as __9_Single_container_design
+class "Infrastructure as Code : Practice" as __10_Infrastructure_as_Code
+class "Templated Data Pipeline : Pattern" as __11_Templated_Data_Pipeline
+class " CI/CD process : Practice" as __12__CI_CD_process
+__1_Which_architectural_elements_should_be_offered_in_the_Infrastructure_layer_ --> __2_Schema_Registry: "«Option» \n{name = "Implement a Schema Registry\ncomponent"}\n" 
+__1_Which_architectural_elements_should_be_offered_in_the_Infrastructure_layer_ --> __3_Central_Data_Product_Catalogue: "«Option» \n{name = "Implement an Central Data\nProduct Catalogue\ncomponent"}\n" 
+__1_Which_architectural_elements_should_be_offered_in_the_Infrastructure_layer_ --> __5_Kubernetes_Operator: "«Option» \n{name = "Implement a kubernetes operator"}\n" 
+__1_Which_architectural_elements_should_be_offered_in_the_Infrastructure_layer_ --> __8_Service_should_be_provided_as_self_serve_capability: "«Option» \n{name = "Implement a Data Catalogue\ncomponent"}\n" 
+__3_Central_Data_Product_Catalogue --> __4_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts: "«Leads To» \n" 
+__5_Kubernetes_Operator --> __6_Event_Streaming: "«Can be Realized With» \n" 
+__6_Event_Streaming --> __7_Pub_Sub: "«Uses» \n" 
+__8_Service_should_be_provided_as_self_serve_capability --> __9_Single_container_design: "«Can be Realized With» \n" 
+__8_Service_should_be_provided_as_self_serve_capability --> __10_Infrastructure_as_Code: "«Can Use» \n" 
+__8_Service_should_be_provided_as_self_serve_capability --> __11_Templated_Data_Pipeline: "«Can Use» \n" 
+__11_Templated_Data_Pipeline --> __12__CI_CD_process: "«Leads To» \n" 
+@enduml

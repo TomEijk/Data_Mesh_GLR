@@ -1,0 +1,43 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "Which architectural elements should be offered\nin the Data Access layer?\n : Decision" as __1_Which_architectural_elements_should_be_offered_in_the_Data_Access_layer_
+class "Virtualisation : Practice" as __2_Virtualisation
+class "Implement a highly available in-memory cache\n : Practice" as __3_Implement_a_highly_available_in_memory_cache
+class "Attach a SQL access point to each Data Product\n : Practice" as __4_Attach_a_SQL_access_point_to_each_Data_Product
+class "Attach REST APIs to each data product\n : Practice" as __5_Attach_REST_APIs_to_each_data_product
+class "Observation Port : Pattern" as __6_Observation_Port
+class "Provide a single integrated experience for monitoring\n : Practice" as __7_Provide_a_single_integrated_experience_for_monitoring
+class "Discovery Port : Pattern" as __8_Discovery_Port
+class "Data Marketplace : Practice" as __9_Data_Marketplace
+class "Control Port : Pattern" as __10_Control_Port
+class "Query Catalogue : Pattern" as __11_Query_Catalogue
+class "Security Controls : Practice" as __12_Security_Controls
+class "Fine-grained Access Control : Practice" as __13_Fine_grained_Access_Control
+class "Attribute-based Access Control : Practice" as __14_Attribute_based_Access_Control
+class "Role-based Access Control : Practice" as __15_Role_based_Access_Control
+class "Encryption : Practice" as __16_Encryption
+class "OAUTH2 : Practice" as __17_OAUTH2
+__1_Which_architectural_elements_should_be_offered_in_the_Data_Access_layer_ --> __2_Virtualisation: "«Option» \n{name = "Implement a Virtualisation\ncomponent"}\n" 
+__1_Which_architectural_elements_should_be_offered_in_the_Data_Access_layer_ --> __3_Implement_a_highly_available_in_memory_cache: "«Option» \n{name = "Implement a Cache component"}\n" 
+__1_Which_architectural_elements_should_be_offered_in_the_Data_Access_layer_ --> __4_Attach_a_SQL_access_point_to_each_Data_Product: "«Option» \n{name = "Implement a SQL component"}\n" 
+__1_Which_architectural_elements_should_be_offered_in_the_Data_Access_layer_ --> __5_Attach_REST_APIs_to_each_data_product: "«Option» \n{name = "Implement a REST API component"}\n" 
+__1_Which_architectural_elements_should_be_offered_in_the_Data_Access_layer_ --> __11_Query_Catalogue: "«Option» \n{name = "Implement a Query Catalogue\ncomponent"}\n" 
+__1_Which_architectural_elements_should_be_offered_in_the_Data_Access_layer_ --> __12_Security_Controls: "«Option» \n{name = "Implement a Security Controls\ncomponent"}\n" 
+__5_Attach_REST_APIs_to_each_data_product --> __6_Observation_Port: "«Includes» \n" 
+__5_Attach_REST_APIs_to_each_data_product --> __8_Discovery_Port: "«Includes» \n" 
+__5_Attach_REST_APIs_to_each_data_product --> __10_Control_Port: "«Includes» \n" 
+__6_Observation_Port --> __7_Provide_a_single_integrated_experience_for_monitoring: "«Realizes» \n" 
+__8_Discovery_Port --> __9_Data_Marketplace: "«Enables» \n" 
+__12_Security_Controls --> __13_Fine_grained_Access_Control: "«Can Use» \n" 
+__12_Security_Controls --> __16_Encryption: "«Can Use» \n" 
+__12_Security_Controls --> __17_OAUTH2: "«Can Use» \n" 
+__13_Fine_grained_Access_Control --> __14_Attribute_based_Access_Control: "«Can Use» \n" 
+__13_Fine_grained_Access_Control --> __15_Role_based_Access_Control: "«Can Use» \n" 
+@enduml
