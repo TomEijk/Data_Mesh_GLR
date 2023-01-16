@@ -28,46 +28,27 @@
 - Internal Complexity (o) [s2]
 - Complexity for User (o) [s2]
 
-#### **Next Decision**: Which approach is chosen for orchestrating the data product
+#### **Next Decision**: How to deploy a data product?
 
 
-## Decision: Which approach is chosen for orchestrating the data product
-**Evidences:** s7, s8, s9, s23, s38, s39, s41, s43, s44, s45, s48, s56, s57
+## Decision: Which approach is chosen for the creation of a data product?
+**Evidences:** s1, s2, s3, s5, s6, s7, s8, s9, s11, s14, s15, s18, s20, s23, s25, s28, s30, s31, s32, s33, s35, s37, s38, s39, s40, s41, s42, s43, s44, s45, s48, s49, s56, s57
 
 **Context:** 
 
 ### **Solution Options**
-#### Solution 1: Master Data Management
-**Evidences:** s7, s9, s23, s44, s48, s56
-
-**Forces:**
-- Centralization (+) [s48]
-- Discoverability (+) [s39, s45, s56]
-
-#### Solution 2: Zero Trust Architecture
-**Evidences:** s45, s56
+#### Solution 1: Migration
+**Evidences:** s7, s8, s9, s23, s38, s39, s41, s43, s44, s45, s48, s56, s57
 
 
-#### Solution 3: CQRS
-**Evidences:** s8, s38, s39, s41, s43, s56
-
-**Forces:**
-- Multiple independent read-only views (+) [s8]
-- Allows For Filtering (+) [s38]
-
-#### Solution 4: Strangler-Fig
-**Evidences:** s56, s57
-
-**Forces:**
-- Easy Data Migration Between Products (++) [s56]
-- Decomposition (+) [s57]
-
-#### **Next Decision**: Which architectural elements should be offered in the Data Product layer?
-#### **Next Decision**: Which architectural elements should be offered in the Infrastructure layer?
-#### **Next Decision**: Which architectural elements should be offered in the Data Access layer?
+#### Solution 2: Greenfield Development
+**Evidences:** s1, s2, s3, s5, s6, s7, s8, s9, s11, s14, s15, s18, s20, s23, s25, s28, s30, s31, s32, s33, s35, s37, s38, s39, s40, s41, s42, s43, s45, s49
 
 
-## Decision: Which architectural elements should be offered in the Data Product layer?
+#### **Next Decision**: Which Architectural Elements should be offered in the Data Product Anatomy?
+
+
+## Decision: Which Architectural Elements should be offered in the Data Product Anatomy?
 **Evidences:** s1, s3, s4, s5, s7, s8, s9, s12, s13, s15, s16, s17, s20, s25, s27, s30, s31, s32, s33, s35, s36, s37, s38, s40, s43, s45, s47, s48, s49, s53, s54, s55, s56, s57
 
 **Context:** 
@@ -115,17 +96,31 @@
 - Consumption (++) [s53, s55, s56]
 - Up-to-date (+) [s4, s55]
 
-#### Solution 5: Feature Store
-**Evidences:** s9, s20, s27, s40
+
+
+## Decision: How to deploy a data product?
+**Evidences:** s6, s14, s32, s35, s39, s43, s45, s47
+
+**Context:** 
+
+### **Solution Options**
+#### Solution 1: Kubernetes
+**Evidences:** s6, s14, s32, s35, s39, s43, s45, s47
 
 **Forces:**
-- Interoperability (+) [s1, s3, s9, s45]
-- Stability (+) [s20]
+- Structured code (+) [s6]
+
+#### Solution 2: Docker
+**Evidences:** 
 
 
+#### **Next Decision**: How does the data product interact with other data products, self-serve platform and management layer?
+#### **Next Decision**: How can the consumer interact with the information from the data product?
+#### **Next Decision**: Which approach is chosen for the creation of a data product?
 
-## Decision: Which architectural elements should be offered in the Infrastructure layer?
-**Evidences:** s3, s5, s6, s7, s9, s14, s15, s16, s17, s19, s20, s23, s24, s31, s32, s35, s39, s40, s41, s42, s43, s45, s46, s47, s48, s49, s53, s54, s55, s57
+
+## Decision: How does the data product interact with other data products, self-serve platform and management layer?
+**Evidences:** s3, s4, s5, s6, s7, s9, s15, s16, s17, s19, s20, s23, s24, s26, s31, s32, s33, s34, s36, s38, s39, s40, s41, s42, s44, s45, s46, s47, s48, s49, s51, s52, s53, s54, s55, s56, s57
 
 **Context:** 
 
@@ -144,41 +139,30 @@
 **Evidences:** s5, s9, s15, s20, s23, s31, s32, s39, s40, s42, s45, s46, s47, s48, s49, s53, s54, s55
 
 **Forces:**
-- Discoverability (+) [s15, s31, s32, s39, s42, s45, s49, s55]
+- Discoverability (+) [s15, s31, s32, s39, s42, s45, s49, s55, s56]
 - Understandability (+) [s3, s32, s47, s48, s55]
-- Observability (+) [s31, s55]
+- Observability (+) [s31, s55, s56]
 
-#### Solution 3: Kubernetes Operator
-**Evidences:** s6, s14, s32, s35, s39, s43, s45, s47
-
-**Forces:**
-- Structured code (+) [s6]
-
-#### Solution 4: Service should be provided as self-serve capability
-**Evidences:** 
+#### Solution 3: Event Streaming Backbone
+**Evidences:** s4, s9, s17, s20, s26, s33, s34, s36, s38, s41, s44, s45, s48, s51, s52, s53, s55, s56, s57
 
 
+#### **Next Decision**: Which Architectural Elements should be offered in the Data Product Anatomy?
 
 
-## Decision: Which architectural elements should be offered in the Data Access layer?
-**Evidences:** s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s13, s14, s15, s16, s17, s18, s19, s20, s27, s30, s31, s32, s33, s34, s36, s37, s38, s39, s40, s41, s43, s45, s46, s48, s49, s52
+## Decision: How can the consumer interact with the information from the data product?
+**Evidences:** s2, s3, s5, s6, s7, s8, s9, s10, s13, s14, s15, s16, s17, s18, s20, s27, s30, s31, s32, s33, s34, s36, s37, s38, s39, s40, s41, s43, s45, s46, s48, s49, s52
 
 **Context:** 
 
 ### **Solution Options**
-#### Solution 1: Virtualisation
-**Evidences:** s4, s14, s15, s18, s19, s20, s46, s49
-
-**Forces:**
-- Data Integration Speed (++) [s2]
-
-#### Solution 2: Implement a highly available in-memory cache
+#### Solution 1: Implement a highly available in-memory cache
 **Evidences:** s5, s14, s15, s18
 
 **Forces:**
 - Duplication (-) [s3, s15, s17, s48]
 
-#### Solution 3: Attach a SQL access point to each Data Product
+#### Solution 2: Attach a SQL access point to each Data Product
 **Evidences:** s2, s3, s5, s7, s10, s13, s14, s15, s16, s27, s30, s31, s32, s36, s37, s38, s39, s43, s46, s48, s49
 
 **Forces:**
@@ -187,32 +171,22 @@
 - Accelerate Decision Making (++) [s3]
 - More granular data (++) [s3]
 
-#### Solution 4: Attach REST APIs to each data product
+#### Solution 3: Attach REST APIs to each data product
 **Evidences:** s2, s3, s5, s6, s7, s8, s9, s15, s17, s18, s20, s30, s32, s33, s34, s36, s37, s38, s39, s40, s41, s45, s49, s52
 
 **Forces:**
 - Internal Complexity (+) [s2]
 - Complexity for User (-) [s2, s48]
 - Control over data schema (+) [s17, s41]
-- Accessible (+) [s4, s5, s15, s32, s39, s52]
+- Accessible (+) [s5, s15, s32, s39, s52]
 - Addressable (+) [s5, s17]
-- Interoperability (+) [s1, s3, s9, s45]
+- Interoperability (+) [s3, s9, s45]
 
-#### Solution 5: Query Catalogue
-**Evidences:** s1, s3, s9, s14, s30, s32, s43
-
-**Forces:**
-- Trustworthiness (+) [s1, s3]
-- Interoperability (+) [s1, s3, s9, s45]
-- Discoverability (+) [s1, s15, s31, s32, s39, s45, s49]
-- Quickly gain knowledge on data set (++) [s32, s43]
-- Frictions (-) [s30]
-- Entry Barrier (-) [s30]
-
-#### Solution 6: Security Controls
+#### Solution 4: Non-Functional Components
 **Evidences:** 
 
 
+#### **Next Decision**: Which Architectural Elements should be offered in the Data Product Anatomy?
 
 
 # Forces: 

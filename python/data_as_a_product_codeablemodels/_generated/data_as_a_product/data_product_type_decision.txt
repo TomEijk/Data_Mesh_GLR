@@ -11,11 +11,14 @@ class "What type of data product can be developed?\n : Decision" as __1_What_typ
 class "Expose Data Product as Raw Data : Practice" as __2_Expose_Data_Product_as_Raw_Data
 class "Expose Data Product as Derived Data\n : Practice" as __3_Expose_Data_Product_as_Derived_Data
 class "Expose Data Product as an algorithm\n : Practice" as __4_Expose_Data_Product_as_an_algorithm
-class "Expose Data Product as Decision Support Model\n : Practice" as __5_Expose_Data_Product_as_Decision_Support_Model
-class "Expose Data Product as Automated Decision-making\nModel\n : Practice" as __6_Expose_Data_Product_as_Automated_Decision_making_Model
+class "Expose Data Product as an Optimisation-based Decision\nSupport System\n : Practice" as __5_Expose_Data_Product_as_an_Optimisation_based_Decision_Support_System
+class "Expose Data Product as a Hybrid Algorithm\n : Practice" as __6_Expose_Data_Product_as_a_Hybrid_Algorithm
+class "Expose Data Product as an AI/ML Model\n : Practice" as __7_Expose_Data_Product_as_an_AI_ML_Model
 __1_What_type_of_data_product_can_be_developed_ --> __2_Expose_Data_Product_as_Raw_Data: "«Option» \n{name = "Use raw data from the data\nproduct"}\n" 
 __1_What_type_of_data_product_can_be_developed_ --> __3_Expose_Data_Product_as_Derived_Data: "«Option» \n{name = "Use derived data from the\ndata product"}\n" 
 __1_What_type_of_data_product_can_be_developed_ --> __4_Expose_Data_Product_as_an_algorithm: "«Option» \n{name = "Use algorithms to return information\nor\ninsights"}\n" 
-__4_Expose_Data_Product_as_an_algorithm --> __5_Expose_Data_Product_as_Decision_Support_Model: "«Uses» \n" 
-__4_Expose_Data_Product_as_an_algorithm --> __6_Expose_Data_Product_as_Automated_Decision_making_Model: "«Uses» \n" 
+__4_Expose_Data_Product_as_an_algorithm --> __5_Expose_Data_Product_as_an_Optimisation_based_Decision_Support_System: "«Uses» \n" 
+__4_Expose_Data_Product_as_an_algorithm --> __7_Expose_Data_Product_as_an_AI_ML_Model: "«Uses» \n" 
+__5_Expose_Data_Product_as_an_Optimisation_based_Decision_Support_System --> __6_Expose_Data_Product_as_a_Hybrid_Algorithm: "«Variant» \n" 
+__7_Expose_Data_Product_as_an_AI_ML_Model --> __6_Expose_Data_Product_as_a_Hybrid_Algorithm: "«Variant» \n" 
 @enduml

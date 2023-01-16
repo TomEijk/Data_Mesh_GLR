@@ -31,7 +31,6 @@ feature_layer = CClass(pattern, "Feature Store")
 central_data_product_catalogue = CClass(pattern, "Central Data Product Catalogue")
 discovery_port = CClass(pattern, "Discovery Port")
 event_bus = CClass(pattern, "Event Bus")
-data_marts = CClass(pattern, "Incrementally build business process-centric data marts")
 templated_data_pipeline = CClass(pattern, "Templated Data Pipeline")
 pub_sub = CClass(pattern, "Pub/Sub")
 api_gateway = CClass(pattern, "API Gateway")
@@ -43,8 +42,9 @@ mdm = CClass(pattern, "Master Data Management")
 # practices
 raw_data_as_data_product = CClass(practice, "Expose Data Product as Raw Data")
 derived_data_as_data_product = CClass(practice, "Expose Data Product as Derived Data")
-decision_support_model_as_data_product = CClass(practice, "Expose Data Product as Decision Support Model")
-automated_decision_making_model_as_data_product = CClass(practice, "Expose Data Product as Automated Decision-making Model")
+decision_support_model_as_data_product = CClass(practice, "Expose Data Product as an Optimisation-based Decision Support System")
+automated_decision_making_model_as_data_product = CClass(practice, "Expose Data Product as an AI/ML Model")
+hybrid_decision_making = CClass(practice, "Expose Data Product as a Hybrid Algorithm")
 register_datasets = CClass(practice, "Register datasets")
 request_access_engine = CClass(practice, "Request access to datasets in search engine")
 request_access = CClass(practice, "Fine-grained Access Control")
@@ -52,7 +52,7 @@ quality_monitoring = CClass(practice, "Provide a single integrated experience fo
 algorithms_as_data_product = CClass(practice, "Expose Data Product as an algorithm")
 domain_datasets = CClass(practice, "The domain datasets belong to a specific domain")
 core_datasets = CClass(practice, "Core datasets are those that are useful for more than one domain")
-event_streaming = CClass(practice, "Event Streaming")
+event_streaming = CClass(practice, "Event Streaming Backbone")
 virtualisation = CClass(practice, "Virtualisation")
 incremental_sync = CClass(practice, "Incremental Sync")
 role_based_access_control = CClass(practice, "Role-based Access Control")
@@ -60,7 +60,7 @@ encryption = CClass(practice, "Encryption")
 time_bounded_backwards_compatibility = CClass(practice, "Time-bounded Backwards Compatibility")
 ci_cd_process = CClass(practice, " CI/CD process")
 versioning = CClass(practice, "Versioning")
-k8s = CClass(practice, "Kubernetes Operator")
+k8s = CClass(practice, "Kubernetes")
 infrastructure_as_code = CClass(practice, "Infrastructure as Code")
 containerisation = CClass(pattern, "Single-container design")
 unified_batch_stream = CClass(practice, "Create a component for unified batch and stream data processing")
@@ -73,7 +73,7 @@ snapshots_via_ReqResAPI = CClass(practice, "Send snapshots via Req/Res API")
 oauth2 = CClass(practice, "OAUTH2")
 dataset_versioning = CClass(practice, "Dataset Versioning")
 view_versioning = CClass(practice, "View Versioning")
-self_service_capability = CClass(practice, "Service should be provided as self-serve capability")
+docker = CClass(practice, "Docker")
 security_controls = CClass(practice, "Security Controls")
 triggering = CClass(practice, "Alterting")
 sql_layer = CClass(practice, "Attach a SQL access point to each Data Product")
@@ -90,6 +90,10 @@ single_subscription_single_workspace_dedicated_artifacts_per_domain = CClass(pra
 single_subscription_multiple_workspaces = CClass(practice, " A Subscription with multiple workspaces")
 single_subscription_dedicated_workpasce_per_domain = CClass(practice, "A single Azure Subscription with separate workspaces for each domain")
 separate_subscriptions_separate_workspace_per_domain = CClass(practice, "Separate subscriptions with separate workspaces for each domain")
+start_from_scratch = CClass(practice, "Greenfield Development")
+migration = CClass(practice, "Migration")
+data_marts = CClass(practice, "Incrementally build business process-centric data marts")
+non_functional = CClass(practice, "Non-Functional Components")
 
 # forces
 security = CClass(force, "Security")
@@ -194,30 +198,33 @@ algorithms_data_product_first_variation = \
     decision_support_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=uses)[0]
 algorithms_data_product_second_variation = \
     automated_decision_making_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=uses)[0]
+decision_support_hybrid = \
+    hybrid_decision_making.add_links(decision_support_model_as_data_product, role_name="from", stereotype_instances=variant)[0]
+automated_decision_hybrid = \
+    hybrid_decision_making.add_links(automated_decision_making_model_as_data_product, role_name="from", stereotype_instances=variant)[0]
 
 
 # ** orchestration_decision **
 
-orchestration_decision = CClass(decision, "Which approach is chosen for orchestrating the data product")
-add_decision_option_link(orchestration_decision, mdm,
-                         "Implement a Master Data Management pattern")
-add_decision_option_link(orchestration_decision,zero_trust_architecture,
-                             "Implement a Zero Trust pattern")
-add_decision_option_link(orchestration_decision, cqrs,
-                               "Implement a CQRS pattern")
-add_decision_option_link(orchestration_decision, strangler_fig_pattern,
-                               "Implement a Strangler-Fig pattern")
-add_force_relations({mdm: {centralization: positive,
-                          discoverability: positive},
-                     cqrs: {multiple_independent_read_only_views: positive,
-                            allows_for_filtering: positive},
-                     strangler_fig_pattern: {easy_data_migration_between_products: very_positive,
-                                             decomposition: positive}
-                        })
+orchestration_decision = CClass(decision, "Which approach is chosen for the creation of a data product?")
+add_decision_option_link(orchestration_decision, migration,
+                         "Migrating from a legacy architecture")
+add_decision_option_link(orchestration_decision, start_from_scratch,
+                         "Starting with greenfield development")
+
+
+migration_mdm = \
+    mdm.add_links(migration, role_name="from", stereotype_instances=can_use)[0]
+migration_strangler_fig_pattern = \
+    strangler_fig_pattern.add_links(migration, role_name="from", stereotype_instances=can_use)[0]
+migration_zero_trust = \
+    zero_trust_architecture.add_links(migration, role_name="from", stereotype_instances=can_use)[0]
+migration_cqrs = \
+    cqrs.add_links(migration, role_name="from", stereotype_instances=can_use)[0]
 
 # ** data_product_layer_decision **
 
-data_product_layer_decision = CClass(decision, "Which architectural elements should be offered in the Data Product layer?")
+data_product_layer_decision = CClass(decision, "Which Architectural Elements should be offered in the Data Product Anatomy?")
 add_decision_option_link(data_product_layer_decision, change_data_capture,
                          "Implement a Change Data Capture component")
 add_decision_option_link(data_product_layer_decision,immutable_change_audit_log,
@@ -226,8 +233,6 @@ add_decision_option_link(data_product_layer_decision, internal_storages,
                                "Implement an internal storage for each data product")
 add_decision_option_link(data_product_layer_decision, data_catalogue,
                                "Implement a Data Catalogue component")
-add_decision_option_link(data_product_layer_decision, feature_layer,
-                               "Implement a Feature Store component")
 add_force_relations({change_data_capture: {real_time_data_access: positive,
                                               complexity_for_user: negative,
                                               non_intrusive: positive,
@@ -250,9 +255,7 @@ add_force_relations({change_data_capture: {real_time_data_access: positive,
                                      data_enrichment: positive,
                                      delegated_ownership: positive,
                                      consumption: very_positive,
-                                     up_to_date: positive},
-                    feature_layer: {interoperability: positive,
-                                    stability: positive}
+                                     up_to_date: positive}
                         })
 
 
@@ -279,20 +282,34 @@ versioning_dataset = \
 versioning_view = \
     view_versioning.add_links(versioning, role_name="from", stereotype_instances=can_use)[0]
 
-feature_layer_unified_batch_stream = \
-    unified_batch_stream.add_links(feature_layer, role_name="from", stereotype_instances=enables)[0]
+# ** deploy_decision **
 
-# ** infrastructure_layer_decision **
+deploy_decision = CClass(decision, "How to deploy a data product?")
+add_decision_option_link(deploy_decision, k8s,
+                               "Use a pod architecture")
+add_decision_option_link(deploy_decision, docker,
+                               "Use a docker architecture")
+add_force_relations({k8s: {structured_code: positive}
+                        })
 
-infrastructure_layer_decision = CClass(decision, "Which architectural elements should be offered in the Infrastructure layer?")
-add_decision_option_link(infrastructure_layer_decision, schema_manager,
+docker_containerisation = \
+    containerisation.add_links(docker, role_name="from", stereotype_instances=can_be_realized_with)[0]
+docker_infrastructure_as_code = \
+    infrastructure_as_code.add_links(docker, role_name="from", stereotype_instances=can_use)[0]
+docker_templated_data_pipeline = \
+    templated_data_pipeline.add_links(docker, role_name="from", stereotype_instances=can_use)[0]
+templated_data_pipeline_ci_cd_process = \
+    ci_cd_process.add_links(templated_data_pipeline, role_name="from", stereotype_instances=leads_to)[0]
+
+# ** data_product_self_serve_management_decision **
+
+data_product_self_serve_management_decision = CClass(decision, "How does the data product interact with other data products, self-serve platform and management layer?")
+add_decision_option_link(data_product_self_serve_management_decision, schema_manager,
                          "Implement a Schema Registry component")
-add_decision_option_link(infrastructure_layer_decision,central_data_product_catalogue,
+add_decision_option_link(data_product_self_serve_management_decision,central_data_product_catalogue,
                              "Implement an Central Data Product Catalogue component")
-add_decision_option_link(infrastructure_layer_decision, k8s,
-                               "Implement a kubernetes operator")
-add_decision_option_link(infrastructure_layer_decision, self_service_capability,
-                               "Implement a Data Catalogue component")
+add_decision_option_link(data_product_self_serve_management_decision, event_streaming,
+                               "Implement an Event Streaming Backbone")
 add_force_relations({schema_manager: {understandability: positive,
                                           duplication: positive,
                                           conflicting_definitions: negative,
@@ -300,44 +317,26 @@ add_force_relations({schema_manager: {understandability: positive,
                                           interoperability: positive},
                      central_data_product_catalogue: {discoverability: positive,
                                                       understandability: positive,
-                                                      observability: positive},
-                    k8s: {structured_code: positive}
+                                                      observability: positive}
                         })
 
+event_streaming_pub_sub = \
+    pub_sub.add_links(event_streaming, role_name="from", stereotype_instances=uses)[0]
 central_data_product_catalogue_centrally_manage_monitor_govern_data = \
     centrally_manage_monitor_govern_data.add_links(central_data_product_catalogue, role_name="from", stereotype_instances=leads_to)[0]
 
-k8s_event_streaming_backbone = \
-    event_streaming.add_links(k8s, role_name="from", stereotype_instances=can_be_realized_with)[0]
-event_streaming_pub_sub = \
-    pub_sub.add_links(event_streaming, role_name="from", stereotype_instances=uses)[0]
+# ** consumer_decision **
 
-self_service_capability_containerisation = \
-    containerisation.add_links(self_service_capability, role_name="from", stereotype_instances=can_be_realized_with)[0]
-self_service_capability_infrastructure_as_code = \
-    infrastructure_as_code.add_links(self_service_capability, role_name="from", stereotype_instances=can_use)[0]
-self_service_capability_templated_data_pipeline = \
-    templated_data_pipeline.add_links(self_service_capability, role_name="from", stereotype_instances=can_use)[0]
-templated_data_pipeline_ci_cd_process = \
-    ci_cd_process.add_links(templated_data_pipeline, role_name="from", stereotype_instances=leads_to)[0]
-
-# ** data_access_layer_decision **
-
-data_access_layer_decision = CClass(decision, "Which architectural elements should be offered in the Data Access layer?")
-add_decision_option_link(data_access_layer_decision, virtualisation,
-                         "Implement a Virtualisation component")
-add_decision_option_link(data_access_layer_decision,cache,
+consumer_decision = CClass(decision, "How can the consumer interact with the information from the data product?")
+add_decision_option_link(consumer_decision,cache,
                              "Implement a Cache component")
-add_decision_option_link(data_access_layer_decision, sql_layer,
+add_decision_option_link(consumer_decision, sql_layer,
                                "Implement a SQL component")
-add_decision_option_link(data_access_layer_decision, rest_apis,
+add_decision_option_link(consumer_decision, rest_apis,
                                "Implement a REST API component")
-add_decision_option_link(data_access_layer_decision, query_catalogue,
-                               "Implement a Query Catalogue component")
-add_decision_option_link(data_access_layer_decision, security_controls,
-                               "Implement a Security Controls component")
-add_force_relations({virtualisation: {data_integration_speed: very_positive},
-                     cache: {duplication: negative},
+add_decision_option_link(consumer_decision, non_functional,
+                         "Implement a Non-functional component")
+add_force_relations({cache: {duplication: negative},
                      sql_layer: {internal_complexity: positive,
                                  complexity_for_user: positive,
                                  accelerate_decision_making: very_positive,
@@ -347,15 +346,8 @@ add_force_relations({virtualisation: {data_integration_speed: very_positive},
                                  control_over_data_schema: positive,
                                  accessible: positive,
                                  addressible: positive,
-                                 interoperability: positive},
-                     query_catalogue: {trustworthiness: positive,
-                                        interoperability: positive,
-                                        discoverability: positive,
-                                        gain_knowledge: very_positive,
-                                        frictions: negative,
-                                        entry_barrier: negative}
+                                 interoperability: positive}
                         })
-
 
 rest_apis_observation_plane = \
     observation_plane.add_links(rest_apis, role_name="from", stereotype_instances=includes)[0]
@@ -368,6 +360,11 @@ rest_apis_control_plane = \
 discovery_port_data_marketplace = \
     data_marketplace.add_links(discovery_port, role_name="from", stereotype_instances=enables)[0]
 
+
+non_functional_security_controls = \
+    security_controls.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
+non_functional_query_catalogue = \
+    query_catalogue.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
 security_controls_request_access = \
     request_access.add_links(security_controls, role_name="from", stereotype_instances=can_use)[0]
 security_controls_encryption = \
@@ -380,8 +377,11 @@ request_access_role = \
     role_based_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
 
 # decision links
-add_links({data_product_type_decision: [orchestration_decision],
-           orchestration_decision: [data_product_layer_decision, infrastructure_layer_decision, data_access_layer_decision]},
+add_links({data_product_type_decision: [deploy_decision],
+           deploy_decision: [data_product_self_serve_management_decision, consumer_decision, orchestration_decision],
+           orchestration_decision: [data_product_layer_decision],
+           data_product_self_serve_management_decision: [data_product_layer_decision],
+           consumer_decision: [data_product_layer_decision]},
           role_name="next decision", stereotype_instances=consider_if_not_decided_yet)
 
 # decision views
@@ -390,51 +390,66 @@ forces_class_objects = [f.class_object for f in force.all_classes]
 _all = CBundle("_all", elements=data_product_type_decision.class_object.get_connected_elements())
 inter_decision_links_view = CBundle("inter_decision_links",
                                     elements=[data_product_type_decision,
-                                              orchestration_decision, data_product_layer_decision, infrastructure_layer_decision,
-                                              data_access_layer_decision])
+                                              deploy_decision, orchestration_decision, data_product_self_serve_management_decision,
+                                              consumer_decision, data_product_layer_decision])
 data_product_type_view = CBundle("data_product_type_decision",
                                     elements=data_product_type_decision.class_object.get_connected_elements(
                                              stop_elements_exclusive=forces_class_objects + [
+                                                 deploy_decision.class_object,
                                                  orchestration_decision.class_object,
-                                                 data_product_layer_decision.class_object,
-                                                 infrastructure_layer_decision.class_object,
-                                                 data_access_layer_decision.class_object
+                                                 data_product_self_serve_management_decision.class_object,
+                                                 consumer_decision.class_object,
+                                                 data_product_layer_decision.class_object
                                              ,]))
+
+deploy_decision_view = CBundle("deploy_decision",
+                                    elements=deploy_decision.class_object.get_connected_elements(
+                                        stop_elements_exclusive=forces_class_objects + [
+                                            data_product_type_decision.class_object,
+                                            orchestration_decision.class_object,
+                                            data_product_self_serve_management_decision.class_object,
+                                            consumer_decision.class_object,
+                                            data_product_layer_decision.class_object
+                                            , ]))
 
 orchestration_decision_view = CBundle("orchestration_decision",
                                     elements=orchestration_decision.class_object.get_connected_elements(
                                         stop_elements_exclusive=forces_class_objects + [
                                             data_product_type_decision.class_object,
-                                            data_product_layer_decision.class_object,
-                                            infrastructure_layer_decision.class_object,
-                                            data_access_layer_decision.class_object
+                                            deploy_decision.class_object,
+                                            data_product_self_serve_management_decision.class_object,
+                                            consumer_decision.class_object,
+                                            data_product_layer_decision.class_object
+                                            , ]))
+
+data_product_self_serve_management_decision_view = CBundle("data_product_self_serve_management_decision",
+                                    elements=data_product_self_serve_management_decision.class_object.get_connected_elements(
+                                        stop_elements_exclusive=forces_class_objects + [
+                                            data_product_type_decision.class_object,
+                                            deploy_decision.class_object,
+                                            orchestration_decision.class_object,
+                                            consumer_decision.class_object,
+                                            data_product_layer_decision.class_object
+                                            , ]))
+
+consumer_decision_view = CBundle("consumer_decision",
+                                    elements=consumer_decision.class_object.get_connected_elements(
+                                        stop_elements_exclusive=forces_class_objects + [
+                                            data_product_type_decision.class_object,
+                                            deploy_decision.class_object,
+                                            orchestration_decision.class_object,
+                                            data_product_self_serve_management_decision.class_object,
+                                            data_product_layer_decision.class_object
                                             , ]))
 
 data_product_layer_decision_view = CBundle("data_product_layer_decision",
                                     elements=data_product_layer_decision.class_object.get_connected_elements(
                                         stop_elements_exclusive=forces_class_objects + [
                                             data_product_type_decision.class_object,
+                                            deploy_decision.class_object,
                                             orchestration_decision.class_object,
-                                            infrastructure_layer_decision.class_object,
-                                            data_access_layer_decision.class_object
-                                            , ]))
-
-infrastructure_layer_decision_view = CBundle("infrastructure_layer_decision",
-                                    elements=infrastructure_layer_decision.class_object.get_connected_elements(
-                                        stop_elements_exclusive=forces_class_objects + [
-                                            data_product_type_decision.class_object,
-                                            orchestration_decision.class_object,
-                                            data_product_layer_decision.class_object,
-                                            data_access_layer_decision.class_object
-                                            , ]))
-
-data_access_layer_decision_view = CBundle("data_access_layer_decision",
-                                    elements=data_access_layer_decision.class_object.get_connected_elements(
-                                        stop_elements_exclusive=forces_class_objects + [
-                                            data_product_type_decision.class_object,
-                                            orchestration_decision.class_object,
-                                            data_product_layer_decision.class_object,
-                                            infrastructure_layer_decision.class_object
+                                            data_product_self_serve_management_decision.class_object,
+                                            consumer_decision.class_object
                                             , ]))
 
 data_as_a_product_views = [
@@ -443,8 +458,9 @@ data_as_a_product_views = [
     data_product_type_view, {},
     orchestration_decision_view, {},
     data_product_layer_decision_view, {},
-    infrastructure_layer_decision_view, {},
-    data_access_layer_decision_view, {}
+    consumer_decision_view, {},
+    data_product_self_serve_management_decision_view, {},
+    deploy_decision_view, {},
 ]
 
 

@@ -7,7 +7,7 @@ skinparam defaultFontName Arial
 skinparam defaultFontSize 11
 skinparam classfontstyle bold
 left to right direction
-class "Which architectural elements should be offered\nin the Data Product layer?\n : Decision" as __1_Which_architectural_elements_should_be_offered_in_the_Data_Product_layer_
+class "Which Architectural Elements should be offered\nin the Data Product Anatomy?\n : Decision" as __1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_
 class "Change Data Capture : Pattern" as __2_Change_Data_Capture
 class "Immutable Change Audit Log : Pattern" as __3_Immutable_Change_Audit_Log
 class "Versioning : Practice" as __4_Versioning
@@ -17,18 +17,15 @@ class "View Versioning : Practice" as __7_View_Versioning
 class "Alterting : Practice" as __8_Alterting
 class "Internal storages where the data product is deployed,\nnot exposed to consumers\n : Practice" as __9_Internal_storages_where_the_data_product_is_deployed__not_exposed_to_consumers
 class "Maintaining a single source of truth\n : Practice" as __10_Maintaining_a_single_source_of_truth
-class "Incrementally build business process-centric data\nmarts\n : Pattern" as __11_Incrementally_build_business_process_centric_data_marts
+class "Incrementally build business process-centric data\nmarts\n : Practice" as __11_Incrementally_build_business_process_centric_data_marts
 class "Data Catalogue : Pattern" as __12_Data_Catalogue
 class "Register datasets : Practice" as __13_Register_datasets
 class "The domain datasets belong to a specific domain\n : Practice" as __14_The_domain_datasets_belong_to_a_specific_domain
 class "Core datasets are those that are useful for more\nthan one domain\n : Practice" as __15_Core_datasets_are_those_that_are_useful_for_more_than_one_domain
-class "Feature Store : Pattern" as __16_Feature_Store
-class "Create a component for unified batch and stream\ndata processing\n : Practice" as __17_Create_a_component_for_unified_batch_and_stream_data_processing
-__1_Which_architectural_elements_should_be_offered_in_the_Data_Product_layer_ --> __2_Change_Data_Capture: "«Option» \n{name = "Implement a Change Data Capture\ncomponent"}\n" 
-__1_Which_architectural_elements_should_be_offered_in_the_Data_Product_layer_ --> __3_Immutable_Change_Audit_Log: "«Option» \n{name = "Implement a immutable log\ncomponent"}\n" 
-__1_Which_architectural_elements_should_be_offered_in_the_Data_Product_layer_ --> __9_Internal_storages_where_the_data_product_is_deployed__not_exposed_to_consumers: "«Option» \n{name = "Implement an internal storage\nfor each\ndata product"}\n" 
-__1_Which_architectural_elements_should_be_offered_in_the_Data_Product_layer_ --> __12_Data_Catalogue: "«Option» \n{name = "Implement a Data Catalogue\ncomponent"}\n" 
-__1_Which_architectural_elements_should_be_offered_in_the_Data_Product_layer_ --> __16_Feature_Store: "«Option» \n{name = "Implement a Feature Store\ncomponent"}\n" 
+__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __2_Change_Data_Capture: "«Option» \n{name = "Implement a Change Data Capture\ncomponent"}\n" 
+__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __3_Immutable_Change_Audit_Log: "«Option» \n{name = "Implement a immutable log\ncomponent"}\n" 
+__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __9_Internal_storages_where_the_data_product_is_deployed__not_exposed_to_consumers: "«Option» \n{name = "Implement an internal storage\nfor each\ndata product"}\n" 
+__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __12_Data_Catalogue: "«Option» \n{name = "Implement a Data Catalogue\ncomponent"}\n" 
 __3_Immutable_Change_Audit_Log --> __4_Versioning: "«Enables» \n" 
 __3_Immutable_Change_Audit_Log --> __8_Alterting: "«Enables» \n" 
 __4_Versioning --> __5_Incremental_Sync: "«Enables» \n" 
@@ -39,5 +36,4 @@ __9_Internal_storages_where_the_data_product_is_deployed__not_exposed_to_consume
 __12_Data_Catalogue --> __13_Register_datasets: "«Enables» \n" 
 __13_Register_datasets --> __14_The_domain_datasets_belong_to_a_specific_domain: "«Includes» \n" 
 __13_Register_datasets --> __15_Core_datasets_are_those_that_are_useful_for_more_than_one_domain: "«Includes» \n" 
-__16_Feature_Store --> __17_Create_a_component_for_unified_batch_and_stream_data_processing: "«Enables» \n" 
 @enduml

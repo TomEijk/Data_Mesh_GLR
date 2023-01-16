@@ -8,12 +8,16 @@ skinparam defaultFontSize 11
 skinparam classfontstyle bold
 left to right direction
 class "What type of data product can be developed?\n : Decision" as __1_What_type_of_data_product_can_be_developed_
-class "Which approach is chosen for orchestrating the\ndata product\n : Decision" as __2_Which_approach_is_chosen_for_orchestrating_the_data_product
-class "Which architectural elements should be offered\nin the Data Product layer?\n : Decision" as __3_Which_architectural_elements_should_be_offered_in_the_Data_Product_layer_
-class "Which architectural elements should be offered\nin the Infrastructure layer?\n : Decision" as __4_Which_architectural_elements_should_be_offered_in_the_Infrastructure_layer_
-class "Which architectural elements should be offered\nin the Data Access layer?\n : Decision" as __5_Which_architectural_elements_should_be_offered_in_the_Data_Access_layer_
-__1_What_type_of_data_product_can_be_developed_ --> __2_Which_approach_is_chosen_for_orchestrating_the_data_product: "«Consider If Not Decided Yet» \n" 
-__2_Which_approach_is_chosen_for_orchestrating_the_data_product --> __3_Which_architectural_elements_should_be_offered_in_the_Data_Product_layer_: "«Consider If Not Decided Yet» \n" 
-__2_Which_approach_is_chosen_for_orchestrating_the_data_product --> __4_Which_architectural_elements_should_be_offered_in_the_Infrastructure_layer_: "«Consider If Not Decided Yet» \n" 
-__2_Which_approach_is_chosen_for_orchestrating_the_data_product --> __5_Which_architectural_elements_should_be_offered_in_the_Data_Access_layer_: "«Consider If Not Decided Yet» \n" 
+class "How to deploy a data product? : Decision" as __2_How_to_deploy_a_data_product_
+class "Which approach is chosen for the creation of a\ndata product?\n : Decision" as __3_Which_approach_is_chosen_for_the_creation_of_a_data_product_
+class "How does the data product interact with other\ndata products, self-serve platform and management\nlayer?\n : Decision" as __4_How_does_the_data_product_interact_with_other_data_products__self_serve_platform_and_management_layer_
+class "How can the consumer interact with the information\nfrom the data product?\n : Decision" as __5_How_can_the_consumer_interact_with_the_information_from_the_data_product_
+class "Which Architectural Elements should be offered\nin the Data Product Anatomy?\n : Decision" as __6_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_
+__1_What_type_of_data_product_can_be_developed_ --> __2_How_to_deploy_a_data_product_: "«Consider If Not Decided Yet» \n" 
+__2_How_to_deploy_a_data_product_ --> __4_How_does_the_data_product_interact_with_other_data_products__self_serve_platform_and_management_layer_: "«Consider If Not Decided Yet» \n" 
+__2_How_to_deploy_a_data_product_ --> __5_How_can_the_consumer_interact_with_the_information_from_the_data_product_: "«Consider If Not Decided Yet» \n" 
+__2_How_to_deploy_a_data_product_ --> __3_Which_approach_is_chosen_for_the_creation_of_a_data_product_: "«Consider If Not Decided Yet» \n" 
+__3_Which_approach_is_chosen_for_the_creation_of_a_data_product_ --> __6_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_: "«Consider If Not Decided Yet» \n" 
+__4_How_does_the_data_product_interact_with_other_data_products__self_serve_platform_and_management_layer_ --> __6_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_: "«Consider If Not Decided Yet» \n" 
+__5_How_can_the_consumer_interact_with_the_information_from_the_data_product_ --> __6_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_: "«Consider If Not Decided Yet» \n" 
 @enduml
