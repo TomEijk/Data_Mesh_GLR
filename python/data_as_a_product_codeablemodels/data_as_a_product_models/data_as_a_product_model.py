@@ -21,10 +21,10 @@ search_engine = CClass(pattern, "Search Engine")
 service_locator = CClass(pattern, "Service Locator")
 data_catalogue = CClass(pattern, "Data Catalogue")
 query_catalogue = CClass(pattern, "Query Catalogue")
-observation_plane = CClass(pattern, "Observation Port")
+observation_port = CClass(pattern, "Observation Port")
 schema_manager = CClass(pattern, "Schema Registry")
 change_data_capture = CClass(pattern, "Change Data Capture")
-data_integration_service = CClass(pattern, "Use a data integration service that helps users efficiently build and manage ETL/ELT pipelines")
+data_onboarding = CClass(pattern, "Data Onboarding")
 immutable_change_audit_log = CClass(pattern, "Immutable Change Audit Log")
 cqrs = CClass(pattern, "CQRS")
 feature_layer = CClass(pattern, "Feature Store")
@@ -35,16 +35,19 @@ templated_data_pipeline = CClass(pattern, "Templated Data Pipeline")
 pub_sub = CClass(pattern, "Pub/Sub")
 api_gateway = CClass(pattern, "API Gateway")
 strangler_fig_pattern = CClass(pattern, "Strangler-Fig")
-control_plane = CClass(pattern, "Control Port")
+control_port = CClass(pattern, "Control Port")
 zero_trust_architecture = CClass(pattern, "Zero Trust Architecture")
 mdm = CClass(pattern, "Master Data Management")
+observation_plane = CClass(pattern, "Observation Plane")
+control_plane = CClass(pattern, "Control Plane")
 
 # practices
 raw_data_as_data_product = CClass(practice, "Expose Data Product as Raw Data")
 derived_data_as_data_product = CClass(practice, "Expose Data Product as Derived Data")
 decision_support_model_as_data_product = CClass(practice, "Expose Data Product as an Optimisation-based Decision Support System")
 automated_decision_making_model_as_data_product = CClass(practice, "Expose Data Product as an AI/ML Model")
-hybrid_decision_making = CClass(practice, "Expose Data Product as a Hybrid Algorithm")
+hybrid_products = CClass(practice, "Expose Data Product as a Hybrid Product")
+composite_products = CClass(practice, "Expose Data Product as a Composite Product")
 register_datasets = CClass(practice, "Register datasets")
 request_access_engine = CClass(practice, "Request access to datasets in search engine")
 request_access = CClass(practice, "Fine-grained Access Control")
@@ -94,6 +97,11 @@ start_from_scratch = CClass(practice, "Greenfield Development")
 migration = CClass(practice, "Migration")
 data_marts = CClass(practice, "Incrementally build business process-centric data marts")
 non_functional = CClass(practice, "Non-Functional Components")
+function_as_a_service = CClass(practice, "Functiona-as-a-Service")
+run_time_environment_access_control = CClass(practice, "Run-time Environment Access Control")
+row_based_access_control = CClass(practice, "Row-based Access Control")
+api_access_control = CClass(practice, "API Access Control")
+stream_access_control = CClass(practice, "Stream Access Control")
 
 # forces
 security = CClass(force, "Security")
@@ -195,14 +203,22 @@ add_force_relations({raw_data_as_data_product: {internal_complexity: very_positi
                      })
 
 algorithms_data_product_first_variation = \
-    decision_support_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=uses)[0]
+    decision_support_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=variant)[0]
 algorithms_data_product_second_variation = \
-    automated_decision_making_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=uses)[0]
-decision_support_hybrid = \
-    hybrid_decision_making.add_links(decision_support_model_as_data_product, role_name="from", stereotype_instances=variant)[0]
-automated_decision_hybrid = \
-    hybrid_decision_making.add_links(automated_decision_making_model_as_data_product, role_name="from", stereotype_instances=variant)[0]
+    automated_decision_making_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=variant)[0]
+raw_hybrid = \
+    raw_data_as_data_product.add_links(hybrid_products, role_name="from", stereotype_instances=can_use)[0]
+derived_hybrid = \
+    derived_data_as_data_product.add_links(hybrid_products, role_name="from", stereotype_instances=can_use)[0]
+algorithms_hybrid = \
+    algorithms_as_data_product.add_links(hybrid_products, role_name="from", stereotype_instances=can_use)[0]
 
+raw_composite = \
+    raw_data_as_data_product.add_links(composite_products, role_name="from", stereotype_instances=can_use)[0]
+derived_composite = \
+    derived_data_as_data_product.add_links(composite_products, role_name="from", stereotype_instances=can_use)[0]
+algorithms_composite = \
+    algorithms_as_data_product.add_links(composite_products, role_name="from", stereotype_instances=can_use)[0]
 
 # ** orchestration_decision **
 
@@ -233,6 +249,10 @@ add_decision_option_link(data_product_layer_decision, internal_storages,
                                "Implement an internal storage for each data product")
 add_decision_option_link(data_product_layer_decision, data_catalogue,
                                "Implement a Data Catalogue component")
+add_decision_option_link(data_product_layer_decision, observation_plane,
+                               "Implement an observation plane")
+add_decision_option_link(data_product_layer_decision, control_plane,
+                               "Implement a control plane")
 add_force_relations({change_data_capture: {real_time_data_access: positive,
                                               complexity_for_user: negative,
                                               non_intrusive: positive,
@@ -286,11 +306,18 @@ versioning_view = \
 
 deploy_decision = CClass(decision, "How to deploy a data product?")
 add_decision_option_link(deploy_decision, k8s,
-                               "Use a pod architecture")
+                               "Use kubernetes")
 add_decision_option_link(deploy_decision, docker,
-                               "Use a docker architecture")
+                               "Use a containerised architecture")
 add_force_relations({k8s: {structured_code: positive}
                         })
+
+k8s_docker = \
+    docker.add_links(k8s, role_name="from", stereotype_instances=includes)[0]
+k8s_IaaS = \
+    infrastructure_as_code.add_links(k8s, role_name="from", stereotype_instances=can_use)[0]
+k8s_FaaS = \
+    function_as_a_service.add_links(k8s, role_name="from", stereotype_instances=can_use)[0]
 
 docker_containerisation = \
     containerisation.add_links(docker, role_name="from", stereotype_instances=can_be_realized_with)[0]
@@ -328,8 +355,6 @@ central_data_product_catalogue_centrally_manage_monitor_govern_data = \
 # ** consumer_decision **
 
 consumer_decision = CClass(decision, "How can the consumer interact with the information from the data product?")
-add_decision_option_link(consumer_decision,cache,
-                             "Implement a Cache component")
 add_decision_option_link(consumer_decision, sql_layer,
                                "Implement a SQL component")
 add_decision_option_link(consumer_decision, rest_apis,
@@ -349,18 +374,19 @@ add_force_relations({cache: {duplication: negative},
                                  interoperability: positive}
                         })
 
-rest_apis_observation_plane = \
-    observation_plane.add_links(rest_apis, role_name="from", stereotype_instances=includes)[0]
-observation_plane_quality_monitoring = \
-    quality_monitoring.add_links(observation_plane, role_name="from", stereotype_instances=realizes)[0]
+rest_apis_observation_port = \
+    observation_port.add_links(rest_apis, role_name="from", stereotype_instances=includes)[0]
+observation_port_quality_monitoring = \
+    quality_monitoring.add_links(observation_port, role_name="from", stereotype_instances=realizes)[0]
 rest_apis_discovery_port = \
     discovery_port.add_links(rest_apis, role_name="from", stereotype_instances=includes)[0]
-rest_apis_control_plane = \
-    control_plane.add_links(rest_apis, role_name="from", stereotype_instances=includes)[0]
+rest_apis_control_port = \
+    control_port.add_links(rest_apis, role_name="from", stereotype_instances=includes)[0]
 discovery_port_data_marketplace = \
     data_marketplace.add_links(discovery_port, role_name="from", stereotype_instances=enables)[0]
 
-
+non_functional_cache = \
+    cache.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
 non_functional_security_controls = \
     security_controls.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
 non_functional_query_catalogue = \
@@ -375,6 +401,14 @@ request_access_attribute = \
     attribute_based_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
 request_access_role = \
     role_based_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
+request_access_row = \
+    row_based_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
+request_access_api = \
+    api_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
+request_access_run = \
+    run_time_environment_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
+request_access_stream = \
+    stream_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
 
 # decision links
 add_links({data_product_type_decision: [deploy_decision],

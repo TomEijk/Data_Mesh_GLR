@@ -1,0 +1,21 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "How does the data product interact with other\ndata products, self-serve platform and management\nlayer?\n : Decision" as __1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform_and_management_layer_
+class "Schema Registry : Pattern" as __2_Schema_Registry
+class "Central Data Product Catalogue : Pattern" as __3_Central_Data_Product_Catalogue
+class "Centrally manage, monitor, and govern data across\ndata lakes, data warehouses, and data marts\n : Practice" as __4_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts
+class "Event Streaming Backbone : Practice" as __5_Event_Streaming_Backbone
+class "Pub/Sub : Pattern" as __6_Pub_Sub
+__1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform_and_management_layer_ --> __2_Schema_Registry: "«Option» \n{name = "Implement a Schema Registry\ncomponent"}\n" 
+__1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform_and_management_layer_ --> __3_Central_Data_Product_Catalogue: "«Option» \n{name = "Implement an Central Data\nProduct Catalogue\ncomponent"}\n" 
+__1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform_and_management_layer_ --> __5_Event_Streaming_Backbone: "«Option» \n{name = "Implement an Event Streaming\nBackbone"}\n" 
+__3_Central_Data_Product_Catalogue --> __4_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts: "«Leads To» \n" 
+__5_Event_Streaming_Backbone --> __6_Pub_Sub: "«Uses» \n" 
+@enduml

@@ -49,7 +49,7 @@
 
 
 ## Decision: Which Architectural Elements should be offered in the Data Product Anatomy?
-**Evidences:** s1, s3, s4, s5, s7, s8, s9, s12, s13, s15, s16, s17, s20, s25, s27, s30, s31, s32, s33, s35, s36, s37, s38, s40, s43, s45, s47, s48, s49, s53, s54, s55, s56, s57
+**Evidences:** s1, s3, s4, s5, s7, s8, s9, s11, s12, s13, s15, s16, s17, s20, s22, s25, s27, s30, s31, s32, s33, s35, s36, s37, s38, s40, s43, s45, s47, s48, s49, s52, s53, s54, s55, s56, s57
 
 **Context:** 
 
@@ -95,6 +95,14 @@
 - Delegated Ownership (+) [s31, s55]
 - Consumption (++) [s53, s55, s56]
 - Up-to-date (+) [s4, s55]
+
+#### Solution 5: Observation Plane
+**Evidences:** s3, s7, s11, s13, s22, s52
+
+
+#### Solution 6: Control Plane
+**Evidences:** s49, s52
+
 
 
 
@@ -156,13 +164,7 @@
 **Context:** 
 
 ### **Solution Options**
-#### Solution 1: Implement a highly available in-memory cache
-**Evidences:** s5, s14, s15, s18
-
-**Forces:**
-- Duplication (-) [s3, s15, s17, s48]
-
-#### Solution 2: Attach a SQL access point to each Data Product
+#### Solution 1: Attach a SQL access point to each Data Product
 **Evidences:** s2, s3, s5, s7, s10, s13, s14, s15, s16, s27, s30, s31, s32, s36, s37, s38, s39, s43, s46, s48, s49
 
 **Forces:**
@@ -171,7 +173,7 @@
 - Accelerate Decision Making (++) [s3]
 - More granular data (++) [s3]
 
-#### Solution 3: Attach REST APIs to each data product
+#### Solution 2: Attach REST APIs to each data product
 **Evidences:** s2, s3, s5, s6, s7, s8, s9, s15, s17, s18, s20, s30, s32, s33, s34, s36, s37, s38, s39, s40, s41, s45, s49, s52
 
 **Forces:**
@@ -182,7 +184,7 @@
 - Addressable (+) [s5, s17]
 - Interoperability (+) [s3, s9, s45]
 
-#### Solution 4: Non-Functional Components
+#### Solution 3: Non-Functional Components
 **Evidences:** 
 
 

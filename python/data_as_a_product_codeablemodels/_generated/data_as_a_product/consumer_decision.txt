@@ -1,0 +1,51 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "How can the consumer interact with the information\nfrom the data product?\n : Decision" as __1_How_can_the_consumer_interact_with_the_information_from_the_data_product_
+class "Attach a SQL access point to each Data Product\n : Practice" as __2_Attach_a_SQL_access_point_to_each_Data_Product
+class "Attach REST APIs to each data product\n : Practice" as __3_Attach_REST_APIs_to_each_data_product
+class "Observation Port : Pattern" as __4_Observation_Port
+class "Provide a single integrated experience for monitoring\n : Practice" as __5_Provide_a_single_integrated_experience_for_monitoring
+class "Discovery Port : Pattern" as __6_Discovery_Port
+class "Data Marketplace : Practice" as __7_Data_Marketplace
+class "Control Port : Pattern" as __8_Control_Port
+class "Non-Functional Components : Practice" as __9_Non_Functional_Components
+class "Implement a highly available in-memory cache\n : Practice" as __10_Implement_a_highly_available_in_memory_cache
+class "Security Controls : Practice" as __11_Security_Controls
+class "Fine-grained Access Control : Practice" as __12_Fine_grained_Access_Control
+class "Attribute-based Access Control : Practice" as __13_Attribute_based_Access_Control
+class "Role-based Access Control : Practice" as __14_Role_based_Access_Control
+class "Row-based Access Control : Practice" as __15_Row_based_Access_Control
+class "API Access Control : Practice" as __16_API_Access_Control
+class "Run-time Environment Access Control\n : Practice" as __17_Run_time_Environment_Access_Control
+class "Stream Access Control : Practice" as __18_Stream_Access_Control
+class "Encryption : Practice" as __19_Encryption
+class "OAUTH2 : Practice" as __20_OAUTH2
+class "Query Catalogue : Pattern" as __21_Query_Catalogue
+__1_How_can_the_consumer_interact_with_the_information_from_the_data_product_ --> __2_Attach_a_SQL_access_point_to_each_Data_Product: "«Option» \n{name = "Implement a SQL component"}\n" 
+__1_How_can_the_consumer_interact_with_the_information_from_the_data_product_ --> __3_Attach_REST_APIs_to_each_data_product: "«Option» \n{name = "Implement a REST API component"}\n" 
+__1_How_can_the_consumer_interact_with_the_information_from_the_data_product_ --> __9_Non_Functional_Components: "«Option» \n{name = "Implement a Non-functional\ncomponent"}\n" 
+__3_Attach_REST_APIs_to_each_data_product --> __4_Observation_Port: "«Includes» \n" 
+__3_Attach_REST_APIs_to_each_data_product --> __6_Discovery_Port: "«Includes» \n" 
+__3_Attach_REST_APIs_to_each_data_product --> __8_Control_Port: "«Includes» \n" 
+__4_Observation_Port --> __5_Provide_a_single_integrated_experience_for_monitoring: "«Realizes» \n" 
+__6_Discovery_Port --> __7_Data_Marketplace: "«Enables» \n" 
+__9_Non_Functional_Components --> __10_Implement_a_highly_available_in_memory_cache: "«Can Use» \n" 
+__9_Non_Functional_Components --> __11_Security_Controls: "«Can Use» \n" 
+__9_Non_Functional_Components --> __21_Query_Catalogue: "«Can Use» \n" 
+__11_Security_Controls --> __12_Fine_grained_Access_Control: "«Can Use» \n" 
+__11_Security_Controls --> __19_Encryption: "«Can Use» \n" 
+__11_Security_Controls --> __20_OAUTH2: "«Can Use» \n" 
+__12_Fine_grained_Access_Control --> __13_Attribute_based_Access_Control: "«Can Use» \n" 
+__12_Fine_grained_Access_Control --> __14_Role_based_Access_Control: "«Can Use» \n" 
+__12_Fine_grained_Access_Control --> __15_Row_based_Access_Control: "«Can Use» \n" 
+__12_Fine_grained_Access_Control --> __16_API_Access_Control: "«Can Use» \n" 
+__12_Fine_grained_Access_Control --> __17_Run_time_Environment_Access_Control: "«Can Use» \n" 
+__12_Fine_grained_Access_Control --> __18_Stream_Access_Control: "«Can Use» \n" 
+@enduml
