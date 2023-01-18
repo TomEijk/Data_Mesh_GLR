@@ -8,16 +8,14 @@ skinparam defaultFontSize 11
 skinparam classfontstyle bold
 left to right direction
 class "Which approach is chosen for the creation of a\ndata product?\n : Decision" as __1_Which_approach_is_chosen_for_the_creation_of_a_data_product_
-class "Migration : Practice" as __2_Migration
-class "Master Data Management : Pattern" as __3_Master_Data_Management
-class "Strangler-Fig : Pattern" as __4_Strangler_Fig
-class "Zero Trust Architecture : Pattern" as __5_Zero_Trust_Architecture
-class "CQRS : Pattern" as __6_CQRS
-class "Greenfield Development : Practice" as __7_Greenfield_Development
-__1_Which_approach_is_chosen_for_the_creation_of_a_data_product_ --> __2_Migration: "«Option» \n{name = "Migrating from a legacy architecture"}\n" 
-__1_Which_approach_is_chosen_for_the_creation_of_a_data_product_ --> __7_Greenfield_Development: "«Option» \n{name = "Starting with greenfield development"}\n" 
-__2_Migration --> __3_Master_Data_Management: "«Can Use» \n" 
-__2_Migration --> __4_Strangler_Fig: "«Can Use» \n" 
-__2_Migration --> __5_Zero_Trust_Architecture: "«Can Use» \n" 
-__2_Migration --> __6_CQRS: "«Can Use» \n" 
+class "Master Data Management : Pattern" as __2_Master_Data_Management
+class "Strangler-Fig : Pattern" as __3_Strangler_Fig
+class "Zero Trust Architecture : Pattern" as __4_Zero_Trust_Architecture
+class "CQRS : Pattern" as __5_CQRS
+class "Greenfield Development : Practice" as __6_Greenfield_Development
+__1_Which_approach_is_chosen_for_the_creation_of_a_data_product_ --> __2_Master_Data_Management: "«Option» \n{name = "Migrating to Master Data Management\nData\nMesh"}\n" 
+__1_Which_approach_is_chosen_for_the_creation_of_a_data_product_ --> __3_Strangler_Fig: "«Option» \n{name = "Migrating to Strangler-Fig\nData Mesh"}\n" 
+__1_Which_approach_is_chosen_for_the_creation_of_a_data_product_ --> __4_Zero_Trust_Architecture: "«Option» \n{name = "Migrating to Zero-Trust Data\nMesh"}\n" 
+__1_Which_approach_is_chosen_for_the_creation_of_a_data_product_ --> __5_CQRS: "«Option» \n{name = "Migrating to CQRS Data Mesh"}\n" 
+__1_Which_approach_is_chosen_for_the_creation_of_a_data_product_ --> __6_Greenfield_Development: "«Option» \n{name = "Starting with greenfield development"}\n" 
 @enduml

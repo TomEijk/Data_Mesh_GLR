@@ -24,12 +24,14 @@ class "The domain datasets belong to a specific domain\n : Practice" as __14_The
 class "Core datasets are those that are useful for more\nthan one domain\n : Practice" as __15_Core_datasets_are_those_that_are_useful_for_more_than_one_domain
 class "Observation Plane : Pattern" as __16_Observation_Plane
 class "Control Plane : Pattern" as __17_Control_Plane
+class "Data Onboarding : Pattern" as __18_Data_Onboarding
 __1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __2_Change_Data_Capture: "«Option» \n{name = "Implement a Change Data Capture\ncomponent"}\n" 
-__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __3_Immutable_Change_Audit_Log: "«Option» \n{name = "Implement a immutable log\ncomponent"}\n" 
-__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __9_Internal_storages_where_the_data_product_is_deployed__not_exposed_to_consumers: "«Option» \n{name = "Implement an internal storage\nfor each\ndata product"}\n" 
+__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __3_Immutable_Change_Audit_Log: "«Option» \n{name = "Implement a Immutable Log\ncomponent"}\n" 
+__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __9_Internal_storages_where_the_data_product_is_deployed__not_exposed_to_consumers: "«Option» \n{name = "Implement an Internal Storage\nfor each\nData Product"}\n" 
 __1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __12_Data_Catalogue: "«Option» \n{name = "Implement a Data Catalogue\ncomponent"}\n" 
-__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __16_Observation_Plane: "«Option» \n{name = "Implement an observation plane"}\n" 
-__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __17_Control_Plane: "«Option» \n{name = "Implement a control plane"}\n" 
+__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __16_Observation_Plane: "«Option» \n{name = "Implement an Observation Plane"}\n" 
+__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __17_Control_Plane: "«Option» \n{name = "Implement a Control Plane"}\n" 
+__1_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __18_Data_Onboarding: "«Option» \n{name = "Implement Data Onboarding"}\n" 
 __3_Immutable_Change_Audit_Log --> __4_Versioning: "«Enables» \n" 
 __3_Immutable_Change_Audit_Log --> __8_Alterting: "«Enables» \n" 
 __4_Versioning --> __5_Incremental_Sync: "«Enables» \n" 
