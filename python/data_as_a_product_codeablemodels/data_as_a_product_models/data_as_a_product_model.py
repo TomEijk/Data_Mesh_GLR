@@ -40,6 +40,10 @@ zero_trust_architecture = CClass(pattern, "Zero Trust Architecture")
 mdm = CClass(pattern, "Master Data Management")
 observation_plane = CClass(pattern, "Observation Plane")
 control_plane = CClass(pattern, "Control Plane")
+storage_read_api = CClass(pattern, "Storage Read API")
+cloud_storage_api = CClass(pattern, "Cloud Storage API")
+event_streaming = CClass(pattern, "Event Streaming Backbone")
+api_invocation = CClass(pattern, "API Invocation")
 
 # practices
 raw_data_as_data_product = CClass(practice, "Expose Data Product as Raw Data")
@@ -55,7 +59,6 @@ quality_monitoring = CClass(practice, "Provide a single integrated experience fo
 algorithms_as_data_product = CClass(practice, "Expose Data Product as an algorithm")
 domain_datasets = CClass(practice, "The domain datasets belong to a specific domain")
 core_datasets = CClass(practice, "Core datasets are those that are useful for more than one domain")
-event_streaming = CClass(practice, "Event Streaming Backbone")
 virtualisation = CClass(practice, "Virtualisation")
 incremental_sync = CClass(practice, "Incremental Sync")
 role_based_access_control = CClass(practice, "Role-based Access Control")
@@ -73,7 +76,6 @@ run_tests = CClass(practice, "Run automated testing on your data product")
 centrally_manage_monitor_govern_data = CClass(practice, "Centrally manage, monitor, and govern data across data lakes, data warehouses, and data marts")
 snapshots_ETL = CClass(practice, "Send snapshots via nightly ETL")
 snapshots_via_ReqResAPI = CClass(practice, "Send snapshots via Req/Res API")
-oauth2 = CClass(practice, "OAUTH2")
 dataset_versioning = CClass(practice, "Dataset Versioning")
 view_versioning = CClass(practice, "View Versioning")
 docker = CClass(practice, "Docker")
@@ -102,85 +104,60 @@ run_time_environment_access_control = CClass(practice, "Run-time Environment Acc
 row_based_access_control = CClass(practice, "Row-based Access Control")
 api_access_control = CClass(practice, "API Access Control")
 stream_access_control = CClass(practice, "Stream Access Control")
+shared_storage = CClass(practice, "Shared Storage")
+remote_procedure_invocation = CClass(practice, "gRPC")
+graphQL = CClass(practice, "GraphQL")
 
 # forces
 security = CClass(force, "Security")
-meet_sla = CClass(force, "Meet SLAs")
 discoverability = CClass(force, "Discoverability")
-internal_complexity = CClass(force, "Internal Complexity")
-complexity_for_user = CClass(force, "Complexity for User")
 accelerate_decision_making = CClass(force, "Accelerate Decision Making")
 more_granular_data = CClass(force, "More granular data")
 understandability = CClass(force, "Understandability")
-prioritise = CClass(force, "Prioritise")
-standardised_transformation =  CClass(force, "Standardised Transformation")
+standardised_transformation = CClass(force, "Standardised Transformation")
 duplication = CClass(force, "Duplication")
 obscurity = CClass(force, "Obscurity")
 trustworthiness = CClass(force, "Trustworthiness")
 interoperability = CClass(force, "Interoperability")
-compliance = CClass(force, "Compliance")
-provenance = CClass(force, "Provenance")
-accuracy = CClass(force, "Data Accuracy")
 completeness = CClass(force, "Completeness")
 integrity = CClass(force, "Integrity")
 multiple_independent_read_only_views = CClass(force, "Multiple independent read-only views")
-re_use = CClass(force, "Re-use aspects by allowing other teams to find and build upon existing work")
 time_to_market = CClass(force, "Time-to-Market")
-conflicting_definitions = CClass(force, "Conflicting definitions")
 periodic_execution = CClass(force, "Execution at periodic intervals")
 consistency = CClass(force, "Consistently Applied Security")
 stability = CClass(force, "Stability")
 swamp = CClass(force, "Turning the data lake into a swamp")
-data_productivity = CClass(force, "Data Productivity")
-analytics_agility = CClass(force, "Analytics Agility")
+agility = CClass(force, "Agility")
 manual_toil = CClass(force, "Manual Toil")
 quality = CClass(force, "Data Quality")
-discovery = CClass(force, "Discovery")
-gain_knowledge = CClass(force, "Quickly gain knowledge on data set")
 fast_data_propagation = CClass(force, "Fast data propagation")
 handle_large_data_volumes = CClass(force, "Handle large data volumes")
 limit_recipients = CClass(force, "Limit receptions")
-addressability_subscriptions = CClass(force, "Addressability of subscriptions")
+addressability_subscriptions = CClass(force, "Addressability")
 control_over_data_schema = CClass(force, "Control over data schema")
 real_time_data_access = CClass(force, "Real-time Data Access")
-high_fidelity = CClass(force, "High fidelity")
 multiple_environments = CClass(force, "Can be deployed in multiple environments")
-non_intrusive = CClass(force, "Non-intrusive")
-consumption = CClass(force, "Consumption")
 production_grade_integrations = CClass(force, "Production Grade Integrations")
 reproducibility = CClass(force, "Reproducibility")
 traceability = CClass(force, "Traceability")
 verifiability = CClass(force, "Verifiability")
 unified = CClass(force, "Unified")
 up_to_date = CClass(force, "Up-to-date")
-protected = CClass(force, "Protected")
-accessible = CClass(force, "Accessible")
+accessible = CClass(force, "Accessibility")
 addressible = CClass(force, "Addressable")
-structured_code = CClass(force, "Structured code")
 immutability = CClass(force, "Immutability")
-bi_temporality_data = CClass(force, "Bi-temporality of data")
 transparency = CClass(force, "Transparency")
-user_experience = CClass(force, "User Experience")
-data_integration_speed = CClass(force, "Data Integration Speed")
 scalable = CClass(force, "Scalable")
-frictions = CClass(force, "Frictions")
 entry_barrier = CClass(force, "Entry Barrier")
 data_search = CClass(force, "Data Search")
 data_enrichment = CClass(force, "Data Enrichment")
 autonomous = CClass(force, "Autonomous")
-delegated_ownership = CClass(force, "Delegated Ownership")
 observability = CClass(force, "Observability")
-structured_data = CClass(force, "Structured Data")
-on_demand = CClass(force, "On-Demand")
-grouping_related_data_resources = CClass(force, "Grouping Related Data Resources")
-allows_for_filtering = CClass(force, "Allows For Filtering")
+grouping = CClass(force, "Grouping")
+filtering = CClass(force, "Filtering")
 centralization = CClass(force, "Centralization")
 data_lineage = CClass(force, "Data Lineage")
-self_documenting = CClass(force, "Self-Documenting")
-ability_to_gauge_data_quality = CClass(force, "Ability to gauge data quality")
 governance = CClass(force, "Governance")
-debugging = CClass(force, "Debugging")
-easy_data_migration_between_products = CClass(force, "Easy Data Migration Between Products")
 decomposition = CClass(force, "Decomposition")
 
 # decisions, options, and contexts
@@ -194,12 +171,9 @@ add_decision_option_link(data_product_type_decision, derived_data_as_data_produc
                          "Use derived data from the data product")
 add_decision_option_link(data_product_type_decision, algorithms_as_data_product,
                          "Use algorithms to return information or insights")
-add_force_relations({raw_data_as_data_product: {internal_complexity: very_positive,
-                                                complexity_for_user: very_negative},
-                     derived_data_as_data_product: {internal_complexity: positive,
-                                                    complexity_for_user: negative},
-                     algorithms_as_data_product: {internal_complexity: neutral,
-                                                  complexity_for_user: neutral}
+add_force_relations({raw_data_as_data_product: {understandability: negative},
+                     derived_data_as_data_product: {understandability: positive},
+                     algorithms_as_data_product: {understandability: neutral}
                      })
 
 algorithms_data_product_first_variation = \
@@ -254,15 +228,13 @@ add_decision_option_link(data_product_layer_decision, observation_plane,
 add_decision_option_link(data_product_layer_decision, control_plane,
                                "Implement a control plane")
 add_force_relations({change_data_capture: {real_time_data_access: positive,
-                                              complexity_for_user: negative,
-                                              non_intrusive: positive,
-                                              consumption: positive,
+                                              understandability: positive,
+                                              accessible: positive,
                                               production_grade_integrations: positive},
                      immutable_change_audit_log: {reproducibility: positive,
                                                   traceability: positive,
                                                   verifiability: positive,
                                                   immutability: very_positive,
-                                                  bi_temporality_data: positive,
                                                   observability: positive,
                                                   understandability: very_positive,
                                                   data_lineage: positive,
@@ -273,8 +245,8 @@ add_force_relations({change_data_capture: {real_time_data_access: positive,
                                      discoverability: positive,
                                      data_search: positive,
                                      data_enrichment: positive,
-                                     delegated_ownership: positive,
-                                     consumption: very_positive,
+                                     autonomous: positive,
+                                     accessible: very_positive,
                                      up_to_date: positive}
                         })
 
@@ -309,8 +281,6 @@ add_decision_option_link(deploy_decision, k8s,
                                "Use kubernetes")
 add_decision_option_link(deploy_decision, docker,
                                "Use a containerised architecture")
-add_force_relations({k8s: {structured_code: positive}
-                        })
 
 k8s_docker = \
     docker.add_links(k8s, role_name="from", stereotype_instances=includes)[0]
@@ -337,10 +307,13 @@ add_decision_option_link(data_product_self_serve_management_decision,central_dat
                              "Implement an Central Data Product Catalogue component")
 add_decision_option_link(data_product_self_serve_management_decision, event_streaming,
                                "Implement an Event Streaming Backbone")
+add_decision_option_link(data_product_self_serve_management_decision, shared_storage,
+                               "Implement a shared storage")
+add_decision_option_link(data_product_self_serve_management_decision, api_invocation,
+                               "Implement API Invocation")
 add_force_relations({schema_manager: {understandability: positive,
                                           duplication: positive,
-                                          conflicting_definitions: negative,
-                                          re_use: very_positive,
+                                          reproducibility: very_positive,
                                           interoperability: positive},
                      central_data_product_catalogue: {discoverability: positive,
                                                       understandability: positive,
@@ -351,6 +324,20 @@ event_streaming_pub_sub = \
     pub_sub.add_links(event_streaming, role_name="from", stereotype_instances=uses)[0]
 central_data_product_catalogue_centrally_manage_monitor_govern_data = \
     centrally_manage_monitor_govern_data.add_links(central_data_product_catalogue, role_name="from", stereotype_instances=leads_to)[0]
+api_invocation_read = \
+    storage_read_api.add_links(api_invocation, role_name="from", stereotype_instances=leads_to)[0]
+api_invocation_cloud = \
+    cloud_storage_api.add_links(api_invocation, role_name="from", stereotype_instances=leads_to)[0]
+api_invocation_rest = \
+    rest_apis.add_links(api_invocation, role_name="from", stereotype_instances=can_be_realized_with)[0]
+api_invocation_grpc = \
+    remote_procedure_invocation.add_links(api_invocation, role_name="from", stereotype_instances=can_be_realized_with)[0]
+shared_storage_storage_read = \
+    storage_read_api.add_links(shared_storage, role_name="from", stereotype_instances=can_be_realized_with)[0]
+shared_storage_cloud_storage = \
+    cloud_storage_api.add_links(shared_storage, role_name="from", stereotype_instances=can_be_realized_with)[0]
+
+
 
 # ** consumer_decision **
 
@@ -362,12 +349,10 @@ add_decision_option_link(consumer_decision, rest_apis,
 add_decision_option_link(consumer_decision, non_functional,
                          "Implement a Non-functional component")
 add_force_relations({cache: {duplication: negative},
-                     sql_layer: {internal_complexity: positive,
-                                 complexity_for_user: positive,
+                     sql_layer: {understandability: positive,
                                  accelerate_decision_making: very_positive,
                                  more_granular_data: very_positive},
-                     rest_apis: {internal_complexity: positive,
-                                 complexity_for_user: negative,
+                     rest_apis: {understandability: positive,
                                  control_over_data_schema: positive,
                                  accessible: positive,
                                  addressible: positive,
@@ -395,8 +380,6 @@ security_controls_request_access = \
     request_access.add_links(security_controls, role_name="from", stereotype_instances=can_use)[0]
 security_controls_encryption = \
     encryption.add_links(security_controls, role_name="from", stereotype_instances=can_use)[0]
-security_controls_oauth2 = \
-    oauth2.add_links(security_controls, role_name="from", stereotype_instances=can_use)[0]
 request_access_attribute = \
     attribute_based_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
 request_access_role = \

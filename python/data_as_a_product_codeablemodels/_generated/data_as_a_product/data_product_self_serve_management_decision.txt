@@ -11,11 +11,35 @@ class "How does the data product interact with other\ndata products, self-serve 
 class "Schema Registry : Pattern" as __2_Schema_Registry
 class "Central Data Product Catalogue : Pattern" as __3_Central_Data_Product_Catalogue
 class "Centrally manage, monitor, and govern data across\ndata lakes, data warehouses, and data marts\n : Practice" as __4_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts
-class "Event Streaming Backbone : Practice" as __5_Event_Streaming_Backbone
+class "Event Streaming Backbone : Pattern" as __5_Event_Streaming_Backbone
 class "Pub/Sub : Pattern" as __6_Pub_Sub
+class "Shared Storage : Practice" as __7_Shared_Storage
+class "Storage Read API : Pattern" as __8_Storage_Read_API
+class "API Invocation : Pattern" as __9_API_Invocation
+class "Cloud Storage API : Pattern" as __10_Cloud_Storage_API
+class "Attach REST APIs to each data product\n : Practice" as __11_Attach_REST_APIs_to_each_data_product
+class "Observation Port : Pattern" as __12_Observation_Port
+class "Provide a single integrated experience for monitoring\n : Practice" as __13_Provide_a_single_integrated_experience_for_monitoring
+class "Discovery Port : Pattern" as __14_Discovery_Port
+class "Data Marketplace : Practice" as __15_Data_Marketplace
+class "Control Port : Pattern" as __16_Control_Port
+class "gRPC : Practice" as __17_gRPC
 __1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform_and_management_layer_ --> __2_Schema_Registry: "«Option» \n{name = "Implement a Schema Registry\ncomponent"}\n" 
 __1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform_and_management_layer_ --> __3_Central_Data_Product_Catalogue: "«Option» \n{name = "Implement an Central Data\nProduct Catalogue\ncomponent"}\n" 
 __1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform_and_management_layer_ --> __5_Event_Streaming_Backbone: "«Option» \n{name = "Implement an Event Streaming\nBackbone"}\n" 
+__1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform_and_management_layer_ --> __7_Shared_Storage: "«Option» \n{name = "Implement a shared storage"}\n" 
+__1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform_and_management_layer_ --> __9_API_Invocation: "«Option» \n{name = "Implement API Invocation"}\n" 
 __3_Central_Data_Product_Catalogue --> __4_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts: "«Leads To» \n" 
 __5_Event_Streaming_Backbone --> __6_Pub_Sub: "«Uses» \n" 
+__7_Shared_Storage --> __8_Storage_Read_API: "«Can be Realized With» \n" 
+__7_Shared_Storage --> __10_Cloud_Storage_API: "«Can be Realized With» \n" 
+__9_API_Invocation --> __8_Storage_Read_API: "«Leads To» \n" 
+__9_API_Invocation --> __10_Cloud_Storage_API: "«Leads To» \n" 
+__9_API_Invocation --> __11_Attach_REST_APIs_to_each_data_product: "«Can be Realized With» \n" 
+__9_API_Invocation --> __17_gRPC: "«Can be Realized With» \n" 
+__11_Attach_REST_APIs_to_each_data_product --> __12_Observation_Port: "«Includes» \n" 
+__11_Attach_REST_APIs_to_each_data_product --> __14_Discovery_Port: "«Includes» \n" 
+__11_Attach_REST_APIs_to_each_data_product --> __16_Control_Port: "«Includes» \n" 
+__12_Observation_Port --> __13_Provide_a_single_integrated_experience_for_monitoring: "«Realizes» \n" 
+__14_Discovery_Port --> __15_Data_Marketplace: "«Enables» \n" 
 @enduml

@@ -11,22 +11,19 @@
 **Evidences:** s1, s2, s6, s7, s9, s14, s15, s27, s34, s43
 
 **Forces:**
-- Internal Complexity (++) [s2]
-- Complexity for User (--) [s2]
+- Understandability (-) [s2, s43]
 
 #### Solution 2: Expose Data Product as Derived Data
 **Evidences:** s1, s2, s6, s9, s14, s15, s27, s34
 
 **Forces:**
-- Internal Complexity (+) [s2]
-- Complexity for User (-) [s2]
+- Understandability (+) [s2, s43]
 
 #### Solution 3: Expose Data Product as an algorithm
 **Evidences:** s2, s6
 
 **Forces:**
-- Internal Complexity (o) [s2]
-- Complexity for User (o) [s2]
+- Understandability (o) [s2, s43]
 
 #### **Next Decision**: How to deploy a data product?
 
@@ -59,23 +56,21 @@
 
 **Forces:**
 - Real-time Data Access (+) [s17, s20, s53, s55, s56]
-- Complexity for User (-) [s48, s53]
-- Non-intrusive (+) [s53]
-- Consumption (+) [s53, s55, s56]
-- Production Grade Integrations (+) [s53]
+- Understandability (+) [s3, s11, s32, s43, s47, s48, s49, s53, s55, s56]
+- Accessibility (+) [s4, s5, s15, s32, s52, s53, s55, s56]
+- Production Grade Integrations (+) [s53, s56]
 
 #### Solution 2: Immutable Change Audit Log
 **Evidences:** s4, s8, s12, s31, s32, s35, s36, s45, s47, s48, s53, s54, s55, s56, s57
 
 **Forces:**
-- Reproducibility (+) [s48, s54, s55]
+- Reproducibility (+) [s15, s16, s25, s48, s54, s55]
 - Traceability (+) [s54, s55]
 - Verifiability (+) [s48, s54]
 - Immutability (++) [s8, s17, s54]
-- Bi-temporality of data (+) [s8]
 - Observability (+) [s31, s55, s56]
-- Understandability (++) [s3, s32, s47, s48, s55]
-- Data Lineage (+) [s48, s54, s55, s56]
+- Understandability (++) [s3, s11, s32, s43, s47, s48, s49, s53, s55, s56]
+- Data Lineage (+) [s8, s48, s54, s55, s56]
 - Governance (++) [s55]
 
 #### Solution 3: Internal storages where the data product is deployed, not exposed to consumers
@@ -92,8 +87,8 @@
 - Discoverability (+) [s1, s15, s25, s31, s32, s45, s49, s55, s56]
 - Data Search (+) [s31]
 - Data Enrichment (+) [s31]
-- Delegated Ownership (+) [s31, s55]
-- Consumption (++) [s53, s55, s56]
+- Autonomous (+) [s31, s55]
+- Accessibility (++) [s4, s5, s15, s32, s52, s53, s55, s56]
 - Up-to-date (+) [s4, s55]
 
 #### Solution 5: Observation Plane
@@ -107,7 +102,7 @@
 
 
 ## Decision: How to deploy a data product?
-**Evidences:** s6, s14, s32, s35, s39, s43, s45, s47
+**Evidences:** s6, s14, s15, s30, s32, s33, s35, s39, s43, s45, s47
 
 **Context:** 
 
@@ -115,11 +110,9 @@
 #### Solution 1: Kubernetes
 **Evidences:** s6, s14, s32, s35, s39, s43, s45, s47
 
-**Forces:**
-- Structured code (+) [s6]
 
 #### Solution 2: Docker
-**Evidences:** 
+**Evidences:** s14, s15, s30, s32, s33, s45, s47
 
 
 #### **Next Decision**: How does the data product interact with other data products, self-serve platform and management layer?
@@ -137,10 +130,9 @@
 **Evidences:** s3, s6, s7, s15, s16, s17, s19, s20, s24, s41, s47, s48, s54, s57
 
 **Forces:**
-- Understandability (+) [s3, s32, s47, s48, s55]
+- Understandability (+) [s3, s32, s47, s48, s49, s53, s55, s56]
 - Duplication (+) [s3, s15, s17, s48]
-- Conflicting definitions (-) [s20]
-- Re-use aspects by allowing other teams to find and build upon existing work (++) [s15, s16]
+- Reproducibility (++) [s15, s16, s48, s54, s55]
 - Interoperability (+) [s3, s9, s45]
 
 #### Solution 2: Central Data Product Catalogue
@@ -148,18 +140,26 @@
 
 **Forces:**
 - Discoverability (+) [s15, s31, s32, s39, s42, s45, s49, s55, s56]
-- Understandability (+) [s3, s32, s47, s48, s55]
+- Understandability (+) [s3, s32, s47, s48, s49, s53, s55, s56]
 - Observability (+) [s31, s55, s56]
 
 #### Solution 3: Event Streaming Backbone
 **Evidences:** s4, s9, s17, s20, s26, s33, s34, s36, s38, s41, s44, s45, s48, s51, s52, s53, s55, s56, s57
 
 
+#### Solution 4: Shared Storage
+**Evidences:** 
+
+
+#### Solution 5: API Invocation
+**Evidences:** 
+
+
 #### **Next Decision**: Which Architectural Elements should be offered in the Data Product Anatomy?
 
 
 ## Decision: How can the consumer interact with the information from the data product?
-**Evidences:** s2, s3, s5, s6, s7, s8, s9, s10, s13, s14, s15, s16, s17, s18, s20, s27, s30, s31, s32, s33, s34, s36, s37, s38, s39, s40, s41, s43, s45, s46, s48, s49, s52
+**Evidences:** s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s12, s13, s14, s15, s16, s17, s18, s20, s23, s27, s30, s31, s32, s33, s34, s36, s37, s38, s39, s40, s41, s43, s45, s46, s47, s48, s49, s52, s56
 
 **Context:** 
 
@@ -168,8 +168,7 @@
 **Evidences:** s2, s3, s5, s7, s10, s13, s14, s15, s16, s27, s30, s31, s32, s36, s37, s38, s39, s43, s46, s48, s49
 
 **Forces:**
-- Internal Complexity (+) [s2]
-- Complexity for User (+) [s2, s48]
+- Understandability (+) [s2, s3, s32, s43, s47, s48, s49, s56]
 - Accelerate Decision Making (++) [s3]
 - More granular data (++) [s3]
 
@@ -177,98 +176,69 @@
 **Evidences:** s2, s3, s5, s6, s7, s8, s9, s15, s17, s18, s20, s30, s32, s33, s34, s36, s37, s38, s39, s40, s41, s45, s49, s52
 
 **Forces:**
-- Internal Complexity (+) [s2]
-- Complexity for User (-) [s2, s48]
+- Understandability (+) [s2, s3, s32, s43, s47, s48, s49, s56]
 - Control over data schema (+) [s17, s41]
-- Accessible (+) [s5, s15, s32, s39, s52]
+- Accessibility (+) [s4, s5, s15, s32, s39, s52, s56]
 - Addressable (+) [s5, s17]
-- Interoperability (+) [s3, s9, s45]
+- Interoperability (+) [s1, s3, s9, s45]
 
 #### Solution 3: Non-Functional Components
-**Evidences:** 
+**Evidences:** s1, s3, s4, s5, s6, s12, s15, s20, s23, s27, s31, s32, s36, s38, s39, s40, s43, s47, s52, s56
 
 
 #### **Next Decision**: Which Architectural Elements should be offered in the Data Product Anatomy?
 
 
 # Forces: 
-- Security [s1, s31]
-- Meet SLAs [s22]
+- Security [s1, s4, s31]
 - Discoverability [s1, s15, s25, s31, s32, s39, s42, s45, s49, s55, s56]
-- Internal Complexity [s2]
-- Complexity for User [s2, s48, s53]
 - Accelerate Decision Making [s3]
 - More granular data [s3]
-- Understandability [s3, s32, s47, s48, s55]
-- Prioritise [s3, s19]
+- Understandability [s2, s3, s11, s32, s43, s47, s48, s49, s53, s55, s56]
 - Standardised Transformation [s3, s19, s25, s32]
 - Duplication [s3, s15, s17, s25, s48]
 - Obscurity [s3, s19]
-- Trustworthiness [s1, s3, s11, s29]
+- Trustworthiness [s1, s3, s11, s29, s51]
 - Interoperability [s1, s3, s9, s29, s45]
-- Compliance [s7]
-- Provenance []
-- Data Accuracy [s6, s7]
 - Completeness [s7]
 - Integrity [s7]
 - Multiple independent read-only views [s8]
-- Re-use aspects by allowing other teams to find and build upon existing work [s15, s16, s21, s25]
-- Time-to-Market [s15, s25, s33]
-- Conflicting definitions [s20]
+- Time-to-Market [s2, s15, s25, s33]
 - Execution at periodic intervals [s20]
 - Consistently Applied Security [s20]
 - Stability [s20]
 - Turning the data lake into a swamp [s28]
-- Data Productivity [s31]
-- Analytics Agility [s31]
+- Agility [s31]
 - Manual Toil [s31]
-- Data Quality [s6, s31, s35]
-- Discovery [s31]
-- Quickly gain knowledge on data set [s32, s43]
+- Data Quality [s6, s7, s31, s35]
 - Fast data propagation [s41]
 - Handle large data volumes [s41]
 - Limit receptions [s41]
-- Addressability of subscriptions [s41]
+- Addressability [s41]
 - Control over data schema [s17, s41]
 - Real-time Data Access [s17, s20, s51, s53, s55, s56]
-- High fidelity [s51]
 - Can be deployed in multiple environments [s51]
-- Non-intrusive [s53]
-- Consumption [s53, s55, s56]
-- Production Grade Integrations [s53]
-- Reproducibility [s48, s54, s55]
+- Production Grade Integrations [s53, s56]
+- Reproducibility [s15, s16, s21, s25, s48, s54, s55]
 - Traceability [s54, s55]
 - Verifiability [s48, s54]
 - Unified [s4]
 - Up-to-date [s4, s55]
-- Protected [s4]
-- Accessible [s4, s5, s15, s32, s39, s52]
+- Accessibility [s4, s5, s15, s32, s39, s52, s53, s55, s56]
 - Addressable [s5, s17]
-- Structured code [s6]
 - Immutability [s8, s17, s54]
-- Bi-temporality of data [s8]
 - Transparency [s11]
-- User Experience [s11]
-- Data Integration Speed [s2]
 - Scalable [s17]
-- Frictions [s30]
 - Entry Barrier [s30]
 - Data Search [s31, s39]
 - Data Enrichment [s31]
-- Autonomous [s31]
-- Delegated Ownership [s31, s55]
+- Autonomous [s31, s55]
 - Observability [s31, s55, s56]
-- Structured Data [s32]
-- On-Demand []
-- Grouping Related Data Resources [s37]
-- Allows For Filtering [s38]
+- Grouping [s37]
+- Filtering [s38]
 - Centralization [s48]
-- Data Lineage [s48, s54, s55, s56]
-- Self-Documenting [s49]
-- Ability to gauge data quality [s52]
+- Data Lineage [s8, s48, s54, s55, s56]
 - Governance [s55]
-- Debugging [s56]
-- Easy Data Migration Between Products [s56]
 - Decomposition [s57]
 
 
