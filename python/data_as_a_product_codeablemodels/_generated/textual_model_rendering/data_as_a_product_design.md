@@ -25,7 +25,8 @@
 **Forces:**
 - Understandability for User (+) [s2, s43]
 
-#### **Next Decision**: How to deploy a data product?
+#### **Next Decision**: How does the data product interact with other data products, self-serve platform, management layer and consumers?
+#### **Next Decision**: Which approach is chosen for the creation of a data product?
 
 
 ## Decision: Which approach is chosen for the creation of a data product?
@@ -150,6 +151,7 @@
 - Data Quality (+) [s7, s31, s35]
 - Standardised Transformation (+) [s3, s25, s32]
 
+#### **Next Decision**: How to deploy a data product?
 
 
 ## Decision: How to deploy a data product?
@@ -173,8 +175,6 @@
 - Reproducibility (+) [s15]
 - Can be deployed in multiple environments (+) []
 
-#### **Next Decision**: How does the data product interact with other data products, self-serve platform, management layer and consumers?
-#### **Next Decision**: Which approach is chosen for the creation of a data product?
 
 
 ## Decision: How does the data product interact with other data products, self-serve platform, management layer and consumers?
@@ -299,6 +299,7 @@
 - Discoverability (+) [s25, s49]
 - Accessibility (+) [s52]
 
+#### **Next Decision**: How to deploy a data product?
 
 
 # Forces: 

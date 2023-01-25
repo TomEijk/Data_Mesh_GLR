@@ -460,10 +460,11 @@ discovery_port_data_marketplace = \
     data_marketplace.add_links(discovery_port, role_name="from", stereotype_instances=enables)[0]
 
 # decision links
-add_links({data_product_type_decision: [deploy_decision],
-           deploy_decision: [data_product_self_serve_management_decision, orchestration_decision],
+add_links({data_product_type_decision: [data_product_self_serve_management_decision, orchestration_decision],
            orchestration_decision: [data_product_layer_decision],
-           data_product_self_serve_management_decision: [data_product_layer_decision, interface_decision]},
+           data_product_self_serve_management_decision: [data_product_layer_decision, interface_decision],
+           data_product_layer_decision: [deploy_decision],
+           interface_decision: [deploy_decision]},
           role_name="next decision", stereotype_instances=consider_if_not_decided_yet)
 
 # decision views
