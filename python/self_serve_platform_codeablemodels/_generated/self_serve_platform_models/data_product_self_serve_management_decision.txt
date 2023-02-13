@@ -1,0 +1,63 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "How does the data product interact with other\ndata products, self-serve platform, management\nlayer and consumers?\n : Decision" as __1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__management_layer_and_consumers_
+class "Schema Registry : Pattern" as __2_Schema_Registry
+class "Central Data Product Catalogue : Pattern" as __3_Central_Data_Product_Catalogue
+class "Centrally manage, monitor, and govern data across\ndata lakes, data warehouses, and data marts\n : Practice" as __4_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts
+class "Event Streaming Backbone : Pattern" as __5_Event_Streaming_Backbone
+class "Pub/Sub : Pattern" as __6_Pub_Sub
+class "Shared Storage : Practice" as __7_Shared_Storage
+class "Storage Read API : Pattern" as __8_Storage_Read_API
+class "API Invocation : Pattern" as __9_API_Invocation
+class "Cloud Storage API : Pattern" as __10_Cloud_Storage_API
+class "Attach REST APIs to each data product\n : Practice" as __11_Attach_REST_APIs_to_each_data_product
+class "GraphQL : Practice" as __12_GraphQL
+class "gRPC : Practice" as __13_gRPC
+class "Attach a SQL access point to each Data Product\n : Practice" as __14_Attach_a_SQL_access_point_to_each_Data_Product
+class "Data Product Policy Enforcement Mechanisms\n : Practice" as __15_Data_Product_Policy_Enforcement_Mechanisms
+class "Implement a highly available in-memory cache\n : Practice" as __16_Implement_a_highly_available_in_memory_cache
+class "Security Controls : Practice" as __17_Security_Controls
+class "Fine-grained Access Control : Practice" as __18_Fine_grained_Access_Control
+class "Attribute-based Access Control : Practice" as __19_Attribute_based_Access_Control
+class "Role-based Access Control : Practice" as __20_Role_based_Access_Control
+class "Row-based Access Control : Practice" as __21_Row_based_Access_Control
+class "API Access Control : Practice" as __22_API_Access_Control
+class "Run-time Environment Access Control\n : Practice" as __23_Run_time_Environment_Access_Control
+class "Stream Access Control : Practice" as __24_Stream_Access_Control
+class "Encryption : Practice" as __25_Encryption
+class "Query Catalogue : Pattern" as __26_Query_Catalogue
+__1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__management_layer_and_consumers_ --> __2_Schema_Registry: "«Option» \n{name = "Implement a Schema Registry\ncomponent"}\n" 
+__1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__management_layer_and_consumers_ --> __3_Central_Data_Product_Catalogue: "«Option» \n{name = "Implement an Central Data\nProduct Catalogue\ncomponent"}\n" 
+__1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__management_layer_and_consumers_ --> __5_Event_Streaming_Backbone: "«Option» \n{name = "Implement an Event Streaming\nBackbone"}\n" 
+__1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__management_layer_and_consumers_ --> __7_Shared_Storage: "«Option» \n{name = "Implement a shared storage"}\n" 
+__1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__management_layer_and_consumers_ --> __9_API_Invocation: "«Option» \n{name = "Implement API Invocation"}\n" 
+__1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__management_layer_and_consumers_ --> __14_Attach_a_SQL_access_point_to_each_Data_Product: "«Option» \n{name = "Implement a SQL component"}\n" 
+__1_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__management_layer_and_consumers_ --> __15_Data_Product_Policy_Enforcement_Mechanisms: "«Option» \n{name = "Implement Data Product Policy\nEnforcement\nMechanisms"}\n" 
+__3_Central_Data_Product_Catalogue --> __4_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts: "«Leads To» \n" 
+__5_Event_Streaming_Backbone --> __6_Pub_Sub: "«Uses» \n" 
+__7_Shared_Storage --> __8_Storage_Read_API: "«Can be Realized With» \n" 
+__7_Shared_Storage --> __10_Cloud_Storage_API: "«Can be Realized With» \n" 
+__9_API_Invocation --> __8_Storage_Read_API: "«Leads To» \n" 
+__9_API_Invocation --> __10_Cloud_Storage_API: "«Leads To» \n" 
+__9_API_Invocation --> __11_Attach_REST_APIs_to_each_data_product: "«Can be Realized With» \n" 
+__9_API_Invocation --> __12_GraphQL: "«Can be Realized With» \n" 
+__9_API_Invocation --> __13_gRPC: "«Can be Realized With» \n" 
+__15_Data_Product_Policy_Enforcement_Mechanisms --> __16_Implement_a_highly_available_in_memory_cache: "«Can Use» \n" 
+__15_Data_Product_Policy_Enforcement_Mechanisms --> __17_Security_Controls: "«Can Use» \n" 
+__15_Data_Product_Policy_Enforcement_Mechanisms --> __26_Query_Catalogue: "«Can Use» \n" 
+__17_Security_Controls --> __18_Fine_grained_Access_Control: "«Can Use» \n" 
+__17_Security_Controls --> __25_Encryption: "«Can Use» \n" 
+__18_Fine_grained_Access_Control --> __19_Attribute_based_Access_Control: "«Can Use» \n" 
+__18_Fine_grained_Access_Control --> __20_Role_based_Access_Control: "«Can Use» \n" 
+__18_Fine_grained_Access_Control --> __21_Row_based_Access_Control: "«Can Use» \n" 
+__18_Fine_grained_Access_Control --> __22_API_Access_Control: "«Can Use» \n" 
+__18_Fine_grained_Access_Control --> __23_Run_time_Environment_Access_Control: "«Can Use» \n" 
+__18_Fine_grained_Access_Control --> __24_Stream_Access_Control: "«Can Use» \n" 
+@enduml

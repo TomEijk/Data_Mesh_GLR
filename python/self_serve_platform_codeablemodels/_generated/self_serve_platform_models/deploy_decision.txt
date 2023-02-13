@@ -1,0 +1,27 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "How to deploy a data product? : Decision" as __1_How_to_deploy_a_data_product_
+class "Kubernetes : Practice" as __2_Kubernetes
+class "Docker : Practice" as __3_Docker
+class "Single-container design : Pattern" as __4_Single_container_design
+class "Infrastructure as Code : Practice" as __5_Infrastructure_as_Code
+class "Templated Data Pipeline : Pattern" as __6_Templated_Data_Pipeline
+class " CI/CD process : Practice" as __7__CI_CD_process
+class "Functiona-as-a-Service : Practice" as __8_Functiona_as_a_Service
+__1_How_to_deploy_a_data_product_ --> __2_Kubernetes: "«Option» \n{name = "Use kubernetes"}\n" 
+__1_How_to_deploy_a_data_product_ --> __3_Docker: "«Option» \n{name = "Use a containerised architecture"}\n" 
+__2_Kubernetes --> __3_Docker: "«Includes» \n" 
+__2_Kubernetes --> __5_Infrastructure_as_Code: "«Can Use» \n" 
+__2_Kubernetes --> __8_Functiona_as_a_Service: "«Can Use» \n" 
+__3_Docker --> __4_Single_container_design: "«Can be Realized With» \n" 
+__3_Docker --> __5_Infrastructure_as_Code: "«Can Use» \n" 
+__3_Docker --> __6_Templated_Data_Pipeline: "«Can Use» \n" 
+__6_Templated_Data_Pipeline --> __7__CI_CD_process: "«Leads To» \n" 
+@enduml

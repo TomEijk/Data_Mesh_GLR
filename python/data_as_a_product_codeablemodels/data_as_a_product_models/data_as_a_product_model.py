@@ -17,6 +17,7 @@ def add_force_relations(force_relations_definition):
 
 # patterns
 
+file_based_ingestion_pattern = CClass(pattern, 'file_based_ingestion_pattern')
 search_engine = CClass(pattern, "Search Engine")
 service_locator = CClass(pattern, "Service Locator")
 data_catalogue = CClass(pattern, "Data Catalogue")
@@ -44,6 +45,19 @@ storage_read_api = CClass(pattern, "Storage Read API")
 cloud_storage_api = CClass(pattern, "Cloud Storage API")
 event_streaming = CClass(pattern, "Event Streaming Backbone")
 api_invocation = CClass(pattern, "API Invocation")
+data_modeling_tool = CClass(pattern, "Data Modeling Tool")
+orchestration_component = CClass(pattern, "Orchestration Component")
+VMs = CClass(pattern, "VMs")
+zero_trust_runtime_environment = CClass(pattern, "Zero trust runtime environment")
+input_port = CClass(pattern, "Input Port")
+output_port = CClass(pattern, "Output Port")
+metastore = CClass(pattern, 'Metastore')
+table = CClass(pattern, 'Table')
+blob_storage = CClass(pattern, 'Blob Storage')
+legacy_modernization = CClass(pattern, "Legacy Modernization")
+cloud_acceleration = CClass(pattern, "Cloud Acceleration")
+legacy_modernization = CClass(pattern, "Legacy Modernization")
+cloud_acceleration = CClass(pattern, "Cloud Acceleration")
 
 # practices
 raw_data_as_data_product = CClass(practice, "Expose Data Product as Raw Data")
@@ -66,9 +80,9 @@ encryption = CClass(practice, "Encryption")
 time_bounded_backwards_compatibility = CClass(practice, "Time-bounded Backwards Compatibility")
 ci_cd_process = CClass(practice, " CI/CD process")
 versioning = CClass(practice, "Versioning")
-k8s = CClass(practice, "Kubernetes")
+container_orchestration_system = CClass(practice, "Container Orchestration System")
 infrastructure_as_code = CClass(practice, "Infrastructure as Code")
-containerisation = CClass(pattern, "Single-container design")
+single_container_design = CClass(pattern, "Single-container design")
 unified_batch_stream = CClass(practice, "Create a component for unified batch and stream data processing")
 open_access = CClass(practice, "Open Access")
 maintaining_source_of_truth = CClass(practice, "Maintaining a single source of truth")
@@ -78,10 +92,10 @@ snapshots_ETL = CClass(practice, "Send snapshots via nightly ETL")
 snapshots_via_ReqResAPI = CClass(practice, "Send snapshots via Req/Res API")
 dataset_versioning = CClass(practice, "Dataset Versioning")
 view_versioning = CClass(practice, "View Versioning")
-docker = CClass(practice, "Docker")
+containerisation = CClass(practice, "containerisation")
 security_controls = CClass(practice, "Security Controls")
 triggering = CClass(practice, "Alterting")
-sql_layer = CClass(practice, "Attach a SQL access point to each Data Product")
+sql_layer = CClass(practice, "Attach a DBQuery Endpoint to each Data Product")
 rest_apis = CClass(practice, "Attach REST APIs to each data product")
 cache = CClass(practice, "Implement a highly available in-memory cache")
 internal_storages = CClass(practice, "Internal storages where the data product is deployed, not exposed to consumers")
@@ -107,6 +121,31 @@ stream_access_control = CClass(practice, "Stream Access Control")
 shared_storage = CClass(practice, "Shared Storage")
 remote_procedure_invocation = CClass(practice, "gRPC")
 graphQL = CClass(practice, "GraphQL")
+metadata_management = CClass(practice, "Metadata Management")
+reference_data_management = CClass(practice, "Reference Data Management")
+overarching_management_layer = CClass(practice, "Overarching Management Layer")
+infrastructure_provisioning = CClass(practice, "Infrastructure Provisioning")
+storage_layer = CClass(practice, "Storage Layer")
+lakehouse = CClass(practice, "Lakehouse Architecture")
+shared_kafka_environment = CClass(practice, "Shared Kafka Environment")
+source_aligned_data_product = CClass(practice, "Source-aligned Data Product")
+consumer_aligned_data_product = CClass(practice, "Consumer-aligned Data Product")
+transformed_data = CClass(practice, "Multiple raw data sets untransformed")
+pre_transformed_data = CClass(practice, "Pre-transformed data")
+low_level_aggregations = CClass(practice, 'Low-level aggregations')
+aggregations = CClass(practice, 'Aggregations')
+start_federated = CClass(practice, "Starting federated")
+start_central = CClass(practice, "Starting central and decentralize at a later stage")
+start_hybrid = CClass(practice, "Starting central and federated at the same time")
+synchronous = CClass(practice, "Synchronous")
+asynchronous = CClass(practice, "Asynchronous")
+bitemporal_data = CClass(practice, "Bitemporal data")
+multi_model_access = CClass(practice, "Multimodal access")
+immutable_read_only_access = CClass(practice, "Immutable read-only access")
+static_coupling = CClass(practice, "Static Coupling")
+dynamic_coupling = CClass(practice, "Dynamic Coupling")
+runtime_data = CClass(practice, "Provide information about runtime")
+build_time_libraries = CClass(practice, "Provide information about build-time libraries")
 
 # forces
 security = CClass(force, "Security")
@@ -154,6 +193,16 @@ data_lineage = CClass(force, "Data Lineage")
 governance = CClass(force, "Governance")
 decomposition = CClass(force, "Decomposition")
 versioning_force = CClass(force, "Versioning")
+continuity = CClass(force, "Continuity")
+sustainable_solution = CClass(force, "Sustainable solution")
+infrastructure_to_manage = CClass(force, "Infrastructure workload")
+holistic_view = CClass(force, "holistic_view")
+end_to_end_consistency = CClass(force, "End-to-end consistency")
+stateless = CClass(force, "Stateless")
+self_serve = CClass(force, "Self-serve Capability")
+stale = CClass(force, "Stale")
+clear_ownership= CClass(force, "Clear Ownership")
+latency = CClass(force, "Latency")
 
 # decisions, options, and contexts
 
@@ -166,7 +215,8 @@ add_decision_option_link(data_product_type_decision, derived_data_as_data_produc
                          "Use derived data from the data product")
 add_decision_option_link(data_product_type_decision, algorithms_as_data_product,
                          "Use algorithms to return information or insights")
-add_force_relations({raw_data_as_data_product: {understandability: negative},
+add_force_relations({raw_data_as_data_product: {understandability: negative,
+                                                sustainable_solution: negative},
                      derived_data_as_data_product: {understandability: neutral},
                      algorithms_as_data_product: {understandability: positive}
                      })
@@ -175,6 +225,24 @@ algorithms_data_product_first_variation = \
     decision_support_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=variant)[0]
 algorithms_data_product_second_variation = \
     automated_decision_making_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=variant)[0]
+transformed_data_derived = \
+    transformed_data.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=variant)[0]
+pre_transformed_data_derived = \
+    pre_transformed_data.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=variant)[0]
+low_level_aggregations_derived = \
+    low_level_aggregations.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=variant)[0]
+aggregations_derived = \
+    aggregations.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=variant)[0]
+source_derived = \
+    source_aligned_data_product.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=realizes)[0]
+source_raw = \
+    source_aligned_data_product.add_links(raw_data_as_data_product, role_name="from", stereotype_instances=realizes)[0]
+consumer_derived = \
+    consumer_aligned_data_product.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=realizes)[0]
+consumer_raw = \
+    consumer_aligned_data_product.add_links(raw_data_as_data_product, role_name="from", stereotype_instances=realizes)[0]
+consumer_algorithm = \
+    consumer_aligned_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=realizes)[0]
 raw_hybrid = \
     raw_data_as_data_product.add_links(hybrid_products, role_name="from", stereotype_instances=can_use)[0]
 derived_hybrid = \
@@ -191,28 +259,66 @@ algorithms_composite = \
 
 # ** orchestration_decision **
 
-orchestration_decision = CClass(decision, "Which approach is chosen for the creation of a data product?")
-add_decision_option_link(orchestration_decision, mdm,
-                         "Migrating to Master Data Management Data Mesh")
-add_decision_option_link(orchestration_decision, strangler_fig_pattern,
-                         "Migrating to Strangler-Fig Data Mesh")
-add_decision_option_link(orchestration_decision, zero_trust_architecture,
-                         "Migrating to Zero-Trust Data Mesh")
-add_decision_option_link(orchestration_decision, cqrs,
-                         "Migrating to CQRS Data Mesh")
+orchestration_decision = CClass(decision, "What is my business strategy for generating data products?")
+add_decision_option_link(orchestration_decision, cloud_acceleration,
+                         "Migration of enterprise systems to the cloud")
+add_decision_option_link(orchestration_decision, legacy_modernization,
+                         "Migration from legacy systems to modern data products")
 add_decision_option_link(orchestration_decision, start_from_scratch,
                          "Starting with greenfield development")
-add_force_relations({mdm: {centralization: positive,
-                            discoverability: positive},
-                    strangler_fig_pattern: {decomposition: positive},
-                    zero_trust_architecture: {security: very_positive,
-                                              autonomous: positive},
-                     cqrs: {multiple_independent_read_only_views: positive,
-                            filtering: positive},
-                     start_from_scratch: {entry_barrier: very_negative,
+add_force_relations({start_from_scratch: {entry_barrier: very_negative,
                                           accelerate_decision_making: very_positive,
                                           time_to_market: very_negative}
                      })
+
+leg_fed = \
+    start_federated.add_links(legacy_modernization, role_name="from", stereotype_instances=can_be_realized_with)[0]
+leg_central = \
+    start_central.add_links(legacy_modernization, role_name="from", stereotype_instances=can_be_realized_with)[0]
+leg_hybrid = \
+    start_hybrid.add_links(legacy_modernization, role_name="from", stereotype_instances=can_be_realized_with)[0]
+
+cloud_fed = \
+    start_federated.add_links(cloud_acceleration, role_name="from", stereotype_instances=can_be_realized_with)[0]
+cloud_central = \
+    start_central.add_links(cloud_acceleration, role_name="from", stereotype_instances=can_be_realized_with)[0]
+cloud_hybrid = \
+    start_hybrid.add_links(cloud_acceleration, role_name="from", stereotype_instances=can_be_realized_with)[0]
+
+green_federated = \
+    start_federated.add_links(start_from_scratch, role_name="from", stereotype_instances=can_be_realized_with)[0]
+green_central = \
+    start_central.add_links(start_from_scratch, role_name="from", stereotype_instances=can_be_realized_with)[0]
+green_hybrid = \
+    start_hybrid.add_links(start_from_scratch, role_name="from", stereotype_instances=can_be_realized_with)[0]
+
+federated_mdm = \
+    mdm.add_links(start_federated, role_name="from", stereotype_instances=can_use)[0]
+federated_cqrs = \
+    cqrs.add_links(start_federated, role_name="from", stereotype_instances=can_use)[0]
+federated_zero = \
+    zero_trust_architecture.add_links(start_federated, role_name="from", stereotype_instances=can_use)[0]
+federated_strang = \
+    strangler_fig_pattern.add_links(start_federated, role_name="from", stereotype_instances=can_use)[0]
+
+central_mdm = \
+    mdm.add_links(start_central, role_name="from", stereotype_instances=can_use)[0]
+central_cqrs = \
+    cqrs.add_links(start_central, role_name="from", stereotype_instances=can_use)[0]
+central_zero = \
+    zero_trust_architecture.add_links(start_central, role_name="from", stereotype_instances=can_use)[0]
+central_strang = \
+    strangler_fig_pattern.add_links(start_central, role_name="from", stereotype_instances=can_use)[0]
+
+hybrid_mdm = \
+    mdm.add_links(start_hybrid, role_name="from", stereotype_instances=can_use)[0]
+hybrid_cqrs = \
+    cqrs.add_links(start_hybrid, role_name="from", stereotype_instances=can_use)[0]
+hybrid_zero = \
+    zero_trust_architecture.add_links(start_hybrid, role_name="from", stereotype_instances=can_use)[0]
+hybrid_strang = \
+    strangler_fig_pattern.add_links(start_hybrid, role_name="from", stereotype_instances=can_use)[0]
+
 
 # ** data_product_layer_decision **
 
@@ -268,8 +374,11 @@ add_force_relations({change_data_capture: {real_time_data_access: positive,
                      control_plane : {control_over_data_schema: positive},
                      data_onboarding: {observability: positive,
                                        quality: positive,
-                                       standardised_transformation: positive}
-                        })
+                                       standardised_transformation: positive,
+                                       security: positive},
+                     internal_storages : {infrastructure_to_manage: negative,
+                                          understandability: negative}
+                     })
 
 
 internal_storage_source_of_truth = \
@@ -298,30 +407,36 @@ versioning_view = \
 # ** deploy_decision **
 
 deploy_decision = CClass(decision, "How to deploy a data product?")
-add_decision_option_link(deploy_decision, k8s,
+add_decision_option_link(deploy_decision, container_orchestration_system,
                                "Use kubernetes")
-add_decision_option_link(deploy_decision, docker,
+add_decision_option_link(deploy_decision, containerisation,
                                "Use a containerised architecture")
-add_force_relations({k8s: {discoverability: positive,
+add_decision_option_link(deploy_decision, lakehouse,
+                                "Use a lakehouse architecture")
+add_force_relations({container_orchestration_system: {discoverability: positive,
                            reproducibility: positive,
                            time_to_market: positive},
-                     docker: {reproducibility: positive,
-                              multiple_environments: positive}
+                     containerisation: {reproducibility: positive,
+                              multiple_environments: positive,
+                              stateless: negative},
+                     lakehouse: {autonomous: positive,
+                                    self_serve: positive,
+                                    governance: positive}
                      })
 
-k8s_docker = \
-    docker.add_links(k8s, role_name="from", stereotype_instances=includes)[0]
-k8s_IaaS = \
-    infrastructure_as_code.add_links(k8s, role_name="from", stereotype_instances=can_use)[0]
-k8s_FaaS = \
-    function_as_a_service.add_links(k8s, role_name="from", stereotype_instances=can_use)[0]
+container_orchestration_system_containerisation = \
+    containerisation.add_links(container_orchestration_system, role_name="from", stereotype_instances=includes)[0]
+container_orchestration_system_IaaS = \
+    infrastructure_as_code.add_links(container_orchestration_system, role_name="from", stereotype_instances=can_use)[0]
+container_orchestration_system_FaaS = \
+    function_as_a_service.add_links(container_orchestration_system, role_name="from", stereotype_instances=can_use)[0]
 
-docker_containerisation = \
-    containerisation.add_links(docker, role_name="from", stereotype_instances=can_be_realized_with)[0]
-docker_infrastructure_as_code = \
-    infrastructure_as_code.add_links(docker, role_name="from", stereotype_instances=can_use)[0]
-docker_templated_data_pipeline = \
-    templated_data_pipeline.add_links(docker, role_name="from", stereotype_instances=can_use)[0]
+containerisation_single_container_design = \
+    single_container_design.add_links(containerisation, role_name="from", stereotype_instances=can_be_realized_with)[0]
+containerisation_infrastructure_as_code = \
+    infrastructure_as_code.add_links(containerisation, role_name="from", stereotype_instances=can_use)[0]
+containerisation_templated_data_pipeline = \
+    templated_data_pipeline.add_links(containerisation, role_name="from", stereotype_instances=can_use)[0]
 templated_data_pipeline_ci_cd_process = \
     ci_cd_process.add_links(templated_data_pipeline, role_name="from", stereotype_instances=leads_to)[0]
 
@@ -336,8 +451,6 @@ add_decision_option_link(data_product_self_serve_management_decision, event_stre
                                "Implement an Event Streaming Backbone")
 add_decision_option_link(data_product_self_serve_management_decision, shared_storage,
                                "Implement a shared storage")
-add_decision_option_link(data_product_self_serve_management_decision, api_invocation,
-                               "Implement API Invocation")
 add_decision_option_link(data_product_self_serve_management_decision, sql_layer,
                                "Implement a SQL component")
 add_decision_option_link(data_product_self_serve_management_decision, non_functional,
@@ -357,7 +470,9 @@ add_force_relations({schema_manager: {understandability: positive,
                                                       agility: positive,
                                                       interoperability: positive,
                                                       duplication: negative,
-                                                      standardised_transformation: positive},
+                                                      standardised_transformation: positive,
+                                                      holistic_view: positive,
+                                                      data_lineage: positive},
                      event_streaming: {time_to_market: positive,
                                        handle_large_data_volumes: very_positive,
                                        limit_recipients: positive,
@@ -366,14 +481,11 @@ add_force_relations({schema_manager: {understandability: positive,
                                        trustworthiness: positive,
                                        up_to_date: positive,
                                        immutability: positive,
-                                       grouping: positive},
+                                       grouping: positive,
+                                       stale: negative},
                      sql_layer: {understandability: positive,
                                 accelerate_decision_making: very_positive,
                                  more_granular_data: very_positive},
-                     api_invocation: {discoverability: positive,
-                                      control_over_data_schema: positive,
-                                      accessible: positive,
-                                      addressible: positive},
                      non_functional: {security: very_positive,
                                       discoverability: positive,
                                       understandability: positive,
@@ -388,21 +500,9 @@ add_force_relations({schema_manager: {understandability: positive,
                                       control_over_data_schema: negative}
                         })
 
-event_streaming_pub_sub = \
-    pub_sub.add_links(event_streaming, role_name="from", stereotype_instances=uses)[0]
 central_data_product_catalogue_centrally_manage_monitor_govern_data = \
     centrally_manage_monitor_govern_data.add_links(central_data_product_catalogue, role_name="from", stereotype_instances=leads_to)[0]
 
-api_invocation_read = \
-    storage_read_api.add_links(api_invocation, role_name="from", stereotype_instances=leads_to)[0]
-api_invocation_cloud = \
-    cloud_storage_api.add_links(api_invocation, role_name="from", stereotype_instances=leads_to)[0]
-api_invocation_rest = \
-    rest_apis.add_links(api_invocation, role_name="from", stereotype_instances=can_be_realized_with)[0]
-api_invocation_graphql = \
-    graphQL.add_links(api_invocation, role_name="from", stereotype_instances=can_be_realized_with)[0]
-api_invocation_grpc = \
-    remote_procedure_invocation.add_links(api_invocation, role_name="from", stereotype_instances=can_be_realized_with)[0]
 shared_storage_storage_read = \
     storage_read_api.add_links(shared_storage, role_name="from", stereotype_instances=can_be_realized_with)[0]
 shared_storage_cloud_storage = \
@@ -440,6 +540,12 @@ add_decision_option_link(interface_decision, control_port,
                              "Implement a control port")
 add_decision_option_link(interface_decision, discovery_port,
                                "Implement a discovery port")
+add_decision_option_link(interface_decision, overarching_management_layer,
+                               "Implement an overarching management layer")
+add_decision_option_link(interface_decision, input_port,
+                               "Implement an input port")
+add_decision_option_link(interface_decision, output_port,
+                               "Implement an input port")
 add_force_relations({discovery_port: {discoverability: positive,
                                       accessible: positive},
                      observation_port: {understandability: positive,
@@ -451,13 +557,61 @@ add_force_relations({discovery_port: {discoverability: positive,
                                          transparency: very_positive,
                                          observability: positive,
                                          data_lineage: positive},
-                     control_port : {control_over_data_schema: positive}
+                     control_port : {control_over_data_schema: positive,
+                                     governance: positive,
+                                     security: positive},
+                     overarching_management_layer: {governance: positive,
+                                                    end_to_end_consistency: positive}
                         })
 
 observation_port_quality_monitoring = \
     quality_monitoring.add_links(observation_port, role_name="from", stereotype_instances=realizes)[0]
 discovery_port_data_marketplace = \
     data_marketplace.add_links(discovery_port, role_name="from", stereotype_instances=enables)[0]
+
+input_static = \
+    static_coupling.add_links(input_port, role_name="from", stereotype_instances=realizes)[0]
+input_dynamic = \
+    dynamic_coupling.add_links(input_port, role_name="from", stereotype_instances=enables)[0]
+
+output_static = \
+    static_coupling.add_links(output_port, role_name="from", stereotype_instances=realizes)[0]
+output_dynamic = \
+    dynamic_coupling.add_links(output_port, role_name="from", stereotype_instances=enables)[0]
+output_multimodal = \
+    multi_model_access.add_links(output_port, role_name="from", stereotype_instances=realizes)[0]
+output_bitemporal = \
+    bitemporal_data.add_links(output_port, role_name="from", stereotype_instances=enables)[0]
+output_immutable = \
+    immutable_read_only_access.add_links(output_port, role_name="from", stereotype_instances=realizes)[0]
+
+synchronous_static = \
+    synchronous.add_links(static_coupling, role_name="from", stereotype_instances=realizes)[0]
+asynchronous_static = \
+    asynchronous.add_links(static_coupling, role_name="from", stereotype_instances=enables)[0]
+build_in_static = \
+    build_time_libraries.add_links(static_coupling, role_name="from", stereotype_instances=enables)[0]
+
+synchronous_dynamic = \
+    synchronous.add_links(dynamic_coupling, role_name="from", stereotype_instances=realizes)[0]
+asynchronous_dynamic = \
+    asynchronous.add_links(dynamic_coupling, role_name="from", stereotype_instances=enables)[0]
+run_time_dynamic = \
+    runtime_data.add_links(dynamic_coupling, role_name="from", stereotype_instances=enables)[0]
+
+sync_rest = \
+    rest_apis.add_links(synchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
+async_rest = \
+    rest_apis.add_links(asynchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
+sync_graphql = \
+    graphQL.add_links(synchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
+sync_grpc = \
+    remote_procedure_invocation.add_links(synchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
+async_grpc = \
+    remote_procedure_invocation.add_links(asynchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
+
+async_pub = \
+    pub_sub.add_links(asynchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
 
 # decision links
 add_links({data_product_type_decision: [data_product_self_serve_management_decision, orchestration_decision],

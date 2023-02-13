@@ -1,0 +1,21 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "What are the elements of a data product interface/contract?\n : Decision" as __1_What_are_the_elements_of_a_data_product_interface_contract_
+class "Observation Port : Pattern" as __2_Observation_Port
+class "Provide a single integrated experience for monitoring\n : Practice" as __3_Provide_a_single_integrated_experience_for_monitoring
+class "Control Port : Pattern" as __4_Control_Port
+class "Discovery Port : Pattern" as __5_Discovery_Port
+class "Data Marketplace : Practice" as __6_Data_Marketplace
+__1_What_are_the_elements_of_a_data_product_interface_contract_ --> __2_Observation_Port: "«Option» \n{name = "Implement an observation port"}\n" 
+__1_What_are_the_elements_of_a_data_product_interface_contract_ --> __4_Control_Port: "«Option» \n{name = "Implement a control port"}\n" 
+__1_What_are_the_elements_of_a_data_product_interface_contract_ --> __5_Discovery_Port: "«Option» \n{name = "Implement a discovery port"}\n" 
+__2_Observation_Port --> __3_Provide_a_single_integrated_experience_for_monitoring: "«Realizes» \n" 
+__5_Discovery_Port --> __6_Data_Marketplace: "«Enables» \n" 
+@enduml

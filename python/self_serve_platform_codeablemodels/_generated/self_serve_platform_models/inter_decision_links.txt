@@ -1,0 +1,23 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "What type of data product can be developed?\n : Decision" as __1_What_type_of_data_product_can_be_developed_
+class "How to deploy a data product? : Decision" as __2_How_to_deploy_a_data_product_
+class "Which approach is chosen for the creation of a\ndata product?\n : Decision" as __3_Which_approach_is_chosen_for_the_creation_of_a_data_product_
+class "How does the data product interact with other\ndata products, self-serve platform, management\nlayer and consumers?\n : Decision" as __4_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__management_layer_and_consumers_
+class "Which Architectural Elements should be offered\nin the Data Product Anatomy?\n : Decision" as __5_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_
+class "What are the elements of a data product interface/contract?\n : Decision" as __6_What_are_the_elements_of_a_data_product_interface_contract_
+__1_What_type_of_data_product_can_be_developed_ --> __4_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__management_layer_and_consumers_: "«Consider If Not Decided Yet» \n" 
+__1_What_type_of_data_product_can_be_developed_ --> __3_Which_approach_is_chosen_for_the_creation_of_a_data_product_: "«Consider If Not Decided Yet» \n" 
+__3_Which_approach_is_chosen_for_the_creation_of_a_data_product_ --> __5_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_: "«Consider If Not Decided Yet» \n" 
+__4_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__management_layer_and_consumers_ --> __5_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_: "«Consider If Not Decided Yet» \n" 
+__4_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__management_layer_and_consumers_ --> __6_What_are_the_elements_of_a_data_product_interface_contract_: "«Consider If Not Decided Yet» \n" 
+__5_Which_Architectural_Elements_should_be_offered_in_the_Data_Product_Anatomy_ --> __2_How_to_deploy_a_data_product_: "«Consider If Not Decided Yet» \n" 
+__6_What_are_the_elements_of_a_data_product_interface_contract_ --> __2_How_to_deploy_a_data_product_: "«Consider If Not Decided Yet» \n" 
+@enduml
