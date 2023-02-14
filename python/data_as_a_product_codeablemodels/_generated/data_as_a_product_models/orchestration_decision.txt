@@ -1,0 +1,45 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "What strategy can be used for data product implementation?\n : Decision" as __1_What_strategy_can_be_used_for_data_product_implementation_
+class "Cloud Acceleration : Pattern" as __2_Cloud_Acceleration
+class "Starting federated : Practice" as __3_Starting_federated
+class "Legacy Modernization : Pattern" as __4_Legacy_Modernization
+class "Starting central and decentralize at a later stage\n : Practice" as __5_Starting_central_and_decentralize_at_a_later_stage
+class "Greenfield Development : Practice" as __6_Greenfield_Development
+class "Starting central and federated at the same time\n : Practice" as __7_Starting_central_and_federated_at_the_same_time
+class "Master Data Management : Pattern" as __8_Master_Data_Management
+class "CQRS : Pattern" as __9_CQRS
+class "Zero Trust Architecture : Pattern" as __10_Zero_Trust_Architecture
+class "Strangler-Fig : Pattern" as __11_Strangler_Fig
+__1_What_strategy_can_be_used_for_data_product_implementation_ --> __2_Cloud_Acceleration: "«Option» \n{name = "Migration of enterprise systems\nto the\ncloud"}\n" 
+__1_What_strategy_can_be_used_for_data_product_implementation_ --> __4_Legacy_Modernization: "«Option» \n{name = "Migration from legacy systems\nto modern\ndata products"}\n" 
+__1_What_strategy_can_be_used_for_data_product_implementation_ --> __6_Greenfield_Development: "«Option» \n{name = "Starting with greenfield development"}\n" 
+__2_Cloud_Acceleration --> __3_Starting_federated: "«Can be Realized With» \n" 
+__2_Cloud_Acceleration --> __5_Starting_central_and_decentralize_at_a_later_stage: "«Can be Realized With» \n" 
+__2_Cloud_Acceleration --> __7_Starting_central_and_federated_at_the_same_time: "«Can be Realized With» \n" 
+__3_Starting_federated --> __8_Master_Data_Management: "«Can Use» \n" 
+__3_Starting_federated --> __9_CQRS: "«Can Use» \n" 
+__3_Starting_federated --> __10_Zero_Trust_Architecture: "«Can Use» \n" 
+__3_Starting_federated --> __11_Strangler_Fig: "«Can Use» \n" 
+__4_Legacy_Modernization --> __3_Starting_federated: "«Can be Realized With» \n" 
+__4_Legacy_Modernization --> __5_Starting_central_and_decentralize_at_a_later_stage: "«Can be Realized With» \n" 
+__4_Legacy_Modernization --> __7_Starting_central_and_federated_at_the_same_time: "«Can be Realized With» \n" 
+__5_Starting_central_and_decentralize_at_a_later_stage --> __8_Master_Data_Management: "«Can Use» \n" 
+__5_Starting_central_and_decentralize_at_a_later_stage --> __9_CQRS: "«Can Use» \n" 
+__5_Starting_central_and_decentralize_at_a_later_stage --> __10_Zero_Trust_Architecture: "«Can Use» \n" 
+__5_Starting_central_and_decentralize_at_a_later_stage --> __11_Strangler_Fig: "«Can Use» \n" 
+__6_Greenfield_Development --> __3_Starting_federated: "«Can be Realized With» \n" 
+__6_Greenfield_Development --> __5_Starting_central_and_decentralize_at_a_later_stage: "«Can be Realized With» \n" 
+__6_Greenfield_Development --> __7_Starting_central_and_federated_at_the_same_time: "«Can be Realized With» \n" 
+__7_Starting_central_and_federated_at_the_same_time --> __8_Master_Data_Management: "«Can Use» \n" 
+__7_Starting_central_and_federated_at_the_same_time --> __9_CQRS: "«Can Use» \n" 
+__7_Starting_central_and_federated_at_the_same_time --> __10_Zero_Trust_Architecture: "«Can Use» \n" 
+__7_Starting_central_and_federated_at_the_same_time --> __11_Strangler_Fig: "«Can Use» \n" 
+@enduml

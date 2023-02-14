@@ -52,7 +52,7 @@ zero_trust_runtime_environment = CClass(pattern, "Zero trust runtime environment
 input_port = CClass(pattern, "Input Port")
 output_port = CClass(pattern, "Output Port")
 metastore = CClass(pattern, 'Metastore')
-table = CClass(pattern, 'Table')
+table = CClass(pattern, 'Dataset table')
 blob_storage = CClass(pattern, 'Blob Storage')
 legacy_modernization = CClass(pattern, "Legacy Modernization")
 cloud_acceleration = CClass(pattern, "Cloud Acceleration")
@@ -91,8 +91,13 @@ centrally_manage_monitor_govern_data = CClass(practice, "Centrally manage, monit
 snapshots_ETL = CClass(practice, "Send snapshots via nightly ETL")
 snapshots_via_ReqResAPI = CClass(practice, "Send snapshots via Req/Res API")
 dataset_versioning = CClass(practice, "Dataset Versioning")
-view_versioning = CClass(practice, "View Versioning")
-containerisation = CClass(practice, "containerisation")
+schema_versioning = CClass(practice, "Schema Versioning")
+data_contracts = CClass(practice, "Data Contracts")
+active_metadata = CClass(practice, "Active metadata")
+passive_metadata = CClass(practice, "Passive metadata")
+containerisation = CClass(practice, "Containerisation")
+hybrid_deployment = CClass(practice, "Hybrid Deployment")
+multi_cloud_deployment = CClass(practice, "Multi-Cloud Deployment")
 security_controls = CClass(practice, "Security Controls")
 triggering = CClass(practice, "Alterting")
 sql_layer = CClass(practice, "Attach a DBQuery Endpoint to each Data Product")
@@ -113,7 +118,7 @@ start_from_scratch = CClass(practice, "Greenfield Development")
 migration = CClass(practice, "Migration")
 data_marts = CClass(practice, "Incrementally build business process-centric data marts")
 non_functional = CClass(practice, "Data Product Policy Enforcement Mechanisms")
-function_as_a_service = CClass(practice, "Functiona-as-a-Service")
+function_as_a_service = CClass(practice, "Function-as-a-Service")
 run_time_environment_access_control = CClass(practice, "Run-time Environment Access Control")
 row_based_access_control = CClass(practice, "Row-based Access Control")
 api_access_control = CClass(practice, "API Access Control")
@@ -127,7 +132,7 @@ overarching_management_layer = CClass(practice, "Overarching Management Layer")
 infrastructure_provisioning = CClass(practice, "Infrastructure Provisioning")
 storage_layer = CClass(practice, "Storage Layer")
 lakehouse = CClass(practice, "Lakehouse Architecture")
-shared_kafka_environment = CClass(practice, "Shared Kafka Environment")
+shared_kafka_environment = CClass(practice, "Shared Event Streaming Environment")
 source_aligned_data_product = CClass(practice, "Source-aligned Data Product")
 consumer_aligned_data_product = CClass(practice, "Consumer-aligned Data Product")
 transformed_data = CClass(practice, "Multiple raw data sets untransformed")
@@ -146,6 +151,24 @@ static_coupling = CClass(practice, "Static Coupling")
 dynamic_coupling = CClass(practice, "Dynamic Coupling")
 runtime_data = CClass(practice, "Provide information about runtime")
 build_time_libraries = CClass(practice, "Provide information about build-time libraries")
+crud = CClass(practice, 'CRUD-style operations')
+policy_enforcement = CClass(practice, 'Policy Enforcement')
+full_data_movement = CClass(practice, 'Full Data Movement')
+incremental_data_movement = CClass(practice, 'Incremental Data Movement')
+schema_validation_fail = CClass(practice, 'Attaching metadata about events that didn’t pass the schema validation')
+non_programmatic_transformation = CClass(practice, 'Non-programmatic transformation')
+programmatic_transformation = CClass(practice, 'Programmatic transformation')
+dataflow_based_transformation = CClass(practice, 'Data flow based transformation')
+ml_bases_transformation = CClass(practice, 'ML based transformation')
+time_variant_transformation = CClass(practice, 'Time-variant transformation')
+conc_logical_phys = CClass(practice, 'Describes the translations being made between the conceptual model, logical model, and physical model')
+batch_proccessing = CClass(practice, 'Batch processing')
+schema_enforcement = CClass(practice, 'Schema enforcement')
+schema_evolution = CClass(practice, 'Schema evolution')
+data_quality_management = CClass(practice, 'Data quality management')
+retention_policies = CClass(practice, 'Retention policies')
+reference_database = CClass(practice, 'Reference database')
+master_database = CClass(practice, 'Master database')
 
 # forces
 security = CClass(force, "Security")
@@ -201,7 +224,7 @@ end_to_end_consistency = CClass(force, "End-to-end consistency")
 stateless = CClass(force, "Stateless")
 self_serve = CClass(force, "Self-serve Capability")
 stale = CClass(force, "Stale")
-clear_ownership= CClass(force, "Clear Ownership")
+clear_ownership = CClass(force, "Clear Ownership")
 latency = CClass(force, "Latency")
 
 # decisions, options, and contexts
@@ -259,7 +282,7 @@ algorithms_composite = \
 
 # ** orchestration_decision **
 
-orchestration_decision = CClass(decision, "What is my business strategy for generating data products?")
+orchestration_decision = CClass(decision, "What strategy can be used for data product implementation?")
 add_decision_option_link(orchestration_decision, cloud_acceleration,
                          "Migration of enterprise systems to the cloud")
 add_decision_option_link(orchestration_decision, legacy_modernization,
@@ -322,21 +345,23 @@ hybrid_strang = \
 
 # ** data_product_layer_decision **
 
-data_product_layer_decision = CClass(decision, "Which Architectural Elements should be offered in the Data Product Anatomy?")
+data_product_layer_decision = CClass(decision, "What architectural components should be included in the anatomy of a data product?")
 add_decision_option_link(data_product_layer_decision, change_data_capture,
                          "Implement a Change Data Capture component")
 add_decision_option_link(data_product_layer_decision,immutable_change_audit_log,
                              "Implement a Immutable Log component")
-add_decision_option_link(data_product_layer_decision, internal_storages,
-                               "Implement an Internal Storage for each Data Product")
+add_decision_option_link(data_product_layer_decision,metastore,
+                             "Implement a Metastore")
 add_decision_option_link(data_product_layer_decision, data_catalogue,
                                "Implement a Data Catalogue component")
-add_decision_option_link(data_product_layer_decision, observation_plane,
-                               "Implement an Observation Plane")
-add_decision_option_link(data_product_layer_decision, control_plane,
-                               "Implement a Control Plane")
 add_decision_option_link(data_product_layer_decision, data_onboarding,
                                "Implement Data Onboarding")
+add_decision_option_link(data_product_layer_decision, internal_storages,
+                               "Implement an Internal Storage for each Data Product")
+add_decision_option_link(data_product_layer_decision, control_plane,
+                               "Implement a Control Plane")
+add_decision_option_link(data_product_layer_decision, observation_plane,
+                               "Implement an Observation Plane")
 add_force_relations({change_data_capture: {real_time_data_access: positive,
                                               understandability: positive,
                                               accessible: positive,
@@ -380,12 +405,28 @@ add_force_relations({change_data_capture: {real_time_data_access: positive,
                                           understandability: negative}
                      })
 
+full_cdc = \
+    full_data_movement.add_links(change_data_capture, role_name="from", stereotype_instances=enables)[0]
+incremental_cdc = \
+    incremental_data_movement.add_links(change_data_capture, role_name="from", stereotype_instances=enables)[0]
 
-internal_storage_source_of_truth = \
-    maintaining_source_of_truth.add_links(internal_storages, role_name="from", stereotype_instances=enables)[0]
-internal_storage_data_marts = \
-    data_marts.add_links(internal_storages, role_name="from", stereotype_instances=can_be_realized_with)[0]
+metastore_schema_versioning = \
+    schema_versioning.add_links(metastore, role_name="from", stereotype_instances=enables)[0]
+metastore_fail_schema = \
+    schema_validation_fail.add_links(metastore, role_name="from", stereotype_instances=includes)[0]
+metastore_active = \
+    active_metadata.add_links(metastore, role_name="from", stereotype_instances=enables)[0]
+schema_versioning_sync = \
+    incremental_sync.add_links(schema_versioning, role_name="from", stereotype_instances=enables)[0]
+immutable_dataset_versioning = \
+    dataset_versioning.add_links(immutable_change_audit_log, role_name="from", stereotype_instances=enables)[0]
+immutable_change_audit_log_alerting = \
+    triggering.add_links(immutable_change_audit_log, role_name="from", stereotype_instances=enables)[0]
+dataset_versioning_sync = \
+    incremental_sync.add_links(dataset_versioning, role_name="from", stereotype_instances=can_use)[0]
 
+data_catalogue_passive = \
+    passive_metadata.add_links(data_catalogue, role_name="from", stereotype_instances=enables)[0]
 data_catalogue_register_datasets = \
     register_datasets.add_links(data_catalogue, role_name="from", stereotype_instances=enables)[0]
 register_datasets_domain_data = \
@@ -393,29 +434,47 @@ register_datasets_domain_data = \
 register_datasets_core_data = \
     core_datasets.add_links(register_datasets, role_name="from", stereotype_instances=includes)[0]
 
-immutable_change_audit_log_versioning = \
-    versioning.add_links(immutable_change_audit_log, role_name="from", stereotype_instances=enables)[0]
-immutable_change_audit_log_alerting = \
-    triggering.add_links(immutable_change_audit_log, role_name="from", stereotype_instances=enables)[0]
-versioning_sync = \
-    incremental_sync.add_links(versioning, role_name="from", stereotype_instances=enables)[0]
-versioning_dataset = \
-    dataset_versioning.add_links(versioning, role_name="from", stereotype_instances=can_use)[0]
-versioning_view = \
-    view_versioning.add_links(versioning, role_name="from", stereotype_instances=can_use)[0]
+internal_storage_source_of_truth = \
+    maintaining_source_of_truth.add_links(internal_storages, role_name="from", stereotype_instances=enables)[0]
+internal_storage_data_marts = \
+    data_marts.add_links(internal_storages, role_name="from", stereotype_instances=can_be_realized_with)[0]
+
+control_onboarding = \
+    data_onboarding.add_links(control_plane, role_name="from", stereotype_instances=can_use)[0]
+control_storage = \
+    internal_storages.add_links(control_plane, role_name="from", stereotype_instances=can_use)[0]
+
+catalog_onboarding = \
+    data_catalogue.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
+immutable_onboarding = \
+    immutable_change_audit_log.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
+prog_onboarding = \
+    programmatic_transformation.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
+nonprog_onboarding = \
+    non_programmatic_transformation.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
+dataflow_onboarding = \
+    dataflow_based_transformation.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
+ml_onboarding = \
+    ml_bases_transformation.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
+time_variant_onboarding = \
+    time_variant_transformation.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
 
 # ** deploy_decision **
 
 deploy_decision = CClass(decision, "How to deploy a data product?")
-add_decision_option_link(deploy_decision, container_orchestration_system,
-                               "Use kubernetes")
+add_decision_option_link(deploy_decision, function_as_a_service,
+                               "Use a serverless architecture")
 add_decision_option_link(deploy_decision, containerisation,
                                "Use a containerised architecture")
 add_decision_option_link(deploy_decision, lakehouse,
                                 "Use a lakehouse architecture")
-add_force_relations({container_orchestration_system: {discoverability: positive,
-                           reproducibility: positive,
-                           time_to_market: positive},
+add_decision_option_link(deploy_decision, VMs,
+                                "Use virtual machines")
+add_decision_option_link(deploy_decision, hybrid_deployment,
+                                "Use hybrid deployment")
+add_decision_option_link(deploy_decision, multi_cloud_deployment,
+                                "Use multi clouds")
+add_force_relations({
                      containerisation: {reproducibility: positive,
                               multiple_environments: positive,
                               stateless: negative},
@@ -425,11 +484,18 @@ add_force_relations({container_orchestration_system: {discoverability: positive,
                      })
 
 container_orchestration_system_containerisation = \
-    containerisation.add_links(container_orchestration_system, role_name="from", stereotype_instances=includes)[0]
+    container_orchestration_system.add_links(containerisation, role_name="from", stereotype_instances=includes)[0]
 container_orchestration_system_IaaS = \
     infrastructure_as_code.add_links(container_orchestration_system, role_name="from", stereotype_instances=can_use)[0]
-container_orchestration_system_FaaS = \
-    function_as_a_service.add_links(container_orchestration_system, role_name="from", stereotype_instances=can_use)[0]
+
+containerisation_zero_run_time_environment = \
+    zero_trust_runtime_environment.add_links(containerisation, role_name="from", stereotype_instances=can_use)[0]
+ontainerisation_zero_run_time_environment = \
+    zero_trust_runtime_environment.add_links(VMs, role_name="from", stereotype_instances=can_use)[0]
+containerisation_kafka_environment = \
+    shared_kafka_environment.add_links(containerisation, role_name="from", stereotype_instances=can_use)[0]
+ontainerisation_kafka_environment = \
+    shared_kafka_environment.add_links(VMs, role_name="from", stereotype_instances=can_use)[0]
 
 containerisation_single_container_design = \
     single_container_design.add_links(containerisation, role_name="from", stereotype_instances=can_be_realized_with)[0]
@@ -442,17 +508,21 @@ templated_data_pipeline_ci_cd_process = \
 
 # ** data_product_self_serve_management_decision **
 
-data_product_self_serve_management_decision = CClass(decision, "How does the data product interact with other data products, self-serve platform, management layer and consumers?")
+data_product_self_serve_management_decision = CClass(decision, "How does the data product interact with other data products, self-serve platform, government layer and consumers?")
 add_decision_option_link(data_product_self_serve_management_decision, schema_manager,
                          "Implement a Schema Registry component")
 add_decision_option_link(data_product_self_serve_management_decision,central_data_product_catalogue,
                              "Implement an Central Data Product Catalogue component")
 add_decision_option_link(data_product_self_serve_management_decision, event_streaming,
                                "Implement an Event Streaming Backbone")
+add_decision_option_link(data_product_self_serve_management_decision, batch_proccessing,
+                               "Implement batch processing via push or pull")
 add_decision_option_link(data_product_self_serve_management_decision, shared_storage,
                                "Implement a shared storage")
-add_decision_option_link(data_product_self_serve_management_decision, sql_layer,
-                               "Implement a SQL component")
+add_decision_option_link(data_product_self_serve_management_decision, master_database,
+                               "Implement a master database")
+add_decision_option_link(data_product_self_serve_management_decision, reference_database,
+                               "Implement a reference database")
 add_decision_option_link(data_product_self_serve_management_decision, non_functional,
                          "Implement Data Product Policy Enforcement Mechanisms")
 add_force_relations({schema_manager: {understandability: positive,
@@ -483,9 +553,6 @@ add_force_relations({schema_manager: {understandability: positive,
                                        immutability: positive,
                                        grouping: positive,
                                        stale: negative},
-                     sql_layer: {understandability: positive,
-                                accelerate_decision_making: very_positive,
-                                 more_granular_data: very_positive},
                      non_functional: {security: very_positive,
                                       discoverability: positive,
                                       understandability: positive,
@@ -500,8 +567,20 @@ add_force_relations({schema_manager: {understandability: positive,
                                       control_over_data_schema: negative}
                         })
 
+schema_evolution_registry = \
+    schema_evolution.add_links(schema_manager, role_name="from", stereotype_instances=enables)[0]
+schema_enforcement_registry = \
+    schema_enforcement.add_links(schema_manager, role_name="from", stereotype_instances=enables)[0]
+
 central_data_product_catalogue_centrally_manage_monitor_govern_data = \
-    centrally_manage_monitor_govern_data.add_links(central_data_product_catalogue, role_name="from", stereotype_instances=leads_to)[0]
+    centrally_manage_monitor_govern_data.add_links(central_data_product_catalogue, role_name="from", stereotype_instances=enables)[0]
+central_data_product_models = \
+    conc_logical_phys.add_links(central_data_product_catalogue, role_name="from", stereotype_instances=enables)[0]
+
+batch_blob = \
+    blob_storage.add_links(batch_proccessing, role_name="from", stereotype_instances=can_be_realized_with)[0]
+batch_table = \
+    table.add_links(batch_proccessing, role_name="from", stereotype_instances=can_be_realized_with)[0]
 
 shared_storage_storage_read = \
     storage_read_api.add_links(shared_storage, role_name="from", stereotype_instances=can_be_realized_with)[0]
@@ -510,6 +589,8 @@ shared_storage_cloud_storage = \
 
 non_functional_cache = \
     cache.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
+non_functional_quality = \
+    data_quality_management.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
 non_functional_security_controls = \
     security_controls.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
 non_functional_query_catalogue = \
@@ -569,6 +650,18 @@ observation_port_quality_monitoring = \
 discovery_port_data_marketplace = \
     data_marketplace.add_links(discovery_port, role_name="from", stereotype_instances=enables)[0]
 
+control_port_policy = \
+    policy_enforcement.add_links(control_port, role_name="from", stereotype_instances=enables)[0]
+policy_retention = \
+    retention_policies.add_links(policy_enforcement, role_name="from", stereotype_instances=includes)[0]
+
+overarching_management_layer_control = \
+    control_port.add_links(overarching_management_layer, role_name="from", stereotype_instances=includes)[0]
+overarching_management_layer_discovery= \
+    discovery_port.add_links(overarching_management_layer, role_name="from", stereotype_instances=includes)[0]
+overarching_management_layer_observation = \
+    observation_port.add_links(overarching_management_layer, role_name="from", stereotype_instances=includes)[0]
+
 input_static = \
     static_coupling.add_links(input_port, role_name="from", stereotype_instances=realizes)[0]
 input_dynamic = \
@@ -599,6 +692,8 @@ asynchronous_dynamic = \
 run_time_dynamic = \
     runtime_data.add_links(dynamic_coupling, role_name="from", stereotype_instances=enables)[0]
 
+sync_crud = \
+    crud.add_links(synchronous, role_name="from", stereotype_instances=enables)[0]
 sync_rest = \
     rest_apis.add_links(synchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
 async_rest = \
@@ -609,15 +704,19 @@ sync_grpc = \
     remote_procedure_invocation.add_links(synchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
 async_grpc = \
     remote_procedure_invocation.add_links(asynchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
+sync_sql = \
+    sql_layer.add_links(synchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
+async_sql = \
+    sql_layer.add_links(asynchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
 
 async_pub = \
     pub_sub.add_links(asynchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
 
 # decision links
-add_links({data_product_type_decision: [data_product_self_serve_management_decision, orchestration_decision],
-           orchestration_decision: [data_product_layer_decision],
-           data_product_self_serve_management_decision: [data_product_layer_decision, interface_decision],
+add_links({orchestration_decision: [data_product_type_decision],
+           data_product_type_decision: [data_product_layer_decision, data_product_self_serve_management_decision, interface_decision],
            data_product_layer_decision: [deploy_decision],
+           data_product_self_serve_management_decision: [deploy_decision],
            interface_decision: [deploy_decision]},
           role_name="next decision", stereotype_instances=consider_if_not_decided_yet)
 

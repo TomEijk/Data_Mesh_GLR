@@ -544,7 +544,7 @@ s38 = CClass(source, "s38", values={
 s38_codes = [rest_apis, sql_layer, event_streaming, versioning, data_product_layer_decision, orchestration_decision, versioning_force,
              request_access, pub_sub, triggering, change_data_capture, start_from_scratch, non_functional, api_invocation,
              separate_subscriptions_separate_workspace_per_domain, data_product_self_serve_management_decision,
-             dataset_versioning, view_versioning, cqrs, filtering, migration]
+             dataset_versioning, cqrs, filtering, migration]
 add_links({s38: s38_codes}, role_name="contained_code")
 
 s39 = CClass(source, "s39", values={
@@ -820,7 +820,7 @@ i1_codes = [metastore, raw_data_as_data_product, sustainable_solution, internal_
             holistic_view, central_data_product_catalogue, data_modeling_tool, data_lineage, immutable_change_audit_log, event_streaming,
             real_time_data_access, rest_apis, sql_layer, mdm, governance, control_port, reference_data_management,
             security, end_to_end_consistency, overarching_management_layer, api_invocation, understandability,
-            data_onboarding, quality, control_plane, infrastructure_provisioning, storage_layer, orchestration_component, view_versioning, data_catalogue,
+            data_onboarding, quality, control_plane, infrastructure_provisioning, storage_layer, orchestration_component, data_catalogue,
             production_grade_integrations, strangler_fig_pattern, continuity, start_from_scratch, single_container_design,
             data_product_layer_decision, data_product_self_serve_management_decision, data_product_type_decision,
              deploy_decision, orchestration_decision, interface_decision, shared_kafka_environment, query_catalogue]

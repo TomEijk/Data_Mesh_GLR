@@ -26,11 +26,12 @@
 **Forces:**
 - Understandability for User (+) [s2, s43, i1]
 
-#### **Next Decision**: How does the data product interact with other data products, self-serve platform, management layer and consumers?
-#### **Next Decision**: What is my business strategy for generating data products?
+#### **Next Decision**: What architectural components should be included in the anatomy of a data product?
+#### **Next Decision**: How does the data product interact with other data products, self-serve platform, government layer and consumers?
+#### **Next Decision**: What are the elements of a data product interface/contract?
 
 
-## Decision: What is my business strategy for generating data products?
+## Decision: What strategy can be used for data product implementation?
 **Evidences:** s1, s2, s3, s5, s6, s7, s8, s9, s11, s14, s15, s18, s20, s23, s25, s28, s30, s31, s32, s33, s35, s37, s38, s39, s40, s41, s42, s43, s44, s45, s48, s49, s56, s57, i1, i2, i3, i4, i5, i6
 
 **Context:** 
@@ -52,10 +53,10 @@
 - Accelerate Decision Making (++) [s3]
 - Time-to-Market (--) [s2, s15, s25, s33]
 
-#### **Next Decision**: Which Architectural Elements should be offered in the Data Product Anatomy?
+#### **Next Decision**: What type of data product can be developed?
 
 
-## Decision: Which Architectural Elements should be offered in the Data Product Anatomy?
+## Decision: What architectural components should be included in the anatomy of a data product?
 **Evidences:** s1, s3, s4, s5, s7, s8, s9, s11, s12, s13, s15, s16, s17, s20, s22, s25, s27, s30, s31, s32, s33, s35, s36, s37, s38, s40, s43, s45, s47, s48, s49, s52, s53, s54, s55, s56, s57, i1, i2, i3, i4, i5, i6
 
 **Context:** 
@@ -84,12 +85,9 @@
 - Governance (++) [s55, i1]
 - Can be deployed in multiple environments (+) []
 
-#### Solution 3: Internal storages where the data product is deployed, not exposed to consumers
-**Evidences:** s4, s13, s15, s32, s33, s36, s49, i1, i4
+#### Solution 3: Metastore
+**Evidences:** i1, i4, i5, i6
 
-**Forces:**
-- Infrastructure workload (-) [i1]
-- Understandability for User (-) [s3, s11, s32, s43, s47, s48, s49, s53, s55, s56, i1]
 
 #### Solution 4: Data Catalogue
 **Evidences:** s1, s3, s5, s7, s9, s15, s16, s25, s30, s31, s32, s37, s43, s47, s48, s53, s55, i1, i3, i4, i5, i6
@@ -108,7 +106,29 @@
 - Unified (+) [s4]
 - Security (+) [s1, s4, s20, s31, i1, i2]
 
-#### Solution 5: Observation Plane
+#### Solution 5: Data Onboarding
+**Evidences:** s4, s5, s15, s30, s52, i1, i3
+
+**Forces:**
+- Observability (+) [s31, s55, s56]
+- Data Quality (+) [s7, s31, s35, i1, i2]
+- Standardised Transformation (+) [s3, s25, s32]
+- Security (+) [s1, s4, s20, s31, i1, i2]
+
+#### Solution 6: Internal storages where the data product is deployed, not exposed to consumers
+**Evidences:** s4, s13, s15, s32, s33, s36, s49, i1, i4
+
+**Forces:**
+- Infrastructure workload (-) [i1]
+- Understandability for User (-) [s3, s11, s32, s43, s47, s48, s49, s53, s55, s56, i1]
+
+#### Solution 7: Control Plane
+**Evidences:** s49, s52, i1, i3
+
+**Forces:**
+- Control over data schema (+) [s17]
+
+#### Solution 8: Observation Plane
 **Evidences:** s3, s7, s11, s13, s22, s52, i3
 
 **Forces:**
@@ -122,21 +142,6 @@
 - Observability (+) [s31, s55, s56]
 - Data Lineage (+) [s8, s48, s54, s55, s56, i1, i3]
 
-#### Solution 6: Control Plane
-**Evidences:** s49, s52, i1, i3
-
-**Forces:**
-- Control over data schema (+) [s17]
-
-#### Solution 7: Data Onboarding
-**Evidences:** s4, s5, s15, s30, s52, i1, i3
-
-**Forces:**
-- Observability (+) [s31, s55, s56]
-- Data Quality (+) [s7, s31, s35, i1, i2]
-- Standardised Transformation (+) [s3, s25, s32]
-- Security (+) [s1, s4, s20, s31, i1, i2]
-
 #### **Next Decision**: How to deploy a data product?
 
 
@@ -146,15 +151,11 @@
 **Context:** 
 
 ### **Solution Options**
-#### Solution 1: Container Orchestration System
-**Evidences:** s6, s14, s32, s35, s39, s43, s45, s47, i3, i4, i5
+#### Solution 1: Function-as-a-Service
+**Evidences:** s15, s21, s30, s31, s32, s33, s35, s36
 
-**Forces:**
-- Discoverability (+) [s15, s32, s39, s45, i3]
-- Reproducibility (+) [s15]
-- Time-to-Market (+) [s15, s33]
 
-#### Solution 2: containerisation
+#### Solution 2: Containerisation
 **Evidences:** s14, s15, s30, s32, s33, s45, s47, i3, i4, i6
 
 **Forces:**
@@ -170,9 +171,21 @@
 - Self-serve Capability (+) []
 - Governance (+) [i1]
 
+#### Solution 4: VMs
+**Evidences:** i3, i4
 
 
-## Decision: How does the data product interact with other data products, self-serve platform, management layer and consumers?
+#### Solution 5: Hybrid Deployment
+**Evidences:** 
+
+
+#### Solution 6: Multi-Cloud Deployment
+**Evidences:** 
+
+
+
+
+## Decision: How does the data product interact with other data products, self-serve platform, government layer and consumers?
 **Evidences:** s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s12, s13, s14, s15, s16, s17, s18, s19, s20, s23, s24, s26, s27, s30, s31, s32, s33, s34, s36, s37, s38, s39, s40, s41, s42, s43, s44, s45, s46, s47, s48, s49, s51, s52, s53, s54, s55, s56, s57, i1, i2, i3, i4, i5, i6
 
 **Context:** 
@@ -221,7 +234,11 @@
 - Grouping (+) [s37]
 - Stale (-) [i3]
 
-#### Solution 4: Shared Storage
+#### Solution 4: Batch processing
+**Evidences:** 
+
+
+#### Solution 5: Shared Storage
 **Evidences:** s33, i3
 
 **Forces:**
@@ -230,15 +247,15 @@
 - Filtering (-) [s38]
 - Control over data schema (-) [s17, s41]
 
-#### Solution 5: Attach a DBQuery Endpoint to each Data Product
-**Evidences:** s2, s3, s5, s7, s10, s13, s14, s15, s16, s27, s30, s31, s32, s36, s37, s38, s39, s43, s46, s48, s49, i1
+#### Solution 6: Master database
+**Evidences:** 
 
-**Forces:**
-- Understandability for User (+) [s2, s3, s19, s32, s43, s47, s48, s49, s53, s55, s56, i1]
-- Accelerate Decision Making (++) [s3]
-- More granular data (++) [s3]
 
-#### Solution 6: Data Product Policy Enforcement Mechanisms
+#### Solution 7: Reference database
+**Evidences:** 
+
+
+#### Solution 8: Data Product Policy Enforcement Mechanisms
 **Evidences:** s1, s3, s4, s5, s6, s12, s15, s20, s23, s27, s31, s32, s36, s38, s39, s40, s43, s47, s52, s56, i5
 
 **Forces:**
@@ -251,8 +268,7 @@
 - Entry Barrier (-) [s30]
 - Autonomous (+) [s31, s55]
 
-#### **Next Decision**: Which Architectural Elements should be offered in the Data Product Anatomy?
-#### **Next Decision**: What are the elements of a data product interface/contract?
+#### **Next Decision**: How to deploy a data product?
 
 
 ## Decision: What are the elements of a data product interface/contract?

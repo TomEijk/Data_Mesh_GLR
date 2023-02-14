@@ -1,0 +1,40 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "How to deploy a data product? : Decision" as __1_How_to_deploy_a_data_product_
+class "Function-as-a-Service : Practice" as __2_Function_as_a_Service
+class "Containerisation : Practice" as __3_Containerisation
+class "Container Orchestration System : Practice" as __4_Container_Orchestration_System
+class "Infrastructure as Code : Practice" as __5_Infrastructure_as_Code
+class "Zero trust runtime environment : Pattern" as __6_Zero_trust_runtime_environment
+class "VMs : Pattern" as __7_VMs
+class "Shared Event Streaming Environment : Practice" as __8_Shared_Event_Streaming_Environment
+class "Single-container design : Pattern" as __9_Single_container_design
+class "Templated Data Pipeline : Pattern" as __10_Templated_Data_Pipeline
+class " CI/CD process : Practice" as __11__CI_CD_process
+class "Lakehouse Architecture : Practice" as __12_Lakehouse_Architecture
+class "Hybrid Deployment : Practice" as __13_Hybrid_Deployment
+class "Multi-Cloud Deployment : Practice" as __14_Multi_Cloud_Deployment
+__1_How_to_deploy_a_data_product_ --> __2_Function_as_a_Service: "«Option» \n{name = "Use a serverless architecture"}\n" 
+__1_How_to_deploy_a_data_product_ --> __3_Containerisation: "«Option» \n{name = "Use a containerised architecture"}\n" 
+__1_How_to_deploy_a_data_product_ --> __12_Lakehouse_Architecture: "«Option» \n{name = "Use a lakehouse architecture"}\n" 
+__1_How_to_deploy_a_data_product_ --> __7_VMs: "«Option» \n{name = "Use virtual machines"}\n" 
+__1_How_to_deploy_a_data_product_ --> __13_Hybrid_Deployment: "«Option» \n{name = "Use hybrid deployment"}\n" 
+__1_How_to_deploy_a_data_product_ --> __14_Multi_Cloud_Deployment: "«Option» \n{name = "Use multi clouds"}\n" 
+__3_Containerisation --> __4_Container_Orchestration_System: "«Includes» \n" 
+__3_Containerisation --> __6_Zero_trust_runtime_environment: "«Can Use» \n" 
+__3_Containerisation --> __8_Shared_Event_Streaming_Environment: "«Can Use» \n" 
+__3_Containerisation --> __9_Single_container_design: "«Can be Realized With» \n" 
+__3_Containerisation --> __5_Infrastructure_as_Code: "«Can Use» \n" 
+__3_Containerisation --> __10_Templated_Data_Pipeline: "«Can Use» \n" 
+__4_Container_Orchestration_System --> __5_Infrastructure_as_Code: "«Can Use» \n" 
+__7_VMs --> __6_Zero_trust_runtime_environment: "«Can Use» \n" 
+__7_VMs --> __8_Shared_Event_Streaming_Environment: "«Can Use» \n" 
+__10_Templated_Data_Pipeline --> __11__CI_CD_process: "«Leads To» \n" 
+@enduml

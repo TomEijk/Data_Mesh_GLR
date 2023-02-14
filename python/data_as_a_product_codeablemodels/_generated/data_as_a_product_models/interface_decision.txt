@@ -1,0 +1,71 @@
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+hide empty members
+hide circle
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classfontstyle bold
+left to right direction
+class "What are the elements of a data product interface/contract?\n : Decision" as __1_What_are_the_elements_of_a_data_product_interface_contract_
+class "Observation Port : Pattern" as __2_Observation_Port
+class "Provide a single integrated experience for monitoring\n : Practice" as __3_Provide_a_single_integrated_experience_for_monitoring
+class "Overarching Management Layer : Practice" as __4_Overarching_Management_Layer
+class "Control Port : Pattern" as __5_Control_Port
+class "Policy Enforcement : Practice" as __6_Policy_Enforcement
+class "Retention policies : Practice" as __7_Retention_policies
+class "Discovery Port : Pattern" as __8_Discovery_Port
+class "Data Marketplace : Practice" as __9_Data_Marketplace
+class "Input Port : Pattern" as __10_Input_Port
+class "Static Coupling : Practice" as __11_Static_Coupling
+class "Output Port : Pattern" as __12_Output_Port
+class "Dynamic Coupling : Practice" as __13_Dynamic_Coupling
+class "Synchronous : Practice" as __14_Synchronous
+class "CRUD-style operations : Practice" as __15_CRUD_style_operations
+class "Attach REST APIs to each data product\n : Practice" as __16_Attach_REST_APIs_to_each_data_product
+class "Asynchronous : Practice" as __17_Asynchronous
+class "gRPC : Practice" as __18_gRPC
+class "Attach a DBQuery Endpoint to each Data Product\n : Practice" as __19_Attach_a_DBQuery_Endpoint_to_each_Data_Product
+class "Pub/Sub : Pattern" as __20_Pub_Sub
+class "GraphQL : Practice" as __21_GraphQL
+class "Provide information about runtime : Practice" as __22_Provide_information_about_runtime
+class "Multimodal access : Practice" as __23_Multimodal_access
+class "Bitemporal data : Practice" as __24_Bitemporal_data
+class "Immutable read-only access : Practice" as __25_Immutable_read_only_access
+class "Provide information about build-time libraries\n : Practice" as __26_Provide_information_about_build_time_libraries
+__1_What_are_the_elements_of_a_data_product_interface_contract_ --> __2_Observation_Port: "«Option» \n{name = "Implement an observation port"}\n" 
+__1_What_are_the_elements_of_a_data_product_interface_contract_ --> __5_Control_Port: "«Option» \n{name = "Implement a control port"}\n" 
+__1_What_are_the_elements_of_a_data_product_interface_contract_ --> __8_Discovery_Port: "«Option» \n{name = "Implement a discovery port"}\n" 
+__1_What_are_the_elements_of_a_data_product_interface_contract_ --> __4_Overarching_Management_Layer: "«Option» \n{name = "Implement an overarching management\nlayer"}\n" 
+__1_What_are_the_elements_of_a_data_product_interface_contract_ --> __10_Input_Port: "«Option» \n{name = "Implement an input port"}\n" 
+__1_What_are_the_elements_of_a_data_product_interface_contract_ --> __12_Output_Port: "«Option» \n{name = "Implement an input port"}\n" 
+__2_Observation_Port --> __3_Provide_a_single_integrated_experience_for_monitoring: "«Realizes» \n" 
+__4_Overarching_Management_Layer --> __5_Control_Port: "«Includes» \n" 
+__4_Overarching_Management_Layer --> __8_Discovery_Port: "«Includes» \n" 
+__4_Overarching_Management_Layer --> __2_Observation_Port: "«Includes» \n" 
+__5_Control_Port --> __6_Policy_Enforcement: "«Enables» \n" 
+__6_Policy_Enforcement --> __7_Retention_policies: "«Includes» \n" 
+__8_Discovery_Port --> __9_Data_Marketplace: "«Enables» \n" 
+__10_Input_Port --> __11_Static_Coupling: "«Realizes» \n" 
+__10_Input_Port --> __13_Dynamic_Coupling: "«Enables» \n" 
+__11_Static_Coupling --> __14_Synchronous: "«Realizes» \n" 
+__11_Static_Coupling --> __17_Asynchronous: "«Enables» \n" 
+__11_Static_Coupling --> __26_Provide_information_about_build_time_libraries: "«Enables» \n" 
+__12_Output_Port --> __11_Static_Coupling: "«Realizes» \n" 
+__12_Output_Port --> __13_Dynamic_Coupling: "«Enables» \n" 
+__12_Output_Port --> __23_Multimodal_access: "«Realizes» \n" 
+__12_Output_Port --> __24_Bitemporal_data: "«Enables» \n" 
+__12_Output_Port --> __25_Immutable_read_only_access: "«Realizes» \n" 
+__13_Dynamic_Coupling --> __14_Synchronous: "«Realizes» \n" 
+__13_Dynamic_Coupling --> __17_Asynchronous: "«Enables» \n" 
+__13_Dynamic_Coupling --> __22_Provide_information_about_runtime: "«Enables» \n" 
+__14_Synchronous --> __15_CRUD_style_operations: "«Enables» \n" 
+__14_Synchronous --> __16_Attach_REST_APIs_to_each_data_product: "«Can be Realized With» \n" 
+__14_Synchronous --> __21_GraphQL: "«Can be Realized With» \n" 
+__14_Synchronous --> __18_gRPC: "«Can be Realized With» \n" 
+__14_Synchronous --> __19_Attach_a_DBQuery_Endpoint_to_each_Data_Product: "«Can be Realized With» \n" 
+__17_Asynchronous --> __16_Attach_REST_APIs_to_each_data_product: "«Can be Realized With» \n" 
+__17_Asynchronous --> __18_gRPC: "«Can be Realized With» \n" 
+__17_Asynchronous --> __19_Attach_a_DBQuery_Endpoint_to_each_Data_Product: "«Can be Realized With» \n" 
+__17_Asynchronous --> __20_Pub_Sub: "«Can be Realized With» \n" 
+@enduml
