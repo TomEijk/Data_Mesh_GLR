@@ -6,7 +6,6 @@ hide circle
 skinparam defaultFontName Arial
 skinparam defaultFontSize 11
 skinparam classfontstyle bold
-left to right direction
 class "What strategy can be used for data product implementation?\n : Decision" as __1_What_strategy_can_be_used_for_data_product_implementation_
 class "Cloud Acceleration : Pattern" as __2_Cloud_Acceleration
 class "Starting federated : Practice" as __3_Starting_federated

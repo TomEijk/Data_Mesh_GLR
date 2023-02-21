@@ -6,7 +6,6 @@ hide circle
 skinparam defaultFontName Arial
 skinparam defaultFontSize 11
 skinparam classfontstyle bold
-left to right direction
 class "What type of data product can be developed?\n : Decision" as __1_What_type_of_data_product_can_be_developed_
 class "How to deploy a data product? : Decision" as __2_How_to_deploy_a_data_product_
 class "What strategy can be used for data product implementation?\n : Decision" as __3_What_strategy_can_be_used_for_data_product_implementation_

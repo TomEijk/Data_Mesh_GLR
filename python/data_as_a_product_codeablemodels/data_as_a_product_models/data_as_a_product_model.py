@@ -39,7 +39,7 @@ strangler_fig_pattern = CClass(pattern, "Strangler-Fig")
 control_port = CClass(pattern, "Control Port")
 zero_trust_architecture = CClass(pattern, "Zero Trust Architecture")
 mdm = CClass(pattern, "Master Data Management")
-observation_plane = CClass(pattern, "Observation Plane")
+observation_plane = CClass(pattern, "Observability Plane")
 control_plane = CClass(pattern, "Control Plane")
 storage_read_api = CClass(pattern, "Storage Read API")
 cloud_storage_api = CClass(pattern, "Cloud Storage API")
@@ -58,6 +58,7 @@ legacy_modernization = CClass(pattern, "Legacy Modernization")
 cloud_acceleration = CClass(pattern, "Cloud Acceleration")
 legacy_modernization = CClass(pattern, "Legacy Modernization")
 cloud_acceleration = CClass(pattern, "Cloud Acceleration")
+metadata_lake = CClass(pattern, "Metadata lake")
 
 # practices
 raw_data_as_data_product = CClass(practice, "Expose Data Product as Raw Data")
@@ -103,7 +104,7 @@ triggering = CClass(practice, "Alterting")
 sql_layer = CClass(practice, "Attach a DBQuery Endpoint to each Data Product")
 rest_apis = CClass(practice, "Attach REST APIs to each data product")
 cache = CClass(practice, "Implement a highly available in-memory cache")
-internal_storages = CClass(practice, "Internal storages where the data product is deployed, not exposed to consumers")
+internal_storages = CClass(practice, "Internal Storage(s)")
 end_to_end = CClass(practice, "end-to-end connection")
 no_sql_system = CClass(practice, "NoSQL system")
 orchestration = CClass(practice, "Orchestrator")
@@ -137,7 +138,7 @@ source_aligned_data_product = CClass(practice, "Source-aligned Data Product")
 consumer_aligned_data_product = CClass(practice, "Consumer-aligned Data Product")
 transformed_data = CClass(practice, "Multiple raw data sets untransformed")
 pre_transformed_data = CClass(practice, "Pre-transformed data")
-low_level_aggregations = CClass(practice, 'Low-level aggregations')
+low_level_events = CClass(practice, 'Low-level events')
 aggregations = CClass(practice, 'Aggregations')
 start_federated = CClass(practice, "Starting federated")
 start_central = CClass(practice, "Starting central and decentralize at a later stage")
@@ -156,11 +157,11 @@ policy_enforcement = CClass(practice, 'Policy Enforcement')
 full_data_movement = CClass(practice, 'Full Data Movement')
 incremental_data_movement = CClass(practice, 'Incremental Data Movement')
 schema_validation_fail = CClass(practice, 'Attaching metadata about events that didn’t pass the schema validation')
-non_programmatic_transformation = CClass(practice, 'Non-programmatic transformation')
-programmatic_transformation = CClass(practice, 'Programmatic transformation')
-dataflow_based_transformation = CClass(practice, 'Data flow based transformation')
-ml_bases_transformation = CClass(practice, 'ML based transformation')
-time_variant_transformation = CClass(practice, 'Time-variant transformation')
+non_programmatic_transformation = CClass(practice, 'Non-programmatic')
+programmatic_transformation = CClass(practice, 'Programmatic')
+dataflow_based_transformation = CClass(practice, 'Data flow based')
+ml_bases_transformation = CClass(practice, 'ML based')
+time_variant_transformation = CClass(practice, 'Time-variant')
 conc_logical_phys = CClass(practice, 'Describes the translations being made between the conceptual model, logical model, and physical model')
 batch_proccessing = CClass(practice, 'Batch processing')
 schema_enforcement = CClass(practice, 'Schema enforcement')
@@ -169,6 +170,7 @@ data_quality_management = CClass(practice, 'Data quality management')
 retention_policies = CClass(practice, 'Retention policies')
 reference_database = CClass(practice, 'Reference database')
 master_database = CClass(practice, 'Master database')
+transformation_processes = CClass(practice, 'Transformation Processes')
 
 # forces
 security = CClass(force, "Security")
@@ -219,7 +221,7 @@ versioning_force = CClass(force, "Versioning")
 continuity = CClass(force, "Continuity")
 sustainable_solution = CClass(force, "Sustainable solution")
 infrastructure_to_manage = CClass(force, "Infrastructure workload")
-holistic_view = CClass(force, "holistic_view")
+holistic_view = CClass(force, "holistic view")
 end_to_end_consistency = CClass(force, "End-to-end consistency")
 stateless = CClass(force, "Stateless")
 self_serve = CClass(force, "Self-serve Capability")
@@ -232,40 +234,37 @@ latency = CClass(force, "Latency")
 # ** data_product_type_decision **
 
 data_product_type_decision = CClass(decision, "What type of data product can be developed?")
-add_decision_option_link(data_product_type_decision, raw_data_as_data_product,
-                         "Use raw data from the data product")
-add_decision_option_link(data_product_type_decision, derived_data_as_data_product,
-                         "Use derived data from the data product")
-add_decision_option_link(data_product_type_decision, algorithms_as_data_product,
-                         "Use algorithms to return information or insights")
-add_force_relations({raw_data_as_data_product: {understandability: negative,
-                                                sustainable_solution: negative},
-                     derived_data_as_data_product: {understandability: neutral},
-                     algorithms_as_data_product: {understandability: positive}
-                     })
+add_decision_option_link(data_product_type_decision, source_aligned_data_product,
+                         "Generate a data product close to the operational database")
+add_decision_option_link(data_product_type_decision, aggregations,
+                         "Aggregate data from different data products")
+add_decision_option_link(data_product_type_decision, consumer_aligned_data_product,
+                         "Generate a data product close to the consumer")
 
 algorithms_data_product_first_variation = \
-    decision_support_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=variant)[0]
+    decision_support_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=can_use)[0]
 algorithms_data_product_second_variation = \
-    automated_decision_making_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=variant)[0]
+    automated_decision_making_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=can_use)[0]
 transformed_data_derived = \
-    transformed_data.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=variant)[0]
+    transformed_data.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=can_use)[0]
 pre_transformed_data_derived = \
-    pre_transformed_data.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=variant)[0]
-low_level_aggregations_derived = \
-    low_level_aggregations.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=variant)[0]
+    pre_transformed_data.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=can_use)[0]
+low_level_events_derived = \
+    low_level_events.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=can_use)[0]
 aggregations_derived = \
-    aggregations.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=variant)[0]
+    derived_data_as_data_product.add_links(aggregations, role_name="from", stereotype_instances=can_use)[0]
+aggregations_raw = \
+    raw_data_as_data_product.add_links(aggregations, role_name="from", stereotype_instances=can_use)[0]
 source_derived = \
-    source_aligned_data_product.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=realizes)[0]
+    derived_data_as_data_product.add_links(source_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
 source_raw = \
-    source_aligned_data_product.add_links(raw_data_as_data_product, role_name="from", stereotype_instances=realizes)[0]
+    raw_data_as_data_product.add_links(source_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
 consumer_derived = \
-    consumer_aligned_data_product.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=realizes)[0]
+    derived_data_as_data_product.add_links(consumer_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
 consumer_raw = \
-    consumer_aligned_data_product.add_links(raw_data_as_data_product, role_name="from", stereotype_instances=realizes)[0]
+    raw_data_as_data_product.add_links(consumer_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
 consumer_algorithm = \
-    consumer_aligned_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=realizes)[0]
+    algorithms_as_data_product.add_links(consumer_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
 raw_hybrid = \
     raw_data_as_data_product.add_links(hybrid_products, role_name="from", stereotype_instances=can_use)[0]
 derived_hybrid = \
@@ -349,7 +348,7 @@ data_product_layer_decision = CClass(decision, "What architectural components sh
 add_decision_option_link(data_product_layer_decision, change_data_capture,
                          "Implement a Change Data Capture component")
 add_decision_option_link(data_product_layer_decision,immutable_change_audit_log,
-                             "Implement a Immutable Log component")
+                              "Implement a Immutable Log component")
 add_decision_option_link(data_product_layer_decision,metastore,
                              "Implement a Metastore")
 add_decision_option_link(data_product_layer_decision, data_catalogue,
@@ -416,14 +415,10 @@ metastore_fail_schema = \
     schema_validation_fail.add_links(metastore, role_name="from", stereotype_instances=includes)[0]
 metastore_active = \
     active_metadata.add_links(metastore, role_name="from", stereotype_instances=enables)[0]
-schema_versioning_sync = \
-    incremental_sync.add_links(schema_versioning, role_name="from", stereotype_instances=enables)[0]
 immutable_dataset_versioning = \
     dataset_versioning.add_links(immutable_change_audit_log, role_name="from", stereotype_instances=enables)[0]
 immutable_change_audit_log_alerting = \
     triggering.add_links(immutable_change_audit_log, role_name="from", stereotype_instances=enables)[0]
-dataset_versioning_sync = \
-    incremental_sync.add_links(dataset_versioning, role_name="from", stereotype_instances=can_use)[0]
 
 data_catalogue_passive = \
     passive_metadata.add_links(data_catalogue, role_name="from", stereotype_instances=enables)[0]
@@ -449,15 +444,17 @@ catalog_onboarding = \
 immutable_onboarding = \
     immutable_change_audit_log.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
 prog_onboarding = \
-    programmatic_transformation.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
+    transformation_processes.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
+prog_onboarding = \
+    programmatic_transformation.add_links(transformation_processes, role_name="from", stereotype_instances=can_use)[0]
 nonprog_onboarding = \
-    non_programmatic_transformation.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
+    non_programmatic_transformation.add_links(transformation_processes, role_name="from", stereotype_instances=can_use)[0]
 dataflow_onboarding = \
-    dataflow_based_transformation.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
+    dataflow_based_transformation.add_links(transformation_processes, role_name="from", stereotype_instances=can_use)[0]
 ml_onboarding = \
-    ml_bases_transformation.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
+    ml_bases_transformation.add_links(transformation_processes, role_name="from", stereotype_instances=can_use)[0]
 time_variant_onboarding = \
-    time_variant_transformation.add_links(data_onboarding, role_name="from", stereotype_instances=can_use)[0]
+    time_variant_transformation.add_links(transformation_processes, role_name="from", stereotype_instances=can_use)[0]
 
 # ** deploy_decision **
 
@@ -513,6 +510,8 @@ add_decision_option_link(data_product_self_serve_management_decision, schema_man
                          "Implement a Schema Registry component")
 add_decision_option_link(data_product_self_serve_management_decision,central_data_product_catalogue,
                              "Implement an Central Data Product Catalogue component")
+add_decision_option_link(data_product_self_serve_management_decision,metadata_lake,
+                             "Implement a metadata lake")
 add_decision_option_link(data_product_self_serve_management_decision, event_streaming,
                                "Implement an Event Streaming Backbone")
 add_decision_option_link(data_product_self_serve_management_decision, batch_proccessing,
@@ -571,6 +570,9 @@ schema_evolution_registry = \
     schema_evolution.add_links(schema_manager, role_name="from", stereotype_instances=enables)[0]
 schema_enforcement_registry = \
     schema_enforcement.add_links(schema_manager, role_name="from", stereotype_instances=enables)[0]
+
+metadata_lake_blob = \
+    blob_storage.add_links(metadata_lake, role_name="from", stereotype_instances=can_use)[0]
 
 central_data_product_catalogue_centrally_manage_monitor_govern_data = \
     centrally_manage_monitor_govern_data.add_links(central_data_product_catalogue, role_name="from", stereotype_instances=enables)[0]
@@ -728,25 +730,6 @@ inter_decision_links_view = CBundle("inter_decision_links",
                                     elements=[data_product_type_decision,
                                               deploy_decision, orchestration_decision, data_product_self_serve_management_decision,
                                               data_product_layer_decision, interface_decision])
-data_product_type_view = CBundle("data_product_type_decision",
-                                    elements=data_product_type_decision.class_object.get_connected_elements(
-                                             stop_elements_exclusive=forces_class_objects + [
-                                                 deploy_decision.class_object,
-                                                 orchestration_decision.class_object,
-                                                 interface_decision.class_object,
-                                                 data_product_self_serve_management_decision.class_object,
-                                                 data_product_layer_decision.class_object
-                                             ,]))
-
-deploy_decision_view = CBundle("deploy_decision",
-                                    elements=deploy_decision.class_object.get_connected_elements(
-                                        stop_elements_exclusive=forces_class_objects + [
-                                            data_product_type_decision.class_object,
-                                            orchestration_decision.class_object,
-                                            interface_decision.class_object,
-                                            data_product_self_serve_management_decision.class_object,
-                                            data_product_layer_decision.class_object
-                                            , ]))
 
 orchestration_decision_view = CBundle("orchestration_decision",
                                     elements=orchestration_decision.class_object.get_connected_elements(
@@ -758,15 +741,15 @@ orchestration_decision_view = CBundle("orchestration_decision",
                                             interface_decision.class_object
                                             , ]))
 
-data_product_self_serve_management_decision_view = CBundle("data_product_self_serve_management_decision",
-                                    elements=data_product_self_serve_management_decision.class_object.get_connected_elements(
-                                        stop_elements_exclusive=forces_class_objects + [
-                                            data_product_type_decision.class_object,
-                                            deploy_decision.class_object,
-                                            orchestration_decision.class_object,
-                                            data_product_layer_decision.class_object,
-                                            interface_decision.class_object
-                                            , ]))
+data_product_type_view = CBundle("data_product_type_decision",
+                                    elements=data_product_type_decision.class_object.get_connected_elements(
+                                             stop_elements_exclusive=forces_class_objects + [
+                                                 deploy_decision.class_object,
+                                                 orchestration_decision.class_object,
+                                                 interface_decision.class_object,
+                                                 data_product_self_serve_management_decision.class_object,
+                                                 data_product_layer_decision.class_object
+                                             ,]))
 
 data_product_layer_decision_view = CBundle("data_product_layer_decision",
                                     elements=data_product_layer_decision.class_object.get_connected_elements(
@@ -787,15 +770,35 @@ interface_view = CBundle("interface_decision",
                                             data_product_self_serve_management_decision.class_object
                                             , ]))
 
+data_product_self_serve_management_decision_view = CBundle("data_product_self_serve_management_decision",
+                                    elements=data_product_self_serve_management_decision.class_object.get_connected_elements(
+                                        stop_elements_exclusive=forces_class_objects + [
+                                            data_product_type_decision.class_object,
+                                            deploy_decision.class_object,
+                                            orchestration_decision.class_object,
+                                            data_product_layer_decision.class_object,
+                                            interface_decision.class_object
+                                            , ]))
+
+deploy_decision_view = CBundle("deploy_decision",
+                                    elements=deploy_decision.class_object.get_connected_elements(
+                                        stop_elements_exclusive=forces_class_objects + [
+                                            data_product_type_decision.class_object,
+                                            orchestration_decision.class_object,
+                                            interface_decision.class_object,
+                                            data_product_self_serve_management_decision.class_object,
+                                            data_product_layer_decision.class_object
+                                            , ]))
+
 data_as_a_product_views = [
     _all, {},
     inter_decision_links_view, {},
-    data_product_type_view, {},
     orchestration_decision_view, {},
+    data_product_type_view, {},
     data_product_layer_decision_view, {},
-    data_product_self_serve_management_decision_view, {},
     interface_view, {},
-    deploy_decision_view, {},
+    data_product_self_serve_management_decision_view, {},
+    deploy_decision_view, {}
 ]
 
 

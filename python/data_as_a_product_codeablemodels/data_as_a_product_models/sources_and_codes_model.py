@@ -887,7 +887,7 @@ i5 = CClass(source, "i5", values={
     "type": "Practitioner Audience Article",
     "example": True,
     "source code": False})
-i5_codes = [raw_data_as_data_product, algorithms_as_data_product, low_level_aggregations, aggregations,
+i5_codes = [raw_data_as_data_product, algorithms_as_data_product, low_level_events, aggregations,
             strangler_fig_pattern, mdm, event_streaming, table, blob_storage, schema_manager, non_functional,
             data_catalogue, metastore, lakehouse, storage_layer, container_orchestration_system,
             data_product_layer_decision, data_product_self_serve_management_decision, data_product_type_decision,
@@ -910,11 +910,33 @@ i6_codes = [raw_data_as_data_product, strangler_fig_pattern, zero_trust_architec
             deploy_decision, orchestration_decision, interface_decision]
 add_links({i6: i6_codes}, role_name="contained_code")
 
+i7 = CClass(source, "i7", values={
+    "title": "Interview Expert G",
+    "url": "https://github.com/TomEijk/Data_as_a_Product_GLR/tree/master/python/data_as_a_product_codeablemodels/field_notes_open_coding_axial_coding",
+    "archive url": "https://bit.ly/data-as-a-product-i7",
+    "tiny url": "https://tinyurl.com/data-as-a-product-i7",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+i7_codes = [raw_data_as_data_product, algorithms_as_data_product, strangler_fig_pattern,
+            mdm, query_catalogue, event_streaming, data_marts, unified,
+            internal_storages, schema_manager, immutable_change_audit_log, data_catalogue]
+add_links({i7: i7_codes}, role_name="contained_code")
 
-
-
-
-
+i8 = CClass(source, "i8", values={
+    "title": "Interview Expert G",
+    "url": "https://github.com/TomEijk/Data_as_a_Product_GLR/tree/master/python/data_as_a_product_codeablemodels/field_notes_open_coding_axial_coding",
+    "archive url": "https://bit.ly/data-as-a-product-i8",
+    "tiny url": "https://tinyurl.com/data-as-a-product-i8",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+i7_codes = [algorithms_as_data_product, raw_data_as_data_product, derived_data_as_data_product,
+            mdm, request_access, zero_trust_architecture, strangler_fig_pattern, metastore, data_catalogue,
+            central_data_product_catalogue, schema_manager, discovery_port, observation_port, storage_layer]
+add_links({i7: i7_codes}, role_name="contained_code")
 
 
 

@@ -7,24 +7,17 @@
 **Context:** 
 
 ### **Solution Options**
-#### Solution 1: Expose Data Product as Raw Data
-**Evidences:** s1, s2, s6, s7, s9, s14, s15, s27, s34, s43, i1, i3, i4, i5, i6
+#### Solution 1: Source-aligned Data Product
+**Evidences:** 
 
-**Forces:**
-- Understandability for User (-) [s2, s43, i1]
-- Sustainable solution (-) [i1]
 
-#### Solution 2: Expose Data Product as Derived Data
-**Evidences:** s1, s2, s6, s9, s14, s15, s27, s34, i2, i4
+#### Solution 2: Aggregations
+**Evidences:** i5
 
-**Forces:**
-- Understandability for User (o) [s2, s43, i1]
 
-#### Solution 3: Expose Data Product as an algorithm
-**Evidences:** s2, s6, i5
+#### Solution 3: Consumer-aligned Data Product
+**Evidences:** 
 
-**Forces:**
-- Understandability for User (+) [s2, s43, i1]
 
 #### **Next Decision**: What architectural components should be included in the anatomy of a data product?
 #### **Next Decision**: How does the data product interact with other data products, self-serve platform, government layer and consumers?
@@ -115,7 +108,7 @@
 - Standardised Transformation (+) [s3, s25, s32]
 - Security (+) [s1, s4, s20, s31, i1, i2]
 
-#### Solution 6: Internal storages where the data product is deployed, not exposed to consumers
+#### Solution 6: Internal Storage(s)
 **Evidences:** s4, s13, s15, s32, s33, s36, s49, i1, i4
 
 **Forces:**
@@ -128,7 +121,7 @@
 **Forces:**
 - Control over data schema (+) [s17]
 
-#### Solution 8: Observation Plane
+#### Solution 8: Observability Plane
 **Evidences:** s3, s7, s11, s13, s22, s52, i3
 
 **Forces:**
@@ -191,54 +184,7 @@
 **Context:** 
 
 ### **Solution Options**
-#### Solution 1: Schema Registry
-**Evidences:** s3, s6, s7, s15, s16, s17, s19, s20, s24, s41, s47, s48, s54, s57, i3, i5, i6
-
-**Forces:**
-- Understandability for User (+) [s2, s3, s19, s32, s43, s47, s48, s49, s53, s55, s56, i1]
-- Duplication (+) [s3, s15, s17, s48]
-- Reproducibility (++) [s15, s16, s48, s54, s55]
-- Interoperability (+) [s1, s3, s9, s45]
-- Governance (+) [s55, i1]
-
-#### Solution 2: Central Data Product Catalogue
-**Evidences:** s5, s9, s15, s20, s23, s31, s32, s39, s40, s42, s45, s46, s47, s48, s49, s53, s54, s55, i1, i3
-
-**Forces:**
-- Security (+) [s1, s4, s20, s31, i1, i2]
-- Discoverability (+) [s1, s15, s31, s32, s39, s42, s45, s49, s55, s56, i3]
-- Understandability for User (+) [s2, s3, s19, s32, s43, s47, s48, s49, s53, s55, s56, i1]
-- Observability (+) [s31, s55, s56]
-- Governance (+) [s55, i1]
-- Data Quality (+) [s6, s7, s31, i1, i2]
-- Manual Toil (-) [s31]
-- Agility (+) [s31]
-- Interoperability (+) [s1, s3, s9, s45]
-- Duplication (-) [s3, s15, s17, s48]
-- Standardised Transformation (+) [s3, s19, s32]
-- holistic_view (+) [i1]
-- Data Lineage (+) [s8, s48, s54, s55, s56, i1, i3]
-
-#### Solution 3: Event Streaming Backbone
-**Evidences:** s4, s9, s17, s20, s26, s33, s34, s36, s38, s41, s44, s45, s48, s51, s52, s53, s55, s56, s57, i1, i2, i3, i5, i6
-
-**Forces:**
-- Time-to-Market (+) [s2, s15, s33]
-- Handle large data volumes (++) [s41]
-- Limit receptions (+) [s41]
-- Addressable (+) [s5, s17, s41]
-- Real-time Data Access (++) [s17, s20, s51, s53, s55, s56, i1, i3]
-- Trustworthiness (+) [s1, s3, s51]
-- Up-to-date (+) [s4, s55, i3]
-- Immutability (+) [s8, s17, s54]
-- Grouping (+) [s37]
-- Stale (-) [i3]
-
-#### Solution 4: Batch processing
-**Evidences:** 
-
-
-#### Solution 5: Shared Storage
+#### Solution 1: Shared Storage
 **Evidences:** s33, i3
 
 **Forces:**
@@ -247,15 +193,15 @@
 - Filtering (-) [s38]
 - Control over data schema (-) [s17, s41]
 
-#### Solution 6: Master database
+#### Solution 2: Master database
 **Evidences:** 
 
 
-#### Solution 7: Reference database
+#### Solution 3: Reference database
 **Evidences:** 
 
 
-#### Solution 8: Data Product Policy Enforcement Mechanisms
+#### Solution 4: Data Product Policy Enforcement Mechanisms
 **Evidences:** s1, s3, s4, s5, s6, s12, s15, s20, s23, s27, s31, s32, s36, s38, s39, s40, s43, s47, s52, s56, i5
 
 **Forces:**
@@ -373,7 +319,7 @@
 - Continuity [i1]
 - Sustainable solution [i1]
 - Infrastructure workload [i1]
-- holistic_view [i1]
+- holistic view [i1]
 - End-to-end consistency [i1]
 - Stateless []
 - Self-serve Capability []

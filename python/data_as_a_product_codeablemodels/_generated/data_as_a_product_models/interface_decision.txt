@@ -6,7 +6,6 @@ hide circle
 skinparam defaultFontName Arial
 skinparam defaultFontSize 11
 skinparam classfontstyle bold
-left to right direction
 class "What are the elements of a data product interface/contract?\n : Decision" as __1_What_are_the_elements_of_a_data_product_interface_contract_
 class "Observation Port : Pattern" as __2_Observation_Port
 class "Provide a single integrated experience for monitoring\n : Practice" as __3_Provide_a_single_integrated_experience_for_monitoring

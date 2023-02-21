@@ -8,7 +8,7 @@ from python.data_as_a_product_codeablemodels.data_as_a_product_models.data_as_a_
 # UMLgenerator
 generator = PlantUMLGenerator(delete_gen_dir_during_init=True)
 generator.object_model_renderer.name_break_length = 45
-generator.object_model_renderer.left_to_right = True
+generator.object_model_renderer.left_to_right = False
 
 object_models = {'data_as_a_product_models': data_as_a_product_views}
 for key, value in object_models.items():

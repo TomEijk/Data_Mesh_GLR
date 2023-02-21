@@ -74,7 +74,7 @@ class ModelRenderer(object):
         self.name_break_length = 25
         self.name_padding = ""
         self.style = ModelStyle.PLAIN
-        self.left_to_right = False
+        self.top_to_bottom = False
 
         self.ID = 0
 
@@ -103,8 +103,9 @@ class ModelRenderer(object):
                 context.add_line("skinparam defaultFontName Arial")
                 context.add_line("skinparam defaultFontSize 11")
                 context.add_line("skinparam classfontstyle bold")
-        if self.left_to_right:
-            context.add_line("left to right direction")
+        if self.top_to_bottom:
+            context.add_line("top to bottom direction")
+
 
     @staticmethod
     def render_end_graph(context):

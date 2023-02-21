@@ -6,39 +6,39 @@ hide circle
 skinparam defaultFontName Arial
 skinparam defaultFontSize 11
 skinparam classfontstyle bold
-left to right direction
 class "What type of data product can be developed?\n : Decision" as __1_What_type_of_data_product_can_be_developed_
-class "Expose Data Product as Raw Data : Practice" as __2_Expose_Data_Product_as_Raw_Data
-class "Source-aligned Data Product : Practice" as __3_Source_aligned_Data_Product
-class "Expose Data Product as Derived Data\n : Practice" as __4_Expose_Data_Product_as_Derived_Data
-class "Multiple raw data sets untransformed\n : Practice" as __5_Multiple_raw_data_sets_untransformed
-class "Pre-transformed data : Practice" as __6_Pre_transformed_data
-class "Low-level aggregations : Practice" as __7_Low_level_aggregations
-class "Aggregations : Practice" as __8_Aggregations
+class "Source-aligned Data Product : Practice" as __2_Source_aligned_Data_Product
+class "Expose Data Product as Derived Data\n : Practice" as __3_Expose_Data_Product_as_Derived_Data
+class "Multiple raw data sets untransformed\n : Practice" as __4_Multiple_raw_data_sets_untransformed
+class "Pre-transformed data : Practice" as __5_Pre_transformed_data
+class "Low-level events : Practice" as __6_Low_level_events
+class "Aggregations : Practice" as __7_Aggregations
+class "Expose Data Product as Raw Data : Practice" as __8_Expose_Data_Product_as_Raw_Data
 class "Consumer-aligned Data Product : Practice" as __9_Consumer_aligned_Data_Product
 class "Expose Data Product as an algorithm\n : Practice" as __10_Expose_Data_Product_as_an_algorithm
 class "Expose Data Product as an Optimisation-based Decision\nSupport System\n : Practice" as __11_Expose_Data_Product_as_an_Optimisation_based_Decision_Support_System
 class "Expose Data Product as an AI/ML Model\n : Practice" as __12_Expose_Data_Product_as_an_AI_ML_Model
 class "Expose Data Product as a Hybrid Product\n : Practice" as __13_Expose_Data_Product_as_a_Hybrid_Product
 class "Expose Data Product as a Composite Product\n : Practice" as __14_Expose_Data_Product_as_a_Composite_Product
-__1_What_type_of_data_product_can_be_developed_ --> __2_Expose_Data_Product_as_Raw_Data: "«Option» \n{name = "Use raw data from the data\nproduct"}\n" 
-__1_What_type_of_data_product_can_be_developed_ --> __4_Expose_Data_Product_as_Derived_Data: "«Option» \n{name = "Use derived data from the\ndata product"}\n" 
-__1_What_type_of_data_product_can_be_developed_ --> __10_Expose_Data_Product_as_an_algorithm: "«Option» \n{name = "Use algorithms to return information\nor\ninsights"}\n" 
-__2_Expose_Data_Product_as_Raw_Data --> __3_Source_aligned_Data_Product: "«Realizes» \n" 
-__2_Expose_Data_Product_as_Raw_Data --> __9_Consumer_aligned_Data_Product: "«Realizes» \n" 
-__4_Expose_Data_Product_as_Derived_Data --> __5_Multiple_raw_data_sets_untransformed: "«Variant» \n" 
-__4_Expose_Data_Product_as_Derived_Data --> __6_Pre_transformed_data: "«Variant» \n" 
-__4_Expose_Data_Product_as_Derived_Data --> __7_Low_level_aggregations: "«Variant» \n" 
-__4_Expose_Data_Product_as_Derived_Data --> __8_Aggregations: "«Variant» \n" 
-__4_Expose_Data_Product_as_Derived_Data --> __3_Source_aligned_Data_Product: "«Realizes» \n" 
-__4_Expose_Data_Product_as_Derived_Data --> __9_Consumer_aligned_Data_Product: "«Realizes» \n" 
-__10_Expose_Data_Product_as_an_algorithm --> __11_Expose_Data_Product_as_an_Optimisation_based_Decision_Support_System: "«Variant» \n" 
-__10_Expose_Data_Product_as_an_algorithm --> __12_Expose_Data_Product_as_an_AI_ML_Model: "«Variant» \n" 
-__10_Expose_Data_Product_as_an_algorithm --> __9_Consumer_aligned_Data_Product: "«Realizes» \n" 
-__13_Expose_Data_Product_as_a_Hybrid_Product --> __2_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
-__13_Expose_Data_Product_as_a_Hybrid_Product --> __4_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
+__1_What_type_of_data_product_can_be_developed_ --> __2_Source_aligned_Data_Product: "«Option» \n{name = "Generate a data product close\nto the operational\ndatabase"}\n" 
+__1_What_type_of_data_product_can_be_developed_ --> __7_Aggregations: "«Option» \n{name = "Aggregate data from different\ndata products"}\n" 
+__1_What_type_of_data_product_can_be_developed_ --> __9_Consumer_aligned_Data_Product: "«Option» \n{name = "Generate a data product close\nto the consumer"}\n" 
+__2_Source_aligned_Data_Product --> __3_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
+__2_Source_aligned_Data_Product --> __8_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
+__3_Expose_Data_Product_as_Derived_Data --> __4_Multiple_raw_data_sets_untransformed: "«Can Use» \n" 
+__3_Expose_Data_Product_as_Derived_Data --> __5_Pre_transformed_data: "«Can Use» \n" 
+__3_Expose_Data_Product_as_Derived_Data --> __6_Low_level_events: "«Can Use» \n" 
+__7_Aggregations --> __3_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
+__7_Aggregations --> __8_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
+__9_Consumer_aligned_Data_Product --> __3_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
+__9_Consumer_aligned_Data_Product --> __8_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
+__9_Consumer_aligned_Data_Product --> __10_Expose_Data_Product_as_an_algorithm: "«Can Use» \n" 
+__10_Expose_Data_Product_as_an_algorithm --> __11_Expose_Data_Product_as_an_Optimisation_based_Decision_Support_System: "«Can Use» \n" 
+__10_Expose_Data_Product_as_an_algorithm --> __12_Expose_Data_Product_as_an_AI_ML_Model: "«Can Use» \n" 
+__13_Expose_Data_Product_as_a_Hybrid_Product --> __8_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
+__13_Expose_Data_Product_as_a_Hybrid_Product --> __3_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
 __13_Expose_Data_Product_as_a_Hybrid_Product --> __10_Expose_Data_Product_as_an_algorithm: "«Can Use» \n" 
-__14_Expose_Data_Product_as_a_Composite_Product --> __2_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
-__14_Expose_Data_Product_as_a_Composite_Product --> __4_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
+__14_Expose_Data_Product_as_a_Composite_Product --> __8_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
+__14_Expose_Data_Product_as_a_Composite_Product --> __3_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
 __14_Expose_Data_Product_as_a_Composite_Product --> __10_Expose_Data_Product_as_an_algorithm: "«Can Use» \n" 
 @enduml
