@@ -59,6 +59,7 @@ cloud_acceleration = CClass(pattern, "Cloud Acceleration")
 legacy_modernization = CClass(pattern, "Legacy Modernization")
 cloud_acceleration = CClass(pattern, "Cloud Acceleration")
 metadata_lake = CClass(pattern, "Metadata lake")
+data_storage_infrastructure = CClass(pattern, "Data Storage Infrastructure")
 
 # practices
 raw_data_as_data_product = CClass(practice, "Expose Data Product as Raw Data")
@@ -183,7 +184,6 @@ duplication = CClass(force, "Duplication")
 trustworthiness = CClass(force, "Trustworthiness")
 interoperability = CClass(force, "Interoperability")
 completeness = CClass(force, "Completeness")
-integrity = CClass(force, "Integrity")
 multiple_independent_read_only_views = CClass(force, "Multiple independent read-only views")
 time_to_market = CClass(force, "Time-to-Market")
 agility = CClass(force, "Agility")
@@ -191,16 +191,11 @@ manual_toil = CClass(force, "Manual Toil")
 quality = CClass(force, "Data Quality")
 fast_data_propagation = CClass(force, "Fast data propagation")
 handle_large_data_volumes = CClass(force, "Handle large data volumes")
-limit_recipients = CClass(force, "Limit receptions")
 control_over_data_schema = CClass(force, "Control over data schema")
 real_time_data_access = CClass(force, "Real-time Data Access")
-multiple_environments = CClass(force, "Can be deployed in multiple environments")
-production_grade_integrations = CClass(force, "Production Grade Integrations")
 reproducibility = CClass(force, "Reproducibility")
 traceability = CClass(force, "Traceability")
 verifiability = CClass(force, "Verifiability")
-unified = CClass(force, "Unified")
-up_to_date = CClass(force, "Up-to-date")
 accessible = CClass(force, "Accessibility")
 addressible = CClass(force, "Addressable")
 immutability = CClass(force, "Immutability")
@@ -216,12 +211,9 @@ filtering = CClass(force, "Filtering")
 centralization = CClass(force, "Centralization")
 data_lineage = CClass(force, "Data Lineage")
 governance = CClass(force, "Governance")
-decomposition = CClass(force, "Decomposition")
 versioning_force = CClass(force, "Versioning")
 continuity = CClass(force, "Continuity")
-sustainable_solution = CClass(force, "Sustainable solution")
 infrastructure_to_manage = CClass(force, "Infrastructure workload")
-holistic_view = CClass(force, "holistic view")
 end_to_end_consistency = CClass(force, "End-to-end consistency")
 stateless = CClass(force, "Stateless")
 self_serve = CClass(force, "Self-serve Capability")
@@ -230,54 +222,6 @@ clear_ownership = CClass(force, "Clear Ownership")
 latency = CClass(force, "Latency")
 
 # decisions, options, and contexts
-
-# ** data_product_type_decision **
-
-data_product_type_decision = CClass(decision, "What type of data product can be developed?")
-add_decision_option_link(data_product_type_decision, source_aligned_data_product,
-                         "Generate a data product close to the operational database")
-add_decision_option_link(data_product_type_decision, aggregations,
-                         "Aggregate data from different data products")
-add_decision_option_link(data_product_type_decision, consumer_aligned_data_product,
-                         "Generate a data product close to the consumer")
-
-algorithms_data_product_first_variation = \
-    decision_support_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=can_use)[0]
-algorithms_data_product_second_variation = \
-    automated_decision_making_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=can_use)[0]
-transformed_data_derived = \
-    transformed_data.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=can_use)[0]
-pre_transformed_data_derived = \
-    pre_transformed_data.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=can_use)[0]
-low_level_events_derived = \
-    low_level_events.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=can_use)[0]
-aggregations_derived = \
-    derived_data_as_data_product.add_links(aggregations, role_name="from", stereotype_instances=can_use)[0]
-aggregations_raw = \
-    raw_data_as_data_product.add_links(aggregations, role_name="from", stereotype_instances=can_use)[0]
-source_derived = \
-    derived_data_as_data_product.add_links(source_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
-source_raw = \
-    raw_data_as_data_product.add_links(source_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
-consumer_derived = \
-    derived_data_as_data_product.add_links(consumer_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
-consumer_raw = \
-    raw_data_as_data_product.add_links(consumer_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
-consumer_algorithm = \
-    algorithms_as_data_product.add_links(consumer_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
-raw_hybrid = \
-    raw_data_as_data_product.add_links(hybrid_products, role_name="from", stereotype_instances=can_use)[0]
-derived_hybrid = \
-    derived_data_as_data_product.add_links(hybrid_products, role_name="from", stereotype_instances=can_use)[0]
-algorithms_hybrid = \
-    algorithms_as_data_product.add_links(hybrid_products, role_name="from", stereotype_instances=can_use)[0]
-
-raw_composite = \
-    raw_data_as_data_product.add_links(composite_products, role_name="from", stereotype_instances=can_use)[0]
-derived_composite = \
-    derived_data_as_data_product.add_links(composite_products, role_name="from", stereotype_instances=can_use)[0]
-algorithms_composite = \
-    algorithms_as_data_product.add_links(composite_products, role_name="from", stereotype_instances=can_use)[0]
 
 # ** orchestration_decision **
 
@@ -288,9 +232,28 @@ add_decision_option_link(orchestration_decision, legacy_modernization,
                          "Migration from legacy systems to modern data products")
 add_decision_option_link(orchestration_decision, start_from_scratch,
                          "Starting with greenfield development")
-add_force_relations({start_from_scratch: {entry_barrier: very_negative,
-                                          accelerate_decision_making: very_positive,
-                                          time_to_market: very_negative}
+add_force_relations({start_from_scratch: {accelerate_decision_making: very_positive,
+                                          standardised_transformation: positive,
+                                          fast_data_propagation: positive,
+                                          scalable: positive,
+                                          duplication: negative,
+                                          time_to_market: very_negative,
+                                          interoperability: negative},
+                     cloud_acceleration: {accelerate_decision_making: positive,
+                                          time_to_market: positive,
+                                          scalable: very_positive,
+                                          agility: positive,
+                                          accessible: very_positive,
+                                          control_over_data_schema: negative,
+                                          security: negative,
+                                          trustworthiness: negative},
+                     legacy_modernization: {more_granular_data: positive,
+                                            understandability: positive,
+                                            fast_data_propagation: positive,
+                                            real_time_data_access: very_positive,
+                                            entry_barrier: negative,
+                                            latency: negative,
+                                            stale: negative}
                      })
 
 leg_fed = \
@@ -341,16 +304,86 @@ hybrid_zero = \
 hybrid_strang = \
     strangler_fig_pattern.add_links(start_hybrid, role_name="from", stereotype_instances=can_use)[0]
 
+# ** data_product_type_decision **
+
+data_product_type_decision = CClass(decision, "What type of data product can be developed?")
+add_decision_option_link(data_product_type_decision, source_aligned_data_product,
+                         "Generate a data product close to the operational database")
+add_decision_option_link(data_product_type_decision, aggregations,
+                         "Aggregate data from different data products")
+add_decision_option_link(data_product_type_decision, consumer_aligned_data_product,
+                         "Generate a data product close to the consumer")
+add_force_relations({source_aligned_data_product: {understandability: very_positive,
+                                              reproducibility: positive,
+                                              time_to_market: positive,
+                                              discoverability: negative,
+                                              standardised_transformation: negative,
+                                              interoperability: negative},
+                     aggregations: {discoverability: positive,
+                                    accelerate_decision_making: positive,
+                                    understandability: positive,
+                                    interoperability: positive,
+                                    security: negative,
+                                    control_over_data_schema: negative,
+                                    immutability: negative},
+                     consumer_aligned_data_product: {discoverability: positive,
+                                                     understandability: positive,
+                                                     agility: positive,
+                                                     accessible: positive,
+                                                     grouping: positive,
+                                                     filtering: very_positive,
+                                                     completeness: negative,
+                                                     data_lineage: negative,
+                                                     governance: negative}
+                     })
+
+algorithms_data_product_first_variation = \
+    decision_support_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=can_use)[0]
+algorithms_data_product_second_variation = \
+    automated_decision_making_model_as_data_product.add_links(algorithms_as_data_product, role_name="from", stereotype_instances=can_use)[0]
+transformed_data_derived = \
+    transformed_data.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=can_use)[0]
+pre_transformed_data_derived = \
+    pre_transformed_data.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=can_use)[0]
+low_level_events_derived = \
+    low_level_events.add_links(derived_data_as_data_product, role_name="from", stereotype_instances=can_use)[0]
+aggregations_derived = \
+    derived_data_as_data_product.add_links(aggregations, role_name="from", stereotype_instances=can_use)[0]
+aggregations_raw = \
+    raw_data_as_data_product.add_links(aggregations, role_name="from", stereotype_instances=can_use)[0]
+source_derived = \
+    derived_data_as_data_product.add_links(source_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
+source_raw = \
+    raw_data_as_data_product.add_links(source_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
+consumer_derived = \
+    derived_data_as_data_product.add_links(consumer_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
+consumer_raw = \
+    raw_data_as_data_product.add_links(consumer_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
+consumer_algorithm = \
+    algorithms_as_data_product.add_links(consumer_aligned_data_product, role_name="from", stereotype_instances=can_use)[0]
+raw_hybrid = \
+    raw_data_as_data_product.add_links(hybrid_products, role_name="from", stereotype_instances=can_use)[0]
+derived_hybrid = \
+    derived_data_as_data_product.add_links(hybrid_products, role_name="from", stereotype_instances=can_use)[0]
+algorithms_hybrid = \
+    algorithms_as_data_product.add_links(hybrid_products, role_name="from", stereotype_instances=can_use)[0]
+
+raw_composite = \
+    raw_data_as_data_product.add_links(composite_products, role_name="from", stereotype_instances=can_use)[0]
+derived_composite = \
+    derived_data_as_data_product.add_links(composite_products, role_name="from", stereotype_instances=can_use)[0]
+algorithms_composite = \
+    algorithms_as_data_product.add_links(composite_products, role_name="from", stereotype_instances=can_use)[0]
 
 # ** data_product_layer_decision **
 
 data_product_layer_decision = CClass(decision, "What architectural components should be included in the anatomy of a data product?")
 add_decision_option_link(data_product_layer_decision, change_data_capture,
-                         "Implement a Change Data Capture component")
+                          "Implement a Change Data Capture component")
 add_decision_option_link(data_product_layer_decision,immutable_change_audit_log,
                               "Implement a Immutable Log component")
 add_decision_option_link(data_product_layer_decision,metastore,
-                             "Implement a Metastore")
+                              "Implement a Metastore")
 add_decision_option_link(data_product_layer_decision, data_catalogue,
                                "Implement a Data Catalogue component")
 add_decision_option_link(data_product_layer_decision, data_onboarding,
@@ -360,48 +393,68 @@ add_decision_option_link(data_product_layer_decision, internal_storages,
 add_decision_option_link(data_product_layer_decision, control_plane,
                                "Implement a Control Plane")
 add_decision_option_link(data_product_layer_decision, observation_plane,
-                               "Implement an Observation Plane")
-add_force_relations({change_data_capture: {real_time_data_access: positive,
-                                              understandability: positive,
-                                              accessible: positive,
-                                              production_grade_integrations: positive},
-                     immutable_change_audit_log: {reproducibility: positive,
-                                                  traceability: positive,
+                                "Implement an Observation Plane")
+add_force_relations({change_data_capture: {accelerate_decision_making: positive,
+                                           fast_data_propagation: positive,
+                                           interoperability: positive,
+                                           quality: very_positive,
+                                           traceability: positive,
+                                           understandability: negative,
+                                           data_lineage: negative,
+                                           governance: negative},
+                     metastore: {discoverability: very_positive,
+                                 interoperability: positive,
+                                 data_lineage: positive,
+                                 governance: positive,
+                                 scalable:positive,
+                                 observability: positive,
+                                 entry_barrier: negative},
+                     data_catalogue: {discoverability: very_positive,
+                                      accelerate_decision_making: positive,
+                                      understandability: positive,
+                                      data_search: positive,
+                                      reproducibility: positive,
+                                      traceability: positive,
+                                      data_lineage: positive,
+                                      clear_ownership: very_positive,
+                                      accessible: positive,
+                                      manual_toil: very_negative,
+                                      entry_barrier: negative,
+                                      centralization: very_negative,
+                                      governance: negative},
+                     immutable_change_audit_log: {security: positive,
+                                                  traceability: very_positive,
                                                   verifiability: positive,
-                                                  immutability: very_positive,
-                                                  observability: positive,
-                                                  understandability: very_positive,
-                                                  data_lineage: positive,
-                                                  governance: very_positive,
-                                                  multiple_environments: positive},
-                     data_catalogue: {standardised_transformation: positive,
-                                     duplication: negative,
-                                     understandability: positive,
-                                     discoverability: positive,
-                                     data_search: positive,
-                                     data_enrichment: positive,
-                                     autonomous: positive,
-                                     accessible: very_positive,
-                                     up_to_date: positive,
-                                     trustworthiness: positive,
-                                     unified: positive,
-                                     security: positive},
-                     observation_plane: {understandability: positive,
-                                         trustworthiness: positive,
-                                         completeness: positive,
-                                         integrity: positive,
-                                         quality: neutral,
-                                         accessible: positive,
-                                         transparency: very_positive,
-                                         observability: positive,
-                                         data_lineage: positive},
-                     control_plane : {control_over_data_schema: positive},
-                     data_onboarding: {observability: positive,
-                                       quality: positive,
-                                       standardised_transformation: positive,
-                                       security: positive},
-                     internal_storages : {infrastructure_to_manage: negative,
-                                          understandability: negative}
+                                                  governance: positive,
+                                                  manual_toil: negative,
+                                                  latency: negative},
+                     data_onboarding: {accelerate_decision_making: positive,
+                                       time_to_market: positive,
+                                       fast_data_propagation: positive,
+                                       agility: positive,
+                                       duplication: negative,
+                                       manual_toil: negative,
+                                       quality: negative,
+                                       governance: negative},
+                     control_plane: {centralization: positive,
+                                     control_over_data_schema: very_positive,
+                                     interoperability: positive,
+                                     quality: positive,
+                                     governance: positive,
+                                     transparency: positive,
+                                     manual_toil: negative,
+                                     entry_barrier: negative},
+                     observation_plane: {observability: very_positive,
+                                         accelerate_decision_making: positive,
+                                         reproducibility: positive,
+                                         traceability: positive,
+                                         manual_toil: negative,
+                                         entry_barrier: negative},
+                     internal_storages: {accessible: positive,
+                                         autonomous: very_positive,
+                                         understandability: negative,
+                                         duplication: negative
+                                         }
                      })
 
 full_cdc = \
@@ -456,164 +509,6 @@ ml_onboarding = \
 time_variant_onboarding = \
     time_variant_transformation.add_links(transformation_processes, role_name="from", stereotype_instances=can_use)[0]
 
-# ** deploy_decision **
-
-deploy_decision = CClass(decision, "How to deploy a data product?")
-add_decision_option_link(deploy_decision, function_as_a_service,
-                               "Use a serverless architecture")
-add_decision_option_link(deploy_decision, containerisation,
-                               "Use a containerised architecture")
-add_decision_option_link(deploy_decision, lakehouse,
-                                "Use a lakehouse architecture")
-add_decision_option_link(deploy_decision, VMs,
-                                "Use virtual machines")
-add_decision_option_link(deploy_decision, hybrid_deployment,
-                                "Use hybrid deployment")
-add_decision_option_link(deploy_decision, multi_cloud_deployment,
-                                "Use multi clouds")
-add_force_relations({
-                     containerisation: {reproducibility: positive,
-                              multiple_environments: positive,
-                              stateless: negative},
-                     lakehouse: {autonomous: positive,
-                                    self_serve: positive,
-                                    governance: positive}
-                     })
-
-container_orchestration_system_containerisation = \
-    container_orchestration_system.add_links(containerisation, role_name="from", stereotype_instances=includes)[0]
-container_orchestration_system_IaaS = \
-    infrastructure_as_code.add_links(container_orchestration_system, role_name="from", stereotype_instances=can_use)[0]
-
-containerisation_zero_run_time_environment = \
-    zero_trust_runtime_environment.add_links(containerisation, role_name="from", stereotype_instances=can_use)[0]
-ontainerisation_zero_run_time_environment = \
-    zero_trust_runtime_environment.add_links(VMs, role_name="from", stereotype_instances=can_use)[0]
-containerisation_kafka_environment = \
-    shared_kafka_environment.add_links(containerisation, role_name="from", stereotype_instances=can_use)[0]
-ontainerisation_kafka_environment = \
-    shared_kafka_environment.add_links(VMs, role_name="from", stereotype_instances=can_use)[0]
-
-containerisation_single_container_design = \
-    single_container_design.add_links(containerisation, role_name="from", stereotype_instances=can_be_realized_with)[0]
-containerisation_infrastructure_as_code = \
-    infrastructure_as_code.add_links(containerisation, role_name="from", stereotype_instances=can_use)[0]
-containerisation_templated_data_pipeline = \
-    templated_data_pipeline.add_links(containerisation, role_name="from", stereotype_instances=can_use)[0]
-templated_data_pipeline_ci_cd_process = \
-    ci_cd_process.add_links(templated_data_pipeline, role_name="from", stereotype_instances=leads_to)[0]
-
-# ** data_product_self_serve_management_decision **
-
-data_product_self_serve_management_decision = CClass(decision, "How does the data product interact with other data products, self-serve platform, government layer and consumers?")
-add_decision_option_link(data_product_self_serve_management_decision, schema_manager,
-                         "Implement a Schema Registry component")
-add_decision_option_link(data_product_self_serve_management_decision,central_data_product_catalogue,
-                             "Implement an Central Data Product Catalogue component")
-add_decision_option_link(data_product_self_serve_management_decision,metadata_lake,
-                             "Implement a metadata lake")
-add_decision_option_link(data_product_self_serve_management_decision, event_streaming,
-                               "Implement an Event Streaming Backbone")
-add_decision_option_link(data_product_self_serve_management_decision, batch_proccessing,
-                               "Implement batch processing via push or pull")
-add_decision_option_link(data_product_self_serve_management_decision, shared_storage,
-                               "Implement a shared storage")
-add_decision_option_link(data_product_self_serve_management_decision, master_database,
-                               "Implement a master database")
-add_decision_option_link(data_product_self_serve_management_decision, reference_database,
-                               "Implement a reference database")
-add_decision_option_link(data_product_self_serve_management_decision, non_functional,
-                         "Implement Data Product Policy Enforcement Mechanisms")
-add_force_relations({schema_manager: {understandability: positive,
-                                      duplication: positive,
-                                      reproducibility: very_positive,
-                                      interoperability: positive,
-                                      governance: positive},
-                     central_data_product_catalogue: {security: positive,
-                                                      discoverability: positive,
-                                                      understandability: positive,
-                                                      observability: positive,
-                                                      governance: positive,
-                                                      quality: positive,
-                                                      manual_toil: negative,
-                                                      agility: positive,
-                                                      interoperability: positive,
-                                                      duplication: negative,
-                                                      standardised_transformation: positive,
-                                                      holistic_view: positive,
-                                                      data_lineage: positive},
-                     event_streaming: {time_to_market: positive,
-                                       handle_large_data_volumes: very_positive,
-                                       limit_recipients: positive,
-                                       addressible: positive,
-                                       real_time_data_access: very_positive,
-                                       trustworthiness: positive,
-                                       up_to_date: positive,
-                                       immutability: positive,
-                                       grouping: positive,
-                                       stale: negative},
-                     non_functional: {security: very_positive,
-                                      discoverability: positive,
-                                      understandability: positive,
-                                      trustworthiness: positive,
-                                      interoperability: positive,
-                                      accessible: positive,
-                                      entry_barrier: negative,
-                                      autonomous: positive},
-                     shared_storage: {versioning_force: very_negative,
-                                      duplication: negative,
-                                      filtering: negative,
-                                      control_over_data_schema: negative}
-                        })
-
-schema_evolution_registry = \
-    schema_evolution.add_links(schema_manager, role_name="from", stereotype_instances=enables)[0]
-schema_enforcement_registry = \
-    schema_enforcement.add_links(schema_manager, role_name="from", stereotype_instances=enables)[0]
-
-metadata_lake_blob = \
-    blob_storage.add_links(metadata_lake, role_name="from", stereotype_instances=can_use)[0]
-
-central_data_product_catalogue_centrally_manage_monitor_govern_data = \
-    centrally_manage_monitor_govern_data.add_links(central_data_product_catalogue, role_name="from", stereotype_instances=enables)[0]
-central_data_product_models = \
-    conc_logical_phys.add_links(central_data_product_catalogue, role_name="from", stereotype_instances=enables)[0]
-
-batch_blob = \
-    blob_storage.add_links(batch_proccessing, role_name="from", stereotype_instances=can_be_realized_with)[0]
-batch_table = \
-    table.add_links(batch_proccessing, role_name="from", stereotype_instances=can_be_realized_with)[0]
-
-shared_storage_storage_read = \
-    storage_read_api.add_links(shared_storage, role_name="from", stereotype_instances=can_be_realized_with)[0]
-shared_storage_cloud_storage = \
-    cloud_storage_api.add_links(shared_storage, role_name="from", stereotype_instances=can_be_realized_with)[0]
-
-non_functional_cache = \
-    cache.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
-non_functional_quality = \
-    data_quality_management.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
-non_functional_security_controls = \
-    security_controls.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
-non_functional_query_catalogue = \
-    query_catalogue.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
-security_controls_request_access = \
-    request_access.add_links(security_controls, role_name="from", stereotype_instances=can_use)[0]
-security_controls_encryption = \
-    encryption.add_links(security_controls, role_name="from", stereotype_instances=can_use)[0]
-request_access_attribute = \
-    attribute_based_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
-request_access_role = \
-    role_based_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
-request_access_row = \
-    row_based_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
-request_access_api = \
-    api_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
-request_access_run = \
-    run_time_environment_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
-request_access_stream = \
-    stream_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
-
 # ** interface_decision **
 
 interface_decision = CClass(decision, "What are the elements of a data product interface/contract?")
@@ -629,22 +524,52 @@ add_decision_option_link(interface_decision, input_port,
                                "Implement an input port")
 add_decision_option_link(interface_decision, output_port,
                                "Implement an input port")
-add_force_relations({discovery_port: {discoverability: positive,
-                                      accessible: positive},
-                     observation_port: {understandability: positive,
-                                         trustworthiness: positive,
-                                         completeness: positive,
-                                         integrity: positive,
-                                         quality: neutral,
-                                         accessible: positive,
-                                         transparency: very_positive,
-                                         observability: positive,
-                                         data_lineage: positive},
-                     control_port : {control_over_data_schema: positive,
-                                     governance: positive,
-                                     security: positive},
-                     overarching_management_layer: {governance: positive,
-                                                    end_to_end_consistency: positive}
+add_force_relations({observation_port: {observability: very_positive,
+                                        accelerate_decision_making: positive,
+                                        quality: positive,
+                                        scalable: positive,
+                                        manual_toil: negative},
+                     discovery_port: {discoverability: very_positive,
+                                      accelerate_decision_making: positive,
+                                      standardised_transformation: positive,
+                                      duplication: negative,
+                                      governance: negative},
+                     control_port: {security: positive,
+                                    governance: very_positive,
+                                    interoperability: positive,
+                                    scalable: positive,
+                                    entry_barrier: positive,
+                                    agility: negative,
+                                    manual_toil: negative,
+                                    latency: negative,
+                                    clear_ownership: negative},
+                     overarching_management_layer: {control_over_data_schema: positive,
+                                                    interoperability: positive,
+                                                    governance: very_positive,
+                                                    scalable: positive,
+                                                    autonomous: negative,
+                                                    agility: negative,
+                                                    entry_barrier: negative},
+                     input_port: {accelerate_decision_making: positive,
+                                  accessible: very_positive,
+                                  agility: positive,
+                                  fast_data_propagation: positive,
+                                  handle_large_data_volumes: positive,
+                                  scalable: positive,
+                                  duplication: negative,
+                                  quality: negative,
+                                  data_lineage: negative},
+                     output_port: {accelerate_decision_making: positive,
+                                   accessible: positive,
+                                   more_granular_data: positive,
+                                   fast_data_propagation: positive,
+                                   scalable: positive,
+                                   self_serve: positive,
+                                   security: negative,
+                                   duplication: negative,
+                                   quality: negative,
+                                   stale: negative,
+                                   latency: negative}
                         })
 
 observation_port_quality_monitoring = \
@@ -713,6 +638,240 @@ async_sql = \
 
 async_pub = \
     pub_sub.add_links(asynchronous, role_name="from", stereotype_instances=can_be_realized_with)[0]
+
+# ** data_product_self_serve_management_decision **
+
+data_product_self_serve_management_decision = CClass(decision, "How does the data product interact with other data products, self-serve platform, government layer and consumers?")
+add_decision_option_link(data_product_self_serve_management_decision, schema_manager,
+                         "Implement a Schema Registry component")
+add_decision_option_link(data_product_self_serve_management_decision,central_data_product_catalogue,
+                             "Implement an Central Data Product Catalogue component")
+add_decision_option_link(data_product_self_serve_management_decision,metadata_lake,
+                             "Implement a metadata lake")
+add_decision_option_link(data_product_self_serve_management_decision, event_streaming,
+                               "Implement an Event Streaming Backbone")
+add_decision_option_link(data_product_self_serve_management_decision, batch_proccessing,
+                               "Implement batch processing via push or pull")
+add_decision_option_link(data_product_self_serve_management_decision, shared_storage,
+                               "Implement a shared storage")
+add_decision_option_link(data_product_self_serve_management_decision, master_database,
+                               "Implement a master database")
+add_decision_option_link(data_product_self_serve_management_decision, reference_database,
+                               "Implement a reference database")
+add_decision_option_link(data_product_self_serve_management_decision, non_functional,
+                         "Implement Data Product Policy Enforcement Mechanisms")
+add_force_relations({schema_manager: {standardised_transformation: very_positive,
+                                      centralization: positive,
+                                      discoverability: positive,
+                                      interoperability: positive,
+                                      quality: positive,
+                                      versioning_force: positive,
+                                      governance: positive,
+                                      entry_barrier: negative,
+                                      time_to_market: negative},
+                     central_data_product_catalogue: {discoverability: very_positive,
+                                                      centralization: positive,
+                                                      interoperability: positive,
+                                                      accessible: positive,
+                                                      governance: very_positive,
+                                                      observability: positive,
+                                                      entry_barrier: negative,
+                                                      autonomous: negative,
+                                                      agility: negative,
+                                                      accelerate_decision_making: negative},
+                     metadata_lake: {discoverability: positive,
+                                     centralization: positive,
+                                     accelerate_decision_making: positive,
+                                     standardised_transformation: positive,
+                                     interoperability: very_positive,
+                                     completeness: positive,
+                                     data_lineage: positive,
+                                     governance: positive,
+                                     entry_barrier: negative,
+                                     data_search: negative,
+                                     understandability: negative},
+                     batch_proccessing: {handle_large_data_volumes: very_positive,
+                                         time_to_market: positive,
+                                         reproducibility: positive,
+                                         fast_data_propagation: negative,
+                                         real_time_data_access: negative,
+                                         agility: negative,
+                                         latency: negative},
+                     event_streaming: {fast_data_propagation: positive,
+                                       scalable: positive,
+                                       real_time_data_access: positive,
+                                       multiple_independent_read_only_views: positive,
+                                       agility: positive,
+                                       quality: negative,
+                                       understandability: negative},
+                     shared_storage: {quality: positive,
+                                      completeness: positive,
+                                      accessible: positive,
+                                      interoperability: positive,
+                                      time_to_market: positive,
+                                      scalable: positive,
+                                      control_over_data_schema: negative,
+                                      data_lineage: negative,
+                                      immutability: negative,
+                                      transparency: negative,
+                                      addressible: negative},
+                     master_database: {end_to_end_consistency: very_positive,
+                                       quality: positive,
+                                       autonomous: negative,
+                                       scalable: negative},
+                     reference_database: {understandability: very_positive,
+                                          end_to_end_consistency: positive,
+                                          completeness: positive,
+                                          transparency: positive,
+                                          entry_barrier: negative,
+                                          stale: negative},
+                     non_functional: {security: very_positive,
+                                      governance: positive,
+                                      quality: positive,
+                                      agility: negative,
+                                      manual_toil: negative,
+                                      self_serve: negative}
+                        })
+
+schema_evolution_registry = \
+    schema_evolution.add_links(schema_manager, role_name="from", stereotype_instances=enables)[0]
+schema_enforcement_registry = \
+    schema_enforcement.add_links(schema_manager, role_name="from", stereotype_instances=enables)[0]
+
+metadata_lake_blob = \
+    blob_storage.add_links(metadata_lake, role_name="from", stereotype_instances=can_use)[0]
+
+central_data_product_catalogue_centrally_manage_monitor_govern_data = \
+    centrally_manage_monitor_govern_data.add_links(central_data_product_catalogue, role_name="from", stereotype_instances=enables)[0]
+central_data_product_models = \
+    conc_logical_phys.add_links(central_data_product_catalogue, role_name="from", stereotype_instances=enables)[0]
+
+batch_blob = \
+    blob_storage.add_links(batch_proccessing, role_name="from", stereotype_instances=can_be_realized_with)[0]
+batch_table = \
+    table.add_links(batch_proccessing, role_name="from", stereotype_instances=can_be_realized_with)[0]
+
+shared_storage_storage_read = \
+    storage_read_api.add_links(shared_storage, role_name="from", stereotype_instances=can_be_realized_with)[0]
+shared_storage_cloud_storage = \
+    cloud_storage_api.add_links(shared_storage, role_name="from", stereotype_instances=can_be_realized_with)[0]
+
+non_functional_cache = \
+    cache.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
+non_functional_quality = \
+    data_quality_management.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
+non_functional_security_controls = \
+    security_controls.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
+non_functional_query_catalogue = \
+    query_catalogue.add_links(non_functional, role_name="from", stereotype_instances=can_use)[0]
+security_controls_request_access = \
+    request_access.add_links(security_controls, role_name="from", stereotype_instances=can_use)[0]
+security_controls_encryption = \
+    encryption.add_links(security_controls, role_name="from", stereotype_instances=can_use)[0]
+request_access_attribute = \
+    attribute_based_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
+request_access_role = \
+    role_based_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
+request_access_row = \
+    row_based_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
+request_access_api = \
+    api_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
+request_access_run = \
+    run_time_environment_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
+request_access_stream = \
+    stream_access_control.add_links(request_access, role_name="from", stereotype_instances=can_use)[0]
+
+# ** deploy_decision **
+
+deploy_decision = CClass(decision, "How to deploy a data product?")
+add_decision_option_link(deploy_decision, function_as_a_service,
+                               "Use a serverless architecture")
+add_decision_option_link(deploy_decision, containerisation,
+                               "Use a containerised architecture")
+add_decision_option_link(deploy_decision, data_storage_infrastructure,
+                                "Use a Data Storage Infrastructure")
+add_decision_option_link(deploy_decision, VMs,
+                                "Use virtual machines")
+add_decision_option_link(deploy_decision, hybrid_deployment,
+                                "Use hybrid deployment")
+add_decision_option_link(deploy_decision, multi_cloud_deployment,
+                                "Use multi clouds")
+add_force_relations({function_as_a_service: {agility: positive,
+                                             time_to_market: positive,
+                                             infrastructure_to_manage: positive,
+                                             scalable: positive,
+                                             stateless: positive,
+                                             self_serve: positive,
+                                             security: negative,
+                                             latency: negative,
+                                             discoverability: negative,
+                                             data_enrichment: negative},
+                     containerisation: {scalable: positive,
+                                        agility: positive,
+                                        standardised_transformation: positive,
+                                        entry_barrier: negative,
+                                        understandability: negative,
+                                        infrastructure_to_manage: negative},
+                     VMs: {security: positive,
+                           control_over_data_schema: positive,
+                           versioning_force: positive,
+                           agility: negative,
+                           infrastructure_to_manage: negative,
+                           scalable: negative},
+                     data_storage_infrastructure: {scalable: positive,
+                                                   fast_data_propagation: positive,
+                                                   handle_large_data_volumes: positive,
+                                                   accessible: positive,
+                                                   security: negative,
+                                                   duplication: negative,
+                                                   data_lineage: negative,
+                                                   data_search: negative},
+                     hybrid_deployment: {accessible: positive,
+                                         interoperability: positive,
+                                         scalable: positive,
+                                         continuity: positive,
+                                         infrastructure_to_manage: positive,
+                                         agility: positive,
+                                         time_to_market: positive,
+                                         understandability: negative,
+                                         governance: negative,
+                                         security: negative,
+                                         discoverability: negative,
+                                         clear_ownership: negative,
+                                         centralization: negative},
+                     multi_cloud_deployment: {scalable: positive,
+                                              agility: positive,
+                                              time_to_market: positive,
+                                              infrastructure_to_manage: positive,
+                                              understandability: negative,
+                                              security: negative,
+                                              interoperability: negative,
+                                              governance: negative,
+                                              latency: negative}
+                     })
+
+container_orchestration_system_containerisation = \
+    container_orchestration_system.add_links(containerisation, role_name="from", stereotype_instances=includes)[0]
+container_orchestration_system_IaaS = \
+    infrastructure_as_code.add_links(container_orchestration_system, role_name="from", stereotype_instances=can_use)[0]
+
+containerisation_zero_run_time_environment = \
+    zero_trust_runtime_environment.add_links(containerisation, role_name="from", stereotype_instances=can_use)[0]
+ontainerisation_zero_run_time_environment = \
+    zero_trust_runtime_environment.add_links(VMs, role_name="from", stereotype_instances=can_use)[0]
+containerisation_kafka_environment = \
+    shared_kafka_environment.add_links(containerisation, role_name="from", stereotype_instances=can_use)[0]
+ontainerisation_kafka_environment = \
+    shared_kafka_environment.add_links(VMs, role_name="from", stereotype_instances=can_use)[0]
+
+containerisation_single_container_design = \
+    single_container_design.add_links(containerisation, role_name="from", stereotype_instances=can_be_realized_with)[0]
+containerisation_infrastructure_as_code = \
+    infrastructure_as_code.add_links(containerisation, role_name="from", stereotype_instances=can_use)[0]
+containerisation_templated_data_pipeline = \
+    templated_data_pipeline.add_links(containerisation, role_name="from", stereotype_instances=can_use)[0]
+templated_data_pipeline_ci_cd_process = \
+    ci_cd_process.add_links(templated_data_pipeline, role_name="from", stereotype_instances=leads_to)[0]
 
 # decision links
 add_links({orchestration_decision: [data_product_type_decision],

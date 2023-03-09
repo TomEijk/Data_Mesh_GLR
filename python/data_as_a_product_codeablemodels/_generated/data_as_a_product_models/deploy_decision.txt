@@ -17,12 +17,12 @@ class "Shared Event Streaming Environment : Practice" as __8_Shared_Event_Stream
 class "Single-container design : Pattern" as __9_Single_container_design
 class "Templated Data Pipeline : Pattern" as __10_Templated_Data_Pipeline
 class " CI/CD process : Practice" as __11__CI_CD_process
-class "Lakehouse Architecture : Practice" as __12_Lakehouse_Architecture
+class "Data Storage Infrastructure : Pattern" as __12_Data_Storage_Infrastructure
 class "Hybrid Deployment : Practice" as __13_Hybrid_Deployment
 class "Multi-Cloud Deployment : Practice" as __14_Multi_Cloud_Deployment
 __1_How_to_deploy_a_data_product_ --> __2_Function_as_a_Service: "«Option» \n{name = "Use a serverless architecture"}\n" 
 __1_How_to_deploy_a_data_product_ --> __3_Containerisation: "«Option» \n{name = "Use a containerised architecture"}\n" 
-__1_How_to_deploy_a_data_product_ --> __12_Lakehouse_Architecture: "«Option» \n{name = "Use a lakehouse architecture"}\n" 
+__1_How_to_deploy_a_data_product_ --> __12_Data_Storage_Infrastructure: "«Option» \n{name = "Use a Data Storage Infrastructure"}\n" 
 __1_How_to_deploy_a_data_product_ --> __7_VMs: "«Option» \n{name = "Use virtual machines"}\n" 
 __1_How_to_deploy_a_data_product_ --> __13_Hybrid_Deployment: "«Option» \n{name = "Use hybrid deployment"}\n" 
 __1_How_to_deploy_a_data_product_ --> __14_Multi_Cloud_Deployment: "«Option» \n{name = "Use multi clouds"}\n" 

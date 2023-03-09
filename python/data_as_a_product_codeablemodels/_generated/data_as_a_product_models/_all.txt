@@ -8,428 +8,608 @@ skinparam defaultFontSize 11
 skinparam classfontstyle bold
 class "What type of data product can be developed?\n : Decision" as __1_What_type_of_data_product_can_be_developed_
 class "Source-aligned Data Product : Practice" as __2_Source_aligned_Data_Product
-class "Expose Data Product as Derived Data\n : Practice" as __3_Expose_Data_Product_as_Derived_Data
-class "Multiple raw data sets untransformed\n : Practice" as __4_Multiple_raw_data_sets_untransformed
-class "Pre-transformed data : Practice" as __5_Pre_transformed_data
-class "Low-level events : Practice" as __6_Low_level_events
-class "Aggregations : Practice" as __7_Aggregations
-class "Expose Data Product as Raw Data : Practice" as __8_Expose_Data_Product_as_Raw_Data
-class "Consumer-aligned Data Product : Practice" as __9_Consumer_aligned_Data_Product
-class "Expose Data Product as an algorithm\n : Practice" as __10_Expose_Data_Product_as_an_algorithm
-class "Expose Data Product as an Optimisation-based Decision\nSupport System\n : Practice" as __11_Expose_Data_Product_as_an_Optimisation_based_Decision_Support_System
-class "Expose Data Product as an AI/ML Model\n : Practice" as __12_Expose_Data_Product_as_an_AI_ML_Model
-class "Expose Data Product as a Hybrid Product\n : Practice" as __13_Expose_Data_Product_as_a_Hybrid_Product
-class "Expose Data Product as a Composite Product\n : Practice" as __14_Expose_Data_Product_as_a_Composite_Product
-class "What strategy can be used for data product implementation?\n : Decision" as __15_What_strategy_can_be_used_for_data_product_implementation_
-class "Cloud Acceleration : Pattern" as __16_Cloud_Acceleration
-class "Starting federated : Practice" as __17_Starting_federated
-class "Legacy Modernization : Pattern" as __18_Legacy_Modernization
-class "Starting central and decentralize at a later stage\n : Practice" as __19_Starting_central_and_decentralize_at_a_later_stage
-class "Greenfield Development : Practice" as __20_Greenfield_Development
-class "Entry Barrier : Force" as __21_Entry_Barrier
-class "Data Product Policy Enforcement Mechanisms\n : Practice" as __22_Data_Product_Policy_Enforcement_Mechanisms
-class "How does the data product interact with other\ndata products, self-serve platform, government\nlayer and consumers?\n : Decision" as __23_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_
-class "Shared Storage : Practice" as __24_Shared_Storage
-class "Versioning : Force" as __25_Versioning
-class "Duplication : Force" as __26_Duplication
-class "Data Catalogue : Pattern" as __27_Data_Catalogue
-class "What architectural components should be included\nin the anatomy of a data product?\n : Decision" as __28_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_
-class "Change Data Capture : Pattern" as __29_Change_Data_Capture
-class "Real-time Data Access : Force" as __30_Real_time_Data_Access
-class "Event Streaming Backbone : Pattern" as __31_Event_Streaming_Backbone
-class "Time-to-Market : Force" as __32_Time_to_Market
-class "Handle large data volumes : Force" as __33_Handle_large_data_volumes
-class "Limit receptions : Force" as __34_Limit_receptions
-class "Addressable : Force" as __35_Addressable
-class "Trustworthiness : Force" as __36_Trustworthiness
-class "Observability Plane : Pattern" as __37_Observability_Plane
-class "Understandability for User : Force" as __38_Understandability_for_User
-class "Immutable Change Audit Log : Pattern" as __39_Immutable_Change_Audit_Log
-class "Reproducibility : Force" as __40_Reproducibility
-class "Containerisation : Practice" as __41_Containerisation
-class "How to deploy a data product? : Decision" as __42_How_to_deploy_a_data_product_
-class "Function-as-a-Service : Practice" as __43_Function_as_a_Service
-class "Lakehouse Architecture : Practice" as __44_Lakehouse_Architecture
+class "Understandability for User : Force" as __3_Understandability_for_User
+class "Legacy Modernization : Pattern" as __4_Legacy_Modernization
+class "What strategy can be used for data product implementation?\n : Decision" as __5_What_strategy_can_be_used_for_data_product_implementation_
+class "Cloud Acceleration : Pattern" as __6_Cloud_Acceleration
+class "Accelerate Decision Making : Force" as __7_Accelerate_Decision_Making
+class "Greenfield Development : Practice" as __8_Greenfield_Development
+class "Standardised Transformation : Force" as __9_Standardised_Transformation
+class "Discovery Port : Pattern" as __10_Discovery_Port
+class "What are the elements of a data product interface/contract?\n : Decision" as __11_What_are_the_elements_of_a_data_product_interface_contract_
+class "Observation Port : Pattern" as __12_Observation_Port
+class "Observability : Force" as __13_Observability
+class "Metastore : Pattern" as __14_Metastore
+class "What architectural components should be included\nin the anatomy of a data product?\n : Decision" as __15_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_
+class "Change Data Capture : Pattern" as __16_Change_Data_Capture
+class "Fast data propagation : Force" as __17_Fast_data_propagation
+class "Data Onboarding : Pattern" as __18_Data_Onboarding
+class "Time-to-Market : Force" as __19_Time_to_Market
+class "Schema Registry : Pattern" as __20_Schema_Registry
+class "How does the data product interact with other\ndata products, self-serve platform, government\nlayer and consumers?\n : Decision" as __21_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_
+class "Central Data Product Catalogue : Pattern" as __22_Central_Data_Product_Catalogue
+class "Discoverability : Force" as __23_Discoverability
+class "Aggregations : Practice" as __24_Aggregations
+class "Interoperability : Force" as __25_Interoperability
+class "Control Plane : Pattern" as __26_Control_Plane
+class "Centralization : Force" as __27_Centralization
+class "Data Catalogue : Pattern" as __28_Data_Catalogue
+class "Data Search : Force" as __29_Data_Search
+class "Metadata lake : Pattern" as __30_Metadata_lake
+class "Completeness : Force" as __31_Completeness
+class "Consumer-aligned Data Product : Practice" as __32_Consumer_aligned_Data_Product
+class "Agility : Force" as __33_Agility
+class "Control Port : Pattern" as __34_Control_Port
+class "Security : Force" as __35_Security
+class "Immutable Change Audit Log : Pattern" as __36_Immutable_Change_Audit_Log
+class "Traceability : Force" as __37_Traceability
+class "Observability Plane : Pattern" as __38_Observability_Plane
+class "Reproducibility : Force" as __39_Reproducibility
+class "Batch processing : Practice" as __40_Batch_processing
+class "Handle large data volumes : Force" as __41_Handle_large_data_volumes
+class "Input Port : Pattern" as __42_Input_Port
+class "Accessibility : Force" as __43_Accessibility
+class "Internal Storage(s) : Practice" as __44_Internal_Storage_s_
 class "Autonomous : Force" as __45_Autonomous
-class "Self-serve Capability : Force" as __46_Self_serve_Capability
-class "Governance : Force" as __47_Governance
-class "Schema Registry : Pattern" as __48_Schema_Registry
-class "Interoperability : Force" as __49_Interoperability
-class "Central Data Product Catalogue : Pattern" as __50_Central_Data_Product_Catalogue
-class "Security : Force" as __51_Security
-class "Data Onboarding : Pattern" as __52_Data_Onboarding
-class "Observability : Force" as __53_Observability
-class "Observation Port : Pattern" as __54_Observation_Port
-class "What are the elements of a data product interface/contract?\n : Decision" as __55_What_are_the_elements_of_a_data_product_interface_contract_
-class "Control Port : Pattern" as __56_Control_Port
-class "Control over data schema : Force" as __57_Control_over_data_schema
-class "Control Plane : Pattern" as __58_Control_Plane
-class "Internal Storage(s) : Practice" as __59_Internal_Storage_s_
-class "Infrastructure workload : Force" as __60_Infrastructure_workload
-class "Maintaining a single source of truth\n : Practice" as __61_Maintaining_a_single_source_of_truth
-class "Incrementally build business process-centric data\nmarts\n : Practice" as __62_Incrementally_build_business_process_centric_data_marts
-class "Policy Enforcement : Practice" as __63_Policy_Enforcement
-class "Retention policies : Practice" as __64_Retention_policies
-class "Overarching Management Layer : Practice" as __65_Overarching_Management_Layer
-class "End-to-end consistency : Force" as __66_End_to_end_consistency
-class "Discovery Port : Pattern" as __67_Discovery_Port
-class "Discoverability : Force" as __68_Discoverability
-class "Accessibility : Force" as __69_Accessibility
-class "Data Marketplace : Practice" as __70_Data_Marketplace
-class "Input Port : Pattern" as __71_Input_Port
-class "Static Coupling : Practice" as __72_Static_Coupling
-class "Output Port : Pattern" as __73_Output_Port
-class "Dynamic Coupling : Practice" as __74_Dynamic_Coupling
-class "Synchronous : Practice" as __75_Synchronous
-class "CRUD-style operations : Practice" as __76_CRUD_style_operations
-class "Attach REST APIs to each data product\n : Practice" as __77_Attach_REST_APIs_to_each_data_product
-class "Asynchronous : Practice" as __78_Asynchronous
-class "gRPC : Practice" as __79_gRPC
-class "Attach a DBQuery Endpoint to each Data Product\n : Practice" as __80_Attach_a_DBQuery_Endpoint_to_each_Data_Product
-class "Pub/Sub : Pattern" as __81_Pub_Sub
-class "GraphQL : Practice" as __82_GraphQL
-class "Provide information about runtime : Practice" as __83_Provide_information_about_runtime
-class "Multimodal access : Practice" as __84_Multimodal_access
-class "Bitemporal data : Practice" as __85_Bitemporal_data
-class "Immutable read-only access : Practice" as __86_Immutable_read_only_access
-class "Provide information about build-time libraries\n : Practice" as __87_Provide_information_about_build_time_libraries
-class "Completeness : Force" as __88_Completeness
-class "Integrity : Force" as __89_Integrity
-class "Data Quality : Force" as __90_Data_Quality
-class "Transparency : Force" as __91_Transparency
-class "Data Lineage : Force" as __92_Data_Lineage
-class "Provide a single integrated experience for monitoring\n : Practice" as __93_Provide_a_single_integrated_experience_for_monitoring
-class "Standardised Transformation : Force" as __94_Standardised_Transformation
-class "Transformation Processes : Practice" as __95_Transformation_Processes
-class "Programmatic : Practice" as __96_Programmatic
-class "Non-programmatic : Practice" as __97_Non_programmatic
-class "Data flow based : Practice" as __98_Data_flow_based
-class "ML based : Practice" as __99_ML_based
-class "Time-variant : Practice" as __100_Time_variant
-class "Manual Toil : Force" as __101_Manual_Toil
-class "Agility : Force" as __102_Agility
-class "holistic view : Force" as __103_holistic_view
-class "Centrally manage, monitor, and govern data across\ndata lakes, data warehouses, and data marts\n : Practice" as __104_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts
-class "Describes the translations being made between\nthe conceptual model, logical model, and physical\nmodel\n : Practice" as __105_Describes_the_translations_being_made_between_the_conceptual_model__logical_model__and_physical_model
-class "Schema evolution : Practice" as __106_Schema_evolution
-class "Schema enforcement : Practice" as __107_Schema_enforcement
-class "VMs : Pattern" as __108_VMs
-class "Zero trust runtime environment : Pattern" as __109_Zero_trust_runtime_environment
-class "Shared Event Streaming Environment : Practice" as __110_Shared_Event_Streaming_Environment
-class "Hybrid Deployment : Practice" as __111_Hybrid_Deployment
-class "Multi-Cloud Deployment : Practice" as __112_Multi_Cloud_Deployment
-class "Can be deployed in multiple environments\n : Force" as __113_Can_be_deployed_in_multiple_environments
-class "Stateless : Force" as __114_Stateless
-class "Container Orchestration System : Practice" as __115_Container_Orchestration_System
-class "Infrastructure as Code : Practice" as __116_Infrastructure_as_Code
-class "Single-container design : Pattern" as __117_Single_container_design
-class "Templated Data Pipeline : Pattern" as __118_Templated_Data_Pipeline
-class " CI/CD process : Practice" as __119__CI_CD_process
-class "Traceability : Force" as __120_Traceability
-class "Verifiability : Force" as __121_Verifiability
-class "Immutability : Force" as __122_Immutability
-class "Dataset Versioning : Practice" as __123_Dataset_Versioning
-class "Alterting : Practice" as __124_Alterting
-class "Up-to-date : Force" as __125_Up_to_date
-class "Grouping : Force" as __126_Grouping
-class "Stale : Force" as __127_Stale
-class "Production Grade Integrations : Force" as __128_Production_Grade_Integrations
-class "Full Data Movement : Practice" as __129_Full_Data_Movement
-class "Incremental Data Movement : Practice" as __130_Incremental_Data_Movement
-class "Metastore : Pattern" as __131_Metastore
-class "Schema Versioning : Practice" as __132_Schema_Versioning
-class "Attaching metadata about events that didn’t pass\nthe schema validation\n : Practice" as __133_Attaching_metadata_about_events_that_didn_t_pass_the_schema_validation
-class "Active metadata : Practice" as __134_Active_metadata
-class "Data Search : Force" as __135_Data_Search
-class "Data Enrichment : Force" as __136_Data_Enrichment
-class "Unified : Force" as __137_Unified
-class "Passive metadata : Practice" as __138_Passive_metadata
-class "Register datasets : Practice" as __139_Register_datasets
-class "The domain datasets belong to a specific domain\n : Practice" as __140_The_domain_datasets_belong_to_a_specific_domain
-class "Core datasets are those that are useful for more\nthan one domain\n : Practice" as __141_Core_datasets_are_those_that_are_useful_for_more_than_one_domain
-class "Filtering : Force" as __142_Filtering
-class "Storage Read API : Pattern" as __143_Storage_Read_API
-class "Cloud Storage API : Pattern" as __144_Cloud_Storage_API
-class "Master database : Practice" as __145_Master_database
-class "Reference database : Practice" as __146_Reference_database
-class "Implement a highly available in-memory cache\n : Practice" as __147_Implement_a_highly_available_in_memory_cache
-class "Data quality management : Practice" as __148_Data_quality_management
-class "Security Controls : Practice" as __149_Security_Controls
-class "Fine-grained Access Control : Practice" as __150_Fine_grained_Access_Control
-class "Attribute-based Access Control : Practice" as __151_Attribute_based_Access_Control
-class "Role-based Access Control : Practice" as __152_Role_based_Access_Control
-class "Row-based Access Control : Practice" as __153_Row_based_Access_Control
-class "API Access Control : Practice" as __154_API_Access_Control
-class "Run-time Environment Access Control\n : Practice" as __155_Run_time_Environment_Access_Control
-class "Stream Access Control : Practice" as __156_Stream_Access_Control
-class "Encryption : Practice" as __157_Encryption
-class "Query Catalogue : Pattern" as __158_Query_Catalogue
-class "Accelerate Decision Making : Force" as __159_Accelerate_Decision_Making
-class "Starting central and federated at the same time\n : Practice" as __160_Starting_central_and_federated_at_the_same_time
-class "Master Data Management : Pattern" as __161_Master_Data_Management
-class "CQRS : Pattern" as __162_CQRS
-class "Zero Trust Architecture : Pattern" as __163_Zero_Trust_Architecture
-class "Strangler-Fig : Pattern" as __164_Strangler_Fig
-__1_What_type_of_data_product_can_be_developed_ --> __28_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_: "«Consider If Not Decided Yet» \n" 
-__1_What_type_of_data_product_can_be_developed_ --> __23_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_: "«Consider If Not Decided Yet» \n" 
-__1_What_type_of_data_product_can_be_developed_ --> __55_What_are_the_elements_of_a_data_product_interface_contract_: "«Consider If Not Decided Yet» \n" 
+class "Overarching Management Layer : Practice" as __46_Overarching_Management_Layer
+class "Control over data schema : Force" as __47_Control_over_data_schema
+class "Shared Storage : Practice" as __48_Shared_Storage
+class "Data Quality : Force" as __49_Data_Quality
+class "Output Port : Pattern" as __50_Output_Port
+class "More granular data : Force" as __51_More_granular_data
+class "Scalable : Force" as __52_Scalable
+class "Event Streaming Backbone : Pattern" as __53_Event_Streaming_Backbone
+class "Real-time Data Access : Force" as __54_Real_time_Data_Access
+class "Multiple independent read-only views : Force" as __55_Multiple_independent_read_only_views
+class "Master database : Practice" as __56_Master_database
+class "End-to-end consistency : Force" as __57_End_to_end_consistency
+class "Reference database : Practice" as __58_Reference_database
+class "Transparency : Force" as __59_Transparency
+class "Entry Barrier : Force" as __60_Entry_Barrier
+class "Containerisation : Practice" as __61_Containerisation
+class "How to deploy a data product? : Decision" as __62_How_to_deploy_a_data_product_
+class "Function-as-a-Service : Practice" as __63_Function_as_a_Service
+class "Infrastructure workload : Force" as __64_Infrastructure_workload
+class "VMs : Pattern" as __65_VMs
+class "Versioning : Force" as __66_Versioning
+class "Zero trust runtime environment : Pattern" as __67_Zero_trust_runtime_environment
+class "Shared Event Streaming Environment : Practice" as __68_Shared_Event_Streaming_Environment
+class "Hybrid Deployment : Practice" as __69_Hybrid_Deployment
+class "Continuity : Force" as __70_Continuity
+class "Governance : Force" as __71_Governance
+class "Data Product Policy Enforcement Mechanisms\n : Practice" as __72_Data_Product_Policy_Enforcement_Mechanisms
+class "Manual Toil : Force" as __73_Manual_Toil
+class "Self-serve Capability : Force" as __74_Self_serve_Capability
+class "Implement a highly available in-memory cache\n : Practice" as __75_Implement_a_highly_available_in_memory_cache
+class "Data quality management : Practice" as __76_Data_quality_management
+class "Security Controls : Practice" as __77_Security_Controls
+class "Fine-grained Access Control : Practice" as __78_Fine_grained_Access_Control
+class "Attribute-based Access Control : Practice" as __79_Attribute_based_Access_Control
+class "Role-based Access Control : Practice" as __80_Role_based_Access_Control
+class "Row-based Access Control : Practice" as __81_Row_based_Access_Control
+class "API Access Control : Practice" as __82_API_Access_Control
+class "Run-time Environment Access Control\n : Practice" as __83_Run_time_Environment_Access_Control
+class "Stream Access Control : Practice" as __84_Stream_Access_Control
+class "Encryption : Practice" as __85_Encryption
+class "Query Catalogue : Pattern" as __86_Query_Catalogue
+class "Multi-Cloud Deployment : Practice" as __87_Multi_Cloud_Deployment
+class "Latency : Force" as __88_Latency
+class "Clear Ownership : Force" as __89_Clear_Ownership
+class "Stateless : Force" as __90_Stateless
+class "Data Enrichment : Force" as __91_Data_Enrichment
+class "Data Storage Infrastructure : Pattern" as __92_Data_Storage_Infrastructure
+class "Duplication : Force" as __93_Duplication
+class "Data Lineage : Force" as __94_Data_Lineage
+class "Container Orchestration System : Practice" as __95_Container_Orchestration_System
+class "Infrastructure as Code : Practice" as __96_Infrastructure_as_Code
+class "Single-container design : Pattern" as __97_Single_container_design
+class "Templated Data Pipeline : Pattern" as __98_Templated_Data_Pipeline
+class " CI/CD process : Practice" as __99__CI_CD_process
+class "Stale : Force" as __100_Stale
+class "Static Coupling : Practice" as __101_Static_Coupling
+class "Synchronous : Practice" as __102_Synchronous
+class "Dynamic Coupling : Practice" as __103_Dynamic_Coupling
+class "Asynchronous : Practice" as __104_Asynchronous
+class "Attach REST APIs to each data product\n : Practice" as __105_Attach_REST_APIs_to_each_data_product
+class "gRPC : Practice" as __106_gRPC
+class "Attach a DBQuery Endpoint to each Data Product\n : Practice" as __107_Attach_a_DBQuery_Endpoint_to_each_Data_Product
+class "Pub/Sub : Pattern" as __108_Pub_Sub
+class "Provide information about runtime : Practice" as __109_Provide_information_about_runtime
+class "CRUD-style operations : Practice" as __110_CRUD_style_operations
+class "GraphQL : Practice" as __111_GraphQL
+class "Provide information about build-time libraries\n : Practice" as __112_Provide_information_about_build_time_libraries
+class "Multimodal access : Practice" as __113_Multimodal_access
+class "Bitemporal data : Practice" as __114_Bitemporal_data
+class "Immutable read-only access : Practice" as __115_Immutable_read_only_access
+class "Immutability : Force" as __116_Immutability
+class "Addressable : Force" as __117_Addressable
+class "Storage Read API : Pattern" as __118_Storage_Read_API
+class "Cloud Storage API : Pattern" as __119_Cloud_Storage_API
+class "Maintaining a single source of truth\n : Practice" as __120_Maintaining_a_single_source_of_truth
+class "Incrementally build business process-centric data\nmarts\n : Practice" as __121_Incrementally_build_business_process_centric_data_marts
+class "Blob Storage : Pattern" as __122_Blob_Storage
+class "Dataset table : Pattern" as __123_Dataset_table
+class "Verifiability : Force" as __124_Verifiability
+class "Dataset Versioning : Practice" as __125_Dataset_Versioning
+class "Alterting : Practice" as __126_Alterting
+class "Policy Enforcement : Practice" as __127_Policy_Enforcement
+class "Retention policies : Practice" as __128_Retention_policies
+class "Grouping : Force" as __129_Grouping
+class "Filtering : Force" as __130_Filtering
+class "Expose Data Product as Derived Data\n : Practice" as __131_Expose_Data_Product_as_Derived_Data
+class "Multiple raw data sets untransformed\n : Practice" as __132_Multiple_raw_data_sets_untransformed
+class "Pre-transformed data : Practice" as __133_Pre_transformed_data
+class "Low-level events : Practice" as __134_Low_level_events
+class "Expose Data Product as a Hybrid Product\n : Practice" as __135_Expose_Data_Product_as_a_Hybrid_Product
+class "Expose Data Product as Raw Data : Practice" as __136_Expose_Data_Product_as_Raw_Data
+class "Expose Data Product as a Composite Product\n : Practice" as __137_Expose_Data_Product_as_a_Composite_Product
+class "Expose Data Product as an algorithm\n : Practice" as __138_Expose_Data_Product_as_an_algorithm
+class "Expose Data Product as an Optimisation-based Decision\nSupport System\n : Practice" as __139_Expose_Data_Product_as_an_Optimisation_based_Decision_Support_System
+class "Expose Data Product as an AI/ML Model\n : Practice" as __140_Expose_Data_Product_as_an_AI_ML_Model
+class "Passive metadata : Practice" as __141_Passive_metadata
+class "Register datasets : Practice" as __142_Register_datasets
+class "The domain datasets belong to a specific domain\n : Practice" as __143_The_domain_datasets_belong_to_a_specific_domain
+class "Core datasets are those that are useful for more\nthan one domain\n : Practice" as __144_Core_datasets_are_those_that_are_useful_for_more_than_one_domain
+class "Centrally manage, monitor, and govern data across\ndata lakes, data warehouses, and data marts\n : Practice" as __145_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts
+class "Describes the translations being made between\nthe conceptual model, logical model, and physical\nmodel\n : Practice" as __146_Describes_the_translations_being_made_between_the_conceptual_model__logical_model__and_physical_model
+class "Schema evolution : Practice" as __147_Schema_evolution
+class "Schema enforcement : Practice" as __148_Schema_enforcement
+class "Transformation Processes : Practice" as __149_Transformation_Processes
+class "Programmatic : Practice" as __150_Programmatic
+class "Non-programmatic : Practice" as __151_Non_programmatic
+class "Data flow based : Practice" as __152_Data_flow_based
+class "ML based : Practice" as __153_ML_based
+class "Time-variant : Practice" as __154_Time_variant
+class "Full Data Movement : Practice" as __155_Full_Data_Movement
+class "Incremental Data Movement : Practice" as __156_Incremental_Data_Movement
+class "Schema Versioning : Practice" as __157_Schema_Versioning
+class "Attaching metadata about events that didn’t pass\nthe schema validation\n : Practice" as __158_Attaching_metadata_about_events_that_didn_t_pass_the_schema_validation
+class "Active metadata : Practice" as __159_Active_metadata
+class "Provide a single integrated experience for monitoring\n : Practice" as __160_Provide_a_single_integrated_experience_for_monitoring
+class "Data Marketplace : Practice" as __161_Data_Marketplace
+class "Starting federated : Practice" as __162_Starting_federated
+class "Master Data Management : Pattern" as __163_Master_Data_Management
+class "Starting central and decentralize at a later stage\n : Practice" as __164_Starting_central_and_decentralize_at_a_later_stage
+class "CQRS : Pattern" as __165_CQRS
+class "Starting central and federated at the same time\n : Practice" as __166_Starting_central_and_federated_at_the_same_time
+class "Zero Trust Architecture : Pattern" as __167_Zero_Trust_Architecture
+class "Strangler-Fig : Pattern" as __168_Strangler_Fig
+class "Trustworthiness : Force" as __169_Trustworthiness
+__1_What_type_of_data_product_can_be_developed_ --> __15_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_: "«Consider If Not Decided Yet» \n" 
+__1_What_type_of_data_product_can_be_developed_ --> __21_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_: "«Consider If Not Decided Yet» \n" 
+__1_What_type_of_data_product_can_be_developed_ --> __11_What_are_the_elements_of_a_data_product_interface_contract_: "«Consider If Not Decided Yet» \n" 
 __1_What_type_of_data_product_can_be_developed_ --> __2_Source_aligned_Data_Product: "«Option» \n{name = "Generate a data product close\nto the operational\ndatabase"}\n" 
-__1_What_type_of_data_product_can_be_developed_ --> __7_Aggregations: "«Option» \n{name = "Aggregate data from different\ndata products"}\n" 
-__1_What_type_of_data_product_can_be_developed_ --> __9_Consumer_aligned_Data_Product: "«Option» \n{name = "Generate a data product close\nto the consumer"}\n" 
-__2_Source_aligned_Data_Product --> __3_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
-__2_Source_aligned_Data_Product --> __8_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
-__3_Expose_Data_Product_as_Derived_Data --> __4_Multiple_raw_data_sets_untransformed: "«Can Use» \n" 
-__3_Expose_Data_Product_as_Derived_Data --> __5_Pre_transformed_data: "«Can Use» \n" 
-__3_Expose_Data_Product_as_Derived_Data --> __6_Low_level_events: "«Can Use» \n" 
-__7_Aggregations --> __3_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
-__7_Aggregations --> __8_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
-__9_Consumer_aligned_Data_Product --> __3_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
-__9_Consumer_aligned_Data_Product --> __8_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
-__9_Consumer_aligned_Data_Product --> __10_Expose_Data_Product_as_an_algorithm: "«Can Use» \n" 
-__10_Expose_Data_Product_as_an_algorithm --> __11_Expose_Data_Product_as_an_Optimisation_based_Decision_Support_System: "«Can Use» \n" 
-__10_Expose_Data_Product_as_an_algorithm --> __12_Expose_Data_Product_as_an_AI_ML_Model: "«Can Use» \n" 
-__13_Expose_Data_Product_as_a_Hybrid_Product --> __8_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
-__13_Expose_Data_Product_as_a_Hybrid_Product --> __3_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
-__13_Expose_Data_Product_as_a_Hybrid_Product --> __10_Expose_Data_Product_as_an_algorithm: "«Can Use» \n" 
-__14_Expose_Data_Product_as_a_Composite_Product --> __8_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
-__14_Expose_Data_Product_as_a_Composite_Product --> __3_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
-__14_Expose_Data_Product_as_a_Composite_Product --> __10_Expose_Data_Product_as_an_algorithm: "«Can Use» \n" 
-__15_What_strategy_can_be_used_for_data_product_implementation_ --> __1_What_type_of_data_product_can_be_developed_: "«Consider If Not Decided Yet» \n" 
-__15_What_strategy_can_be_used_for_data_product_implementation_ --> __16_Cloud_Acceleration: "«Option» \n{name = "Migration of enterprise systems\nto the\ncloud"}\n" 
-__15_What_strategy_can_be_used_for_data_product_implementation_ --> __18_Legacy_Modernization: "«Option» \n{name = "Migration from legacy systems\nto modern\ndata products"}\n" 
-__15_What_strategy_can_be_used_for_data_product_implementation_ --> __20_Greenfield_Development: "«Option» \n{name = "Starting with greenfield development"}\n" 
-__16_Cloud_Acceleration --> __17_Starting_federated: "«Can be Realized With» \n" 
-__16_Cloud_Acceleration --> __19_Starting_central_and_decentralize_at_a_later_stage: "«Can be Realized With» \n" 
-__16_Cloud_Acceleration --> __160_Starting_central_and_federated_at_the_same_time: "«Can be Realized With» \n" 
-__17_Starting_federated --> __161_Master_Data_Management: "«Can Use» \n" 
-__17_Starting_federated --> __162_CQRS: "«Can Use» \n" 
-__17_Starting_federated --> __163_Zero_Trust_Architecture: "«Can Use» \n" 
-__17_Starting_federated --> __164_Strangler_Fig: "«Can Use» \n" 
-__18_Legacy_Modernization --> __17_Starting_federated: "«Can be Realized With» \n" 
-__18_Legacy_Modernization --> __19_Starting_central_and_decentralize_at_a_later_stage: "«Can be Realized With» \n" 
-__18_Legacy_Modernization --> __160_Starting_central_and_federated_at_the_same_time: "«Can be Realized With» \n" 
-__19_Starting_central_and_decentralize_at_a_later_stage --> __161_Master_Data_Management: "«Can Use» \n" 
-__19_Starting_central_and_decentralize_at_a_later_stage --> __162_CQRS: "«Can Use» \n" 
-__19_Starting_central_and_decentralize_at_a_later_stage --> __163_Zero_Trust_Architecture: "«Can Use» \n" 
-__19_Starting_central_and_decentralize_at_a_later_stage --> __164_Strangler_Fig: "«Can Use» \n" 
-__20_Greenfield_Development --> __21_Entry_Barrier: "«--» \n" 
-__20_Greenfield_Development --> __159_Accelerate_Decision_Making: "«++» \n" 
-__20_Greenfield_Development --> __32_Time_to_Market: "«--» \n" 
-__20_Greenfield_Development --> __17_Starting_federated: "«Can be Realized With» \n" 
-__20_Greenfield_Development --> __19_Starting_central_and_decentralize_at_a_later_stage: "«Can be Realized With» \n" 
-__20_Greenfield_Development --> __160_Starting_central_and_federated_at_the_same_time: "«Can be Realized With» \n" 
-__22_Data_Product_Policy_Enforcement_Mechanisms --> __51_Security: "«++» \n" 
-__22_Data_Product_Policy_Enforcement_Mechanisms --> __68_Discoverability: "«+» \n" 
-__22_Data_Product_Policy_Enforcement_Mechanisms --> __38_Understandability_for_User: "«+» \n" 
-__22_Data_Product_Policy_Enforcement_Mechanisms --> __36_Trustworthiness: "«+» \n" 
-__22_Data_Product_Policy_Enforcement_Mechanisms --> __49_Interoperability: "«+» \n" 
-__22_Data_Product_Policy_Enforcement_Mechanisms --> __69_Accessibility: "«+» \n" 
-__22_Data_Product_Policy_Enforcement_Mechanisms --> __21_Entry_Barrier: "«-» \n" 
-__22_Data_Product_Policy_Enforcement_Mechanisms --> __45_Autonomous: "«+» \n" 
-__22_Data_Product_Policy_Enforcement_Mechanisms --> __147_Implement_a_highly_available_in_memory_cache: "«Can Use» \n" 
-__22_Data_Product_Policy_Enforcement_Mechanisms --> __148_Data_quality_management: "«Can Use» \n" 
-__22_Data_Product_Policy_Enforcement_Mechanisms --> __149_Security_Controls: "«Can Use» \n" 
-__22_Data_Product_Policy_Enforcement_Mechanisms --> __158_Query_Catalogue: "«Can Use» \n" 
-__23_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __42_How_to_deploy_a_data_product_: "«Consider If Not Decided Yet» \n" 
-__23_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __24_Shared_Storage: "«Option» \n{name = "Implement a shared storage"}\n" 
-__23_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __145_Master_database: "«Option» \n{name = "Implement a master database"}\n" 
-__23_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __146_Reference_database: "«Option» \n{name = "Implement a reference database"}\n" 
-__23_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __22_Data_Product_Policy_Enforcement_Mechanisms: "«Option» \n{name = "Implement Data Product Policy\nEnforcement\nMechanisms"}\n" 
-__24_Shared_Storage --> __25_Versioning: "«--» \n" 
-__24_Shared_Storage --> __26_Duplication: "«-» \n" 
-__24_Shared_Storage --> __142_Filtering: "«-» \n" 
-__24_Shared_Storage --> __57_Control_over_data_schema: "«-» \n" 
-__24_Shared_Storage --> __143_Storage_Read_API: "«Can be Realized With» \n" 
-__24_Shared_Storage --> __144_Cloud_Storage_API: "«Can be Realized With» \n" 
-__27_Data_Catalogue --> __94_Standardised_Transformation: "«+» \n" 
-__27_Data_Catalogue --> __26_Duplication: "«-» \n" 
-__27_Data_Catalogue --> __38_Understandability_for_User: "«+» \n" 
-__27_Data_Catalogue --> __68_Discoverability: "«+» \n" 
-__27_Data_Catalogue --> __135_Data_Search: "«+» \n" 
-__27_Data_Catalogue --> __136_Data_Enrichment: "«+» \n" 
-__27_Data_Catalogue --> __45_Autonomous: "«+» \n" 
-__27_Data_Catalogue --> __69_Accessibility: "«++» \n" 
-__27_Data_Catalogue --> __125_Up_to_date: "«+» \n" 
-__27_Data_Catalogue --> __36_Trustworthiness: "«+» \n" 
-__27_Data_Catalogue --> __137_Unified: "«+» \n" 
-__27_Data_Catalogue --> __51_Security: "«+» \n" 
-__27_Data_Catalogue --> __138_Passive_metadata: "«Enables» \n" 
-__27_Data_Catalogue --> __139_Register_datasets: "«Enables» \n" 
-__28_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __42_How_to_deploy_a_data_product_: "«Consider If Not Decided Yet» \n" 
-__28_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __29_Change_Data_Capture: "«Option» \n{name = "Implement a Change Data Capture\ncomponent"}\n" 
-__28_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __39_Immutable_Change_Audit_Log: "«Option» \n{name = "Implement a Immutable Log\ncomponent"}\n" 
-__28_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __131_Metastore: "«Option» \n{name = "Implement a Metastore"}\n" 
-__28_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __27_Data_Catalogue: "«Option» \n{name = "Implement a Data Catalogue\ncomponent"}\n" 
-__28_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __52_Data_Onboarding: "«Option» \n{name = "Implement Data Onboarding"}\n" 
-__28_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __59_Internal_Storage_s_: "«Option» \n{name = "Implement an Internal Storage\nfor each\nData Product"}\n" 
-__28_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __58_Control_Plane: "«Option» \n{name = "Implement a Control Plane"}\n" 
-__28_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __37_Observability_Plane: "«Option» \n{name = "Implement an Observation Plane"}\n" 
-__29_Change_Data_Capture --> __30_Real_time_Data_Access: "«+» \n" 
-__29_Change_Data_Capture --> __38_Understandability_for_User: "«+» \n" 
-__29_Change_Data_Capture --> __69_Accessibility: "«+» \n" 
-__29_Change_Data_Capture --> __128_Production_Grade_Integrations: "«+» \n" 
-__29_Change_Data_Capture --> __129_Full_Data_Movement: "«Enables» \n" 
-__29_Change_Data_Capture --> __130_Incremental_Data_Movement: "«Enables» \n" 
-__31_Event_Streaming_Backbone --> __32_Time_to_Market: "«+» \n" 
-__31_Event_Streaming_Backbone --> __33_Handle_large_data_volumes: "«++» \n" 
-__31_Event_Streaming_Backbone --> __34_Limit_receptions: "«+» \n" 
-__31_Event_Streaming_Backbone --> __35_Addressable: "«+» \n" 
-__31_Event_Streaming_Backbone --> __30_Real_time_Data_Access: "«++» \n" 
-__31_Event_Streaming_Backbone --> __36_Trustworthiness: "«+» \n" 
-__31_Event_Streaming_Backbone --> __125_Up_to_date: "«+» \n" 
-__31_Event_Streaming_Backbone --> __122_Immutability: "«+» \n" 
-__31_Event_Streaming_Backbone --> __126_Grouping: "«+» \n" 
-__31_Event_Streaming_Backbone --> __127_Stale: "«-» \n" 
-__37_Observability_Plane --> __38_Understandability_for_User: "«+» \n" 
-__37_Observability_Plane --> __36_Trustworthiness: "«+» \n" 
-__37_Observability_Plane --> __88_Completeness: "«+» \n" 
-__37_Observability_Plane --> __89_Integrity: "«+» \n" 
-__37_Observability_Plane --> __90_Data_Quality: "«o» \n" 
-__37_Observability_Plane --> __69_Accessibility: "«+» \n" 
-__37_Observability_Plane --> __91_Transparency: "«++» \n" 
-__37_Observability_Plane --> __53_Observability: "«+» \n" 
-__37_Observability_Plane --> __92_Data_Lineage: "«+» \n" 
-__39_Immutable_Change_Audit_Log --> __40_Reproducibility: "«+» \n" 
-__39_Immutable_Change_Audit_Log --> __120_Traceability: "«+» \n" 
-__39_Immutable_Change_Audit_Log --> __121_Verifiability: "«+» \n" 
-__39_Immutable_Change_Audit_Log --> __122_Immutability: "«++» \n" 
-__39_Immutable_Change_Audit_Log --> __53_Observability: "«+» \n" 
-__39_Immutable_Change_Audit_Log --> __38_Understandability_for_User: "«++» \n" 
-__39_Immutable_Change_Audit_Log --> __92_Data_Lineage: "«+» \n" 
-__39_Immutable_Change_Audit_Log --> __47_Governance: "«++» \n" 
-__39_Immutable_Change_Audit_Log --> __113_Can_be_deployed_in_multiple_environments: "«+» \n" 
-__39_Immutable_Change_Audit_Log --> __123_Dataset_Versioning: "«Enables» \n" 
-__39_Immutable_Change_Audit_Log --> __124_Alterting: "«Enables» \n" 
-__41_Containerisation --> __40_Reproducibility: "«+» \n" 
-__41_Containerisation --> __113_Can_be_deployed_in_multiple_environments: "«+» \n" 
-__41_Containerisation --> __114_Stateless: "«-» \n" 
-__41_Containerisation --> __115_Container_Orchestration_System: "«Includes» \n" 
-__41_Containerisation --> __109_Zero_trust_runtime_environment: "«Can Use» \n" 
-__41_Containerisation --> __110_Shared_Event_Streaming_Environment: "«Can Use» \n" 
-__41_Containerisation --> __117_Single_container_design: "«Can be Realized With» \n" 
-__41_Containerisation --> __116_Infrastructure_as_Code: "«Can Use» \n" 
-__41_Containerisation --> __118_Templated_Data_Pipeline: "«Can Use» \n" 
-__42_How_to_deploy_a_data_product_ --> __43_Function_as_a_Service: "«Option» \n{name = "Use a serverless architecture"}\n" 
-__42_How_to_deploy_a_data_product_ --> __41_Containerisation: "«Option» \n{name = "Use a containerised architecture"}\n" 
-__42_How_to_deploy_a_data_product_ --> __44_Lakehouse_Architecture: "«Option» \n{name = "Use a lakehouse architecture"}\n" 
-__42_How_to_deploy_a_data_product_ --> __108_VMs: "«Option» \n{name = "Use virtual machines"}\n" 
-__42_How_to_deploy_a_data_product_ --> __111_Hybrid_Deployment: "«Option» \n{name = "Use hybrid deployment"}\n" 
-__42_How_to_deploy_a_data_product_ --> __112_Multi_Cloud_Deployment: "«Option» \n{name = "Use multi clouds"}\n" 
-__44_Lakehouse_Architecture --> __45_Autonomous: "«+» \n" 
-__44_Lakehouse_Architecture --> __46_Self_serve_Capability: "«+» \n" 
-__44_Lakehouse_Architecture --> __47_Governance: "«+» \n" 
-__48_Schema_Registry --> __38_Understandability_for_User: "«+» \n" 
-__48_Schema_Registry --> __26_Duplication: "«+» \n" 
-__48_Schema_Registry --> __40_Reproducibility: "«++» \n" 
-__48_Schema_Registry --> __49_Interoperability: "«+» \n" 
-__48_Schema_Registry --> __47_Governance: "«+» \n" 
-__48_Schema_Registry --> __106_Schema_evolution: "«Enables» \n" 
-__48_Schema_Registry --> __107_Schema_enforcement: "«Enables» \n" 
-__50_Central_Data_Product_Catalogue --> __51_Security: "«+» \n" 
-__50_Central_Data_Product_Catalogue --> __68_Discoverability: "«+» \n" 
-__50_Central_Data_Product_Catalogue --> __38_Understandability_for_User: "«+» \n" 
-__50_Central_Data_Product_Catalogue --> __53_Observability: "«+» \n" 
-__50_Central_Data_Product_Catalogue --> __47_Governance: "«+» \n" 
-__50_Central_Data_Product_Catalogue --> __90_Data_Quality: "«+» \n" 
-__50_Central_Data_Product_Catalogue --> __101_Manual_Toil: "«-» \n" 
-__50_Central_Data_Product_Catalogue --> __102_Agility: "«+» \n" 
-__50_Central_Data_Product_Catalogue --> __49_Interoperability: "«+» \n" 
-__50_Central_Data_Product_Catalogue --> __26_Duplication: "«-» \n" 
-__50_Central_Data_Product_Catalogue --> __94_Standardised_Transformation: "«+» \n" 
-__50_Central_Data_Product_Catalogue --> __103_holistic_view: "«+» \n" 
-__50_Central_Data_Product_Catalogue --> __92_Data_Lineage: "«+» \n" 
-__50_Central_Data_Product_Catalogue --> __104_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts: "«Enables» \n" 
-__50_Central_Data_Product_Catalogue --> __105_Describes_the_translations_being_made_between_the_conceptual_model__logical_model__and_physical_model: "«Enables» \n" 
-__52_Data_Onboarding --> __53_Observability: "«+» \n" 
-__52_Data_Onboarding --> __90_Data_Quality: "«+» \n" 
-__52_Data_Onboarding --> __94_Standardised_Transformation: "«+» \n" 
-__52_Data_Onboarding --> __51_Security: "«+» \n" 
-__52_Data_Onboarding --> __27_Data_Catalogue: "«Can Use» \n" 
-__52_Data_Onboarding --> __39_Immutable_Change_Audit_Log: "«Can Use» \n" 
-__52_Data_Onboarding --> __95_Transformation_Processes: "«Can Use» \n" 
-__54_Observation_Port --> __38_Understandability_for_User: "«+» \n" 
-__54_Observation_Port --> __36_Trustworthiness: "«+» \n" 
-__54_Observation_Port --> __88_Completeness: "«+» \n" 
-__54_Observation_Port --> __89_Integrity: "«+» \n" 
-__54_Observation_Port --> __90_Data_Quality: "«o» \n" 
-__54_Observation_Port --> __69_Accessibility: "«+» \n" 
-__54_Observation_Port --> __91_Transparency: "«++» \n" 
-__54_Observation_Port --> __53_Observability: "«+» \n" 
-__54_Observation_Port --> __92_Data_Lineage: "«+» \n" 
-__54_Observation_Port --> __93_Provide_a_single_integrated_experience_for_monitoring: "«Realizes» \n" 
-__55_What_are_the_elements_of_a_data_product_interface_contract_ --> __42_How_to_deploy_a_data_product_: "«Consider If Not Decided Yet» \n" 
-__55_What_are_the_elements_of_a_data_product_interface_contract_ --> __54_Observation_Port: "«Option» \n{name = "Implement an observation port"}\n" 
-__55_What_are_the_elements_of_a_data_product_interface_contract_ --> __56_Control_Port: "«Option» \n{name = "Implement a control port"}\n" 
-__55_What_are_the_elements_of_a_data_product_interface_contract_ --> __67_Discovery_Port: "«Option» \n{name = "Implement a discovery port"}\n" 
-__55_What_are_the_elements_of_a_data_product_interface_contract_ --> __65_Overarching_Management_Layer: "«Option» \n{name = "Implement an overarching management\nlayer"}\n" 
-__55_What_are_the_elements_of_a_data_product_interface_contract_ --> __71_Input_Port: "«Option» \n{name = "Implement an input port"}\n" 
-__55_What_are_the_elements_of_a_data_product_interface_contract_ --> __73_Output_Port: "«Option» \n{name = "Implement an input port"}\n" 
-__56_Control_Port --> __57_Control_over_data_schema: "«+» \n" 
-__56_Control_Port --> __47_Governance: "«+» \n" 
-__56_Control_Port --> __51_Security: "«+» \n" 
-__56_Control_Port --> __63_Policy_Enforcement: "«Enables» \n" 
-__58_Control_Plane --> __57_Control_over_data_schema: "«+» \n" 
-__58_Control_Plane --> __52_Data_Onboarding: "«Can Use» \n" 
-__58_Control_Plane --> __59_Internal_Storage_s_: "«Can Use» \n" 
-__59_Internal_Storage_s_ --> __60_Infrastructure_workload: "«-» \n" 
-__59_Internal_Storage_s_ --> __38_Understandability_for_User: "«-» \n" 
-__59_Internal_Storage_s_ --> __61_Maintaining_a_single_source_of_truth: "«Enables» \n" 
-__59_Internal_Storage_s_ --> __62_Incrementally_build_business_process_centric_data_marts: "«Can be Realized With» \n" 
-__63_Policy_Enforcement --> __64_Retention_policies: "«Includes» \n" 
-__65_Overarching_Management_Layer --> __47_Governance: "«+» \n" 
-__65_Overarching_Management_Layer --> __66_End_to_end_consistency: "«+» \n" 
-__65_Overarching_Management_Layer --> __56_Control_Port: "«Includes» \n" 
-__65_Overarching_Management_Layer --> __67_Discovery_Port: "«Includes» \n" 
-__65_Overarching_Management_Layer --> __54_Observation_Port: "«Includes» \n" 
-__67_Discovery_Port --> __68_Discoverability: "«+» \n" 
-__67_Discovery_Port --> __69_Accessibility: "«+» \n" 
-__67_Discovery_Port --> __70_Data_Marketplace: "«Enables» \n" 
-__71_Input_Port --> __72_Static_Coupling: "«Realizes» \n" 
-__71_Input_Port --> __74_Dynamic_Coupling: "«Enables» \n" 
-__72_Static_Coupling --> __75_Synchronous: "«Realizes» \n" 
-__72_Static_Coupling --> __78_Asynchronous: "«Enables» \n" 
-__72_Static_Coupling --> __87_Provide_information_about_build_time_libraries: "«Enables» \n" 
-__73_Output_Port --> __72_Static_Coupling: "«Realizes» \n" 
-__73_Output_Port --> __74_Dynamic_Coupling: "«Enables» \n" 
-__73_Output_Port --> __84_Multimodal_access: "«Realizes» \n" 
-__73_Output_Port --> __85_Bitemporal_data: "«Enables» \n" 
-__73_Output_Port --> __86_Immutable_read_only_access: "«Realizes» \n" 
-__74_Dynamic_Coupling --> __75_Synchronous: "«Realizes» \n" 
-__74_Dynamic_Coupling --> __78_Asynchronous: "«Enables» \n" 
-__74_Dynamic_Coupling --> __83_Provide_information_about_runtime: "«Enables» \n" 
-__75_Synchronous --> __76_CRUD_style_operations: "«Enables» \n" 
-__75_Synchronous --> __77_Attach_REST_APIs_to_each_data_product: "«Can be Realized With» \n" 
-__75_Synchronous --> __82_GraphQL: "«Can be Realized With» \n" 
-__75_Synchronous --> __79_gRPC: "«Can be Realized With» \n" 
-__75_Synchronous --> __80_Attach_a_DBQuery_Endpoint_to_each_Data_Product: "«Can be Realized With» \n" 
-__78_Asynchronous --> __77_Attach_REST_APIs_to_each_data_product: "«Can be Realized With» \n" 
-__78_Asynchronous --> __79_gRPC: "«Can be Realized With» \n" 
-__78_Asynchronous --> __80_Attach_a_DBQuery_Endpoint_to_each_Data_Product: "«Can be Realized With» \n" 
-__78_Asynchronous --> __81_Pub_Sub: "«Can be Realized With» \n" 
-__95_Transformation_Processes --> __96_Programmatic: "«Can Use» \n" 
-__95_Transformation_Processes --> __97_Non_programmatic: "«Can Use» \n" 
-__95_Transformation_Processes --> __98_Data_flow_based: "«Can Use» \n" 
-__95_Transformation_Processes --> __99_ML_based: "«Can Use» \n" 
-__95_Transformation_Processes --> __100_Time_variant: "«Can Use» \n" 
-__108_VMs --> __109_Zero_trust_runtime_environment: "«Can Use» \n" 
-__108_VMs --> __110_Shared_Event_Streaming_Environment: "«Can Use» \n" 
-__115_Container_Orchestration_System --> __116_Infrastructure_as_Code: "«Can Use» \n" 
-__118_Templated_Data_Pipeline --> __119__CI_CD_process: "«Leads To» \n" 
-__131_Metastore --> __132_Schema_Versioning: "«Enables» \n" 
-__131_Metastore --> __133_Attaching_metadata_about_events_that_didn_t_pass_the_schema_validation: "«Includes» \n" 
-__131_Metastore --> __134_Active_metadata: "«Enables» \n" 
-__139_Register_datasets --> __140_The_domain_datasets_belong_to_a_specific_domain: "«Includes» \n" 
-__139_Register_datasets --> __141_Core_datasets_are_those_that_are_useful_for_more_than_one_domain: "«Includes» \n" 
-__149_Security_Controls --> __150_Fine_grained_Access_Control: "«Can Use» \n" 
-__149_Security_Controls --> __157_Encryption: "«Can Use» \n" 
-__150_Fine_grained_Access_Control --> __151_Attribute_based_Access_Control: "«Can Use» \n" 
-__150_Fine_grained_Access_Control --> __152_Role_based_Access_Control: "«Can Use» \n" 
-__150_Fine_grained_Access_Control --> __153_Row_based_Access_Control: "«Can Use» \n" 
-__150_Fine_grained_Access_Control --> __154_API_Access_Control: "«Can Use» \n" 
-__150_Fine_grained_Access_Control --> __155_Run_time_Environment_Access_Control: "«Can Use» \n" 
-__150_Fine_grained_Access_Control --> __156_Stream_Access_Control: "«Can Use» \n" 
-__160_Starting_central_and_federated_at_the_same_time --> __161_Master_Data_Management: "«Can Use» \n" 
-__160_Starting_central_and_federated_at_the_same_time --> __162_CQRS: "«Can Use» \n" 
-__160_Starting_central_and_federated_at_the_same_time --> __163_Zero_Trust_Architecture: "«Can Use» \n" 
-__160_Starting_central_and_federated_at_the_same_time --> __164_Strangler_Fig: "«Can Use» \n" 
+__1_What_type_of_data_product_can_be_developed_ --> __24_Aggregations: "«Option» \n{name = "Aggregate data from different\ndata products"}\n" 
+__1_What_type_of_data_product_can_be_developed_ --> __32_Consumer_aligned_Data_Product: "«Option» \n{name = "Generate a data product close\nto the consumer"}\n" 
+__2_Source_aligned_Data_Product --> __3_Understandability_for_User: "«++» \n" 
+__2_Source_aligned_Data_Product --> __39_Reproducibility: "«+» \n" 
+__2_Source_aligned_Data_Product --> __19_Time_to_Market: "«+» \n" 
+__2_Source_aligned_Data_Product --> __23_Discoverability: "«-» \n" 
+__2_Source_aligned_Data_Product --> __9_Standardised_Transformation: "«-» \n" 
+__2_Source_aligned_Data_Product --> __25_Interoperability: "«-» \n" 
+__2_Source_aligned_Data_Product --> __131_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
+__2_Source_aligned_Data_Product --> __136_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
+__4_Legacy_Modernization --> __51_More_granular_data: "«+» \n" 
+__4_Legacy_Modernization --> __3_Understandability_for_User: "«+» \n" 
+__4_Legacy_Modernization --> __17_Fast_data_propagation: "«+» \n" 
+__4_Legacy_Modernization --> __54_Real_time_Data_Access: "«++» \n" 
+__4_Legacy_Modernization --> __60_Entry_Barrier: "«-» \n" 
+__4_Legacy_Modernization --> __88_Latency: "«-» \n" 
+__4_Legacy_Modernization --> __100_Stale: "«-» \n" 
+__4_Legacy_Modernization --> __162_Starting_federated: "«Can be Realized With» \n" 
+__4_Legacy_Modernization --> __164_Starting_central_and_decentralize_at_a_later_stage: "«Can be Realized With» \n" 
+__4_Legacy_Modernization --> __166_Starting_central_and_federated_at_the_same_time: "«Can be Realized With» \n" 
+__5_What_strategy_can_be_used_for_data_product_implementation_ --> __1_What_type_of_data_product_can_be_developed_: "«Consider If Not Decided Yet» \n" 
+__5_What_strategy_can_be_used_for_data_product_implementation_ --> __6_Cloud_Acceleration: "«Option» \n{name = "Migration of enterprise systems\nto the\ncloud"}\n" 
+__5_What_strategy_can_be_used_for_data_product_implementation_ --> __4_Legacy_Modernization: "«Option» \n{name = "Migration from legacy systems\nto modern\ndata products"}\n" 
+__5_What_strategy_can_be_used_for_data_product_implementation_ --> __8_Greenfield_Development: "«Option» \n{name = "Starting with greenfield development"}\n" 
+__6_Cloud_Acceleration --> __7_Accelerate_Decision_Making: "«+» \n" 
+__6_Cloud_Acceleration --> __19_Time_to_Market: "«+» \n" 
+__6_Cloud_Acceleration --> __52_Scalable: "«++» \n" 
+__6_Cloud_Acceleration --> __33_Agility: "«+» \n" 
+__6_Cloud_Acceleration --> __43_Accessibility: "«++» \n" 
+__6_Cloud_Acceleration --> __47_Control_over_data_schema: "«-» \n" 
+__6_Cloud_Acceleration --> __35_Security: "«-» \n" 
+__6_Cloud_Acceleration --> __169_Trustworthiness: "«-» \n" 
+__6_Cloud_Acceleration --> __162_Starting_federated: "«Can be Realized With» \n" 
+__6_Cloud_Acceleration --> __164_Starting_central_and_decentralize_at_a_later_stage: "«Can be Realized With» \n" 
+__6_Cloud_Acceleration --> __166_Starting_central_and_federated_at_the_same_time: "«Can be Realized With» \n" 
+__8_Greenfield_Development --> __7_Accelerate_Decision_Making: "«++» \n" 
+__8_Greenfield_Development --> __9_Standardised_Transformation: "«+» \n" 
+__8_Greenfield_Development --> __17_Fast_data_propagation: "«+» \n" 
+__8_Greenfield_Development --> __52_Scalable: "«+» \n" 
+__8_Greenfield_Development --> __93_Duplication: "«-» \n" 
+__8_Greenfield_Development --> __19_Time_to_Market: "«--» \n" 
+__8_Greenfield_Development --> __25_Interoperability: "«-» \n" 
+__8_Greenfield_Development --> __162_Starting_federated: "«Can be Realized With» \n" 
+__8_Greenfield_Development --> __164_Starting_central_and_decentralize_at_a_later_stage: "«Can be Realized With» \n" 
+__8_Greenfield_Development --> __166_Starting_central_and_federated_at_the_same_time: "«Can be Realized With» \n" 
+__10_Discovery_Port --> __23_Discoverability: "«++» \n" 
+__10_Discovery_Port --> __7_Accelerate_Decision_Making: "«+» \n" 
+__10_Discovery_Port --> __9_Standardised_Transformation: "«+» \n" 
+__10_Discovery_Port --> __93_Duplication: "«-» \n" 
+__10_Discovery_Port --> __71_Governance: "«-» \n" 
+__10_Discovery_Port --> __161_Data_Marketplace: "«Enables» \n" 
+__11_What_are_the_elements_of_a_data_product_interface_contract_ --> __62_How_to_deploy_a_data_product_: "«Consider If Not Decided Yet» \n" 
+__11_What_are_the_elements_of_a_data_product_interface_contract_ --> __12_Observation_Port: "«Option» \n{name = "Implement an observation port"}\n" 
+__11_What_are_the_elements_of_a_data_product_interface_contract_ --> __34_Control_Port: "«Option» \n{name = "Implement a control port"}\n" 
+__11_What_are_the_elements_of_a_data_product_interface_contract_ --> __10_Discovery_Port: "«Option» \n{name = "Implement a discovery port"}\n" 
+__11_What_are_the_elements_of_a_data_product_interface_contract_ --> __46_Overarching_Management_Layer: "«Option» \n{name = "Implement an overarching management\nlayer"}\n" 
+__11_What_are_the_elements_of_a_data_product_interface_contract_ --> __42_Input_Port: "«Option» \n{name = "Implement an input port"}\n" 
+__11_What_are_the_elements_of_a_data_product_interface_contract_ --> __50_Output_Port: "«Option» \n{name = "Implement an input port"}\n" 
+__12_Observation_Port --> __13_Observability: "«++» \n" 
+__12_Observation_Port --> __7_Accelerate_Decision_Making: "«+» \n" 
+__12_Observation_Port --> __49_Data_Quality: "«+» \n" 
+__12_Observation_Port --> __52_Scalable: "«+» \n" 
+__12_Observation_Port --> __73_Manual_Toil: "«-» \n" 
+__12_Observation_Port --> __160_Provide_a_single_integrated_experience_for_monitoring: "«Realizes» \n" 
+__14_Metastore --> __23_Discoverability: "«++» \n" 
+__14_Metastore --> __25_Interoperability: "«+» \n" 
+__14_Metastore --> __94_Data_Lineage: "«+» \n" 
+__14_Metastore --> __71_Governance: "«+» \n" 
+__14_Metastore --> __52_Scalable: "«+» \n" 
+__14_Metastore --> __13_Observability: "«+» \n" 
+__14_Metastore --> __60_Entry_Barrier: "«-» \n" 
+__14_Metastore --> __157_Schema_Versioning: "«Enables» \n" 
+__14_Metastore --> __158_Attaching_metadata_about_events_that_didn_t_pass_the_schema_validation: "«Includes» \n" 
+__14_Metastore --> __159_Active_metadata: "«Enables» \n" 
+__15_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __62_How_to_deploy_a_data_product_: "«Consider If Not Decided Yet» \n" 
+__15_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __16_Change_Data_Capture: "«Option» \n{name = "Implement a Change Data Capture\ncomponent"}\n" 
+__15_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __36_Immutable_Change_Audit_Log: "«Option» \n{name = "Implement a Immutable Log\ncomponent"}\n" 
+__15_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __14_Metastore: "«Option» \n{name = "Implement a Metastore"}\n" 
+__15_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __28_Data_Catalogue: "«Option» \n{name = "Implement a Data Catalogue\ncomponent"}\n" 
+__15_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __18_Data_Onboarding: "«Option» \n{name = "Implement Data Onboarding"}\n" 
+__15_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __44_Internal_Storage_s_: "«Option» \n{name = "Implement an Internal Storage\nfor each\nData Product"}\n" 
+__15_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __26_Control_Plane: "«Option» \n{name = "Implement a Control Plane"}\n" 
+__15_What_architectural_components_should_be_included_in_the_anatomy_of_a_data_product_ --> __38_Observability_Plane: "«Option» \n{name = "Implement an Observation Plane"}\n" 
+__16_Change_Data_Capture --> __7_Accelerate_Decision_Making: "«+» \n" 
+__16_Change_Data_Capture --> __17_Fast_data_propagation: "«+» \n" 
+__16_Change_Data_Capture --> __25_Interoperability: "«+» \n" 
+__16_Change_Data_Capture --> __49_Data_Quality: "«++» \n" 
+__16_Change_Data_Capture --> __37_Traceability: "«+» \n" 
+__16_Change_Data_Capture --> __3_Understandability_for_User: "«-» \n" 
+__16_Change_Data_Capture --> __94_Data_Lineage: "«-» \n" 
+__16_Change_Data_Capture --> __71_Governance: "«-» \n" 
+__16_Change_Data_Capture --> __155_Full_Data_Movement: "«Enables» \n" 
+__16_Change_Data_Capture --> __156_Incremental_Data_Movement: "«Enables» \n" 
+__18_Data_Onboarding --> __7_Accelerate_Decision_Making: "«+» \n" 
+__18_Data_Onboarding --> __19_Time_to_Market: "«+» \n" 
+__18_Data_Onboarding --> __17_Fast_data_propagation: "«+» \n" 
+__18_Data_Onboarding --> __33_Agility: "«+» \n" 
+__18_Data_Onboarding --> __93_Duplication: "«-» \n" 
+__18_Data_Onboarding --> __73_Manual_Toil: "«-» \n" 
+__18_Data_Onboarding --> __49_Data_Quality: "«-» \n" 
+__18_Data_Onboarding --> __71_Governance: "«-» \n" 
+__18_Data_Onboarding --> __28_Data_Catalogue: "«Can Use» \n" 
+__18_Data_Onboarding --> __36_Immutable_Change_Audit_Log: "«Can Use» \n" 
+__18_Data_Onboarding --> __149_Transformation_Processes: "«Can Use» \n" 
+__20_Schema_Registry --> __9_Standardised_Transformation: "«++» \n" 
+__20_Schema_Registry --> __27_Centralization: "«+» \n" 
+__20_Schema_Registry --> __23_Discoverability: "«+» \n" 
+__20_Schema_Registry --> __25_Interoperability: "«+» \n" 
+__20_Schema_Registry --> __49_Data_Quality: "«+» \n" 
+__20_Schema_Registry --> __66_Versioning: "«+» \n" 
+__20_Schema_Registry --> __71_Governance: "«+» \n" 
+__20_Schema_Registry --> __60_Entry_Barrier: "«-» \n" 
+__20_Schema_Registry --> __19_Time_to_Market: "«-» \n" 
+__20_Schema_Registry --> __147_Schema_evolution: "«Enables» \n" 
+__20_Schema_Registry --> __148_Schema_enforcement: "«Enables» \n" 
+__21_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __62_How_to_deploy_a_data_product_: "«Consider If Not Decided Yet» \n" 
+__21_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __20_Schema_Registry: "«Option» \n{name = "Implement a Schema Registry\ncomponent"}\n" 
+__21_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __22_Central_Data_Product_Catalogue: "«Option» \n{name = "Implement an Central Data\nProduct Catalogue\ncomponent"}\n" 
+__21_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __30_Metadata_lake: "«Option» \n{name = "Implement a metadata lake"}\n" 
+__21_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __53_Event_Streaming_Backbone: "«Option» \n{name = "Implement an Event Streaming\nBackbone"}\n" 
+__21_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __40_Batch_processing: "«Option» \n{name = "Implement batch processing\nvia push or\npull"}\n" 
+__21_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __48_Shared_Storage: "«Option» \n{name = "Implement a shared storage"}\n" 
+__21_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __56_Master_database: "«Option» \n{name = "Implement a master database"}\n" 
+__21_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __58_Reference_database: "«Option» \n{name = "Implement a reference database"}\n" 
+__21_How_does_the_data_product_interact_with_other_data_products__self_serve_platform__government_layer_and_consumers_ --> __72_Data_Product_Policy_Enforcement_Mechanisms: "«Option» \n{name = "Implement Data Product Policy\nEnforcement\nMechanisms"}\n" 
+__22_Central_Data_Product_Catalogue --> __23_Discoverability: "«++» \n" 
+__22_Central_Data_Product_Catalogue --> __27_Centralization: "«+» \n" 
+__22_Central_Data_Product_Catalogue --> __25_Interoperability: "«+» \n" 
+__22_Central_Data_Product_Catalogue --> __43_Accessibility: "«+» \n" 
+__22_Central_Data_Product_Catalogue --> __71_Governance: "«++» \n" 
+__22_Central_Data_Product_Catalogue --> __13_Observability: "«+» \n" 
+__22_Central_Data_Product_Catalogue --> __60_Entry_Barrier: "«-» \n" 
+__22_Central_Data_Product_Catalogue --> __45_Autonomous: "«-» \n" 
+__22_Central_Data_Product_Catalogue --> __33_Agility: "«-» \n" 
+__22_Central_Data_Product_Catalogue --> __7_Accelerate_Decision_Making: "«-» \n" 
+__22_Central_Data_Product_Catalogue --> __145_Centrally_manage__monitor__and_govern_data_across_data_lakes__data_warehouses__and_data_marts: "«Enables» \n" 
+__22_Central_Data_Product_Catalogue --> __146_Describes_the_translations_being_made_between_the_conceptual_model__logical_model__and_physical_model: "«Enables» \n" 
+__24_Aggregations --> __23_Discoverability: "«+» \n" 
+__24_Aggregations --> __7_Accelerate_Decision_Making: "«+» \n" 
+__24_Aggregations --> __3_Understandability_for_User: "«+» \n" 
+__24_Aggregations --> __25_Interoperability: "«+» \n" 
+__24_Aggregations --> __35_Security: "«-» \n" 
+__24_Aggregations --> __47_Control_over_data_schema: "«-» \n" 
+__24_Aggregations --> __116_Immutability: "«-» \n" 
+__24_Aggregations --> __131_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
+__24_Aggregations --> __136_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
+__26_Control_Plane --> __27_Centralization: "«+» \n" 
+__26_Control_Plane --> __47_Control_over_data_schema: "«++» \n" 
+__26_Control_Plane --> __25_Interoperability: "«+» \n" 
+__26_Control_Plane --> __49_Data_Quality: "«+» \n" 
+__26_Control_Plane --> __71_Governance: "«+» \n" 
+__26_Control_Plane --> __59_Transparency: "«+» \n" 
+__26_Control_Plane --> __73_Manual_Toil: "«-» \n" 
+__26_Control_Plane --> __60_Entry_Barrier: "«-» \n" 
+__26_Control_Plane --> __18_Data_Onboarding: "«Can Use» \n" 
+__26_Control_Plane --> __44_Internal_Storage_s_: "«Can Use» \n" 
+__28_Data_Catalogue --> __23_Discoverability: "«++» \n" 
+__28_Data_Catalogue --> __7_Accelerate_Decision_Making: "«+» \n" 
+__28_Data_Catalogue --> __3_Understandability_for_User: "«+» \n" 
+__28_Data_Catalogue --> __29_Data_Search: "«+» \n" 
+__28_Data_Catalogue --> __39_Reproducibility: "«+» \n" 
+__28_Data_Catalogue --> __37_Traceability: "«+» \n" 
+__28_Data_Catalogue --> __94_Data_Lineage: "«+» \n" 
+__28_Data_Catalogue --> __89_Clear_Ownership: "«++» \n" 
+__28_Data_Catalogue --> __43_Accessibility: "«+» \n" 
+__28_Data_Catalogue --> __73_Manual_Toil: "«--» \n" 
+__28_Data_Catalogue --> __60_Entry_Barrier: "«-» \n" 
+__28_Data_Catalogue --> __27_Centralization: "«--» \n" 
+__28_Data_Catalogue --> __71_Governance: "«-» \n" 
+__28_Data_Catalogue --> __141_Passive_metadata: "«Enables» \n" 
+__28_Data_Catalogue --> __142_Register_datasets: "«Enables» \n" 
+__30_Metadata_lake --> __23_Discoverability: "«+» \n" 
+__30_Metadata_lake --> __27_Centralization: "«+» \n" 
+__30_Metadata_lake --> __7_Accelerate_Decision_Making: "«+» \n" 
+__30_Metadata_lake --> __9_Standardised_Transformation: "«+» \n" 
+__30_Metadata_lake --> __25_Interoperability: "«++» \n" 
+__30_Metadata_lake --> __31_Completeness: "«+» \n" 
+__30_Metadata_lake --> __94_Data_Lineage: "«+» \n" 
+__30_Metadata_lake --> __71_Governance: "«+» \n" 
+__30_Metadata_lake --> __60_Entry_Barrier: "«-» \n" 
+__30_Metadata_lake --> __29_Data_Search: "«-» \n" 
+__30_Metadata_lake --> __3_Understandability_for_User: "«-» \n" 
+__30_Metadata_lake --> __122_Blob_Storage: "«Can Use» \n" 
+__32_Consumer_aligned_Data_Product --> __23_Discoverability: "«+» \n" 
+__32_Consumer_aligned_Data_Product --> __3_Understandability_for_User: "«+» \n" 
+__32_Consumer_aligned_Data_Product --> __33_Agility: "«+» \n" 
+__32_Consumer_aligned_Data_Product --> __43_Accessibility: "«+» \n" 
+__32_Consumer_aligned_Data_Product --> __129_Grouping: "«+» \n" 
+__32_Consumer_aligned_Data_Product --> __130_Filtering: "«++» \n" 
+__32_Consumer_aligned_Data_Product --> __31_Completeness: "«-» \n" 
+__32_Consumer_aligned_Data_Product --> __94_Data_Lineage: "«-» \n" 
+__32_Consumer_aligned_Data_Product --> __71_Governance: "«-» \n" 
+__32_Consumer_aligned_Data_Product --> __131_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
+__32_Consumer_aligned_Data_Product --> __136_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
+__32_Consumer_aligned_Data_Product --> __138_Expose_Data_Product_as_an_algorithm: "«Can Use» \n" 
+__34_Control_Port --> __35_Security: "«+» \n" 
+__34_Control_Port --> __71_Governance: "«++» \n" 
+__34_Control_Port --> __25_Interoperability: "«+» \n" 
+__34_Control_Port --> __52_Scalable: "«+» \n" 
+__34_Control_Port --> __60_Entry_Barrier: "«+» \n" 
+__34_Control_Port --> __33_Agility: "«-» \n" 
+__34_Control_Port --> __73_Manual_Toil: "«-» \n" 
+__34_Control_Port --> __88_Latency: "«-» \n" 
+__34_Control_Port --> __89_Clear_Ownership: "«-» \n" 
+__34_Control_Port --> __127_Policy_Enforcement: "«Enables» \n" 
+__36_Immutable_Change_Audit_Log --> __35_Security: "«+» \n" 
+__36_Immutable_Change_Audit_Log --> __37_Traceability: "«++» \n" 
+__36_Immutable_Change_Audit_Log --> __124_Verifiability: "«+» \n" 
+__36_Immutable_Change_Audit_Log --> __71_Governance: "«+» \n" 
+__36_Immutable_Change_Audit_Log --> __73_Manual_Toil: "«-» \n" 
+__36_Immutable_Change_Audit_Log --> __88_Latency: "«-» \n" 
+__36_Immutable_Change_Audit_Log --> __125_Dataset_Versioning: "«Enables» \n" 
+__36_Immutable_Change_Audit_Log --> __126_Alterting: "«Enables» \n" 
+__38_Observability_Plane --> __13_Observability: "«++» \n" 
+__38_Observability_Plane --> __7_Accelerate_Decision_Making: "«+» \n" 
+__38_Observability_Plane --> __39_Reproducibility: "«+» \n" 
+__38_Observability_Plane --> __37_Traceability: "«+» \n" 
+__38_Observability_Plane --> __73_Manual_Toil: "«-» \n" 
+__38_Observability_Plane --> __60_Entry_Barrier: "«-» \n" 
+__40_Batch_processing --> __41_Handle_large_data_volumes: "«++» \n" 
+__40_Batch_processing --> __19_Time_to_Market: "«+» \n" 
+__40_Batch_processing --> __39_Reproducibility: "«+» \n" 
+__40_Batch_processing --> __17_Fast_data_propagation: "«-» \n" 
+__40_Batch_processing --> __54_Real_time_Data_Access: "«-» \n" 
+__40_Batch_processing --> __33_Agility: "«-» \n" 
+__40_Batch_processing --> __88_Latency: "«-» \n" 
+__40_Batch_processing --> __122_Blob_Storage: "«Can be Realized With» \n" 
+__40_Batch_processing --> __123_Dataset_table: "«Can be Realized With» \n" 
+__42_Input_Port --> __7_Accelerate_Decision_Making: "«+» \n" 
+__42_Input_Port --> __43_Accessibility: "«++» \n" 
+__42_Input_Port --> __33_Agility: "«+» \n" 
+__42_Input_Port --> __17_Fast_data_propagation: "«+» \n" 
+__42_Input_Port --> __41_Handle_large_data_volumes: "«+» \n" 
+__42_Input_Port --> __52_Scalable: "«+» \n" 
+__42_Input_Port --> __93_Duplication: "«-» \n" 
+__42_Input_Port --> __49_Data_Quality: "«-» \n" 
+__42_Input_Port --> __94_Data_Lineage: "«-» \n" 
+__42_Input_Port --> __101_Static_Coupling: "«Realizes» \n" 
+__42_Input_Port --> __103_Dynamic_Coupling: "«Enables» \n" 
+__44_Internal_Storage_s_ --> __43_Accessibility: "«+» \n" 
+__44_Internal_Storage_s_ --> __45_Autonomous: "«++» \n" 
+__44_Internal_Storage_s_ --> __3_Understandability_for_User: "«-» \n" 
+__44_Internal_Storage_s_ --> __93_Duplication: "«-» \n" 
+__44_Internal_Storage_s_ --> __120_Maintaining_a_single_source_of_truth: "«Enables» \n" 
+__44_Internal_Storage_s_ --> __121_Incrementally_build_business_process_centric_data_marts: "«Can be Realized With» \n" 
+__46_Overarching_Management_Layer --> __47_Control_over_data_schema: "«+» \n" 
+__46_Overarching_Management_Layer --> __25_Interoperability: "«+» \n" 
+__46_Overarching_Management_Layer --> __71_Governance: "«++» \n" 
+__46_Overarching_Management_Layer --> __52_Scalable: "«+» \n" 
+__46_Overarching_Management_Layer --> __45_Autonomous: "«-» \n" 
+__46_Overarching_Management_Layer --> __33_Agility: "«-» \n" 
+__46_Overarching_Management_Layer --> __60_Entry_Barrier: "«-» \n" 
+__46_Overarching_Management_Layer --> __34_Control_Port: "«Includes» \n" 
+__46_Overarching_Management_Layer --> __10_Discovery_Port: "«Includes» \n" 
+__46_Overarching_Management_Layer --> __12_Observation_Port: "«Includes» \n" 
+__48_Shared_Storage --> __49_Data_Quality: "«+» \n" 
+__48_Shared_Storage --> __31_Completeness: "«+» \n" 
+__48_Shared_Storage --> __43_Accessibility: "«+» \n" 
+__48_Shared_Storage --> __25_Interoperability: "«+» \n" 
+__48_Shared_Storage --> __19_Time_to_Market: "«+» \n" 
+__48_Shared_Storage --> __52_Scalable: "«+» \n" 
+__48_Shared_Storage --> __47_Control_over_data_schema: "«-» \n" 
+__48_Shared_Storage --> __94_Data_Lineage: "«-» \n" 
+__48_Shared_Storage --> __116_Immutability: "«-» \n" 
+__48_Shared_Storage --> __59_Transparency: "«-» \n" 
+__48_Shared_Storage --> __117_Addressable: "«-» \n" 
+__48_Shared_Storage --> __118_Storage_Read_API: "«Can be Realized With» \n" 
+__48_Shared_Storage --> __119_Cloud_Storage_API: "«Can be Realized With» \n" 
+__50_Output_Port --> __7_Accelerate_Decision_Making: "«+» \n" 
+__50_Output_Port --> __43_Accessibility: "«+» \n" 
+__50_Output_Port --> __51_More_granular_data: "«+» \n" 
+__50_Output_Port --> __17_Fast_data_propagation: "«+» \n" 
+__50_Output_Port --> __52_Scalable: "«+» \n" 
+__50_Output_Port --> __74_Self_serve_Capability: "«+» \n" 
+__50_Output_Port --> __35_Security: "«-» \n" 
+__50_Output_Port --> __93_Duplication: "«-» \n" 
+__50_Output_Port --> __49_Data_Quality: "«-» \n" 
+__50_Output_Port --> __100_Stale: "«-» \n" 
+__50_Output_Port --> __88_Latency: "«-» \n" 
+__50_Output_Port --> __101_Static_Coupling: "«Realizes» \n" 
+__50_Output_Port --> __103_Dynamic_Coupling: "«Enables» \n" 
+__50_Output_Port --> __113_Multimodal_access: "«Realizes» \n" 
+__50_Output_Port --> __114_Bitemporal_data: "«Enables» \n" 
+__50_Output_Port --> __115_Immutable_read_only_access: "«Realizes» \n" 
+__53_Event_Streaming_Backbone --> __17_Fast_data_propagation: "«+» \n" 
+__53_Event_Streaming_Backbone --> __52_Scalable: "«+» \n" 
+__53_Event_Streaming_Backbone --> __54_Real_time_Data_Access: "«+» \n" 
+__53_Event_Streaming_Backbone --> __55_Multiple_independent_read_only_views: "«+» \n" 
+__53_Event_Streaming_Backbone --> __33_Agility: "«+» \n" 
+__53_Event_Streaming_Backbone --> __49_Data_Quality: "«-» \n" 
+__53_Event_Streaming_Backbone --> __3_Understandability_for_User: "«-» \n" 
+__56_Master_database --> __57_End_to_end_consistency: "«++» \n" 
+__56_Master_database --> __49_Data_Quality: "«+» \n" 
+__56_Master_database --> __45_Autonomous: "«-» \n" 
+__56_Master_database --> __52_Scalable: "«-» \n" 
+__58_Reference_database --> __3_Understandability_for_User: "«++» \n" 
+__58_Reference_database --> __57_End_to_end_consistency: "«+» \n" 
+__58_Reference_database --> __31_Completeness: "«+» \n" 
+__58_Reference_database --> __59_Transparency: "«+» \n" 
+__58_Reference_database --> __60_Entry_Barrier: "«-» \n" 
+__58_Reference_database --> __100_Stale: "«-» \n" 
+__61_Containerisation --> __52_Scalable: "«+» \n" 
+__61_Containerisation --> __33_Agility: "«+» \n" 
+__61_Containerisation --> __9_Standardised_Transformation: "«+» \n" 
+__61_Containerisation --> __60_Entry_Barrier: "«-» \n" 
+__61_Containerisation --> __3_Understandability_for_User: "«-» \n" 
+__61_Containerisation --> __64_Infrastructure_workload: "«-» \n" 
+__61_Containerisation --> __95_Container_Orchestration_System: "«Includes» \n" 
+__61_Containerisation --> __67_Zero_trust_runtime_environment: "«Can Use» \n" 
+__61_Containerisation --> __68_Shared_Event_Streaming_Environment: "«Can Use» \n" 
+__61_Containerisation --> __97_Single_container_design: "«Can be Realized With» \n" 
+__61_Containerisation --> __96_Infrastructure_as_Code: "«Can Use» \n" 
+__61_Containerisation --> __98_Templated_Data_Pipeline: "«Can Use» \n" 
+__62_How_to_deploy_a_data_product_ --> __63_Function_as_a_Service: "«Option» \n{name = "Use a serverless architecture"}\n" 
+__62_How_to_deploy_a_data_product_ --> __61_Containerisation: "«Option» \n{name = "Use a containerised architecture"}\n" 
+__62_How_to_deploy_a_data_product_ --> __92_Data_Storage_Infrastructure: "«Option» \n{name = "Use a Data Storage Infrastructure"}\n" 
+__62_How_to_deploy_a_data_product_ --> __65_VMs: "«Option» \n{name = "Use virtual machines"}\n" 
+__62_How_to_deploy_a_data_product_ --> __69_Hybrid_Deployment: "«Option» \n{name = "Use hybrid deployment"}\n" 
+__62_How_to_deploy_a_data_product_ --> __87_Multi_Cloud_Deployment: "«Option» \n{name = "Use multi clouds"}\n" 
+__63_Function_as_a_Service --> __33_Agility: "«+» \n" 
+__63_Function_as_a_Service --> __19_Time_to_Market: "«+» \n" 
+__63_Function_as_a_Service --> __64_Infrastructure_workload: "«+» \n" 
+__63_Function_as_a_Service --> __52_Scalable: "«+» \n" 
+__63_Function_as_a_Service --> __90_Stateless: "«+» \n" 
+__63_Function_as_a_Service --> __74_Self_serve_Capability: "«+» \n" 
+__63_Function_as_a_Service --> __35_Security: "«-» \n" 
+__63_Function_as_a_Service --> __88_Latency: "«-» \n" 
+__63_Function_as_a_Service --> __23_Discoverability: "«-» \n" 
+__63_Function_as_a_Service --> __91_Data_Enrichment: "«-» \n" 
+__65_VMs --> __35_Security: "«+» \n" 
+__65_VMs --> __47_Control_over_data_schema: "«+» \n" 
+__65_VMs --> __66_Versioning: "«+» \n" 
+__65_VMs --> __33_Agility: "«-» \n" 
+__65_VMs --> __64_Infrastructure_workload: "«-» \n" 
+__65_VMs --> __52_Scalable: "«-» \n" 
+__65_VMs --> __67_Zero_trust_runtime_environment: "«Can Use» \n" 
+__65_VMs --> __68_Shared_Event_Streaming_Environment: "«Can Use» \n" 
+__69_Hybrid_Deployment --> __43_Accessibility: "«+» \n" 
+__69_Hybrid_Deployment --> __25_Interoperability: "«+» \n" 
+__69_Hybrid_Deployment --> __52_Scalable: "«+» \n" 
+__69_Hybrid_Deployment --> __70_Continuity: "«+» \n" 
+__69_Hybrid_Deployment --> __64_Infrastructure_workload: "«+» \n" 
+__69_Hybrid_Deployment --> __33_Agility: "«+» \n" 
+__69_Hybrid_Deployment --> __19_Time_to_Market: "«+» \n" 
+__69_Hybrid_Deployment --> __3_Understandability_for_User: "«-» \n" 
+__69_Hybrid_Deployment --> __71_Governance: "«-» \n" 
+__69_Hybrid_Deployment --> __35_Security: "«-» \n" 
+__69_Hybrid_Deployment --> __23_Discoverability: "«-» \n" 
+__69_Hybrid_Deployment --> __89_Clear_Ownership: "«-» \n" 
+__69_Hybrid_Deployment --> __27_Centralization: "«-» \n" 
+__72_Data_Product_Policy_Enforcement_Mechanisms --> __35_Security: "«++» \n" 
+__72_Data_Product_Policy_Enforcement_Mechanisms --> __71_Governance: "«+» \n" 
+__72_Data_Product_Policy_Enforcement_Mechanisms --> __49_Data_Quality: "«+» \n" 
+__72_Data_Product_Policy_Enforcement_Mechanisms --> __33_Agility: "«-» \n" 
+__72_Data_Product_Policy_Enforcement_Mechanisms --> __73_Manual_Toil: "«-» \n" 
+__72_Data_Product_Policy_Enforcement_Mechanisms --> __74_Self_serve_Capability: "«-» \n" 
+__72_Data_Product_Policy_Enforcement_Mechanisms --> __75_Implement_a_highly_available_in_memory_cache: "«Can Use» \n" 
+__72_Data_Product_Policy_Enforcement_Mechanisms --> __76_Data_quality_management: "«Can Use» \n" 
+__72_Data_Product_Policy_Enforcement_Mechanisms --> __77_Security_Controls: "«Can Use» \n" 
+__72_Data_Product_Policy_Enforcement_Mechanisms --> __86_Query_Catalogue: "«Can Use» \n" 
+__77_Security_Controls --> __78_Fine_grained_Access_Control: "«Can Use» \n" 
+__77_Security_Controls --> __85_Encryption: "«Can Use» \n" 
+__78_Fine_grained_Access_Control --> __79_Attribute_based_Access_Control: "«Can Use» \n" 
+__78_Fine_grained_Access_Control --> __80_Role_based_Access_Control: "«Can Use» \n" 
+__78_Fine_grained_Access_Control --> __81_Row_based_Access_Control: "«Can Use» \n" 
+__78_Fine_grained_Access_Control --> __82_API_Access_Control: "«Can Use» \n" 
+__78_Fine_grained_Access_Control --> __83_Run_time_Environment_Access_Control: "«Can Use» \n" 
+__78_Fine_grained_Access_Control --> __84_Stream_Access_Control: "«Can Use» \n" 
+__87_Multi_Cloud_Deployment --> __52_Scalable: "«+» \n" 
+__87_Multi_Cloud_Deployment --> __33_Agility: "«+» \n" 
+__87_Multi_Cloud_Deployment --> __19_Time_to_Market: "«+» \n" 
+__87_Multi_Cloud_Deployment --> __64_Infrastructure_workload: "«+» \n" 
+__87_Multi_Cloud_Deployment --> __3_Understandability_for_User: "«-» \n" 
+__87_Multi_Cloud_Deployment --> __35_Security: "«-» \n" 
+__87_Multi_Cloud_Deployment --> __25_Interoperability: "«-» \n" 
+__87_Multi_Cloud_Deployment --> __71_Governance: "«-» \n" 
+__87_Multi_Cloud_Deployment --> __88_Latency: "«-» \n" 
+__92_Data_Storage_Infrastructure --> __52_Scalable: "«+» \n" 
+__92_Data_Storage_Infrastructure --> __17_Fast_data_propagation: "«+» \n" 
+__92_Data_Storage_Infrastructure --> __41_Handle_large_data_volumes: "«+» \n" 
+__92_Data_Storage_Infrastructure --> __43_Accessibility: "«+» \n" 
+__92_Data_Storage_Infrastructure --> __35_Security: "«-» \n" 
+__92_Data_Storage_Infrastructure --> __93_Duplication: "«-» \n" 
+__92_Data_Storage_Infrastructure --> __94_Data_Lineage: "«-» \n" 
+__92_Data_Storage_Infrastructure --> __29_Data_Search: "«-» \n" 
+__95_Container_Orchestration_System --> __96_Infrastructure_as_Code: "«Can Use» \n" 
+__98_Templated_Data_Pipeline --> __99__CI_CD_process: "«Leads To» \n" 
+__101_Static_Coupling --> __102_Synchronous: "«Realizes» \n" 
+__101_Static_Coupling --> __104_Asynchronous: "«Enables» \n" 
+__101_Static_Coupling --> __112_Provide_information_about_build_time_libraries: "«Enables» \n" 
+__102_Synchronous --> __110_CRUD_style_operations: "«Enables» \n" 
+__102_Synchronous --> __105_Attach_REST_APIs_to_each_data_product: "«Can be Realized With» \n" 
+__102_Synchronous --> __111_GraphQL: "«Can be Realized With» \n" 
+__102_Synchronous --> __106_gRPC: "«Can be Realized With» \n" 
+__102_Synchronous --> __107_Attach_a_DBQuery_Endpoint_to_each_Data_Product: "«Can be Realized With» \n" 
+__103_Dynamic_Coupling --> __102_Synchronous: "«Realizes» \n" 
+__103_Dynamic_Coupling --> __104_Asynchronous: "«Enables» \n" 
+__103_Dynamic_Coupling --> __109_Provide_information_about_runtime: "«Enables» \n" 
+__104_Asynchronous --> __105_Attach_REST_APIs_to_each_data_product: "«Can be Realized With» \n" 
+__104_Asynchronous --> __106_gRPC: "«Can be Realized With» \n" 
+__104_Asynchronous --> __107_Attach_a_DBQuery_Endpoint_to_each_Data_Product: "«Can be Realized With» \n" 
+__104_Asynchronous --> __108_Pub_Sub: "«Can be Realized With» \n" 
+__127_Policy_Enforcement --> __128_Retention_policies: "«Includes» \n" 
+__131_Expose_Data_Product_as_Derived_Data --> __132_Multiple_raw_data_sets_untransformed: "«Can Use» \n" 
+__131_Expose_Data_Product_as_Derived_Data --> __133_Pre_transformed_data: "«Can Use» \n" 
+__131_Expose_Data_Product_as_Derived_Data --> __134_Low_level_events: "«Can Use» \n" 
+__135_Expose_Data_Product_as_a_Hybrid_Product --> __136_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
+__135_Expose_Data_Product_as_a_Hybrid_Product --> __131_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
+__135_Expose_Data_Product_as_a_Hybrid_Product --> __138_Expose_Data_Product_as_an_algorithm: "«Can Use» \n" 
+__137_Expose_Data_Product_as_a_Composite_Product --> __136_Expose_Data_Product_as_Raw_Data: "«Can Use» \n" 
+__137_Expose_Data_Product_as_a_Composite_Product --> __131_Expose_Data_Product_as_Derived_Data: "«Can Use» \n" 
+__137_Expose_Data_Product_as_a_Composite_Product --> __138_Expose_Data_Product_as_an_algorithm: "«Can Use» \n" 
+__138_Expose_Data_Product_as_an_algorithm --> __139_Expose_Data_Product_as_an_Optimisation_based_Decision_Support_System: "«Can Use» \n" 
+__138_Expose_Data_Product_as_an_algorithm --> __140_Expose_Data_Product_as_an_AI_ML_Model: "«Can Use» \n" 
+__142_Register_datasets --> __143_The_domain_datasets_belong_to_a_specific_domain: "«Includes» \n" 
+__142_Register_datasets --> __144_Core_datasets_are_those_that_are_useful_for_more_than_one_domain: "«Includes» \n" 
+__149_Transformation_Processes --> __150_Programmatic: "«Can Use» \n" 
+__149_Transformation_Processes --> __151_Non_programmatic: "«Can Use» \n" 
+__149_Transformation_Processes --> __152_Data_flow_based: "«Can Use» \n" 
+__149_Transformation_Processes --> __153_ML_based: "«Can Use» \n" 
+__149_Transformation_Processes --> __154_Time_variant: "«Can Use» \n" 
+__162_Starting_federated --> __163_Master_Data_Management: "«Can Use» \n" 
+__162_Starting_federated --> __165_CQRS: "«Can Use» \n" 
+__162_Starting_federated --> __167_Zero_Trust_Architecture: "«Can Use» \n" 
+__162_Starting_federated --> __168_Strangler_Fig: "«Can Use» \n" 
+__164_Starting_central_and_decentralize_at_a_later_stage --> __163_Master_Data_Management: "«Can Use» \n" 
+__164_Starting_central_and_decentralize_at_a_later_stage --> __165_CQRS: "«Can Use» \n" 
+__164_Starting_central_and_decentralize_at_a_later_stage --> __167_Zero_Trust_Architecture: "«Can Use» \n" 
+__164_Starting_central_and_decentralize_at_a_later_stage --> __168_Strangler_Fig: "«Can Use» \n" 
+__166_Starting_central_and_federated_at_the_same_time --> __163_Master_Data_Management: "«Can Use» \n" 
+__166_Starting_central_and_federated_at_the_same_time --> __165_CQRS: "«Can Use» \n" 
+__166_Starting_central_and_federated_at_the_same_time --> __167_Zero_Trust_Architecture: "«Can Use» \n" 
+__166_Starting_central_and_federated_at_the_same_time --> __168_Strangler_Fig: "«Can Use» \n" 
 @enduml
