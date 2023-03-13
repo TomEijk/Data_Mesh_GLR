@@ -34,9 +34,16 @@ unified_batch_stream_processing_service = CClass(pattern, 'Unified Batch Stream 
 research_groups = CClass(pattern, "Research Groups")
 integration_service = CClass(pattern, 'Integration Service')
 workflow_automation_engine = CClass(pattern, 'Workflow Automation Engine')
+polygot_storage_option = CClass(pattern, 'Polygot Storage Option')
+schema_registry = CClass(pattern, 'Schema Registry')
 
 # practices
 data_lineage = CClass(practice, "Data Lineage")
+ci_cd_process = CClass(practice, 'CI/CD process')
+runtime_observability = CClass(practice, 'Runtime Observability')
+application_bootstraps = CClass(practice, 'Application Bootstraps')
+self_serve_ui = CClass(practice, 'Self-Serve UI')
+quality_management = CClass(practice, 'Quality Management')
 log_management = CClass(practice, 'Log management')
 mdm = CClass(practice, "Master Data Management")
 ml_services = CClass(practice, "ML services")
@@ -86,6 +93,8 @@ visualization_function = CClass(practice, "Visualization Function")
 software_as_a_service = CClass(practice, 'Software as a Service')
 uptime_checks = CClass(practice, 'Uptime checks')
 cost_management = CClass(practice, 'Cost Managment')
+semantic_data_layer = CClass(practice, "Semantic Data Layer")
+VMs = CClass(pattern, 'VMs')
 
 # forces
 complexity = CClass(force, "Complexity")
@@ -129,6 +138,7 @@ easily_replicable = CClass(force, 'Easily Replicable')
 accuracy = CClass(force, 'Accuracy')
 speed = CClass(force, 'Speed')
 avoids_information_island = CClass(force, 'Avoids Information Island')
+container_registry = CClass(force, 'Container Registry')
 
 # decisions, options, and contexts
 

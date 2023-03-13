@@ -346,8 +346,107 @@ s25 = CClass(source, "s25", values={
 s25_codes = [sql_endpoint, avoids_information_island, integration_service, unified_batch_stream_processing_service]
 add_links({s25: s25_codes}, role_name="contained_code")
 
+s26 = CClass(source, "s26", values={
+    "title": "How does the banking industry build a self-service data platform?",
+    "url": "https://www.mo4tech.com/how-does-the-banking-industry-build-a-self-service-data-platform.html",
+    "archive url": "https://bit.ly/self-serve-platform-s26",
+    "tiny url": "https://tinyurl.com/self-serve-platform-s26",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+s26_codes = [unified_batch_stream_processing_service, access_control_management, container_registry, distributed_file_storage, separating_storage_and_compute, VMs, data_transformation_orchestration]
+add_links({s26: s26_codes}, role_name="contained_code")
 
+s27 = CClass(source, "s27", values={
+    "title": "How does the banking industry build a self-service data platform?",
+    "url": "https://www.mo4tech.com/how-does-the-banking-industry-build-a-self-service-data-platform.html",
+    "archive url": "https://bit.ly/self-serve-platform-s27",
+    "tiny url": "https://tinyurl.com/self-serve-platform-s27",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+s27_codes = [infrastructure_as_code, access_control_management, data_catalog, distributed_file_storage, data_source_ingestion, no_code_transformation, query_engine]
+add_links({s27: s27_codes}, role_name="contained_code")
 
+s28 = CClass(source, "s28", values={
+    "title": "Applying the Data Mesh Approach Through a Data Product Platform ",
+    "url": "https://dzone.com/articles/top-challenges-in-data-mesh-and-how-a-data-product",
+    "archive url": "https://bit.ly/self-serve-platform-s28",
+    "tiny url": "https://tinyurl.com/self-serve-platform-s28",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+s28_codes = [access_control_management, data_transformation_orchestration, infrastructure_as_code]
+add_links({s28: s28_codes}, role_name="contained_code")
+
+s29 = CClass(source, "s29", values={
+    "title": "The Definitive Guide To Building A Data Mesh With Event Streams",
+    "url": "https://dzone.com/articles/top-challenges-in-data-mesh-and-how-a-data-product",
+    "archive url": "https://bit.ly/self-serve-platform-s29",
+    "tiny url": "https://tinyurl.com/self-serve-platform-s29",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+s29_codes = [access_control_management, data_catalog, distributed_file_storage, separating_storage_and_compute, kappa_architecture, lambda_architecture]
+add_links({s29: s29_codes}, role_name="contained_code")
+
+s30 = CClass(source, "s30", values={
+    "title": "The Definitive Guide To Building A Data Mesh With Event Streams",
+    "url": "https://dzone.com/articles/top-challenges-in-data-mesh-and-how-a-data-product",
+    "archive url": "https://bit.ly/self-serve-platform-s30",
+    "tiny url": "https://tinyurl.com/self-serve-platform-s30",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+s30_codes = [container_registry, VMs, api_catalog, infrastructure_as_code, managed_compute_infrastructure, data_catalog, data_transformation_orchestration,
+             version_dp, data_lineage, data_source_ingestion, dependable_pipeline_management, distributed_file_storage, separating_storage_and_compute, data_lineage,
+             metadata_management, polygot_storage_option]
+add_links({s30: s30_codes}, role_name="contained_code")
+
+s31 = CClass(source, "s31", values={
+    "title": "Deconstructing Data Mesh Principles",
+    "url": "https://medium.com/slalom-data-ai/data-mesh-232e50f42e66",
+    "archive url": "https://bit.ly/self-serve-platform-s31",
+    "tiny url": "https://tinyurl.com/self-serve-platform-s31",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+s31_codes = [access_control_management, dependable_pipeline_management, infrastructure_as_code, log_management,
+             data_transformation_orchestration, register_derived_data_as_data_product, separating_storage_and_compute, version_dp, VNetPeering, build_deploy_monitor_dp, integration_service]
+add_links({s31: s31_codes}, role_name="contained_code")
+
+s32 = CClass(source, "s32", values={
+    "title": "Data Movement in Netflix Studio via Data Mesh",
+    "url": "hhttps://netflixtechblog.com/data-movement-in-netflix-studio-via-data-mesh-3fddcceb1059",
+    "archive url": "https://bit.ly/self-serve-platform-s32",
+    "tiny url": "https://tinyurl.com/self-serve-platform-s32",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+s32_codes = [schema_registry, register_derived_data_as_data_product, access_control_management, cdc, knowledge_graph, log_management, sql_endpoint,
+             semantic_data_layer, workflow_automation_engine, query_engine ]
+add_links({s32: s32_codes}, role_name="contained_code")
+
+s33 = CClass(source, "s33", values={
+    "title": "Data Platform in a mesh architecture",
+    "url": "https://www.thoughtworks.com/about-us/events/webinars/core-principles-of-data-mesh/data-platform-in-a-mesh-architecture",
+    "archive url": "https://bit.ly/self-serve-platform-s33",
+    "tiny url": "https://tinyurl.com/self-serve-platform-s33",
+    "author type": "Practitioner",
+    "type": "Practitioner Audience Article",
+    "example": True,
+    "source code": False})
+s33_codes = [data_catalog, data_lineage, quality_management, build_deploy_monitor_dp, data_transformation_orchestration, query_engine,
+             self_serve_ui, ci_cd_process, infrastructure_as_code, dependable_pipeline_management, version_dp, runtime_observability, application_bootstraps, data_source_ingestion, managed_compute_infrastructure,
+             separating_compute_from_compute, VMs, access_control_management ,VNetPeering, separating_storage_and_compute, storage_function]
+add_links({s33: s33_codes}, role_name="contained_code")
 
 
 
